@@ -131,7 +131,7 @@ tailwind.config = {
   .map-container iframe { filter: grayscale(10%) contrast(1.05); }
   
   /* PLACEHOLDER STYLES */
-  img:not([alt*="Logo"]), iframe, picture, video, [style*="background-image"] { 
+  img:not([alt*="Logo"]), picture, video, [style*="background-image"] { 
     display: none !important; 
     background-image: none !important;
   }
@@ -393,7 +393,7 @@ tailwind.config = {
       <div class="loc-card bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden scroll-reveal">
         <div class="grid md:grid-cols-2 gap-0">
           <!-- Map side -->
-          <div class="relative h-72 md:h-auto overflow-hidden bg-slate-100 map-container skeleton">
+          <div class="relative h-72 md:h-auto overflow-hidden bg-slate-100 map-container">
             <div class="map-frame w-full h-full">
               <iframe
                 src="https://maps.google.com/maps?q=10.491553,-66.855667&z=17&t=k&output=embed"
@@ -466,7 +466,7 @@ tailwind.config = {
             </div>
           </div>
           <!-- Map side -->
-          <div class="relative h-72 md:h-auto overflow-hidden bg-slate-100 map-container skeleton order-1 md:order-2">
+          <div class="relative h-72 md:h-auto overflow-hidden bg-slate-100 map-container order-1 md:order-2">
             <div class="map-frame w-full h-full">
               <iframe
                 src="https://maps.google.com/maps?q=10.495452,-66.848856&z=17&t=k&output=embed"
@@ -484,7 +484,7 @@ tailwind.config = {
       <div class="loc-card bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden scroll-reveal">
         <div class="grid md:grid-cols-2 gap-0">
           <!-- Map side -->
-          <div class="relative h-72 md:h-auto overflow-hidden bg-slate-100 map-container skeleton">
+          <div class="relative h-72 md:h-auto overflow-hidden bg-slate-100 map-container">
             <div class="map-frame w-full h-full">
               <iframe
                 src="https://maps.google.com/maps?q=10.481932,-66.861522&z=17&t=k&output=embed"
@@ -556,7 +556,7 @@ tailwind.config = {
             </div>
           </div>
           <!-- Map side -->
-          <div class="relative h-72 md:h-auto overflow-hidden bg-slate-100 map-container skeleton order-1 md:order-2">
+          <div class="relative h-72 md:h-auto overflow-hidden bg-slate-100 map-container order-1 md:order-2">
             <div class="map-frame w-full h-full">
               <iframe
                 src="https://maps.google.com/maps?q=10.479702,-66.859093&z=17&t=k&output=embed"
@@ -574,7 +574,7 @@ tailwind.config = {
       <div class="loc-card bg-gradient-to-br from-slate-900 to-[#0b1428] rounded-3xl border border-white/10 shadow-2xl overflow-hidden scroll-reveal">
         <div class="grid md:grid-cols-2 gap-0">
           <!-- Map side -->
-          <div class="relative h-72 md:h-auto overflow-hidden map-container skeleton">
+          <div class="relative h-72 md:h-auto overflow-hidden map-container">
             <div class="map-frame w-full h-full">
               <iframe
                 src="https://maps.google.com/maps?q=10.596663,-67.004779&z=16&t=k&output=embed"
