@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Innovando | Publicidad Exterior de Alto Impacto en Venezuela</title>
+<meta name="description" content="Innovando es la empresa líder en publicidad exterior en Venezuela. Pantallas LED sincronizadas, banderolas en Chacao, vallas en autopistas y cobertura nacional."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "surface-container-highest": "#e2e8f0",
+        "background": "#f8fafc",
+        "on-primary": "#ffffff",
+        "on-surface-variant": "#475569",
+        "on-surface": "#0f172a",
+        "on-secondary-container": "#400014",
+        "surface-container": "#ffffff",
+        "primary-container": "#2e5bff",
+        "primary": "#124af0",
+        "primary-fixed": "#dde1ff",
+        "on-error": "#ffffff",
+        "tertiary-container": "#bbfbff",
+        "outline-variant": "#e2e8f0",
+        "inverse-surface": "#1e293b",
+        "on-tertiary-container": "#002021",
+        "surface-container-lowest": "#f1f5f9",
+        "surface-tint": "#2e5bff",
+        "secondary": "#d70357",
+        "outline": "#94a3b8",
+        "inverse-primary": "#b8c3ff",
+        "error-container": "#ffdad6",
+        "surface-dim": "#dee2e6",
+        "surface-bright": "#ffffff",
+        "secondary-container": "#d70357",
+        "on-secondary-fixed": "#400014",
+        "primary-fixed-dim": "#b8c3ff",
+        "on-background": "#0f172a",
+        "tertiary": "#00696d",
+        "surface-container-low": "#f8fafc",
+        "surface-variant": "#f1f5f9",
+        "surface": "#f8fafc",
+        "inverse-on-surface": "#f8fafc",
+        "surface-container-high": "#eef2f6",
+        "on-primary-fixed": "#001356",
+        "on-primary-fixed-variant": "#0035be",
+        "on-secondary": "#ffffff",
+        "on-primary-container": "#ffffff",
+        "error": "#ba1a1a",
+        "on-tertiary": "#ffffff"
+      },
+      borderRadius: {
+        "DEFAULT": "0.125rem",
+        "lg": "0.25rem",
+        "xl": "0.5rem",
+        "full": "0.75rem"
+      },
+      fontFamily: {
+        "headline": ["Space Grotesk"],
+        "body": ["Plus Jakarta Sans"],
+        "label": ["Plus Jakarta Sans"]
+      }
+    }
+  }
+}
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  body { background-color: #f8fafc; color: #0f172a; font-family: 'Plus Jakarta Sans', sans-serif; }
+  .headline { font-family: 'Space Grotesk', sans-serif; }
+  .mesh-bg { background-image: radial-gradient(at 0% 0%, rgba(46,91,255,0.06) 0, transparent 60%), radial-gradient(at 100% 100%, rgba(215,3,87,0.04) 0, transparent 60%); }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .marquee-track { animation: marquee 28s linear infinite; }
+  .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+  @keyframes pulse-dot { 0%,100%{box-shadow:0 0 0 0 rgba(215,3,87,0.6)} 70%{box-shadow:0 0 0 10px rgba(215,3,87,0)} }
+  .pulse-dot { animation: pulse-dot 2s ease infinite; }
+  @keyframes float { 0%,100%{transform:translateY(0) rotate(-3deg)} 50%{transform:translateY(-10px) rotate(-3deg)} }
+  .float { animation: float 4s ease-in-out infinite; }
+
+  /* PLACEHOLDER STYLES */
+  img:not([alt*="Logo"]), iframe, picture, video, [style*="background-image"] { 
+    display: none !important; 
+    background-image: none !important;
+  }
+  .skeleton {
+    overflow: hidden !important;
+    background-color: #334155 !important;
+    border: 2px dashed rgba(255, 255, 255, 0.2) !important;
+    border-radius: inherit !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 200px;
+  }
+  .skeleton::before {
+    content: "ESPACIO DE IMAGEN" !important;
+    color: rgba(255, 255, 255, 0.4) !important;
+    font-size: clamp(0.55rem, 2.5vw, 0.85rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    z-index: 20 !important;
+    text-align: center !important;
+    padding: 10px !important;
+  }
+  @media (max-width: 768px) {
+    .skeleton {
+      min-height: 120px !important;
+    }
+  }
+</style>
+</head>
+<body class="selection:bg-secondary-container selection:text-white">
+
+<!-- ═══ NAV ═══ -->
+<nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50">
+  <div class="rounded-full bg-white shadow-[0_8px_32px_0_rgba(15,23,42,0.10)] border border-slate-100 flex justify-between items-center px-5 md:px-8 py-3 relative z-20">
+    <a href="index.html" class="flex items-center gap-3">
+      <img alt="Innovando Logo" class="h-7 md:h-9 w-auto" src="logo_innovando.jpg"/>
+    </a>
+    <div class="hidden lg:flex items-center gap-6 font-headline">
+      <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm" href="banderolas.html">Banderolas</a>
+      <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm" href="pantallas-led.html">Pantallas LED</a>
+      <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm" href="index.html#soluciones">Vallas</a>
+      <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm" href="index.html#soluciones">Avisos Corpóreos</a>
+      <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm" href="galerias.html">Galerías</a>
+    </div>
+    <div class="flex items-center gap-2">
+      <a href="index.html#contacto" class="hidden lg:flex bg-primary-container text-white px-6 py-2 rounded-full font-bold text-sm tracking-wide hover:scale-105 transition-transform active:scale-95 shadow-lg shadow-primary-container/30">
+        CONTACTO
+      </a>
+      <button class="menu-toggle lg:hidden p-2 text-slate-800 bg-slate-100 hover:bg-slate-200 transition-colors rounded-full flex items-center justify-center h-10 w-10">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <div class="mobile-menu absolute top-0 left-0 w-full bg-white/95 backdrop-blur-3xl rounded-3xl shadow-2xl border border-slate-100 pt-20 pb-6 px-6 flex flex-col gap-4 font-headline z-10 transition-all duration-300 opacity-0 pointer-events-none -translate-y-8">
+    <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="banderolas.html">Banderolas</a>
+    <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="pantallas-led.html">Pantallas LED</a>
+    <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="index.html#soluciones">Vallas</a>
+    <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="index.html#soluciones">Avisos Corpóreos</a>
+    <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="galerias.html">Galerías</a>
+    <a href="index.html#contacto" class="bg-primary-container text-center text-white px-6 py-4 rounded-xl font-bold text-sm tracking-widest mt-2 uppercase shadow-md shadow-primary-container/40">
+      Contacto
+    </a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="relative min-h-screen flex items-center pt-24 overflow-hidden mesh-bg">
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7 space-y-6">
+        <div class="mb-2 inline-flex shadow-xl shadow-slate-900/5 bg-white border border-slate-200/60 p-5 md:p-6 rounded-3xl animate-fade-down">
+          <img src="logo_innovando.jpg" alt="Innovando Logo Hero" class="h-20 md:h-32 w-auto rounded-md"/>
+        </div>
+        <div class="block">
+          <span class="inline-block text-secondary font-bold tracking-widest text-xs uppercase py-1 px-3 bg-secondary-container/10 border border-secondary-container/20 rounded-full headline animate-fade-down delay-100">PUBLICIDAD OOH · VENEZUELA</span>
+        </div>
+        <h1 class="headline text-6xl md:text-8xl font-bold leading-none tracking-tighter text-on-surface">
+          Tu marca en el<br/>
+          <span class="text-primary-container">epicentro</span> del<br/>movimiento.
+        </h1>
+        <p class="text-xl text-on-surface-variant max-w-xl leading-relaxed">
+          Publicidad exterior de alto impacto en las zonas comerciales y financieras más estratégicas de Venezuela.
+        </p>
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a href="#contacto" class="bg-primary-container text-white px-8 py-4 rounded-xl font-bold uppercase tracking-wider shadow-xl shadow-primary-container/25 hover:scale-105 transition-all">
+            Inicia tu campaña ahora
+          </a>
+          <a href="#propuesta" class="bg-surface-variant/20 border border-outline-variant/20 backdrop-blur-md px-8 py-4 rounded-xl font-bold uppercase tracking-wider text-on-surface hover:bg-surface-variant/40 transition-all">
+            Ver propuesta
+          </a>
+        </div>
+        <!-- Stats -->
+        <div class="flex gap-10 pt-4">
+          <div>
+            <div class="headline text-4xl font-bold text-on-surface">24/7</div>
+            <div class="text-xs uppercase tracking-widest text-outline mt-1">Exposición continua</div>
+          </div>
+          <div class="w-px bg-outline-variant"></div>
+          <div>
+            <div class="headline text-4xl font-bold text-on-surface">5s</div>
+            <div class="text-xs uppercase tracking-widest text-outline mt-1">Impacto total</div>
+          </div>
+          <div class="w-px bg-outline-variant"></div>
+          <div>
+            <div class="headline text-4xl font-bold text-on-surface">4+</div>
+            <div class="text-xs uppercase tracking-widest text-outline mt-1">Ciudades cubiertas</div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-5 relative hidden lg:block">
+        <div class="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl relative skeleton">
+          <img class="w-full h-full object-cover" src="assets/hero_city.png" alt="Caracas ciudad publicidad exterior"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+        </div>
+        <!-- Floating badge -->
+        <div class="float absolute -bottom-6 -left-8 bg-secondary-container p-5 rounded-2xl shadow-2xl max-w-[220px] border border-white/10 z-10">
+          <span class="block text-3xl font-bold text-white mb-1 headline">+450k</span>
+          <span class="text-xs text-secondary font-semibold">Impactos diarios en Calle Elice</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Glows -->
+  <div class="absolute top-1/4 -right-24 w-96 h-96 bg-primary-container/10 rounded-full blur-[120px] pointer-events-none"></div>
+  <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-secondary-container/8 rounded-full blur-[140px] pointer-events-none"></div>
+</section>
+
+
+<!-- ═══ ¿QUIÉNES SOMOS? ═══ -->
+<section class="py-24 bg-white" id="nosotros">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div class="space-y-6">
+        <span class="text-secondary font-bold text-xs uppercase tracking-widest block headline">Sobre nosotros</span>
+        <h2 class="headline text-4xl md:text-5xl font-bold text-on-surface leading-tight">Expertos en <span class="text-primary-container">Publicidad Exterior</span> de Alto Impacto</h2>
+        <p class="text-on-surface-variant text-lg leading-relaxed">
+          Somos una empresa dedicada a la publicidad exterior, especializada en la planificación, creación y gestión estratégica de campañas publicitarias que se llevan a cabo en los espacios públicos y exteriores más icónicos de Venezuela.
+        </p>
+        <p class="text-on-surface-variant leading-relaxed">
+          Nuestro objetivo es transformar el entorno urbano en un escenario dinámico para tu marca, garantizando visibilidad máxima y una conexión real con tu audiencia en cada rincón de la ciudad.
+        </p>
+        <div class="pt-4">
+          <a href="#contacto" class="text-primary-container font-bold flex items-center gap-2 group">
+            Conoce nuestras soluciones 
+            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="aspect-square rounded-[3rem] overflow-hidden shadow-2xl skeleton">
+          <img src="assets/hero_city.png" class="w-full h-full object-cover" alt="Innovando Publicidad Exterior"/>
+        </div>
+        <div class="absolute -bottom-8 -right-8 bg-white p-8 rounded-3xl shadow-xl border border-slate-100 hidden md:block">
+          <div class="flex items-center gap-4">
+            <span class="material-symbols-outlined text-4xl text-primary-container">public</span>
+            <div>
+              <p class="headline text-2xl font-bold text-on-surface">Gestión Integral</p>
+              <p class="text-xs text-on-surface-variant uppercase tracking-widest">Planificación a ejecución</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROPUESTA DE VALOR ═══ -->
+
+<section class="py-24 bg-slate-50" id="propuesta">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="mb-16">
+      <span class="text-secondary font-bold text-xs uppercase tracking-widest block mb-2 headline">Tecnología Única</span>
+      <h2 class="headline text-4xl md:text-5xl font-bold text-on-surface">Por qué <span class="text-primary-container">Innovando</span> lidera el mercado</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="group bg-white p-10 rounded-3xl border border-slate-200 hover:border-primary-container/30 transition-all duration-300 hover:shadow-xl shadow-sm">
+        <span class="material-symbols-outlined text-primary-container text-5xl mb-6 block">sync</span>
+        <div class="text-secondary font-bold text-xs tracking-widest uppercase mb-3">Exclusivo Venezuela</div>
+        <h3 class="headline text-2xl font-bold mb-4 text-on-surface">Sincronización Total</h3>
+        <p class="text-on-surface-variant leading-relaxed">El único medio en Venezuela con pantallas LED sincronizadas simultáneamente, multiplicando el impacto de tu mensaje en todos los puntos de la red.</p>
+      </div>
+      <div class="group bg-white p-10 rounded-3xl border border-slate-200 hover:border-secondary-container/40 transition-all duration-300 hover:shadow-xl shadow-sm relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-secondary-container"></div>
+        <span class="material-symbols-outlined text-secondary text-5xl mb-6 block">flash_on</span>
+        <div class="text-secondary font-bold text-xs tracking-widest uppercase mb-3">Máximo Impacto</div>
+        <h3 class="headline text-2xl font-bold mb-4 text-on-surface">Recordación Instantánea</h3>
+        <p class="text-on-surface-variant leading-relaxed">5 segundos de impacto total. Cada rotación diseñada para capturar la atención y generar una conexión inmediata e inolvidable.</p>
+        <div class="mt-6 flex items-center gap-3 bg-secondary-container/10 border border-secondary-container/20 rounded-xl px-4 py-3">
+          <span class="headline text-4xl font-bold text-secondary-container">5s</span>
+          <span class="text-xs text-on-surface-variant">para conquistar tu audiencia</span>
+        </div>
+      </div>
+      <div class="group bg-white p-10 rounded-3xl border border-slate-200 hover:border-tertiary/30 transition-all duration-300 hover:shadow-xl shadow-sm">
+        <span class="material-symbols-outlined text-tertiary text-5xl mb-6 block">visibility</span>
+        <div class="text-secondary font-bold text-xs tracking-widest uppercase mb-3">Presencia Total</div>
+        <h3 class="headline text-2xl font-bold mb-4 text-on-surface">Exposición 24/7</h3>
+        <p class="text-on-surface-variant leading-relaxed">Tu mensaje nunca descansa. Presencia continua las 24 horas del día, 7 días a la semana, llegando a tu audiencia en cada momento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SOLUCIONES (BENTO) ═══ -->
+<section class="py-24 bg-white" id="soluciones">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+      <div>
+        <span class="text-secondary font-bold text-xs uppercase tracking-widest block mb-2 headline">Portafolio Premium</span>
+        <h2 class="headline text-4xl md:text-6xl font-bold text-on-surface leading-tight">Soluciones de<br/><span class="text-primary-container">Alto Alcance</span></h2>
+      </div>
+      <p class="text-on-surface-variant text-lg max-w-sm">Formatos innovadores en los puntos de mayor tráfico vehicular y peatonal del país.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+      <!-- Banderolas — wide -->
+      <div class="md:col-span-8 group relative overflow-hidden rounded-3xl bg-surface-container h-[420px] shadow-lg hover:shadow-2xl transition-all duration-500 skeleton">
+        <img alt="Banderolas en Chacao Caracas" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="assets/banderolas.png"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent"></div>
+        <div class="absolute top-5 left-5">
+          <span class="bg-primary-container text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full">CHACAO</span>
+        </div>
+        <div class="absolute bottom-0 left-0 p-8">
+          <h3 class="headline text-3xl font-bold text-white mb-2">Banderolas en Chacao</h3>
+          <p class="text-slate-300 text-sm">Dominio total en avenidas y calles del municipio con mayor movimiento peatonal y vehicular.</p>
+          <a href="banderolas.html" class="inline-block mt-4 text-secondary font-bold text-sm hover:gap-3 transition-all">Ver detalle completo →</a>
+        </div>
+      </div>
+      <!-- Pantallas LED — narrow -->
+      <div class="md:col-span-4 group relative overflow-hidden rounded-3xl bg-surface-container h-[420px] shadow-lg hover:shadow-2xl transition-all duration-500 skeleton">
+        <img alt="Pantallas LED Las Mercedes Los Ruices" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="assets/led_screen.png"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent"></div>
+        <div class="absolute top-5 left-5">
+          <span class="bg-secondary-container text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full">LED · HDTV</span>
+        </div>
+        <div class="absolute bottom-0 left-0 p-6">
+          <h3 class="headline text-2xl font-bold text-white mb-1">Pantallas LED</h3>
+          <p class="text-slate-300 text-xs">Las Mercedes y Los Ruices · 16:9</p>
+          <a href="#contacto" class="inline-block mt-3 text-secondary font-bold text-sm">Solicitar información →</a>
+        </div>
+      </div>
+      <!-- Galerías — narrow -->
+      <div class="md:col-span-4 group relative overflow-hidden rounded-3xl bg-surface-container h-[420px] shadow-lg hover:shadow-2xl transition-all duration-500 skeleton">
+        <img alt="Galerías interactivas Plaza Francia Calle Elice" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="assets/hero_city.png"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent"></div>
+        <div class="absolute top-5 left-5">
+          <span class="bg-black/50 backdrop-blur-sm border border-white/10 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full">GALERÍAS</span>
+        </div>
+        <div class="absolute bottom-0 left-0 p-6">
+          <h3 class="headline text-2xl font-bold text-white mb-1">Galerías Interactivas</h3>
+          <p class="text-slate-300 text-xs">Calle Elice y Plaza Francia</p>
+          <a href="#contacto" class="inline-block mt-3 text-secondary font-bold text-sm">Solicitar información →</a>
+        </div>
+      </div>
+      <!-- Vallas — narrow (fixed from wide to col-4) -->
+      <div class="md:col-span-4 group relative overflow-hidden rounded-3xl bg-surface-container h-[420px] shadow-lg hover:shadow-2xl transition-all duration-500 skeleton">
+        <img alt="Gigantografías vallas autopistas Caracas" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="assets/highway.png"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent"></div>
+        <div class="absolute top-5 left-5">
+          <span class="bg-secondary-container text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full">AUTOPISTAS</span>
+        </div>
+        <div class="absolute bottom-0 left-0 p-6">
+          <h3 class="headline text-2xl font-bold text-white mb-1">Vallas Publicitarias</h3>
+          <p class="text-slate-300 text-xs">Cacique Guaicaipuro y Valle-Coche</p>
+          <a href="#contacto" class="inline-block mt-3 text-secondary font-bold text-sm">Solicitar información →</a>
+        </div>
+      </div>
+      <!-- Avisos Corpóreos — narrow (NEW) -->
+      <div class="md:col-span-4 group relative overflow-hidden rounded-3xl bg-surface-container h-[420px] shadow-lg hover:shadow-2xl transition-all duration-500 skeleton">
+        <img alt="Avisos Corpóreos 3D iluminados" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="assets/avisos_corporeos.png"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent"></div>
+        <div class="absolute top-5 left-5">
+          <span class="bg-primary-container text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full">3D · PREMIUM</span>
+        </div>
+        <div class="absolute bottom-0 left-0 p-6">
+          <h3 class="headline text-2xl font-bold text-white mb-1">Avisos Corpóreos</h3>
+          <p class="text-slate-300 text-xs">Letras 3D y señalética de lujo</p>
+          <a href="#contacto" class="inline-block mt-3 text-secondary font-bold text-sm">Solicitar información →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DATOS TÉCNICOS (Glassmorphism) ═══ -->
+<section class="py-24 relative overflow-hidden bg-slate-50">
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="bg-white backdrop-blur-2xl rounded-[3rem] p-8 md:p-16 border border-slate-200 shadow-xl">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="skeleton">
+          <img class="rounded-2xl shadow-xl border border-white/5 w-full" src="assets/led_screen.png" alt="Pantalla LED alta definición"/>
+        </div>
+        <div>
+          <span class="text-secondary font-black text-xs tracking-widest uppercase bg-secondary-container/10 border border-secondary-container/20 px-3 py-1 rounded inline-block mb-4">DATOS TÉCNICOS</span>
+          <h2 class="headline text-4xl font-bold text-on-surface mt-2 mb-8">Precisión <span class="text-primary">Digital</span></h2>
+          <div class="space-y-8">
+            <div class="flex gap-6">
+              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-container/15 border border-primary-container/20 flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary-container">high_quality</span>
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-on-surface mb-1">Resolución UHD P2.5</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed">Calidad visual cinematográfica incluso a corta distancia para mayor impacto en zonas peatonales.</p>
+              </div>
+            </div>
+            <div class="flex gap-6">
+              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-container/15 border border-primary-container/20 flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary-container">bolt</span>
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-on-surface mb-1">Conectividad Total</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed">Gestión de pauta en tiempo real. Cambios de contenido instantáneos según horario o campaña.</p>
+              </div>
+            </div>
+            <div class="flex gap-6">
+              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-container/15 border border-primary-container/20 flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary-container">monitoring</span>
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-on-surface mb-1">Métricas Avanzadas</h4>
+                <p class="text-on-surface-variant text-sm leading-relaxed">Reportes detallados de audiencia, impresiones y engagement para medir el éxito de tu campaña.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COBERTURA NACIONAL ═══ -->
+<section class="py-24 bg-white" id="cobertura">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-20 items-center">
+      <div>
+        <span class="text-secondary font-bold text-xs uppercase tracking-widest block mb-2 headline">Presencia Nacional</span>
+        <h2 class="headline text-4xl md:text-5xl font-bold mb-8 text-on-surface leading-tight">Donde está el<br/><span class="text-secondary-container">poder de compra.</span></h2>
+        <ul class="space-y-5">
+          <li class="flex items-center gap-4 group">
+            <span class="w-12 h-12 rounded-full bg-surface-container border border-outline-variant/20 flex items-center justify-center text-primary font-bold headline group-hover:bg-primary-container group-hover:text-white transition-all text-sm">01</span>
+            <div>
+              <span class="headline text-xl font-bold text-on-surface">Caracas</span>
+              <span class="text-on-surface-variant text-sm ml-2">— Chacao · Las Mercedes · Los Ruices · Altamira</span>
+            </div>
+          </li>
+          <li class="flex items-center gap-4 group">
+            <span class="w-12 h-12 rounded-full bg-surface-container border border-outline-variant/20 flex items-center justify-center text-primary font-bold headline group-hover:bg-primary-container group-hover:text-white transition-all text-sm">02</span>
+            <div>
+              <span class="headline text-xl font-bold text-on-surface">Anzoátegui</span>
+              <span class="text-on-surface-variant text-sm ml-2">— Lechería · Puerto La Cruz</span>
+            </div>
+          </li>
+          <li class="flex items-center gap-4 group">
+            <span class="w-12 h-12 rounded-full bg-surface-container border border-outline-variant/20 flex items-center justify-center text-primary font-bold headline group-hover:bg-primary-container group-hover:text-white transition-all text-sm">03</span>
+            <div>
+              <span class="headline text-xl font-bold text-on-surface">Bolívar</span>
+              <span class="text-on-surface-variant text-sm ml-2">— Puerto Ordaz</span>
+            </div>
+          </li>
+          <li class="flex items-center gap-4 group">
+            <span class="w-12 h-12 rounded-full bg-surface-container border border-outline-variant/20 flex items-center justify-center text-primary font-bold headline group-hover:bg-primary-container group-hover:text-white transition-all text-sm">04</span>
+            <div>
+              <span class="headline text-xl font-bold text-on-surface">Nueva Esparta</span>
+              <span class="text-on-surface-variant text-sm ml-2">— Isla de Margarita</span>
+            </div>
+          </li>
+          <li class="flex items-center gap-4 group">
+            <span class="w-12 h-12 rounded-full bg-surface-container border border-outline-variant/20 flex items-center justify-center text-primary font-bold headline group-hover:bg-primary-container group-hover:text-white transition-all text-sm">
+              <span class="material-symbols-outlined text-base">flight</span>
+            </span>
+            <div>
+              <span class="headline text-xl font-bold text-on-surface">Aeropuerto Maiquetía</span>
+              <span class="text-on-surface-variant text-sm ml-2">— Puerta de entrada al país</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- Stats bento -->
+      <div class="grid grid-cols-2 gap-5">
+        <div class="col-span-2 bg-slate-50 rounded-3xl p-8 relative overflow-hidden group border border-slate-200">
+          <span class="material-symbols-outlined text-secondary text-4xl mb-4 block">trending_up</span>
+          <h3 class="headline text-3xl font-bold mb-2">Alcance Inigualable</h3>
+          <p class="text-on-surface-variant text-sm">Millones de impactos visuales diarios en los puntos neurálgicos de cada ciudad. Tu marca no solo se ve, domina el paisaje.</p>
+        </div>
+        <div class="bg-primary-container rounded-3xl p-8 text-on-primary-container text-center flex flex-col justify-center">
+          <h4 class="headline text-5xl font-black mb-1">+50</h4>
+          <p class="text-xs font-bold uppercase tracking-tight opacity-80">Puntos estratégicos</p>
+        </div>
+        <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200">
+          <span class="material-symbols-outlined text-tertiary text-3xl mb-3 block">location_on</span>
+          <h4 class="headline text-lg font-bold mb-1">Ubicaciones Premium</h4>
+          <p class="text-on-surface-variant text-xs">Cacique Guaicaipuro, Valle-Coche y más.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CLIENTES ═══ -->
+<section class="py-24 bg-slate-50" id="clientes">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-6">
+      <span class="text-secondary font-bold text-xs uppercase tracking-widest headline">Clientes que confían en nosotros</span>
+    </div>
+    <h2 class="headline text-4xl md:text-5xl font-bold text-center text-on-surface mb-4">Las marcas más grandes<br/><span class="text-primary-container">nos eligen</span></h2>
+    <p class="text-center text-on-surface-variant mb-14 max-w-xl mx-auto">Desde multinacionales hasta las marcas más queridas de Venezuela — nuestra red lleva sus mensajes al mundo.</p>
+
+    <!-- Logo grid 7 x 2 -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4 mb-4">
+
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group cursor-default">
+        <span class="headline text-3xl font-black" style="color:#DA291C">M</span>
+        <span class="text-xs font-semibold text-slate-400">McDonald's</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group cursor-default">
+        <span class="headline text-xs font-black leading-tight text-center" style="color:#D62300">BURGER<br/>KING</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default">
+        <span class="headline text-3xl font-black" style="color:#F40027">KFC</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default">
+        <span class="headline text-xl font-black" style="color:#003AA8">Nestlé</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default">
+        <span class="headline text-sm font-black tracking-tight" style="color:#1428A0">SAMSUNG</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default">
+        <span class="headline text-lg font-black" style="color:#019DF4">movistar</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default">
+        <span class="headline text-xs font-black tracking-widest" style="color:#AA8A00">L'ORÉAL</span>
+        <span class="text-[9px] font-bold text-slate-400 tracking-widest">PARIS</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default">
+        <span class="headline text-3xl font-black" style="color:#CC0000">H</span>
+        <span class="text-xs font-semibold text-slate-400">HONDA</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default">
+        <span class="headline text-2xl font-black tracking-wider" style="color:#05141F">KIA</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default">
+        <span class="headline text-3xl font-black" style="color:#A50034">LG</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default">
+        <span class="headline text-2xl font-black" style="color:#003087">P&amp;G</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default">
+        <span class="headline text-2xl font-black" style="color:#FC3F1D">Yango</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default">
+        <span class="headline text-xs font-black tracking-tight" style="color:#003082">BANCARIBE</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default">
+        <span class="headline text-xl font-black" style="color:#E31837">Huggies</span>
+      </div>
+
+    </div>
+
+    <p class="text-center text-on-surface-variant text-sm mb-10">Y muchas más marcas líderes en Venezuela · <a href="#contacto" class="text-primary-container font-bold hover:underline">Únete a nuestra red &#8594;</a></p>
+
+    <!-- Marquee -->
+    <div class="overflow-hidden relative marquee-wrap">
+      <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none"></div>
+      <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none"></div>
+      <div class="flex gap-5 marquee-track w-max">
+        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#1428A0">SAMSUNG</span></div>
+        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#DA291C">McDonald's</span></div>
+        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#0066CC">DIGITEL</span></div>
+        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#019DF4">movistar</span></div>
+        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#F40027">KFC</span></div>
+        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#003AA8">Nestlé</span></div>
+        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#003087">P&amp;G</span></div>
+        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#CC0000">HONDA</span></div>
+        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#FC3F1D">Yango</span></div>
+        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#A50034">LG</span></div>
+        <!-- Duplicates -->
+        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#1428A0">SAMSUNG</span></div>
+        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#DA291C">McDonald's</span></div>
+        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#0066CC">DIGITEL</span></div>
+        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#019DF4">movistar</span></div>
+        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#F40027">KFC</span></div>
+        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#003AA8">Nestlé</span></div>
+        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#003087">P&amp;G</span></div>
+        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#CC0000">HONDA</span></div>
+        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#FC3F1D">Yango</span></div>
+        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#A50034">LG</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA / CONTACTO ═══ -->
+<section class="py-24 px-6" id="contacto">
+  <div class="max-w-7xl mx-auto">
+    <div class="bg-gradient-to-br from-primary-container to-secondary-container rounded-[3rem] p-12 lg:p-20 text-center relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10" style="background-image:radial-gradient(circle at 30% 50%, rgba(255,255,255,0.3) 0%, transparent 60%), radial-gradient(circle at 70% 50%, rgba(255,255,255,0.2) 0%, transparent 60%)"></div>
+      <div class="relative z-10 max-w-3xl mx-auto">
+        <span class="inline-block text-white/70 font-bold text-xs uppercase tracking-widest mb-4">¿Listo para dominar el espacio urbano?</span>
+        <h2 class="headline text-4xl lg:text-6xl font-bold text-white mb-6 tracking-tighter">Llevemos tu marca al siguiente nivel.</h2>
+        <p class="text-white/80 text-xl mb-12 leading-relaxed">Nuestro equipo de planificación estratégica está listo para diseñar la campaña exterior perfecta para tu marca.</p>
+        <!-- Form -->
+        <form class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 text-left" id="contactForm">
+          <div class="grid md:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label class="block text-white/70 text-xs font-bold uppercase tracking-widest mb-2">Nombre completo</label>
+              <input type="text" id="nameField" placeholder="Tu nombre" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/50 transition-colors"/>
+            </div>
+            <div>
+              <label class="block text-white/70 text-xs font-bold uppercase tracking-widest mb-2">Empresa</label>
+              <input type="text" placeholder="Nombre de tu empresa" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/50 transition-colors"/>
+            </div>
+            <div>
+              <label class="block text-white/70 text-xs font-bold uppercase tracking-widest mb-2">Correo electrónico</label>
+              <input type="email" id="emailField" placeholder="correo@empresa.com" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/50 transition-colors"/>
+            </div>
+            <div>
+              <label class="block text-white/70 text-xs font-bold uppercase tracking-widest mb-2">Teléfono / WhatsApp</label>
+              <input type="tel" placeholder="+58 412 000 0000" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/50 transition-colors"/>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="block text-white/70 text-xs font-bold uppercase tracking-widest mb-2">Tipo de solución</label>
+            <select class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white/50 transition-colors appearance-none">
+              <option value="" class="text-black">Selecciona una opción...</option>
+              <option value="banderolas" class="text-black">Banderolas en Chacao</option>
+              <option value="led" class="text-black">Pantallas LED</option>
+              <option value="galerias" class="text-black">Galerías Interactivas</option>
+              <option value="vallas" class="text-black">Gigantografías / Vallas</option>
+              <option value="pack" class="text-black">Paquete completo</option>
+            </select>
+          </div>
+          <div class="mb-6">
+            <label class="block text-white/70 text-xs font-bold uppercase tracking-widest mb-2">Mensaje</label>
+            <textarea rows="3" placeholder="Cuéntanos sobre tu campaña..." class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-white/50 transition-colors resize-none"></textarea>
+          </div>
+          <div class="flex flex-col sm:flex-row items-center gap-4">
+            <button type="submit" id="submitBtn" class="bg-white text-primary-container px-10 py-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:scale-105 transition-transform shadow-2xl">
+              Enviar solicitud
+            </button>
+            <p class="text-white/60 text-sm">Te contactaremos en menos de 24 horas hábiles.</p>
+          </div>
+          <div id="formSuccess" class="hidden mt-4 bg-white/20 border border-white/30 rounded-2xl p-4 flex items-center gap-3 text-white">
+            <span class="material-symbols-outlined text-2xl">check_circle</span>
+            <div><p class="font-bold">¡Mensaje enviado!</p><p class="text-sm opacity-80">Nuestro equipo se pondrá en contacto contigo muy pronto.</p></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="bg-white border-t border-slate-100">
+  <div class="max-w-7xl mx-auto px-8 py-16 grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+    <div>
+      <img alt="Innovando Logo" class="h-10 w-auto mb-4" src="logo_innovando.jpg"/>
+      <p class="text-on-surface-variant text-sm max-w-xs leading-relaxed">Soluciones urbanas inteligentes para marcas que buscan liderar la conversación en la calle.</p>
+      <div class="flex gap-3 mt-5">
+        <a href="#" class="w-10 h-10 rounded-full bg-surface-container border border-outline-variant/10 flex items-center justify-center text-on-surface-variant hover:text-secondary hover:border-secondary-container/30 transition-colors">
+          <span class="material-symbols-outlined text-lg">public</span>
+        </a>
+        <a href="#" class="w-10 h-10 rounded-full bg-surface-container border border-outline-variant/10 flex items-center justify-center text-on-surface-variant hover:text-secondary hover:border-secondary-container/30 transition-colors">
+          <span class="material-symbols-outlined text-lg">share</span>
+        </a>
+        <a href="#" class="w-10 h-10 rounded-full bg-surface-container border border-outline-variant/10 flex items-center justify-center text-on-surface-variant hover:text-secondary hover:border-secondary-container/30 transition-colors">
+          <span class="material-symbols-outlined text-lg">mail</span>
+        </a>
+      </div>
+    </div>
+    <div class="flex flex-wrap gap-8 justify-center items-center text-on-surface-variant text-xs uppercase tracking-widest font-bold headline">
+      <a class="hover:text-secondary transition-colors" href="#propuesta">Tecnología</a>
+      <a class="hover:text-secondary transition-colors" href="#soluciones">Soluciones</a>
+      <a class="hover:text-secondary transition-colors" href="#cobertura">Cobertura</a>
+      <a class="hover:text-secondary transition-colors" href="#clientes">Clientes</a>
+      <a class="hover:text-secondary transition-colors" href="#contacto">Contacto</a>
+    </div>
+    <div class="text-right text-on-surface-variant text-xs uppercase tracking-widest headline">
+      <p>© 2025 Innovando.</p>
+      <p class="mt-1 opacity-60">Outdoor Excellence · Venezuela</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (!t) return;
+    e.preventDefault();
+    t.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// Contact form
+document.getElementById('contactForm')?.addEventListener('submit', async e => {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  const success = document.getElementById('formSuccess');
+  if(!btn) return;
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+  await new Promise(r => setTimeout(r, 1600));
+  btn.style.display = 'none';
+  if(success) {
+    success.classList.remove('hidden');
+    success.classList.add('flex');
+  }
+});
+
+// Mobile menu toggle
+const menuToggles = document.querySelectorAll('.menu-toggle');
+const mobileMenus = document.querySelectorAll('.mobile-menu');
+
+menuToggles.forEach((btn, idx) => {
+  btn.addEventListener('click', () => {
+    const menu = mobileMenus[idx];
+    if(!menu) return;
+    const icon = btn.querySelector('span');
+    if (menu.classList.contains('opacity-0')) {
+      menu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-8');
+      menu.classList.add('opacity-100', 'translate-y-0');
+      icon.textContent = 'close';
+    } else {
+      menu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-8');
+      menu.classList.remove('opacity-100', 'translate-y-0');
+      icon.textContent = 'menu';
+    }
+  });
+});
+</script>
+<script src="script.js"></script>
+</body>
+</html>
