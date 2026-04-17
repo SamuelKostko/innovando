@@ -78,6 +78,41 @@ tailwind.config = {
   @keyframes pin-bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
   .pin-bounce { animation: pin-bounce 2.2s ease-in-out infinite; }
 
+  @keyframes logo-float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-8px) scale(1.02); }
+  }
+  
+  @keyframes logo-shine {
+    0% { left: -100%; opacity: 0; }
+    20% { opacity: 0.5; }
+    40% { left: 100%; opacity: 0; }
+    100% { left: 100%; opacity: 0; }
+  }
+
+  @keyframes logo-glow {
+    0%, 100% { box-shadow: 0 10px 30px -10px rgba(18, 74, 240, 0.2); }
+    50% { box-shadow: 0 20px 40px -5px rgba(18, 74, 240, 0.4); }
+  }
+
+  .logo-premium {
+    position: relative;
+    overflow: hidden;
+    animation: logo-float 6s ease-in-out infinite, logo-glow 4s ease-in-out infinite;
+  }
+
+  .logo-premium::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+    transform: skewX(-25deg);
+    animation: logo-shine 8s infinite;
+  }
+
   /* Scroll fade-in via JS */
   .scroll-reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.65s ease, transform 0.65s ease; }
   .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
@@ -191,8 +226,8 @@ tailwind.config = {
     </div>
 
     <div class="max-w-3xl">
-      <div class="mb-6 inline-flex shadow-2xl shadow-black/30 bg-white border border-white/20 p-5 md:p-6 rounded-3xl anim-up">
-        <img src="logo_innovando.jpg" alt="Innovando Logo Hero" class="h-20 md:h-32 w-auto rounded-md"/>
+      <div class="mb-6 inline-flex shadow-2xl shadow-black/30 bg-white border border-white/20 p-5 md:p-6 rounded-3xl anim-up logo-premium">
+        <img src="logo_innovando.jpg" alt="Innovando Logo Hero" class="h-20 md:h-32 w-auto rounded-md relative z-10"/>
       </div>
       <div class="block">
         <span class="inline-flex items-center gap-2 text-secondary font-bold tracking-widest text-xs uppercase py-1.5 px-4 bg-secondary/15 border border-secondary/30 rounded-full headline mb-6 anim-up d0">

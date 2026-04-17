@@ -81,6 +81,41 @@ tailwind.config = {
   .pulse-dot { animation: pulse-dot 2s ease infinite; }
   @keyframes float { 0%,100%{transform:translateY(0) rotate(-3deg)} 50%{transform:translateY(-10px) rotate(-3deg)} }
   .float { animation: float 4s ease-in-out infinite; }
+  
+  @keyframes logo-float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-8px) scale(1.02); }
+  }
+  
+  @keyframes logo-shine {
+    0% { left: -100%; opacity: 0; }
+    20% { opacity: 0.5; }
+    40% { left: 100%; opacity: 0; }
+    100% { left: 100%; opacity: 0; }
+  }
+
+  @keyframes logo-glow {
+    0%, 100% { box-shadow: 0 10px 30px -10px rgba(18, 74, 240, 0.2); }
+    50% { box-shadow: 0 20px 40px -5px rgba(18, 74, 240, 0.4); }
+  }
+
+  .logo-premium {
+    position: relative;
+    overflow: hidden;
+    animation: logo-float 6s ease-in-out infinite, logo-glow 4s ease-in-out infinite;
+  }
+
+  .logo-premium::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+    transform: skewX(-25deg);
+    animation: logo-shine 8s infinite;
+  }
 
   /* PLACEHOLDER STYLES */
   img:not([alt*="Logo"]), iframe, picture, video, [style*="background-image"] { 
@@ -160,8 +195,8 @@ tailwind.config = {
   <div class="container mx-auto px-6 relative z-10">
     <div class="grid lg:grid-cols-12 gap-12 items-center">
       <div class="lg:col-span-7 space-y-6">
-        <div class="mb-2 inline-flex shadow-xl shadow-slate-900/5 bg-white border border-slate-200/60 p-5 md:p-6 rounded-3xl animate-fade-down">
-          <img src="logo_innovando.jpg" alt="Innovando Logo Hero" class="h-20 md:h-32 w-auto rounded-md"/>
+        <div class="mb-2 inline-flex shadow-xl shadow-slate-900/5 bg-white border border-slate-200/60 p-5 md:p-6 rounded-3xl animate-fade-down logo-premium">
+          <img src="logo_innovando.jpg" alt="Innovando Logo Hero" class="h-20 md:h-32 w-auto rounded-md relative z-10"/>
         </div>
         <div class="block">
           <span class="inline-block text-secondary font-bold tracking-widest text-xs uppercase py-1 px-3 bg-secondary-container/10 border border-secondary-container/20 rounded-full headline animate-fade-down delay-100">PUBLICIDAD OOH · VENEZUELA</span>
