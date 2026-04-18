@@ -142,38 +142,16 @@ tailwind.config = {
   /* Stat counter */
   .stat-box { border-left: 3px solid #2e5bff; }
 
-  /* PLACEHOLDER STYLES */
-  img:not([alt*="Logo"]), picture, video, [style*="background-image"] { 
-    display: none !important; 
-    background-image: none !important;
+  /* Premium Image Enhancement */
+  .img-premium {
+    filter: brightness(1.02) contrast(1.05) saturate(1.05);
+    background-color: #f1f5f9;
+    image-rendering: -webkit-optimize-contrast;
   }
-  .skeleton {
-    overflow: hidden !important;
-    background-color: #334155 !important;
-    border: 2px dashed rgba(255, 255, 255, 0.2) !important;
-    border-radius: inherit !important;
-    width: 100% !important;
-    height: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    min-height: 200px;
-  }
-  .skeleton::before {
-    content: "ESPACIO DE IMAGEN" !important;
-    color: rgba(255, 255, 255, 0.4) !important;
-    font-size: clamp(0.55rem, 2.5vw, 0.85rem) !important;
-    font-weight: 800 !important;
-    letter-spacing: 0.1em !important;
-    text-transform: uppercase !important;
-    z-index: 20 !important;
-    text-align: center !important;
-    padding: 10px !important;
-  }
-  @media (max-width: 768px) {
-    .skeleton {
-      min-height: 120px !important;
-    }
+  
+  .img-premium-sharp {
+    filter: brightness(1.05) contrast(1.02) saturate(1.1) drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+    image-rendering: high-quality;
   }
 </style>
 </head>
@@ -186,7 +164,7 @@ tailwind.config = {
       <img alt="Innovando Logo" class="h-7 md:h-9 w-auto" src="logo_innovando.jpg"/>
     </a>
     <div class="hidden lg:flex items-center gap-6 font-headline">
-      <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm" href="index.html#soluciones">Vallas</a>
+      <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm font-bold" href="vallas.html">Vallas</a>
       <a class="text-primary font-bold border-b-2 border-primary-container pb-0.5 text-sm" href="#">Banderolas</a>
       <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm" href="galerias.html">Galerías</a>
       <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm" href="pantallas-led.html">Pantallas LED</a>
@@ -204,7 +182,7 @@ tailwind.config = {
 
   <!-- Mobile Menu Dropdown -->
   <div class="mobile-menu absolute top-0 left-0 w-full bg-white/95 backdrop-blur-3xl rounded-3xl shadow-2xl border border-slate-100 pt-20 pb-6 px-6 flex flex-col gap-4 font-headline z-10 transition-all duration-300 opacity-0 pointer-events-none -translate-y-8">
-    <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="index.html#soluciones">Vallas</a>
+    <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="vallas.html">Vallas</a>
     <a class="text-primary-container font-black text-xl border-b border-slate-100 pb-3" href="#">Banderolas</a>
     <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="galerias.html">Galerías</a>
     <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="pantallas-led.html">Pantallas LED</a>
@@ -218,10 +196,17 @@ tailwind.config = {
 <!-- ═══ HERO ═══ -->
 <section class="relative min-h-[90vh] flex items-end pb-20 pt-32 overflow-hidden mesh-bg">
   <!-- Background image with overlay -->
-  <div class="absolute inset-0 z-0 skeleton">
-    <img src="assets/banderolas_street.png" alt="Banderolas en Chacao" class="w-full h-full object-cover"/>
+  <div class="absolute inset-0 z-0">
+    <img src="assets/banderolas/epa1_hr.png" alt="Banderolas en Chacao" class="w-full h-full object-cover img-premium"/>
     <div class="absolute inset-0 bg-gradient-to-r from-[#0f172a]/90 via-[#0f172a]/60 to-transparent"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a]/70 via-transparent to-transparent"></div>
+  </div>
+
+  <!-- Watermark logo -->
+  <div class="absolute bottom-12 right-12 z-10 hidden lg:flex flex-col items-end opacity-30 hover:opacity-80 transition-all duration-1000 transform scale-90">
+    <img src="logo_innovando.jpg" alt="Innovando Identity" class="h-14 w-auto grayscale invert brightness-200 contrast-200 mix-blend-screen opacity-80">
+    <div class="mt-2 h-px w-24 bg-gradient-to-l from-white/40 to-transparent"></div>
+    <p class="text-[9px] text-white/40 uppercase tracking-[0.5em] mt-2 font-medium">Líderes en Publicidad</p>
   </div>
 
   <!-- Glows -->
@@ -244,7 +229,7 @@ tailwind.config = {
       <div class="block">
         <span class="inline-flex items-center gap-2 text-secondary font-bold tracking-widest text-xs uppercase py-1.5 px-4 bg-secondary/10 border border-secondary/25 rounded-full headline mb-6 animate-fade-up">
           <span class="w-2 h-2 bg-secondary rounded-full inline-block animate-pulse"></span>
-          MUNICIPIO CHACAO · CARACAS
+          COBERTURA NACIONAL · TODA VENEZUELA
         </span>
       </div>
       <h1 class="headline text-6xl md:text-8xl font-bold leading-none tracking-tighter text-white mb-6 animate-fade-up delay-1">
@@ -252,7 +237,7 @@ tailwind.config = {
         <span class="text-primary-container">publicitarias</span>
       </h1>
       <p class="text-xl text-white/75 max-w-xl leading-relaxed animate-fade-up delay-2">
-        Excelente producto de reconocido uso en el mundo de la publicidad exterior, con décadas de efectividad comprobada a nivel global.
+        Potencia tu marca con banderolas publicitarias de alto impacto en toda Venezuela. En el Municipio Chacao, somos aliados comerciales autorizados de <strong>Colors Publicidad</strong>.
       </p>
 
       <div class="flex flex-wrap gap-4 mt-10 animate-fade-up delay-3">
@@ -331,8 +316,8 @@ tailwind.config = {
 
       <!-- Right: Image stack -->
       <div class="relative">
-        <div class="gallery-wrap aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl relative skeleton">
-          <img src="assets/banderolas_avenue.png" alt="Avenida con banderolas en Chacao" class="gallery-img w-full h-full object-cover"/>
+        <div class="gallery-wrap aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl relative">
+          <img src="assets/banderolas/bimbo_hr.png" alt="Avenida con banderolas en Chacao" class="gallery-img w-full h-full object-cover img-premium-sharp"/>
           <div class="absolute inset-0 bg-gradient-to-t from-on-surface/30 via-transparent to-transparent"></div>
         </div>
         <!-- Floating accent -->
@@ -340,9 +325,12 @@ tailwind.config = {
           <span class="material-symbols-outlined text-3xl text-white">flag</span>
         </div>
         <div class="absolute -bottom-6 -right-6 bg-white border border-slate-100 shadow-2xl rounded-2xl p-5 hidden md:block">
-          <div class="flex items-center gap-3">
-            <span class="w-3 h-3 bg-secondary rounded-full animate-pulse"></span>
-            <span class="text-sm font-bold text-on-surface">Disponible en Chacao</span>
+          <div class="flex flex-col gap-1">
+            <div class="flex items-center gap-3">
+              <span class="w-3 h-3 bg-secondary rounded-full animate-pulse"></span>
+              <span class="text-sm font-bold text-on-surface">Presencia en Chacao</span>
+            </div>
+            <p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Aliados de Colors Publicidad</p>
           </div>
         </div>
       </div>
@@ -412,8 +400,8 @@ tailwind.config = {
 
       <!-- Image -->
       <div class="order-2 lg:order-1">
-        <div class="gallery-wrap rounded-[2.5rem] overflow-hidden shadow-2xl aspect-[3/4] skeleton">
-          <img src="assets/banderolas_closeup.png" alt="Banderola close-up 0.90m x 3m" class="gallery-img w-full h-full object-cover"/>
+        <div class="gallery-wrap rounded-[2.5rem] overflow-hidden shadow-2xl aspect-[3/4] bg-white p-8">
+          <img src="assets/banderolas/medidas.png" alt="Diagrama técnico banderolas 0.90m x 3m" class="w-full h-full object-contain img-premium-sharp"/>
         </div>
       </div>
 
@@ -470,7 +458,7 @@ tailwind.config = {
             </div>
             <div>
               <p class="font-bold text-on-surface">Municipio Chacao</p>
-              <p class="text-on-surface-variant text-sm mt-1">Avenidas principales, calles y transversales del municipio con mayor densidad comercial de Caracas.</p>
+              <p class="text-on-surface-variant text-sm mt-1">Aliados comerciales autorizados de <strong>Colors Publicidad</strong> en el municipio con mayor densidad comercial de Caracas.</p>
             </div>
           </div>
           <div class="flex gap-4 items-start">
@@ -478,8 +466,8 @@ tailwind.config = {
               <span class="material-symbols-outlined text-secondary text-lg">apartment</span>
             </div>
             <div>
-              <p class="font-bold text-on-surface">Zonas disponibles</p>
-              <p class="text-on-surface-variant text-sm mt-1">Altamira · Los Palos Grandes · El Rosal · Chuao · La Castellana</p>
+              <p class="font-bold text-on-surface">Alcance Nacional</p>
+              <p class="text-on-surface-variant text-sm mt-1">Llevamos tu campaña a las principales ciudades de Venezuela: Valencia · Maracaibo · Barquisimeto · Puerto La Cruz.</p>
             </div>
           </div>
           <div class="flex gap-4 items-start">
@@ -505,15 +493,15 @@ tailwind.config = {
       <h2 class="headline text-4xl font-bold text-on-surface">Tu marca <span class="text-primary-container">en su máximo esplendor</span></h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-      <div class="md:col-span-7 gallery-wrap rounded-3xl overflow-hidden shadow-lg h-[480px] skeleton">
-        <img src="assets/banderolas_street.png" alt="Banderolas en avenida Chacao" class="gallery-img w-full h-full object-cover"/>
+      <div class="md:col-span-7 gallery-wrap rounded-3xl overflow-hidden shadow-lg h-[480px]">
+        <img src="assets/banderolas/cm_hr.png" alt="Banderolas en avenida Chacao" class="gallery-img w-full h-full object-cover img-premium"/>
       </div>
       <div class="md:col-span-5 flex flex-col gap-6">
-        <div class="gallery-wrap rounded-3xl overflow-hidden shadow-lg flex-1 skeleton">
-          <img src="assets/banderolas_closeup.png" alt="Detalle banderola publicitaria" class="gallery-img w-full h-full object-cover"/>
+        <div class="gallery-wrap rounded-3xl overflow-hidden shadow-lg flex-1">
+          <img src="assets/banderolas/epa2_hr.png" alt="Detalle banderola publicitaria" class="gallery-img w-full h-full object-cover img-premium"/>
         </div>
-        <div class="gallery-wrap rounded-3xl overflow-hidden shadow-lg flex-1 skeleton">
-          <img src="assets/banderolas_avenue.png" alt="Avenida banderolas Chacao" class="gallery-img w-full h-full object-cover"/>
+        <div class="gallery-wrap rounded-3xl overflow-hidden shadow-lg flex-1">
+          <img src="assets/banderolas/doble_hr.png" alt="Avenida banderolas Chacao" class="gallery-img w-full h-full object-cover img-premium"/>
         </div>
       </div>
     </div>
@@ -549,7 +537,7 @@ tailwind.config = {
 <!-- ═══ FOOTER ═══ -->
 <footer class="bg-white border-t border-slate-100">
   <div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
-    <div class="flex items-center gap-3 skeleton">
+    <div class="flex items-center gap-3">
       <img alt="Innovando Logo" class="h-8 w-auto" src="logo_innovando.jpg"/>
     </div>
     <p class="text-on-surface-variant text-sm text-center">© 2025 Innovando · Publicidad Exterior de Alto Impacto</p>

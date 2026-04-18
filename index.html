@@ -117,39 +117,6 @@ tailwind.config = {
     animation: logo-shine 8s infinite;
   }
 
-  /* PLACEHOLDER STYLES */
-  img:not([alt*="Logo"]), picture, video, [style*="background-image"] { 
-    display: none !important; 
-    background-image: none !important;
-  }
-  .skeleton {
-    overflow: hidden !important;
-    background-color: #334155 !important;
-    border: 2px dashed rgba(255, 255, 255, 0.2) !important;
-    border-radius: inherit !important;
-    width: 100% !important;
-    height: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    min-height: 200px;
-  }
-  .skeleton::before {
-    content: "ESPACIO DE IMAGEN" !important;
-    color: rgba(255, 255, 255, 0.4) !important;
-    font-size: clamp(0.55rem, 2.5vw, 0.85rem) !important;
-    font-weight: 800 !important;
-    letter-spacing: 0.1em !important;
-    text-transform: uppercase !important;
-    z-index: 20 !important;
-    text-align: center !important;
-    padding: 10px !important;
-  }
-  @media (max-width: 768px) {
-    .skeleton {
-      min-height: 120px !important;
-    }
-  }
 </style>
 </head>
 <body class="selection:bg-secondary-container selection:text-white">
@@ -161,7 +128,7 @@ tailwind.config = {
       <img alt="Innovando Logo" class="h-7 md:h-9 w-auto" src="logo_innovando.jpg"/>
     </a>
     <div class="hidden lg:flex items-center gap-6 font-headline">
-      <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm" href="index.html#soluciones">Vallas</a>
+      <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm font-bold" href="vallas.html">Vallas</a>
       <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm" href="banderolas.html">Banderolas</a>
       <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm" href="galerias.html">Galerías</a>
       <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm" href="pantallas-led.html">Pantallas LED</a>
@@ -179,7 +146,7 @@ tailwind.config = {
 
   <!-- Mobile Menu Dropdown -->
   <div class="mobile-menu absolute top-0 left-0 w-full bg-white/95 backdrop-blur-3xl rounded-3xl shadow-2xl border border-slate-100 pt-20 pb-6 px-6 flex flex-col gap-4 font-headline z-10 transition-all duration-300 opacity-0 pointer-events-none -translate-y-8">
-    <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="index.html#soluciones">Vallas</a>
+    <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="vallas.html">Vallas</a>
     <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="banderolas.html">Banderolas</a>
     <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="galerias.html">Galerías</a>
     <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="pantallas-led.html">Pantallas LED</a>
@@ -348,7 +315,7 @@ tailwind.config = {
         <div class="absolute bottom-0 left-0 p-8">
           <h3 class="headline text-3xl font-bold text-white mb-2">Vallas Publicitarias</h3>
           <p class="text-slate-300 text-sm">Cacique Guaicaipuro y Valle-Coche — Gigantografías de máximo impacto.</p>
-          <a href="#contacto" class="inline-block mt-4 text-secondary font-bold text-sm">Solicitar información →</a>
+          <a href="vallas.html" class="inline-block mt-4 text-secondary font-bold text-sm">Ver detalle →</a>
         </div>
       </div>
       <!-- Banderolas — narrow -->
@@ -531,98 +498,44 @@ tailwind.config = {
     <h2 class="headline text-4xl md:text-5xl font-bold text-center text-on-surface mb-4">Las marcas más grandes<br/><span class="text-primary-container">nos eligen</span></h2>
     <p class="text-center text-on-surface-variant mb-14 max-w-xl mx-auto">Desde multinacionales hasta las marcas más queridas de Venezuela — nuestra red lleva sus mensajes al mundo.</p>
 
-    <!-- Logo grid 7 x 2 -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4 mb-4">
-
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group cursor-default">
-        <span class="headline text-3xl font-black" style="color:#DA291C">M</span>
-        <span class="text-xs font-semibold text-slate-400">McDonald's</span>
-      </div>
-
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group cursor-default">
-        <span class="headline text-xs font-black leading-tight text-center" style="color:#D62300">BURGER<br/>KING</span>
-      </div>
-
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default">
-        <span class="headline text-3xl font-black" style="color:#F40027">KFC</span>
-      </div>
-
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default">
-        <span class="headline text-xl font-black" style="color:#003AA8">Nestlé</span>
-      </div>
-
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default">
-        <span class="headline text-sm font-black tracking-tight" style="color:#1428A0">SAMSUNG</span>
-      </div>
-
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default">
-        <span class="headline text-lg font-black" style="color:#019DF4">movistar</span>
-      </div>
-
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default">
-        <span class="headline text-xs font-black tracking-widest" style="color:#AA8A00">L'ORÉAL</span>
-        <span class="text-[9px] font-bold text-slate-400 tracking-widest">PARIS</span>
-      </div>
-
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default">
-        <span class="headline text-3xl font-black" style="color:#CC0000">H</span>
-        <span class="text-xs font-semibold text-slate-400">HONDA</span>
-      </div>
-
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default">
-        <span class="headline text-2xl font-black tracking-wider" style="color:#05141F">KIA</span>
-      </div>
-
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default">
-        <span class="headline text-3xl font-black" style="color:#A50034">LG</span>
-      </div>
-
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default">
-        <span class="headline text-2xl font-black" style="color:#003087">P&amp;G</span>
-      </div>
-
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default">
-        <span class="headline text-2xl font-black" style="color:#FC3F1D">Yango</span>
-      </div>
-
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default">
-        <span class="headline text-xs font-black tracking-tight" style="color:#003082">BANCARIBE</span>
-      </div>
-
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm h-24 flex flex-col items-center justify-center gap-1 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-default">
-        <span class="headline text-xl font-black" style="color:#E31837">Huggies</span>
-      </div>
-
-    </div>
-
-    <p class="text-center text-on-surface-variant text-sm mb-10">Y muchas más marcas líderes en Venezuela · <a href="#contacto" class="text-primary-container font-bold hover:underline">Únete a nuestra red &#8594;</a></p>
+    <p class="text-center text-on-surface-variant text-sm mb-12">Empresas líderes en Venezuela confían en nuestra red estratégica para conectar con su audiencia.</p>
 
     <!-- Marquee -->
     <div class="overflow-hidden relative marquee-wrap">
       <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none"></div>
       <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none"></div>
-      <div class="flex gap-5 marquee-track w-max">
-        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#1428A0">SAMSUNG</span></div>
-        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#DA291C">McDonald's</span></div>
-        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#0066CC">DIGITEL</span></div>
-        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#019DF4">movistar</span></div>
-        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#F40027">KFC</span></div>
-        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#003AA8">Nestlé</span></div>
-        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#003087">P&amp;G</span></div>
-        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#CC0000">HONDA</span></div>
-        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#FC3F1D">Yango</span></div>
-        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#A50034">LG</span></div>
-        <!-- Duplicates -->
-        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#1428A0">SAMSUNG</span></div>
-        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#DA291C">McDonald's</span></div>
-        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#0066CC">DIGITEL</span></div>
-        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#019DF4">movistar</span></div>
-        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#F40027">KFC</span></div>
-        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#003AA8">Nestlé</span></div>
-        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#003087">P&amp;G</span></div>
-        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#CC0000">HONDA</span></div>
-        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#FC3F1D">Yango</span></div>
-        <div class="w-40 h-14 bg-white rounded-xl border border-slate-200 flex items-center justify-center flex-shrink-0"><span class="headline font-black text-sm" style="color:#A50034">LG</span></div>
+      <div class="flex gap-12 marquee-track w-max py-6">
+        <img src="assets/logos/mcdonalds.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/burgerking.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/kfc.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/cashea.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/nestle.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/samsung.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/movistar.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/honda.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/kia.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/lg.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/daka.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/bancoplaza.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/pg.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/yango.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/bancaribe.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <!-- Duplicates for seamless loop (Must be identical to the first set) -->
+        <img src="assets/logos/mcdonalds.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/burgerking.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/kfc.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/cashea.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/nestle.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/samsung.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/movistar.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/honda.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/kia.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/lg.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/daka.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/bancoplaza.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/pg.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/yango.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
+        <img src="assets/logos/bancaribe.png" alt="Logo" class="h-10 w-auto hover:scale-110 transition-all duration-300"/>
       </div>
     </div>
   </div>
