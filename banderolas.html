@@ -69,75 +69,127 @@ tailwind.config = {
   }
 }
 </script>
-<style>
-  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-  body { background-color: #f8fafc; color: #0f172a; font-family: 'Plus Jakarta Sans', sans-serif; }
-  .headline { font-family: 'Space Grotesk', sans-serif; }
-  .mesh-bg { background-image: radial-gradient(at 0% 0%, rgba(46,91,255,0.06) 0, transparent 60%), radial-gradient(at 100% 100%, rgba(215,3,87,0.04) 0, transparent 60%); }
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    body { background-color: #f8fafc; color: #0f172a; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; position: relative; }
+    
+    /* Cinematic Grain Overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3BaseFilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/feTurbulence%3E%3C/baseFilter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 9999;
+    }
 
-  /* Feature card hover */
-  .feature-card { transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
-  .feature-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(46,91,255,0.12); }
+    .headline { font-family: 'Space Grotesk', sans-serif; }
 
-  /* Gallery image hover */
-  .gallery-img { transition: transform 0.7s cubic-bezier(0.4,0,0.2,1); }
-  .gallery-wrap:hover .gallery-img { transform: scale(1.06); }
+    /* Vibrant Animated Mesh */
+    .mesh-bg {
+      background-color: #0d121f;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .mesh-bg::after {
+      content: "";
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: 
+        radial-gradient(circle at 70% 30%, rgba(46, 91, 255, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 30% 70%, rgba(215, 3, 87, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 10% 10%, rgba(46, 91, 255, 0.1) 0%, transparent 30%);
+      animation: mesh-rotate 25s linear infinite;
+      z-index: 1;
+      pointer-events: none;
+    }
 
-  /* Scroll indicator */
-  @keyframes bounce-arrow { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
-  .bounce { animation: bounce-arrow 2s ease-in-out infinite; }
+    @keyframes mesh-rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
 
-  /* Dimension badge pulse */
-  @keyframes pulse-ring { 0%{box-shadow:0 0 0 0 rgba(46,91,255,0.4)} 70%{box-shadow:0 0 0 12px rgba(46,91,255,0)} 100%{box-shadow:0 0 0 0 rgba(46,91,255,0)} }
-  .pulse-ring { animation: pulse-ring 2.5s ease infinite; }
+    .text-gradient {
+      background: linear-gradient(135deg, #ffffff 0%, #b8c3ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
 
-  @keyframes logo-float {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-8px) scale(1.02); }
-  }
-  
-  @keyframes logo-shine {
-    0% { left: -100%; opacity: 0; }
-    20% { opacity: 0.5; }
-    40% { left: 100%; opacity: 0; }
-    100% { left: 100%; opacity: 0; }
-  }
+    .text-gradient-secondary {
+      background: linear-gradient(135deg, #ff2e95 0%, #ff85be 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
 
-  @keyframes logo-glow {
-    0%, 100% { box-shadow: 0 10px 30px -10px rgba(18, 74, 240, 0.2); }
-    50% { box-shadow: 0 20px 40px -5px rgba(18, 74, 240, 0.4); }
-  }
+    /* Feature card hover */
+    .feature-card { transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+    .feature-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(46,91,255,0.12); }
 
-  .logo-premium {
-    position: relative;
-    overflow: hidden;
-    animation: logo-float 6s ease-in-out infinite, logo-glow 4s ease-in-out infinite;
-  }
+    /* Gallery image hover */
+    .gallery-img { transition: transform 0.7s cubic-bezier(0.4,0,0.2,1); }
+    .gallery-wrap:hover .gallery-img { transform: scale(1.06); }
 
-  .logo-premium::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
-    transform: skewX(-25deg);
-    animation: logo-shine 8s infinite;
-  }
+    /* Scroll indicator */
+    @keyframes bounce-arrow { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
+    .bounce { animation: bounce-arrow 2s ease-in-out infinite; }
 
-  /* Fade in animations */
-  @keyframes fadeInUp { from{opacity:0;transform:translateY(32px)} to{opacity:1;transform:translateY(0)} }
-  @keyframes fadeInLeft { from{opacity:0;transform:translateX(-32px)} to{opacity:1;transform:translateX(0)} }
-  @keyframes fadeInRight { from{opacity:0;transform:translateX(32px)} to{opacity:1;transform:translateX(0)} }
-  .animate-fade-up   { animation: fadeInUp 0.8s ease both; }
-  .animate-fade-left { animation: fadeInLeft 0.8s ease both; }
-  .animate-fade-right{ animation: fadeInRight 0.8s ease both; }
-  .delay-1 { animation-delay: 0.1s; }
-  .delay-2 { animation-delay: 0.2s; }
-  .delay-3 { animation-delay: 0.3s; }
-  .delay-4 { animation-delay: 0.4s; }
-  .delay-5 { animation-delay: 0.5s; }
+    /* Dimension badge pulse */
+    @keyframes pulse-ring { 0%{box-shadow:0 0 0 0 rgba(46,91,255,0.4)} 70%{box-shadow:0 0 0 12px rgba(46,91,255,0)} 100%{box-shadow:0 0 0 0 rgba(46,91,255,0)} }
+    .pulse-ring { animation: pulse-ring 2.5s ease infinite; }
+
+    @keyframes logo-float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-8px) scale(1.02); }
+    }
+    
+    @keyframes logo-shine {
+      0% { left: -100%; opacity: 0; }
+      20% { opacity: 0.5; }
+      40% { left: 100%; opacity: 0; }
+      100% { left: 100%; opacity: 0; }
+    }
+
+    @keyframes logo-glow {
+      0%, 100% { box-shadow: 0 10px 30px -10px rgba(18, 74, 240, 0.2); }
+      50% { box-shadow: 0 20px 40px -5px rgba(18, 74, 240, 0.4); }
+    }
+
+    .logo-premium {
+      position: relative;
+      overflow: hidden;
+      animation: logo-float 6s ease-in-out infinite, logo-glow 4s ease-in-out infinite;
+    }
+
+    .logo-premium::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+      transform: skewX(-25deg);
+      animation: logo-shine 8s infinite;
+    }
+
+    /* Fade in animations */
+    @keyframes fadeInUp { from{opacity:0;transform:translateY(32px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeInLeft { from{opacity:0;transform:translateX(-32px)} to{opacity:1;transform:translateX(0)} }
+    @keyframes fadeInRight { from{opacity:0;transform:translateX(32px)} to{opacity:1;transform:translateX(0)} }
+    .animate-fade-up   { animation: fadeInUp 0.8s ease both; }
+    .animate-fade-left { animation: fadeInLeft 0.8s ease both; }
+    .animate-fade-right{ animation: fadeInRight 0.8s ease both; }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    .delay-5 { animation-delay: 0.5s; }
 
   /* Stat counter */
   .stat-box { border-left: 3px solid #2e5bff; }
@@ -232,20 +284,18 @@ tailwind.config = {
           COBERTURA NACIONAL · TODA VENEZUELA
         </span>
       </div>
-      <h1 class="headline text-6xl md:text-8xl font-bold leading-none tracking-tighter text-white mb-6 animate-fade-up delay-1">
-        Banderolas<br/>
-        <span class="text-primary-container">publicitarias</span>
+      <h1 class="headline text-6xl md:text-9xl font-black leading-none tracking-tighter text-white mb-8 animate-fade-up">
+        <span class="text-gradient">Impacto Peatonal</span> <br>
+        <span class="text-gradient">en el Corazón de</span> <span class="text-gradient-secondary">Chacao</span>
       </h1>
-      <p class="text-xl text-white/75 max-w-xl leading-relaxed animate-fade-up delay-2">
-        Potencia tu marca con banderolas publicitarias de alto impacto en toda Venezuela. En el Municipio Chacao, somos aliados comerciales autorizados de <strong>Colors Publicidad</strong>.
+      <p class="text-xl md:text-2xl text-white/70 max-w-3xl leading-relaxed mb-12 animate-fade-up delay-1 font-medium">
+        Ubicaciones estratégicas de 0.90m x 3m en las avenidas y calles más transitadas del país. Somos aliados comerciales autorizados de <strong>Colors Publicidad</strong> en Chacao.
       </p>
-
-      <div class="flex flex-wrap gap-4 mt-10 animate-fade-up delay-3">
-        <a href="index.html#contacto" class="bg-primary-container text-white px-8 py-4 rounded-xl font-bold uppercase tracking-wider shadow-xl shadow-primary-container/30 hover:scale-105 transition-all">
-          Solicitar información
-        </a>
-        <a href="#caracteristicas" class="bg-white/10 border border-white/20 backdrop-blur-md px-8 py-4 rounded-xl font-bold uppercase tracking-wider text-white hover:bg-white/20 transition-all">
-          Ver características
+      
+      <div class="flex flex-wrap gap-6 animate-fade-up delay-2">
+        <a href="index.html#contacto" class="bg-primary-container text-white px-10 py-5 rounded-2xl font-black text-lg hover:scale-105 transition-all flex items-center gap-3 shadow-2xl shadow-primary-container/30">
+          Iniciar Campaña
+          <span class="material-symbols-outlined">rocket_launch</span>
         </a>
       </div>
     </div>

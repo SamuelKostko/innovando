@@ -84,59 +84,104 @@
       color: #0f172a;
       font-family: 'Plus Jakarta Sans', sans-serif;
       overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Cinematic Grain Overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3BaseFilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/feTurbulence%3E%3C/baseFilter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 9999;
     }
 
     .headline {
       font-family: 'Space Grotesk', sans-serif;
     }
 
+    /* Vibrant Animated Mesh */
     .mesh-bg {
-      background-color: #0f172a;
-      background-image:
-        radial-gradient(at 0% 0%, rgba(46, 91, 255, 0.06) 0, transparent 60%),
-        radial-gradient(at 100% 100%, rgba(215, 3, 87, 0.04) 0, transparent 60%);
+      background-color: #0d121f;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .mesh-bg::after {
+      content: "";
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: 
+        radial-gradient(circle at 70% 30%, rgba(46, 91, 255, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 30% 70%, rgba(215, 3, 87, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 10% 10%, rgba(46, 91, 255, 0.1) 0%, transparent 30%);
+      animation: mesh-rotate 25s linear infinite;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    @keyframes mesh-rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, #ffffff 0%, #b8c3ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .text-gradient-secondary {
+      background: linear-gradient(135deg, #ff2e95 0%, #ff85be 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
     }
 
     .gallery-img {
-      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .gallery-wrap:hover .gallery-img {
-      transform: scale(1.06);
+      transform: scale(1.1) rotate(1deg);
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
     }
 
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(32px)
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0)
-      }
+      from { opacity: 0; transform: translateY(40px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
     .animate-fade-up {
-      animation: fadeInUp 0.8s ease both;
+      animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
 
-    .delay-1 {
-      animation-delay: 0.1s;
-    }
-
-    .delay-2 {
-      animation-delay: 0.2s;
-    }
-
-    .delay-3 {
-      animation-delay: 0.3s;
-    }
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
 
     .img-premium {
-      filter: brightness(1.02) contrast(1.05) saturate(1.05);
+      filter: brightness(1.05) contrast(1.1);
       image-rendering: -webkit-optimize-contrast;
     }
+
+    /* Floating Animation for UI elements */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+    .float-anim { animation: float 6s ease-in-out infinite; }
   </style>
 </head>
 
@@ -217,23 +262,22 @@
         </span>
       </div>
       <h1
-        class="headline text-5xl md:text-8xl font-black leading-none tracking-tighter text-white mb-6 animate-fade-up delay-1">
-        Vallas de <br>
-        <span class="text-secondary">Alto Impacto</span>
+        class="headline text-6xl md:text-9xl font-black leading-none tracking-tighter text-white mb-8 animate-fade-up delay-1">
+        <span class="text-gradient">Vallas de</span> <br>
+        <span class="text-gradient-secondary">Alto Impacto</span>
       </h1>
-      <p class="text-xl text-white/75 max-w-xl leading-relaxed animate-fade-up delay-2">
-        Domina las principales arterias viales de Venezuela con estructuras de gran formato diseñadas para garantizar la
-        máxima visibilidad de tu marca.
+      <p class="text-xl md:text-2xl text-white/70 max-w-2xl leading-relaxed animate-fade-up delay-2 font-medium">
+        Dominamos las principales arterias viales de Venezuela con estructuras monumentales diseñadas para que tu marca sea el centro de atención.
       </p>
 
-      <div class="flex flex-wrap gap-4 mt-10 animate-fade-up delay-3">
-        <div class="flex items-center gap-3 bg-white/5 backdrop-blur-md border border-white/10 px-5 py-3 rounded-2xl">
-          <span class="material-symbols-outlined text-primary-container">location_on</span>
-          <span class="text-white font-bold">Presencia Nacional</span>
+      <div class="flex flex-wrap gap-6 mt-12 animate-fade-up delay-3">
+        <div class="flex items-center gap-4 glass-card px-8 py-4 rounded-2xl group transition-all hover:bg-white/10">
+          <span class="material-symbols-outlined text-primary-container text-3xl group-hover:rotate-12 transition-transform">location_on</span>
+          <span class="text-white font-bold text-lg">Presencia Nacional</span>
         </div>
-        <div class="flex items-center gap-3 bg-white/5 backdrop-blur-md border border-white/10 px-5 py-3 rounded-2xl">
-          <span class="material-symbols-outlined text-secondary">visibility</span>
-          <span class="text-white font-bold">Millones de Impresiones</span>
+        <div class="flex items-center gap-4 glass-card px-8 py-4 rounded-2xl group transition-all hover:bg-white/10">
+          <span class="material-symbols-outlined text-secondary text-3xl group-hover:scale-125 transition-transform">visibility</span>
+          <span class="text-white font-bold text-lg">Impacto Millonario</span>
         </div>
       </div>
     </div>
