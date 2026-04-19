@@ -1,371 +1,479 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Vallas Publicitarias · Innovando · Publicidad Exterior en Venezuela</title>
-<meta name="description" content="Vallas publicitarias de alto impacto en toda Venezuela. Cobertura nacional en las principales arterias viales y zonas comerciales. Innovando: Líderes en Gran Formato."/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-tailwind.config = {
-  darkMode: "class",
-  theme: {
-    extend: {
-      colors: {
-        "surface-container-highest": "#e2e8f0",
-        "background": "#f8fafc",
-        "on-primary": "#ffffff",
-        "on-surface-variant": "#475569",
-        "on-surface": "#0f172a",
-        "on-secondary-container": "#400014",
-        "surface-container": "#ffffff",
-        "primary-container": "#2e5bff",
-        "primary": "#124af0",
-        "primary-fixed": "#dde1ff",
-        "on-error": "#ffffff",
-        "tertiary-container": "#bbfbff",
-        "outline-variant": "#e2e8f0",
-        "inverse-surface": "#1e293b",
-        "on-tertiary-container": "#002021",
-        "surface-container-lowest": "#f1f5f9",
-        "surface-tint": "#2e5bff",
-        "secondary": "#d70357",
-        "outline": "#94a3b8",
-        "inverse-primary": "#b8c3ff",
-        "error-container": "#ffdad6",
-        "surface-dim": "#dee2e6",
-        "surface-bright": "#ffffff",
-        "secondary-container": "#d70357",
-        "on-secondary-fixed": "#400014",
-        "primary-fixed-dim": "#b8c3ff",
-        "on-background": "#0f172a",
-        "tertiary": "#00696d",
-        "surface-container-low": "#f8fafc",
-        "surface-variant": "#f1f5f9",
-        "surface": "#f8fafc",
-        "inverse-on-surface": "#f8fafc",
-        "surface-container-high": "#eef2f6",
-        "on-primary-fixed": "#001356",
-        "on-primary-fixed-variant": "#0035be",
-        "on-secondary": "#ffffff",
-        "on-primary-container": "#ffffff",
-        "error": "#ba1a1a",
-        "on-tertiary": "#ffffff"
-      },
-      borderRadius: {
-        "DEFAULT": "0.125rem",
-        "lg": "0.25rem",
-        "xl": "0.5rem",
-        "full": "0.75rem"
-      },
-      fontFamily: {
-        "headline": ["Space Grotesk"],
-        "body": ["Plus Jakarta Sans"],
-        "label": ["Plus Jakarta Sans"]
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Vallas Publicitarias · Innovando · Publicidad Exterior en Venezuela</title>
+  <meta name="description"
+    content="Vallas publicitarias de alto impacto en toda Venezuela. Cobertura nacional en las principales arterias viales y zonas comerciales. Innovando: Líderes en Gran Formato." />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-highest": "#e2e8f0",
+            "background": "#f8fafc",
+            "on-primary": "#ffffff",
+            "on-surface-variant": "#475569",
+            "on-surface": "#0f172a",
+            "on-secondary-container": "#400014",
+            "surface-container": "#ffffff",
+            "primary-container": "#2e5bff",
+            "primary": "#124af0",
+            "primary-fixed": "#dde1ff",
+            "on-error": "#ffffff",
+            "tertiary-container": "#bbfbff",
+            "outline-variant": "#e2e8f0",
+            "inverse-surface": "#1e293b",
+            "on-tertiary-container": "#002021",
+            "surface-container-lowest": "#f1f5f9",
+            "surface-tint": "#2e5bff",
+            "secondary": "#d70357",
+            "outline": "#94a3b8",
+            "inverse-primary": "#b8c3ff",
+            "error-container": "#ffdad6",
+            "surface-dim": "#dee2e6",
+            "surface-bright": "#ffffff",
+            "secondary-container": "#d70357",
+            "on-secondary-fixed": "#400014",
+            "primary-fixed-dim": "#b8c3ff",
+            "on-background": "#0f172a",
+            "tertiary": "#00696d",
+            "surface-container-low": "#f8fafc",
+            "surface-variant": "#f1f5f9",
+            "surface": "#f8fafc",
+            "inverse-on-surface": "#f8fafc",
+            "surface-container-high": "#eef2f6",
+            "on-primary-fixed": "#001356",
+            "on-primary-fixed-variant": "#0035be",
+            "on-secondary": "#ffffff",
+            "on-primary-container": "#ffffff",
+            "error": "#ba1a1a",
+            "on-tertiary": "#ffffff"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          fontFamily: {
+            "headline": ["Space Grotesk"],
+            "body": ["Plus Jakarta Sans"],
+            "label": ["Plus Jakarta Sans"]
+          }
+        }
       }
     }
-  }
-}
-</script>
-<style>
-  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-  body { background-color: #f8fafc; color: #0f172a; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
-  .headline { font-family: 'Space Grotesk', sans-serif; }
-  .mesh-bg { 
-    background-color: #0f172a;
-    background-image: 
-      radial-gradient(at 0% 0%, rgba(46,91,255,0.06) 0, transparent 60%), 
-      radial-gradient(at 100% 100%, rgba(215,3,87,0.04) 0, transparent 60%); 
-  }
-  
-  .gallery-img { transition: transform 0.7s cubic-bezier(0.4,0,0.2,1); }
-  .gallery-wrap:hover .gallery-img { transform: scale(1.06); }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
 
-  @keyframes fadeInUp { from{opacity:0;transform:translateY(32px)} to{opacity:1;transform:translateY(0)} }
-  .animate-fade-up { animation: fadeInUp 0.8s ease both; }
-  .delay-1 { animation-delay: 0.1s; }
-  .delay-2 { animation-delay: 0.2s; }
-  .delay-3 { animation-delay: 0.3s; }
+    body {
+      background-color: #f8fafc;
+      color: #0f172a;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
 
-  .img-premium {
-    filter: brightness(1.02) contrast(1.05) saturate(1.05);
-    image-rendering: -webkit-optimize-contrast;
-  }
-</style>
+    .headline {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .mesh-bg {
+      background-color: #0f172a;
+      background-image:
+        radial-gradient(at 0% 0%, rgba(46, 91, 255, 0.06) 0, transparent 60%),
+        radial-gradient(at 100% 100%, rgba(215, 3, 87, 0.04) 0, transparent 60%);
+    }
+
+    .gallery-img {
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .gallery-wrap:hover .gallery-img {
+      transform: scale(1.06);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(32px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .animate-fade-up {
+      animation: fadeInUp 0.8s ease both;
+    }
+
+    .delay-1 {
+      animation-delay: 0.1s;
+    }
+
+    .delay-2 {
+      animation-delay: 0.2s;
+    }
+
+    .delay-3 {
+      animation-delay: 0.3s;
+    }
+
+    .img-premium {
+      filter: brightness(1.02) contrast(1.05) saturate(1.05);
+      image-rendering: -webkit-optimize-contrast;
+    }
+  </style>
 </head>
+
 <body class="selection:bg-primary-container selection:text-white">
 
-<!-- ═══ NAV ═══ -->
-<nav id="navbar" class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50">
-  <div class="rounded-full bg-white shadow-[0_8px_32px_0_rgba(15,23,42,0.10)] border border-slate-100 flex justify-between items-center px-5 md:px-8 py-3 relative z-20">
-    <a href="index.html" class="flex items-center gap-3">
-      <img alt="Innovando Logo" class="h-7 md:h-9 w-auto" src="logo_innovando.jpg"/>
-    </a>
-    <div class="hidden lg:flex items-center gap-6 font-headline">
-      <a class="text-primary font-bold border-b-2 border-primary-container pb-0.5 text-sm" href="vallas.html">Vallas</a>
-      <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm" href="banderolas.html">Banderolas</a>
-      <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm" href="galerias.html">Galerías</a>
-      <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm" href="pantallas-led.html">Pantallas LED</a>
-      <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm" href="index.html#soluciones">Avisos Corpóreos</a>
-    </div>
-    <div class="flex items-center gap-2">
-      <a href="index.html#contacto" class="hidden lg:flex bg-primary-container text-white px-6 py-2 rounded-full font-bold text-sm tracking-wide hover:scale-105 transition-transform active:scale-95 shadow-lg shadow-primary-container/30">
-        CONTACTO
+  <!-- ═══ NAV ═══ -->
+  <nav id="navbar" class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50">
+    <div
+      class="rounded-full bg-white shadow-[0_8px_32px_0_rgba(15,23,42,0.10)] border border-slate-100 flex justify-between items-center px-5 md:px-8 py-3 relative z-20">
+      <a href="index.html" class="flex items-center gap-3">
+        <img alt="Innovando Logo" class="h-7 md:h-9 w-auto" src="logo_innovando.jpg" />
       </a>
-      <button class="menu-toggle lg:hidden p-2 text-slate-800 bg-slate-100 hover:bg-slate-200 transition-colors rounded-full flex items-center justify-center h-10 w-10">
-        <span class="material-symbols-outlined">menu</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- Mobile Menu Dropdown -->
-  <div class="mobile-menu absolute top-0 left-0 w-full bg-white/95 backdrop-blur-3xl rounded-3xl shadow-2xl border border-slate-100 pt-20 pb-6 px-6 flex flex-col gap-4 font-headline z-10 transition-all duration-300 opacity-0 pointer-events-none -translate-y-8">
-    <a class="text-primary-container font-black text-xl border-b border-slate-100 pb-3" href="vallas.html">Vallas</a>
-    <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="banderolas.html">Banderolas</a>
-    <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="galerias.html">Galerías</a>
-    <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="pantallas-led.html">Pantallas LED</a>
-    <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="index.html#soluciones">Avisos Corpóreos</a>
-    <a href="index.html#contacto" class="bg-primary-container text-center text-white px-6 py-4 rounded-xl font-bold text-sm tracking-widest mt-2 uppercase shadow-md shadow-primary-container/40">
-      Contacto
-    </a>
-  </div>
-</nav>
-
-<!-- ═══ HERO ═══ -->
-<section class="relative min-h-[90vh] flex items-end pb-20 pt-32 overflow-hidden mesh-bg">
-  <div class="absolute inset-0 z-0">
-    <img src="assets/vallas/valla_hero.png" alt="Valla Publicitaria de Alto Impacto" class="w-full h-full object-cover img-premium"/>
-    <div class="absolute inset-0 bg-gradient-to-r from-[#0f172a]/95 via-[#0f172a]/60 to-transparent"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 via-transparent to-transparent"></div>
-  </div>
-
-  <!-- Watermark logo -->
-  <div class="absolute bottom-12 right-12 z-10 hidden lg:flex flex-col items-end opacity-30 hover:opacity-80 transition-all duration-1000 transform scale-90">
-    <img src="logo_innovando.jpg" alt="Innovando Identity" class="h-14 w-auto grayscale invert brightness-200 contrast-200 mix-blend-screen opacity-80">
-    <div class="mt-2 h-px w-24 bg-gradient-to-l from-white/40 to-transparent"></div>
-    <p class="text-[9px] text-white/40 uppercase tracking-[0.5em] mt-2 font-medium">Líderes en Gran Formato</p>
-  </div>
-
-  <div class="max-w-7xl mx-auto px-8 relative z-10 w-full">
-    <div class="block">
-      <span class="inline-flex items-center gap-2 text-primary-container font-extrabold tracking-widest text-xs uppercase py-1.5 px-4 bg-primary/10 border border-primary/25 rounded-full headline mb-6 animate-fade-up">
-        <span class="w-2 h-2 bg-primary-container rounded-full inline-block animate-pulse"></span>
-        COBERTURA NACIONAL · VENEZUELA
-      </span>
-    </div>
-    <h1 class="headline text-5xl md:text-8xl font-black leading-none tracking-tighter text-white mb-6 animate-fade-up delay-1">
-      Vallas de <br>
-      <span class="text-secondary">Alto Impacto</span>
-    </h1>
-    <p class="text-xl text-white/75 max-w-xl leading-relaxed animate-fade-up delay-2">
-      Domina las principales arterias viales de Venezuela con estructuras de gran formato diseñadas para garantizar la máxima visibilidad de tu marca.
-    </p>
-
-    <div class="flex flex-wrap gap-4 mt-10 animate-fade-up delay-3">
-      <div class="flex items-center gap-3 bg-white/5 backdrop-blur-md border border-white/10 px-5 py-3 rounded-2xl">
-        <span class="material-symbols-outlined text-primary-container">location_on</span>
-        <span class="text-white font-bold">Presencia Nacional</span>
+      <div class="hidden lg:flex items-center gap-6 font-headline">
+        <a class="text-primary font-bold border-b-2 border-primary-container pb-0.5 text-sm"
+          href="vallas.html">Vallas</a>
+        <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm"
+          href="banderolas.html">Banderolas</a>
+        <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm"
+          href="galerias.html">Galerías</a>
+        <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm"
+          href="pantallas-led.html">Pantallas LED</a>
+        <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm"
+          href="index.html#soluciones">Avisos Corpóreos</a>
       </div>
-      <div class="flex items-center gap-3 bg-white/5 backdrop-blur-md border border-white/10 px-5 py-3 rounded-2xl">
-        <span class="material-symbols-outlined text-secondary">visibility</span>
-        <span class="text-white font-bold">Millones de Impresiones</span>
+      <div class="flex items-center gap-2">
+        <a href="index.html#contacto"
+          class="hidden lg:flex bg-primary-container text-white px-6 py-2 rounded-full font-bold text-sm tracking-wide hover:scale-105 transition-transform active:scale-95 shadow-lg shadow-primary-container/30">
+          CONTACTO
+        </a>
+        <button
+          class="menu-toggle lg:hidden p-2 text-slate-800 bg-slate-100 hover:bg-slate-200 transition-colors rounded-full flex items-center justify-center h-10 w-10">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ═══ COBERTURA ═══ -->
-<section class="py-24 bg-white">
-  <div class="max-w-7xl mx-auto px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-      <div class="space-y-8">
-        <div class="inline-block p-1 px-3 bg-primary/10 rounded-full">
-          <span class="text-xs font-black uppercase tracking-tighter text-primary headline">Visibilidad Total</span>
-        </div>
-        <h2 class="headline text-4xl md:text-5xl font-bold text-on-surface leading-tight">
-          Llegamos a donde <br>
-          <span class="text-primary">está tu audiencia</span>
-        </h2>
-        <p class="text-lg text-on-surface-variant leading-relaxed italic border-l-4 border-primary/20 pl-6">
-          "Nuestra red estratégica de vallas abarca las rutas más transitadas del país, asegurando que tu mensaje sea imposible de ignorar."
-        </p>
-        
-        <div class="grid grid-cols-2 gap-6">
-          <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
-            <h4 class="font-bold text-on-surface mb-2">Caracas y Chacao</h4>
-            <p class="text-sm text-on-surface-variant">Ubicaciones premiun en las autopistas Francisco Fajardo y Prados del Este.</p>
-          </div>
-          <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
-            <h4 class="font-bold text-on-surface mb-2">Interior del País</h4>
-            <p class="text-sm text-on-surface-variant">Valencia, Maracaibo, Barquisimeto y las principales ciudades de Oriente.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="relative">
-        <div class="gallery-wrap aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl relative">
-          <img src="assets/vallas/valla_valencia.png" alt="Presencia en el Interior" class="gallery-img w-full h-full object-cover img-premium"/>
-          <div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 via-transparent to-transparent"></div>
-        </div>
-        <!-- Stats Float -->
-        <div class="absolute -bottom-6 -left-6 bg-white border border-slate-100 shadow-2xl rounded-2xl p-6 hidden md:block">
-          <div class="flex items-center gap-4">
-            <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/30">
-              <span class="material-symbols-outlined text-2xl animate-bounce">rocket_launch</span>
-            </div>
-            <div>
-              <p class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant mb-1">Impacto Diario</p>
-              <p class="headline text-xl font-black text-on-surface">+500K Visitas</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ ESPECIFICACIONES ═══ -->
-<section class="py-24 bg-slate-900 text-white overflow-hidden">
-  <div class="max-w-7xl mx-auto px-8">
-    <div class="flex flex-col lg:flex-row gap-16 items-center">
-      <!-- Info -->
-      <div class="lg:w-1/2 space-y-10">
-        <div class="space-y-4">
-          <h2 class="headline text-4xl font-bold">Domina el Horizonte con <span class="text-secondary">Gran Formato</span></h2>
-          <p class="text-white/60 leading-relaxed">Ofrecemos estructuras monostand y biposte diseñadas bajo estándares de ingeniería de vanguardia.</p>
-        </div>
-
-        <div class="space-y-6">
-          <div class="flex items-center gap-6 group">
-            <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-              <span class="material-symbols-outlined text-primary-container font-black">straighten</span>
-            </div>
-            <div>
-              <p class="font-bold text-lg">Formatos Estándar</p>
-              <p class="text-white/40 text-sm">8x4m · 12x4m · 14x5m (Bajo pedido)</p>
-            </div>
-          </div>
-          <div class="flex items-center gap-6 group">
-            <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
-              <span class="material-symbols-outlined text-secondary-container font-black">lightbulb</span>
-            </div>
-            <div>
-              <p class="font-bold text-lg">Iluminación LED Premium</p>
-              <p class="text-white/40 text-sm">Visibilidad 24/7 con sistemas de bajo consumo.</p>
-            </div>
-          </div>
-          <div class="flex items-center gap-6 group">
-            <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-              <span class="material-symbols-outlined text-primary-container font-black">construction</span>
-            </div>
-            <div>
-              <p class="font-bold text-lg">Mantenimiento Garantizado</p>
-              <p class="text-white/40 text-sm">Rotulación de alta durabilidad y revisión estructural.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Giant Format Illustration -->
-      <div class="lg:w-1/2 relative">
-        <div class="gallery-wrap rounded-[2.5rem] overflow-hidden shadow-2xl aspect-[16/9] bg-white/5 border border-white/10 p-2">
-           <img src="assets/vallas/valla_hero.png" alt="Valla Estructural" class="w-full h-full object-cover opacity-80 mix-blend-lighten img-premium"/>
-           <div class="absolute inset-0 flex items-center justify-center">
-             <div class="text-center">
-               <span class="block headline text-7xl font-black text-white p-2">12 x 4</span>
-               <span class="block text-xs uppercase tracking-[.5em] text-secondary font-bold">Metros de impacto</span>
-             </div>
-           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ MINI GALERÍA ═══ -->
-<section class="py-24 bg-white">
-  <div class="max-w-7xl mx-auto px-8 text-center mb-16">
-    <h2 class="headline text-4xl font-black text-on-surface">Proyectos <span class="text-primary">Recientes</span></h2>
-  </div>
-  <div class="max-w-7xl mx-auto px-8 overflow-hidden">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-video">
-        <img src="assets/vallas/valla_maracaibo.png" alt="Proyecto Maracaibo" class="gallery-img w-full h-full object-cover img-premium"/>
-      </div>
-      <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-video">
-        <img src="assets/vallas/valla_valencia.png" alt="Proyecto Valencia" class="gallery-img w-full h-full object-cover img-premium"/>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ CALL TO ACTION ═══ -->
-<section id="contacto" class="py-24 bg-[#0f172a] relative overflow-hidden text-center">
-  <div class="absolute top-0 right-0 w-96 h-96 bg-primary/20 blur-[120px] rounded-full"></div>
-  <div class="max-w-4xl mx-auto px-8 relative z-10">
-    <h2 class="headline text-4xl md:text-6xl font-black text-white mb-8">¿Listo para dominar <span class="text-primary-container">las calles?</span></h2>
-    <p class="text-xl text-white/60 mb-12">Cotiza ahora y recibe asesoría experta para tu próxima campaña nacional.</p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="https://wa.me/584120000000" class="bg-primary-container text-white px-10 py-5 rounded-2xl font-black text-lg hover:scale-105 transition-all flex items-center justify-center gap-3 shadow-xl shadow-primary/20">
-        <span class="material-symbols-outlined">chat</span>
-        Contactar ventas
-      </a>
-      <a href="mailto:ventas@innovando.com" class="bg-white/5 border border-white/10 text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all flex items-center justify-center gap-3">
-        Descargar Tarifario
+    <!-- Mobile Menu Dropdown -->
+    <div
+      class="mobile-menu absolute top-0 left-0 w-full bg-white/95 backdrop-blur-3xl rounded-3xl shadow-2xl border border-slate-100 pt-20 pb-6 px-6 flex flex-col gap-4 font-headline z-10 transition-all duration-300 opacity-0 pointer-events-none -translate-y-8">
+      <a class="text-primary-container font-black text-xl border-b border-slate-100 pb-3" href="vallas.html">Vallas</a>
+      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="banderolas.html">Banderolas</a>
+      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="galerias.html">Galerías</a>
+      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="pantallas-led.html">Pantallas
+        LED</a>
+      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="index.html#soluciones">Avisos
+        Corpóreos</a>
+      <a href="index.html#contacto"
+        class="bg-primary-container text-center text-white px-6 py-4 rounded-xl font-bold text-sm tracking-widest mt-2 uppercase shadow-md shadow-primary-container/40">
+        Contacto
       </a>
     </div>
-  </div>
-</section>
+  </nav>
 
-<!-- ═══ FOOTER ═══ -->
-<footer class="bg-white border-t border-slate-100">
-  <div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6 text-on-surface-variant font-medium">
-    <div class="flex items-center gap-3">
-      <img alt="Innovando Logo" class="h-8 w-auto" src="logo_innovando.jpg"/>
+  <!-- ═══ HERO ═══ -->
+  <section class="relative min-h-[90vh] flex items-end pb-20 pt-32 overflow-hidden mesh-bg">
+    <div class="absolute inset-0 z-0">
+      <img src="assets/vallas/amanecer.png" alt="Valla Publicitaria Hero Amanecer"
+        class="w-full h-full object-cover img-premium" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0f172a]/95 via-[#0f172a]/60 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 via-transparent to-transparent"></div>
     </div>
-    <p class="text-sm text-center">© 2025 Innovando · Especialistas en Publicidad Exterior</p>
-    <div class="flex gap-6">
-      <a href="#" class="hover:text-primary transition-colors">Instagram</a>
-      <a href="#" class="hover:text-primary transition-colors">LinkedIn</a>
-    </div>
-  </div>
-</footer>
 
-<!-- ═══ SCRIPTS ═══ -->
-<script>
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const t = document.querySelector(a.getAttribute('href'));
-      if (!t) return;
-      e.preventDefault();
-      t.scrollIntoView({ behavior: 'smooth' });
+    <!-- Watermark logo -->
+    <div
+      class="absolute bottom-12 right-12 z-10 hidden lg:flex flex-col items-end opacity-30 hover:opacity-80 transition-all duration-1000 transform scale-90">
+      <img src="logo_innovando.jpg" alt="Innovando Identity"
+        class="h-14 w-auto grayscale invert brightness-200 contrast-200 mix-blend-screen opacity-80">
+      <div class="mt-2 h-px w-24 bg-gradient-to-l from-white/40 to-transparent"></div>
+      <p class="text-[9px] text-white/40 uppercase tracking-[0.5em] mt-2 font-medium">Líderes en Gran Formato</p>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-8 relative z-10 w-full">
+      <div class="block">
+        <span
+          class="inline-flex items-center gap-2 text-primary-container font-extrabold tracking-widest text-xs uppercase py-1.5 px-4 bg-primary/10 border border-primary/25 rounded-full headline mb-6 animate-fade-up">
+          <span class="w-2 h-2 bg-primary-container rounded-full inline-block animate-pulse"></span>
+          COBERTURA NACIONAL · VENEZUELA
+        </span>
+      </div>
+      <h1
+        class="headline text-5xl md:text-8xl font-black leading-none tracking-tighter text-white mb-6 animate-fade-up delay-1">
+        Vallas de <br>
+        <span class="text-secondary">Alto Impacto</span>
+      </h1>
+      <p class="text-xl text-white/75 max-w-xl leading-relaxed animate-fade-up delay-2">
+        Domina las principales arterias viales de Venezuela con estructuras de gran formato diseñadas para garantizar la
+        máxima visibilidad de tu marca.
+      </p>
+
+      <div class="flex flex-wrap gap-4 mt-10 animate-fade-up delay-3">
+        <div class="flex items-center gap-3 bg-white/5 backdrop-blur-md border border-white/10 px-5 py-3 rounded-2xl">
+          <span class="material-symbols-outlined text-primary-container">location_on</span>
+          <span class="text-white font-bold">Presencia Nacional</span>
+        </div>
+        <div class="flex items-center gap-3 bg-white/5 backdrop-blur-md border border-white/10 px-5 py-3 rounded-2xl">
+          <span class="material-symbols-outlined text-secondary">visibility</span>
+          <span class="text-white font-bold">Millones de Impresiones</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COBERTURA ═══ -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div class="space-y-8">
+          <div class="inline-block p-1 px-3 bg-primary/10 rounded-full">
+            <span class="text-xs font-black uppercase tracking-tighter text-primary headline">Visibilidad Total</span>
+          </div>
+          <h2 class="headline text-4xl md:text-5xl font-bold text-on-surface leading-tight">
+            Llegamos a donde <br>
+            <span class="text-primary">está tu audiencia</span>
+          </h2>
+          <p class="text-lg text-on-surface-variant leading-relaxed italic border-l-4 border-primary/20 pl-6">
+            "Nuestra red estratégica de vallas abarca las rutas más transitadas del país, asegurando que tu mensaje sea
+            imposible de ignorar."
+          </p>
+
+          <div class="grid grid-cols-2 gap-6">
+            <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+              <h4 class="font-bold text-on-surface mb-2">Caracas y Chacao</h4>
+              <p class="text-sm text-on-surface-variant">Ubicaciones premiun en las autopistas Francisco Fajardo y
+                Prados del Este.</p>
+            </div>
+            <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+              <h4 class="font-bold text-on-surface mb-2">Interior del País</h4>
+              <p class="text-sm text-on-surface-variant">Valencia, Maracaibo, Barquisimeto y las principales ciudades de
+                Oriente.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="gallery-wrap aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl relative">
+            <img src="assets/vallas/maturin.png" alt="Presencia en Maturín e Interior del País"
+              class="gallery-img w-full h-full object-cover img-premium" />
+            <div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 via-transparent to-transparent"></div>
+          </div>
+          <!-- Stats Float -->
+          <div
+            class="absolute -bottom-6 -left-6 bg-white border border-slate-100 shadow-2xl rounded-2xl p-6 hidden md:block">
+            <div class="flex items-center gap-4">
+              <div
+                class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/30">
+                <span class="material-symbols-outlined text-2xl animate-bounce">rocket_launch</span>
+              </div>
+              <div>
+                <p class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant mb-1">Impacto Diario
+                </p>
+                <p class="headline text-xl font-black text-on-surface">+500K Visitas</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ESPECIFICACIONES ═══ -->
+  <section class="py-24 bg-slate-900 text-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="flex flex-col lg:flex-row gap-16 items-center">
+        <!-- Info -->
+        <div class="lg:w-1/2 space-y-10">
+          <div class="space-y-4">
+            <h2 class="headline text-4xl font-bold">Domina el Horizonte con <span class="text-secondary">Gran
+                Formato</span></h2>
+            <p class="text-white/60 leading-relaxed">Ofrecemos estructuras monostand y biposte diseñadas bajo estándares
+              de ingeniería de vanguardia.</p>
+          </div>
+
+          <div class="space-y-6">
+            <div class="flex items-center gap-6 group">
+              <div
+                class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <span class="material-symbols-outlined text-primary-container font-black">straighten</span>
+              </div>
+              <div>
+                <p class="font-bold text-lg">Formatos Estándar</p>
+                <p class="text-white/40 text-sm">8x4m · 12x4m · Monumental 25x10m</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-6 group">
+              <div
+                class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <span class="material-symbols-outlined text-primary-container font-black">construction</span>
+              </div>
+              <div>
+                <p class="font-bold text-lg">Mantenimiento Garantizado</p>
+                <p class="text-white/40 text-sm">Rotulación de alta durabilidad y revisión estructural.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Giant Format Illustration -->
+        <div class="lg:w-1/2 relative px-4">
+          <div class="gallery-wrap rounded-[2.5rem] overflow-hidden shadow-2xl aspect-video bg-white p-6">
+            <img src="assets/vallas/medidas_valla.png" alt="Diagrama Técnico Valla Monumental 25x10m"
+              class="w-full h-full object-contain img-premium" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MINI GALERÍA ═══ -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-8 text-center mb-16">
+      <h2 class="headline text-4xl font-black text-on-surface">Proyectos <span class="text-primary">Recientes</span>
+      </h2>
+      <p class="text-on-surface-variant mt-4 max-w-2xl mx-auto">Explora algunas de nuestras instalaciones más destacadas
+        en las principales regiones del país.</p>
+    </div>
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- CM -->
+        <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
+          <img src="assets/vallas/cm.png" alt="Proyecto Publicitario CM"
+            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+            <p class="text-white font-bold headline">Impacto Masivo</p>
+          </div>
+        </div>
+        <!-- Cafe Amanecer -->
+        <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
+          <img src="assets/vallas/cafeamanecer.png" alt="Valla Cafe Amanecer"
+            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+            <p class="text-white font-bold headline">Presencia Visual</p>
+          </div>
+        </div>
+        <!-- Amanecer -->
+        <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
+          <img src="assets/vallas/amanecer.png" alt="Valla al Amanecer"
+            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+            <p class="text-white font-bold headline">Visibilidad 24/7</p>
+          </div>
+        </div>
+        <!-- EPA -->
+        <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
+          <img src="assets/vallas/epa1.png" alt="Proyecto EPA"
+            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+            <p class="text-white font-bold headline">Retail Exterior</p>
+          </div>
+        </div>
+        <!-- Maturin -->
+        <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
+          <img src="assets/vallas/maturin.png" alt="Valla estratégica en Maturín"
+            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+            <p class="text-white font-bold headline">Cobertura Regional</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CALL TO ACTION ═══ -->
+  <section id="contacto" class="py-24 bg-[#0f172a] relative overflow-hidden text-center">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-primary/20 blur-[120px] rounded-full"></div>
+    <div class="max-w-4xl mx-auto px-8 relative z-10">
+      <h2 class="headline text-4xl md:text-6xl font-black text-white mb-8">¿Listo para dominar <span
+          class="text-primary-container">las calles?</span></h2>
+      <p class="text-xl text-white/60 mb-12">Cotiza ahora y recibe asesoría experta para tu próxima campaña nacional.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://wa.me/584120000000"
+          class="bg-primary-container text-white px-10 py-5 rounded-2xl font-black text-lg hover:scale-105 transition-all flex items-center justify-center gap-3 shadow-xl shadow-primary/20">
+          <span class="material-symbols-outlined">chat</span>
+          Contactar ventas
+        </a>
+        <a href="mailto:ventas@innovando.com"
+          class="bg-white/5 border border-white/10 text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all flex items-center justify-center gap-3">
+          Descargar Tarifario
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="bg-white border-t border-slate-100">
+    <div
+      class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6 text-on-surface-variant font-medium">
+      <div class="flex items-center gap-3">
+        <img alt="Innovando Logo" class="h-8 w-auto" src="logo_innovando.jpg" />
+      </div>
+      <p class="text-sm text-center">© 2025 Innovando · Especialistas en Publicidad Exterior</p>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-primary transition-colors">Instagram</a>
+        <a href="#" class="hover:text-primary transition-colors">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══ SCRIPTS ═══ -->
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (!t) return;
+        e.preventDefault();
+        t.scrollIntoView({ behavior: 'smooth' });
+      });
     });
-  });
 
-  // Mobile menu toggle
-  const menuToggles = document.querySelectorAll('.menu-toggle');
-  const mobileMenus = document.querySelectorAll('.mobile-menu');
+    // Mobile menu toggle
+    const menuToggles = document.querySelectorAll('.menu-toggle');
+    const mobileMenus = document.querySelectorAll('.mobile-menu');
 
-  menuToggles.forEach((btn, idx) => {
-    btn.addEventListener('click', () => {
-      const menu = mobileMenus[idx];
-      if(!menu) return;
-      const icon = btn.querySelector('span');
-      if (menu.classList.contains('opacity-0')) {
-        menu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-8');
-        menu.classList.add('opacity-100', 'translate-y-0');
-        icon.textContent = 'close';
-      } else {
-        menu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-8');
-        menu.classList.remove('opacity-100', 'translate-y-0');
-        icon.textContent = 'menu';
-      }
+    menuToggles.forEach((btn, idx) => {
+      btn.addEventListener('click', () => {
+        const menu = mobileMenus[idx];
+        if (!menu) return;
+        const icon = btn.querySelector('span');
+        if (menu.classList.contains('opacity-0')) {
+          menu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-8');
+          menu.classList.add('opacity-100', 'translate-y-0');
+          icon.textContent = 'close';
+        } else {
+          menu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-8');
+          menu.classList.remove('opacity-100', 'translate-y-0');
+          icon.textContent = 'menu';
+        }
+      });
     });
-  });
-</script>
-<script src="script.js"></script>
+  </script>
+  <script src="script.js"></script>
 </body>
+
 </html>
