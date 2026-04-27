@@ -8,8 +8,7 @@
   <meta name="description"
     content="Vallas publicitarias de alto impacto en toda Venezuela. Cobertura nacional en las principales arterias viales y zonas comerciales. Innovando: Líderes en Gran Formato." />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
     rel="stylesheet" />
@@ -66,9 +65,9 @@
             "full": "0.75rem"
           },
           fontFamily: {
-            "headline": ["Space Grotesk"],
-            "body": ["Plus Jakarta Sans"],
-            "label": ["Plus Jakarta Sans"]
+            "headline": ["Montserrat", "sans-serif"],
+            "body": ["Montserrat", "sans-serif"],
+            "label": ["Montserrat", "sans-serif"]
           }
         }
       }
@@ -82,7 +81,7 @@
     body {
       background-color: #f8fafc;
       color: #0f172a;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       overflow-x: hidden;
       position: relative;
     }
@@ -91,8 +90,10 @@
     body::before {
       content: "";
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3BaseFilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/feTurbulence%3E%3C/baseFilter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
       opacity: 0.04;
       pointer-events: none;
@@ -100,7 +101,7 @@
     }
 
     .headline {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Montserrat', sans-serif;
     }
 
     /* Vibrant Animated Mesh */
@@ -109,13 +110,15 @@
       position: relative;
       overflow: hidden;
     }
-    
+
     .mesh-bg::after {
       content: "";
       position: absolute;
-      top: -50%; left: -50%;
-      width: 200%; height: 200%;
-      background: 
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background:
         radial-gradient(circle at 70% 30%, rgba(46, 91, 255, 0.2) 0%, transparent 40%),
         radial-gradient(circle at 30% 70%, rgba(215, 3, 87, 0.15) 0%, transparent 40%),
         radial-gradient(circle at 10% 10%, rgba(46, 91, 255, 0.1) 0%, transparent 30%);
@@ -125,13 +128,19 @@
     }
 
     @keyframes mesh-rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
     }
 
     .text-gradient {
       background: linear-gradient(135deg, #ffffff 0%, #b8c3ff 100%);
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
       display: inline-block;
     }
@@ -139,6 +148,7 @@
     .text-gradient-secondary {
       background: linear-gradient(135deg, #ff2e95 0%, #ff85be 100%);
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
       display: inline-block;
     }
@@ -159,17 +169,32 @@
     }
 
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px) scale(0.98); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
+      from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
     }
 
     .animate-fade-up {
       animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
 
-    .delay-1 { animation-delay: 0.2s; }
-    .delay-2 { animation-delay: 0.4s; }
-    .delay-3 { animation-delay: 0.6s; }
+    .delay-1 {
+      animation-delay: 0.2s;
+    }
+
+    .delay-2 {
+      animation-delay: 0.4s;
+    }
+
+    .delay-3 {
+      animation-delay: 0.6s;
+    }
 
     .img-premium {
       filter: brightness(1.05) contrast(1.1);
@@ -178,41 +203,48 @@
 
     /* Floating Animation for UI elements */
     @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-15px); }
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
     }
-    .float-anim { animation: float 6s ease-in-out infinite; }
+
+    .float-anim {
+      animation: float 6s ease-in-out infinite;
+    }
   </style>
 </head>
 
 <body class="selection:bg-primary-container selection:text-white">
 
   <!-- ═══ NAV ═══ -->
-  <nav id="navbar" class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50">
+  <nav id="navbar" class="absolute top-0 lg:fixed lg:top-6 left-1/2 -translate-x-1/2 w-full lg:w-[90%] max-w-7xl z-50">
     <div
-      class="rounded-full bg-white shadow-[0_8px_32px_0_rgba(15,23,42,0.10)] border border-slate-100 flex justify-between items-center px-5 md:px-8 py-3 relative z-20">
+      class="bg-white/95 lg:bg-white rounded-none lg:rounded-2xl px-6 md:px-10 py-4 flex justify-between items-center relative shadow-2xl border-b lg:border border-slate-100 backdrop-blur-md">
       <a href="index.html" class="flex items-center gap-3">
-        <img alt="Innovando Logo" class="h-7 md:h-9 w-auto" src="logo_innovando.jpg" />
+        <img alt="Innovando Logo" class="h-8 md:h-10 w-auto" src="logo_innovando.jpg" />
       </a>
-      <div class="hidden lg:flex items-center gap-6 font-headline">
-        <a class="text-primary font-bold border-b-2 border-primary-container pb-0.5 text-sm"
-          href="vallas.html">Vallas</a>
-        <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm"
-          href="banderolas.html">Banderolas</a>
-        <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm"
-          href="galerias.html">Galerías</a>
-        <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm"
-          href="pantallas-led.html">Pantallas LED</a>
-        <a class="text-slate-600 font-medium hover:text-primary transition-colors duration-200 text-sm"
-          href="index.html#soluciones">Avisos Corpóreos</a>
+      <div class="hidden lg:flex items-center gap-10 font-headline">
+        <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
+          href="vallas.html">VALLAS</a>
+        <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
+          href="banderolas.html">BANDEROLAS</a>
+        <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
+          href="galerias.html">GALERÍAS</a>
+        <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
+          href="pantallas-led.html">PANTALLAS LED</a>
       </div>
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-4">
         <a href="index.html#contacto"
-          class="hidden lg:flex bg-primary-container text-white px-6 py-2 rounded-full font-bold text-sm tracking-wide hover:scale-105 transition-transform active:scale-95 shadow-lg shadow-primary-container/30">
-          CONTACTO
+          class="hidden lg:flex bg-primary-container text-white px-8 py-3 rounded-xl font-black text-sm tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary-container/30">
+          COTIZAR
         </a>
-        <button
-          class="menu-toggle lg:hidden p-2 text-slate-800 bg-slate-100 hover:bg-slate-200 transition-colors rounded-full flex items-center justify-center h-10 w-10">
+        <button class="menu-toggle lg:hidden p-2 text-slate-800 bg-slate-100 rounded-xl">
           <span class="material-symbols-outlined">menu</span>
         </button>
       </div>
@@ -220,17 +252,15 @@
 
     <!-- Mobile Menu Dropdown -->
     <div
-      class="mobile-menu absolute top-0 left-0 w-full bg-white/95 backdrop-blur-3xl rounded-3xl shadow-2xl border border-slate-100 pt-20 pb-6 px-6 flex flex-col gap-4 font-headline z-10 transition-all duration-300 opacity-0 pointer-events-none -translate-y-8">
-      <a class="text-primary-container font-black text-xl border-b border-slate-100 pb-3" href="vallas.html">Vallas</a>
+      class="mobile-menu absolute top-full left-0 w-full mt-2 bg-white/95 backdrop-blur-3xl rounded-2xl shadow-2xl border border-slate-100 p-6 flex flex-col gap-4 font-headline z-50 transition-all duration-300 opacity-0 pointer-events-none -translate-y-4">
+      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="vallas.html">Vallas</a>
       <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="banderolas.html">Banderolas</a>
       <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="galerias.html">Galerías</a>
       <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="pantallas-led.html">Pantallas
         LED</a>
-      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="index.html#soluciones">Avisos
-        Corpóreos</a>
       <a href="index.html#contacto"
-        class="bg-primary-container text-center text-white px-6 py-4 rounded-xl font-bold text-sm tracking-widest mt-2 uppercase shadow-md shadow-primary-container/40">
-        Contacto
+        class="bg-primary-container text-center text-white px-6 py-4 rounded-xl font-black tracking-widest text-sm uppercase">
+        COTIZAR
       </a>
     </div>
   </nav>
@@ -267,24 +297,27 @@
         <span class="text-gradient-secondary">Alto Impacto</span>
       </h1>
       <p class="text-xl md:text-2xl text-white/70 max-w-2xl leading-relaxed animate-fade-up delay-2 font-medium">
-        Dominamos las principales arterias viales de Venezuela con estructuras monumentales diseñadas para que tu marca sea el centro de atención.
+        Dominamos las principales arterias viales de Venezuela con estructuras monumentales diseñadas para que tu marca
+        sea el centro de atención.
       </p>
 
       <div class="flex flex-wrap gap-6 mt-12 animate-fade-up delay-3">
         <div class="flex items-center gap-4 glass-card px-8 py-4 rounded-2xl group transition-all hover:bg-white/10">
-          <span class="material-symbols-outlined text-primary-container text-3xl group-hover:rotate-12 transition-transform">location_on</span>
+          <span
+            class="material-symbols-outlined text-primary-container text-3xl group-hover:rotate-12 transition-transform">location_on</span>
           <span class="text-white font-bold text-lg">Presencia Nacional</span>
         </div>
         <div class="flex items-center gap-4 glass-card px-8 py-4 rounded-2xl group transition-all hover:bg-white/10">
-          <span class="material-symbols-outlined text-secondary text-3xl group-hover:scale-125 transition-transform">visibility</span>
-          <span class="text-white font-bold text-lg">Impacto Millonario</span>
+          <span
+            class="material-symbols-outlined text-secondary text-3xl group-hover:scale-125 transition-transform">visibility</span>
+          <span class="text-white font-bold text-lg">Impacto Inmediato</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ═══ COBERTURA ═══ -->
-  <section class="py-24 bg-white">
+  <section class="py-24 bg-slate-50">
     <div class="max-w-7xl mx-auto px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         <div class="space-y-8">
@@ -322,7 +355,7 @@
           </div>
           <!-- Stats Float -->
           <div
-            class="absolute -bottom-6 -left-6 bg-white border border-slate-100 shadow-2xl rounded-2xl p-6 hidden md:block">
+            class="absolute -bottom-6 -left-6 bg-slate-50 border border-slate-100 shadow-2xl rounded-2xl p-6 hidden md:block">
             <div class="flex items-center gap-4">
               <div
                 class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/30">
@@ -379,7 +412,7 @@
 
         <!-- Giant Format Illustration -->
         <div class="lg:w-1/2 relative px-4">
-          <div class="gallery-wrap rounded-[2.5rem] overflow-hidden shadow-2xl aspect-video bg-white p-6">
+          <div class="gallery-wrap rounded-[2.5rem] overflow-hidden shadow-2xl aspect-video bg-slate-50 p-6">
             <img src="assets/vallas/medidas_valla.png" alt="Diagrama Técnico Valla Monumental 25x10m"
               class="w-full h-full object-contain img-premium" />
           </div>
@@ -389,7 +422,7 @@
   </section>
 
   <!-- ═══ MINI GALERÍA ═══ -->
-  <section class="py-24 bg-white">
+  <section class="py-24 bg-slate-50">
     <div class="max-w-7xl mx-auto px-8 text-center mb-16">
       <h2 class="headline text-4xl font-black text-on-surface">Proyectos <span class="text-primary">Recientes</span>
       </h2>
@@ -402,46 +435,27 @@
         <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
           <img src="assets/vallas/cm.png" alt="Proyecto Publicitario CM"
             class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-            <p class="text-white font-bold headline">Impacto Masivo</p>
-          </div>
         </div>
         <!-- Cafe Amanecer -->
         <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
           <img src="assets/vallas/cafeamanecer.png" alt="Valla Cafe Amanecer"
             class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-            <p class="text-white font-bold headline">Presencia Visual</p>
-          </div>
         </div>
         <!-- Amanecer -->
         <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
           <img src="assets/vallas/amanecer.png" alt="Valla al Amanecer"
             class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-            <p class="text-white font-bold headline">Visibilidad 24/7</p>
-          </div>
         </div>
         <!-- EPA -->
         <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
           <img src="assets/vallas/epa1.png" alt="Proyecto EPA"
             class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-            <p class="text-white font-bold headline">Retail Exterior</p>
-          </div>
         </div>
         <!-- Maturin -->
         <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
           <img src="assets/vallas/maturin.png" alt="Valla estratégica en Maturín"
             class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-            <p class="text-white font-bold headline">Cobertura Regional</p>
-          </div>
+
         </div>
       </div>
     </div>
@@ -470,7 +484,7 @@
   </section>
 
   <!-- ═══ FOOTER ═══ -->
-  <footer class="bg-white border-t border-slate-100">
+  <footer class="bg-slate-50 border-t border-slate-100">
     <div
       class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6 text-on-surface-variant font-medium">
       <div class="flex items-center gap-3">

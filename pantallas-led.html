@@ -1,633 +1,1411 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Pantallas LED | Innovando Publicidad Exterior</title>
-<meta name="description" content="Pantallas LED de alta definición en Av. Principal Los Ruices y Av. Principal Las Mercedes. Spots de 10 segundos, 576 exposiciones diarias, 17.280 repeticiones al mes."/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        "primary-container": "#2e5bff",
-        "primary": "#124af0",
-        "secondary": "#d70357",
-        "secondary-container": "#d70357",
-        "tertiary": "#00696d",
-        "on-surface": "#0f172a",
-        "on-surface-variant": "#475569",
-        "outline-variant": "#e2e8f0",
-        "outline": "#94a3b8",
-        "surface-variant": "#f1f5f9",
-      },
-      fontFamily: {
-        "headline": ["Space Grotesk"],
-        "body": ["Plus Jakarta Sans"],
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Pantallas LED | Innovando Publicidad Exterior</title>
+  <meta name="description"
+    content="Pantallas LED de alta definición en Av. Principal Los Ruices y Av. Principal Las Mercedes. Spots de 10 segundos, 576 exposiciones diarias, 17.280 repeticiones al mes." />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary-container": "#2e5bff",
+            "primary": "#124af0",
+            "secondary": "#d70357",
+            "secondary-container": "#d70357",
+            "tertiary": "#00696d",
+            "on-surface": "#0f172a",
+            "on-surface-variant": "#475569",
+            "outline-variant": "#e2e8f0",
+            "outline": "#94a3b8",
+            "surface-variant": "#f1f5f9",
+          },
+          fontFamily: {
+            "headline": ["Montserrat", "sans-serif"],
+            "body": ["Montserrat", "sans-serif"],
+          }
+        }
       }
     }
-  }
-}
-</script>
-<style>
-  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-  body { background-color: #f8fafc; color: #0f172a; font-family: 'Plus Jakarta Sans', sans-serif; }
-  .headline { font-family: 'Space Grotesk', sans-serif; }
-
-  /* Timeline dot */
-  .timeline-item { position: relative; padding-left: 2rem; }
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #94a3b8;
-    border: 2px solid #e2e8f0;
-  }
-  .timeline-item.active::before {
-    background: #2e5bff;
-    box-shadow: 0 0 0 4px rgba(46,91,255,0.15);
-    border-color: #2e5bff;
-  }
-  .timeline-item::after {
-    content: '';
-    position: absolute;
-    left: 5px;
-    top: calc(50% + 8px);
-    width: 2px;
-    height: calc(100% + 8px);
-    background: #e2e8f0;
-  }
-  .timeline-item:last-child::after { display: none; }
-
-  /* Spec card hover */
-  .spec-card { transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
-  .spec-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(46,91,255,0.12); }
-
-  /* Location photo card */
-  .loc-photo { transition: transform 0.6s cubic-bezier(0.4,0,0.2,1); }
-  .photo-wrap:hover .loc-photo { transform: scale(1.04); }
-
-  /* Stat counter cards */
-  .stat-card { background: linear-gradient(135deg, #2e5bff 0%, #124af0 100%); }
-
-  /* Scroll fade */
-  .scroll-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
-  .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
-
-  /* Animations */
-  @keyframes fadeInUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
-  @keyframes fadeInDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
-  .anim-up { opacity:0; animation: fadeInUp 0.7s ease forwards; }
-  .anim-down { animation: fadeInDown 0.7s ease both; }
-  .d0{animation-delay:0s} .d1{animation-delay:0.1s} .d2{animation-delay:0.2s}
-  .d3{animation-delay:0.3s} .d4{animation-delay:0.4s}
-
-  /* Glow pulse on stat numbers */
-  @keyframes pulse-glow { 0%,100%{text-shadow:0 0 0 rgba(46,91,255,0)} 50%{text-shadow:0 0 30px rgba(46,91,255,0.4)} }
-  .glow { animation: pulse-glow 3s ease infinite; }
-
-  @keyframes logo-float {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-8px) scale(1.02); }
-  }
-  
-  @keyframes logo-shine {
-    0% { left: -100%; opacity: 0; }
-    20% { opacity: 0.5; }
-    40% { left: 100%; opacity: 0; }
-    100% { left: 100%; opacity: 0; }
-  }
-
-  @keyframes logo-glow {
-    0%, 100% { box-shadow: 0 10px 30px -10px rgba(18, 74, 240, 0.2); }
-    50% { box-shadow: 0 20px 40px -5px rgba(18, 74, 240, 0.4); }
-  }
-
-  .logo-premium {
-    position: relative;
-    overflow: hidden;
-    animation: logo-float 6s ease-in-out infinite, logo-glow 4s ease-in-out infinite;
-  }
-
-  .logo-premium::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
-    transform: skewX(-25deg);
-    animation: logo-shine 8s infinite;
-  }
-
-  /* Stat divider */
-  .stat-sep { width: 1px; background: #e2e8f0; }
-
-  /* PLACEHOLDER STYLES */
-  img:not([alt*="Logo"]), picture, video, [style*="background-image"] { 
-    display: none !important; 
-    background-image: none !important;
-  }
-  .skeleton {
-    overflow: hidden !important;
-    background-color: #334155 !important;
-    border: 2px dashed rgba(255, 255, 255, 0.2) !important;
-    border-radius: inherit !important;
-    width: 100% !important;
-    height: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    min-height: 200px;
-  }
-  .skeleton::before {
-    content: "ESPACIO DE IMAGEN" !important;
-    color: rgba(255, 255, 255, 0.4) !important;
-    font-size: clamp(0.55rem, 2.5vw, 0.85rem) !important;
-    font-weight: 800 !important;
-    letter-spacing: 0.1em !important;
-    text-transform: uppercase !important;
-    z-index: 20 !important;
-    text-align: center !important;
-    padding: 10px !important;
-  }
-  @media (max-width: 768px) {
-    .skeleton {
-      min-height: 120px !important;
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
-  }
-</style>
+
+    body {
+      background-color: #f8fafc;
+      color: #0f172a;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .headline {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Timeline dot */
+    .timeline-item {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #94a3b8;
+      border: 2px solid #e2e8f0;
+    }
+
+    .timeline-item.active::before {
+      background: #2e5bff;
+      box-shadow: 0 0 0 4px rgba(46, 91, 255, 0.15);
+      border-color: #2e5bff;
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: calc(50% + 8px);
+      width: 2px;
+      height: calc(100% + 8px);
+      background: #e2e8f0;
+    }
+
+    .timeline-item:last-child::after {
+      display: none;
+    }
+
+    /* Spec card hover */
+    .spec-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .spec-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(46, 91, 255, 0.12);
+    }
+
+    /* Location photo card */
+    .loc-photo {
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .photo-wrap:hover .loc-photo {
+      transform: scale(1.04);
+    }
+
+    /* Stat counter cards */
+    .stat-card {
+      background: linear-gradient(135deg, #2e5bff 0%, #124af0 100%);
+    }
+
+    /* Scroll fade */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .scroll-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .anim-up {
+      opacity: 0;
+      animation: fadeInUp 0.7s ease forwards;
+    }
+
+    .anim-down {
+      animation: fadeInDown 0.7s ease both;
+    }
+
+    .d0 {
+      animation-delay: 0s
+    }
+
+    .d1 {
+      animation-delay: 0.1s
+    }
+
+    .d2 {
+      animation-delay: 0.2s
+    }
+
+    .d3 {
+      animation-delay: 0.3s
+    }
+
+    .d4 {
+      animation-delay: 0.4s
+    }
+
+    /* Glow pulse on stat numbers */
+    @keyframes pulse-glow {
+
+      0%,
+      100% {
+        text-shadow: 0 0 0 rgba(46, 91, 255, 0)
+      }
+
+      50% {
+        text-shadow: 0 0 30px rgba(46, 91, 255, 0.4)
+      }
+    }
+
+    .glow {
+      animation: pulse-glow 3s ease infinite;
+    }
+
+    @keyframes logo-float {
+
+      0%,
+      100% {
+        transform: translateY(0) scale(1);
+      }
+
+      50% {
+        transform: translateY(-8px) scale(1.02);
+      }
+    }
+
+    @keyframes logo-shine {
+      0% {
+        left: -100%;
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 0.5;
+      }
+
+      40% {
+        left: 100%;
+        opacity: 0;
+      }
+
+      100% {
+        left: 100%;
+        opacity: 0;
+      }
+    }
+
+    @keyframes logo-glow {
+
+      0%,
+      100% {
+        box-shadow: 0 10px 30px -10px rgba(18, 74, 240, 0.2);
+      }
+
+      50% {
+        box-shadow: 0 20px 40px -5px rgba(18, 74, 240, 0.4);
+      }
+    }
+
+    .logo-premium {
+      position: relative;
+      overflow: hidden;
+      animation: logo-float 6s ease-in-out infinite, logo-glow 4s ease-in-out infinite;
+    }
+
+    .logo-premium::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transform: skewX(-25deg);
+      animation: logo-shine 8s infinite;
+    }
+
+    /* Stat divider */
+    .stat-sep {
+      width: 1px;
+      background: #e2e8f0;
+    }
+
+
+
+    .skeleton {
+      overflow: hidden !important;
+      background-color: #334155 !important;
+      border: 2px dashed rgba(255, 255, 255, 0.2) !important;
+      border-radius: inherit !important;
+      width: 100% !important;
+      height: 100% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      min-height: 200px;
+    }
+
+    .skeleton::before {
+      content: "ESPACIO DE IMAGEN" !important;
+      color: rgba(255, 255, 255, 0.4) !important;
+      font-size: clamp(0.55rem, 2.5vw, 0.85rem) !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.1em !important;
+      text-transform: uppercase !important;
+      z-index: 20 !important;
+      text-align: center !important;
+      padding: 10px !important;
+    }
+
+    @media (max-width: 768px) {
+      .skeleton {
+        min-height: 120px !important;
+      }
+    }
+
+    /* Glass card */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    /* Premium Image Enhancement */
+    .img-premium {
+      filter: brightness(1.02) contrast(1.05) saturate(1.05);
+      image-rendering: -webkit-optimize-contrast;
+    }
+  </style>
 </head>
+
 <body class="selection:bg-primary-container selection:text-white">
 
-<!-- ═══ NAV ═══ -->
-<nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50">
-  <div class="rounded-full bg-white shadow-[0_8px_32px_0_rgba(15,23,42,0.10)] border border-slate-100 flex justify-between items-center px-5 md:px-8 py-3 relative z-20">
-    <a href="index.html" class="flex items-center gap-3">
-      <img alt="Innovando Logo" class="h-7 md:h-9 w-auto" src="logo_innovando.jpg"/>
-    </a>
-    <div class="hidden lg:flex items-center gap-6 font-headline">
-      <a class="text-slate-600 font-medium hover:text-primary-container transition-colors duration-200 text-sm" href="index.html#soluciones">Vallas</a>
-      <a class="text-slate-600 font-medium hover:text-primary-container transition-colors duration-200 text-sm" href="banderolas.html">Banderolas</a>
-      <a class="text-slate-600 font-medium hover:text-primary-container transition-colors duration-200 text-sm" href="galerias.html">Galerías</a>
-      <a class="text-primary-container font-bold border-b-2 border-primary-container pb-0.5 text-sm" href="#">Pantallas LED</a>
-      <a class="text-slate-600 font-medium hover:text-primary-container transition-colors duration-200 text-sm" href="index.html#soluciones">Avisos Corpóreos</a>
-    </div>
-    <div class="flex items-center gap-2">
-      <a href="index.html#contacto" class="hidden lg:flex bg-primary-container text-white px-6 py-2 rounded-full font-bold text-sm tracking-wide hover:scale-105 transition-transform active:scale-95 shadow-lg shadow-blue-500/30">
-        CONTACTO
+  <!-- ═══ NAV ═══ -->
+  <nav class="absolute top-0 lg:fixed lg:top-6 left-1/2 -translate-x-1/2 w-full lg:w-[90%] max-w-7xl z-50">
+    <div
+      class="bg-white/95 lg:bg-white rounded-none lg:rounded-2xl px-6 md:px-10 py-4 flex justify-between items-center relative shadow-2xl border-b lg:border border-slate-100 backdrop-blur-md">
+      <a href="index.html" class="flex items-center gap-3">
+        <img alt="Innovando Logo" class="h-8 md:h-10 w-auto" src="logo_innovando.jpg" />
       </a>
-      <button class="menu-toggle lg:hidden p-2 text-slate-800 bg-slate-100 hover:bg-slate-200 transition-colors rounded-full flex items-center justify-center h-10 w-10">
-        <span class="material-symbols-outlined">menu</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- Mobile Menu Dropdown -->
-  <div class="mobile-menu absolute top-0 left-0 w-full bg-white/95 backdrop-blur-3xl rounded-3xl shadow-2xl border border-slate-100 pt-20 pb-6 px-6 flex flex-col gap-4 font-headline z-10 transition-all duration-300 opacity-0 pointer-events-none -translate-y-8">
-    <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="index.html#soluciones">Vallas</a>
-    <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="banderolas.html">Banderolas</a>
-    <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="galerias.html">Galerías</a>
-    <a class="text-primary-container font-black text-xl border-b border-slate-100 pb-3" href="#">Pantallas LED</a>
-    <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="index.html#soluciones">Avisos Corpóreos</a>
-    <a href="index.html#contacto" class="bg-primary-container text-center text-white px-6 py-4 rounded-xl font-bold text-sm tracking-widest mt-2 uppercase shadow-md shadow-blue-500/40">
-      Contacto
-    </a>
-  </div>
-</nav>
-
-<!-- ═══ HERO ═══ -->
-<section class="relative min-h-[88vh] flex items-end pb-20 pt-36 overflow-hidden">
-  <div class="absolute inset-0 z-0 skeleton">
-    <img src="assets/pantallas_led_hero.png" alt="Pantalla LED Innovando" class="w-full h-full object-cover"/>
-    <div class="absolute inset-0 bg-gradient-to-r from-[#060b18]/92 via-[#0f172a]/65 to-[#0f172a]/20"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-[#060b18]/80 via-transparent to-transparent"></div>
-  </div>
-  <div class="absolute top-1/3 right-0 w-[500px] h-[500px] bg-primary-container/20 rounded-full blur-[130px] pointer-events-none z-0"></div>
-
-  <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
-    <!-- Breadcrumb -->
-    <div class="flex items-center gap-2 text-white/50 text-xs uppercase tracking-widest font-bold mb-8 anim-down">
-      <a href="index.html" class="hover:text-white transition-colors">Inicio</a>
-      <span class="material-symbols-outlined text-base">chevron_right</span>
-      <span class="text-white/70">Servicios</span>
-      <span class="material-symbols-outlined text-base">chevron_right</span>
-      <span class="text-secondary font-bold">Pantallas LED</span>
-    </div>
-
-    <div class="max-w-3xl">
-      <div class="mb-6 inline-flex shadow-2xl shadow-black/30 bg-white border border-white/20 p-5 md:p-6 rounded-3xl anim-up logo-premium">
-        <img src="logo_innovando.jpg" alt="Innovando Logo Hero" class="h-20 md:h-32 w-auto rounded-md relative z-10"/>
+      <div class="hidden lg:flex items-center gap-10 font-headline">
+        <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
+          href="vallas.html">VALLAS</a>
+        <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
+          href="banderolas.html">BANDEROLAS</a>
+        <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
+          href="galerias.html">GALERÍAS</a>
+        <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
+          href="#">PANTALLAS LED</a>
       </div>
+      <div class="flex items-center gap-4">
+        <a href="index.html#contacto"
+          class="hidden lg:flex bg-primary-container text-white px-8 py-3 rounded-xl font-black text-sm tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary-container/30">
+          COTIZAR
+        </a>
+        <button class="menu-toggle lg:hidden p-2 text-slate-800 bg-slate-100 rounded-xl">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div
+      class="mobile-menu absolute top-full left-0 w-full mt-2 bg-white/95 backdrop-blur-3xl rounded-2xl shadow-2xl border border-slate-100 p-6 flex flex-col gap-4 font-headline z-50 transition-all duration-300 opacity-0 pointer-events-none -translate-y-4">
+      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="vallas.html">Vallas</a>
+      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="banderolas.html">Banderolas</a>
+      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="galerias.html">Galerías</a>
+      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="#">Pantallas LED</a>
+      <a href="index.html#contacto"
+        class="bg-primary-container text-center text-white px-6 py-4 rounded-xl font-black tracking-widest text-sm uppercase">
+        COTIZAR
+      </a>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="relative min-h-[90vh] flex items-end pb-20 pt-32 overflow-hidden mesh-bg">
+    <div class="absolute inset-0 z-0">
+      <img src="assets/pantallas_led_hero.png" alt="Pantalla LED Innovando"
+        class="w-full h-full object-cover img-premium" />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0f172a]/95 via-[#0f172a]/60 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 via-transparent to-transparent"></div>
+    </div>
+
+    <!-- Watermark logo -->
+    <div
+      class="absolute bottom-12 right-12 z-10 hidden lg:flex flex-col items-end opacity-30 hover:opacity-80 transition-all duration-1000 transform scale-90">
+      <img src="logo_innovando.jpg" alt="Innovando Identity"
+        class="h-14 w-auto grayscale invert brightness-200 contrast-200 mix-blend-screen opacity-80">
+      <div class="mt-2 h-px w-24 bg-gradient-to-l from-white/40 to-transparent"></div>
+      <p class="text-[9px] text-white/40 uppercase tracking-[0.5em] mt-2 font-medium">Líderes en Publicidad</p>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-8 relative z-10 w-full">
       <div class="block">
-        <span class="inline-flex items-center gap-2 text-secondary font-bold tracking-widest text-xs uppercase py-1.5 px-4 bg-secondary/15 border border-secondary/30 rounded-full headline mb-6 anim-up d0">
-          <span class="w-2 h-2 bg-secondary rounded-full inline-block animate-pulse"></span>
+        <span
+          class="inline-flex items-center gap-2 text-primary-container font-extrabold tracking-widest text-xs uppercase py-1.5 px-4 bg-primary/10 border border-primary/25 rounded-full headline mb-6 animate-fade-up">
+          <span class="w-2 h-2 bg-primary-container rounded-full inline-block animate-pulse"></span>
           ALTA DEFINICIÓN · HDTV · 24/7
         </span>
       </div>
-      <h1 class="headline text-6xl md:text-8xl font-bold leading-none tracking-tighter text-white mb-6 anim-up d1">
-        Pantallas<br/>
-        <span class="text-primary-container">LED</span>
+      <h1
+        class="headline text-6xl md:text-9xl font-black leading-none tracking-tighter text-white mb-8 animate-fade-up delay-1">
+        <span class="text-gradient">Pantallas LED</span> <br>
+        <span class="text-gradient-secondary">de Alto Impacto</span>
       </h1>
-      <p class="text-xl text-white/75 max-w-xl leading-relaxed anim-up d2">
-        Pantallas de alta definición en las avenidas más estratégicas de Caracas. Spots de 10 segundos, rotación continua las 24 horas, máximo impacto visual.
+      <p class="text-xl md:text-2xl text-white/70 max-w-2xl leading-relaxed animate-fade-up delay-2 font-medium">
+        Pantallas de alta definición en las avenidas más estratégicas de Caracas. Spots de 10 segundos, rotación
+        continua las 24 horas, máximo impacto visual.
       </p>
-      <div class="flex flex-wrap gap-4 mt-10 anim-up d3">
-        <a href="index.html#contacto" class="bg-primary-container text-white px-8 py-4 rounded-xl font-bold uppercase tracking-wider shadow-xl shadow-blue-600/30 hover:scale-105 transition-all">
-          Solicitar información
-        </a>
-        <a href="#beneficios" class="bg-white/10 border border-white/20 backdrop-blur-md px-8 py-4 rounded-xl font-bold uppercase tracking-wider text-white hover:bg-white/20 transition-all">
-          Ver beneficios
-        </a>
-      </div>
-    </div>
 
-    <!-- Key stats -->
-    <div class="flex flex-wrap items-center gap-10 mt-16 anim-up d4">
-      <div>
-        <div class="headline text-4xl font-black text-white glow">576</div>
-        <div class="text-xs uppercase tracking-widest text-white/50 mt-1">Exposiciones al día</div>
-      </div>
-      <div class="stat-sep h-12 hidden sm:block"></div>
-      <div>
-        <div class="headline text-4xl font-black text-white">17.280</div>
-        <div class="text-xs uppercase tracking-widest text-white/50 mt-1">Repeticiones al mes</div>
-      </div>
-      <div class="stat-sep h-12 hidden sm:block"></div>
-      <div>
-        <div class="headline text-4xl font-black text-white">10s</div>
-        <div class="text-xs uppercase tracking-widest text-white/50 mt-1">Spot publicitario</div>
-      </div>
-      <div class="stat-sep h-12 hidden sm:block"></div>
-      <div>
-        <div class="headline text-4xl font-black text-white">24/7</div>
-        <div class="text-xs uppercase tracking-widest text-white/50 mt-1">Exposición continua</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ BENEFICIOS ═══ -->
-<section class="py-24 bg-white" id="beneficios">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16 scroll-reveal">
-      <span class="text-secondary font-bold text-xs uppercase tracking-widest block mb-3 headline">Servicios de publicidad rotativos</span>
-      <h2 class="headline text-4xl md:text-5xl font-bold text-on-surface">Beneficios de las <span class="text-primary-container">Pantallas LED</span></h2>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-12 scroll-reveal">
-
-      <!-- Left column -->
-      <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200 space-y-6">
-        <h3 class="headline text-lg font-bold text-on-surface uppercase tracking-wider mb-8 flex items-center gap-3">
-          <span class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center">
-            <span class="material-symbols-outlined text-white text-base" style="font-variation-settings:'FILL' 1">timer</span>
-          </span>
-          Rendimiento del formato
-        </h3>
-
-        <div class="space-y-5">
-          <div class="timeline-item flex items-center gap-4 py-3">
-            <span class="material-symbols-outlined text-on-surface-variant text-xl">play_circle</span>
-            <span class="font-semibold text-on-surface">Spot publicitarios de <strong class="text-primary-container">10 segundos</strong></span>
-          </div>
-          <div class="timeline-item active flex items-center gap-4 py-3">
-            <span class="material-symbols-outlined text-primary-container text-xl" style="font-variation-settings:'FILL' 1">schedule</span>
-            <span class="font-semibold text-on-surface"><strong class="text-primary-container">24 horas</strong> continúas de exposición</span>
-          </div>
-          <div class="timeline-item flex items-center gap-4 py-3">
-            <span class="material-symbols-outlined text-on-surface-variant text-xl">repeat</span>
-            <span class="font-semibold text-on-surface">Repetición: cada <strong class="text-primary-container">2 minutos y medio</strong></span>
-          </div>
-          <div class="timeline-item active flex items-center gap-4 py-3">
-            <span class="material-symbols-outlined text-primary-container text-xl" style="font-variation-settings:'FILL' 1">bar_chart</span>
-            <span class="font-semibold text-on-surface">Exposición al día: <strong class="text-primary-container">576</strong></span>
-          </div>
-          <div class="timeline-item flex items-center gap-4 py-3 pb-0">
-            <span class="material-symbols-outlined text-on-surface-variant text-xl">calendar_month</span>
-            <span class="font-semibold text-on-surface">Repeticiones al mes: <strong class="text-primary-container">17.280</strong></span>
-          </div>
+      <div class="flex flex-wrap gap-6 mt-12 animate-fade-up delay-3">
+        <div class="flex items-center gap-4 glass-card px-8 py-4 rounded-2xl group transition-all hover:bg-white/10">
+          <span
+            class="material-symbols-outlined text-primary-container text-3xl group-hover:rotate-12 transition-transform">monitor</span>
+          <span class="text-white font-bold text-lg">Alta Definición HDTV</span>
         </div>
-      </div>
-
-      <!-- Right column -->
-      <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200 space-y-6">
-        <h3 class="headline text-lg font-bold text-on-surface uppercase tracking-wider mb-8 flex items-center gap-3">
-          <span class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center">
-            <span class="material-symbols-outlined text-white text-base" style="font-variation-settings:'FILL' 1">star</span>
-          </span>
-          Ventajas exclusivas
-        </h3>
-
-        <div class="space-y-5">
-          <div class="timeline-item flex items-center gap-4 py-3">
-            <span class="material-symbols-outlined text-on-surface-variant text-xl">play_circle</span>
-            <span class="font-semibold text-on-surface">Spot publicitarios de <strong class="text-secondary">10 segundos</strong></span>
-          </div>
-          <div class="timeline-item active flex items-center gap-4 py-3">
-            <span class="material-symbols-outlined text-primary-container text-xl" style="font-variation-settings:'FILL' 1">verified</span>
-            <div>
-              <span class="font-semibold text-on-surface">Exclusividad en la categoría</span>
-              <span class="block text-xs text-on-surface-variant mt-0.5">(*) Ciertas condiciones aplican</span>
-            </div>
-          </div>
-          <div class="timeline-item flex items-center gap-4 py-3">
-            <span class="material-symbols-outlined text-on-surface-variant text-xl">location_on</span>
-            <span class="font-semibold text-on-surface">Ubicación <strong class="text-secondary">privilegiada y estratégica</strong></span>
-          </div>
-          <div class="timeline-item active flex items-center gap-4 py-3 pb-0">
-            <span class="material-symbols-outlined text-primary-container text-xl" style="font-variation-settings:'FILL' 1">group</span>
-            <span class="font-semibold text-on-surface">Sólo <strong class="text-secondary">15 clientes exclusivos</strong></span>
-          </div>
+        <div class="flex items-center gap-4 glass-card px-8 py-4 rounded-2xl group transition-all hover:bg-white/10">
+          <span
+            class="material-symbols-outlined text-secondary text-3xl group-hover:scale-125 transition-transform">bolt</span>
+          <span class="text-white font-bold text-lg">Impacto 24/7</span>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Big stat blocks -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 scroll-reveal">
-      <div class="stat-card rounded-3xl p-6 text-center">
-        <div class="headline text-5xl font-black text-white mb-2">576</div>
-        <div class="text-white/70 text-xs uppercase tracking-widest font-bold">Exposiciones / día</div>
+  <!-- ═══ PANTALLA LED ANIMADA ═══ -->
+  <section class="py-24 bg-[#080c14] relative overflow-hidden" id="pantalla-demo">
+
+    <!-- Background ambient glow -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-primary-container/10 rounded-full blur-[120px]">
       </div>
-      <div class="stat-card rounded-3xl p-6 text-center" style="background: linear-gradient(135deg, #d70357 0%, #a80243 100%);">
-        <div class="headline text-5xl font-black text-white mb-2">17K</div>
-        <div class="text-white/70 text-xs uppercase tracking-widest font-bold">Repeticiones / mes</div>
-      </div>
-      <div class="stat-card rounded-3xl p-6 text-center">
-        <div class="headline text-5xl font-black text-white mb-2">10s</div>
-        <div class="text-white/70 text-xs uppercase tracking-widest font-bold">Duración del spot</div>
-      </div>
-      <div class="bg-on-surface rounded-3xl p-6 text-center">
-        <div class="headline text-5xl font-black text-white mb-2">15</div>
-        <div class="text-white/70 text-xs uppercase tracking-widest font-bold">Cupos exclusivos</div>
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-[80px]">
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ═══ ESPECIFICACIONES TÉCNICAS ═══ -->
-<section class="py-24 bg-on-surface relative overflow-hidden">
-  <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-container/10 rounded-full blur-[140px]"></div>
-  </div>
-  <div class="max-w-7xl mx-auto px-6 relative z-10">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
+    <style>
+      /* LED Screen Core */
+      .led-billboard {
+        position: relative;
+        width: 100%;
+        max-width: 900px;
+        aspect-ratio: 16/9;
+        background: #000;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow:
+          0 0 0 4px #1a1a2e,
+          0 0 0 8px #0d0d1a,
+          0 0 60px rgba(46, 91, 255, 0.5),
+          0 0 120px rgba(46, 91, 255, 0.25),
+          0 40px 80px rgba(0, 0, 0, 0.8);
+      }
 
-      <!-- Left: Specs -->
-      <div class="scroll-reveal">
-        <span class="text-secondary font-bold text-xs uppercase tracking-widest block mb-4 headline">Video specs</span>
-        <h2 class="headline text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
-          Especificaciones de<br/><span class="text-primary-container">Formato de Video</span>
-        </h2>
-        <p class="text-white/60 mb-10">Pantalla Los Ruices · Av. Principal Los Ruices, diagonal a EPA</p>
+      /* LED Pixel grid overlay */
+      .led-billboard::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.15) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.15) 1px, transparent 1px);
+        background-size: 4px 4px;
+        z-index: 10;
+        pointer-events: none;
+      }
 
-        <div class="space-y-4">
-          <!-- Spec 1 -->
-          <div class="spec-card bg-white/5 border border-white/10 rounded-2xl px-6 py-5 flex items-center gap-5">
-            <div class="w-12 h-12 rounded-xl bg-primary-container/20 border border-primary-container/30 flex items-center justify-center flex-shrink-0">
-              <span class="material-symbols-outlined text-primary-container text-2xl">straighten</span>
-            </div>
-            <div>
-              <div class="text-white/50 text-xs uppercase tracking-widest font-bold mb-1">Tamaño</div>
-              <div class="headline text-xl font-bold text-white">6 m × 3 m</div>
-            </div>
-            <div class="ml-auto headline text-3xl font-black text-white/10">01</div>
-          </div>
+      /* Scanline effect */
+      .led-billboard::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.08) 2px,
+            rgba(0, 0, 0, 0.08) 4px);
+        z-index: 11;
+        pointer-events: none;
+        animation: scanlines 8s linear infinite;
+      }
 
-          <!-- Spec 2 -->
-          <div class="spec-card bg-white/5 border border-white/10 rounded-2xl px-6 py-5 flex items-center gap-5">
-            <div class="w-12 h-12 rounded-xl bg-secondary/20 border border-secondary/30 flex items-center justify-center flex-shrink-0">
-              <span class="material-symbols-outlined text-secondary text-2xl">hd</span>
-            </div>
-            <div>
-              <div class="text-white/50 text-xs uppercase tracking-widest font-bold mb-1">Resolución</div>
-              <div class="headline text-xl font-bold text-white">1920 × 1080 px <span class="text-secondary text-sm font-normal">(HDTV)</span></div>
-            </div>
-            <div class="ml-auto headline text-3xl font-black text-white/10">02</div>
-          </div>
+      @keyframes scanlines {
+        0% {
+          background-position: 0 0;
+        }
 
-          <!-- Spec 3 -->
-          <div class="spec-card bg-white/5 border border-white/10 rounded-2xl px-6 py-5 flex items-center gap-5">
-            <div class="w-12 h-12 rounded-xl bg-primary-container/20 border border-primary-container/30 flex items-center justify-center flex-shrink-0">
-              <span class="material-symbols-outlined text-primary-container text-2xl">aspect_ratio</span>
-            </div>
-            <div>
-              <div class="text-white/50 text-xs uppercase tracking-widest font-bold mb-1">Proporción de aspecto</div>
-              <div class="headline text-xl font-bold text-white">16:9</div>
-            </div>
-            <div class="ml-auto headline text-3xl font-black text-white/10">03</div>
-          </div>
+        100% {
+          background-position: 0 100px;
+        }
+      }
 
-          <!-- Spec 4 -->
-          <div class="spec-card bg-primary-container/10 border border-primary-container/30 rounded-2xl px-6 py-5 flex items-center gap-5">
-            <div class="w-12 h-12 rounded-xl bg-primary-container/30 border border-primary-container/50 flex items-center justify-center flex-shrink-0">
-              <span class="material-symbols-outlined text-white text-2xl" style="font-variation-settings:'FILL' 1">video_file</span>
-            </div>
-            <div>
-              <div class="text-white/50 text-xs uppercase tracking-widest font-bold mb-1">Formato</div>
-              <div class="headline text-xl font-bold text-white">MP4</div>
-            </div>
-            <div class="ml-auto headline text-3xl font-black text-primary-container/30">04</div>
-          </div>
-        </div>
+      /* Slide system */
+      .led-slide {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.8s ease;
+        z-index: 2;
+      }
+
+      .led-slide.active {
+        opacity: 1;
+      }
+
+      /* Slide 1: Brand Identity */
+      .slide-brand {
+        background: radial-gradient(ellipse at 50% 50%, #0f1e4a 0%, #060d20 60%, #000 100%);
+      }
+
+      .led-logo-wrap {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        z-index: 5;
+      }
+
+      .led-logo-img {
+        height: clamp(60px, 10vw, 120px);
+        width: auto;
+        filter: drop-shadow(0 0 20px rgba(46, 91, 255, 0.8)) drop-shadow(0 0 40px rgba(46, 91, 255, 0.4)) brightness(1.2);
+        animation: led-logo-pulse 2s ease-in-out infinite;
+      }
+
+      @keyframes led-logo-pulse {
+
+        0%,
+        100% {
+          filter: drop-shadow(0 0 20px rgba(46, 91, 255, 0.8)) drop-shadow(0 0 40px rgba(46, 91, 255, 0.4)) brightness(1.2);
+          transform: scale(1);
+        }
+
+        50% {
+          filter: drop-shadow(0 0 35px rgba(46, 91, 255, 1)) drop-shadow(0 0 70px rgba(46, 91, 255, 0.6)) drop-shadow(0 0 100px rgba(215, 3, 87, 0.3)) brightness(1.35);
+          transform: scale(1.03);
+        }
+      }
+
+      .led-tagline {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+        font-size: clamp(10px, 2vw, 22px);
+        letter-spacing: 0.4em;
+        text-transform: uppercase;
+        color: #fff;
+        text-shadow: 0 0 15px rgba(46, 91, 255, 0.9), 0 0 30px rgba(46, 91, 255, 0.5);
+        animation: text-flicker 4s ease-in-out infinite;
+      }
+
+      @keyframes text-flicker {
+
+        0%,
+        90%,
+        100% {
+          opacity: 1;
+        }
+
+        92% {
+          opacity: 0.85;
+        }
+
+        94% {
+          opacity: 1;
+        }
+
+        96% {
+          opacity: 0.9;
+        }
+      }
+
+      /* Orbiting rings around logo */
+      .led-orbit {
+        position: absolute;
+        border-radius: 50%;
+        border: 1px solid rgba(46, 91, 255, 0.3);
+        animation: led-orbit-spin 8s linear infinite;
+      }
+
+      .led-orbit-2 {
+        animation-duration: 12s;
+        animation-direction: reverse;
+        border-color: rgba(215, 3, 87, 0.2);
+      }
+
+      @keyframes led-orbit-spin {
+        from {
+          transform: rotate(0deg);
+        }
+
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .led-orbit-dot {
+        position: absolute;
+        top: -3px;
+        left: 50%;
+        width: 6px;
+        height: 6px;
+        background: #2e5bff;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #2e5bff;
+        transform: translateX(-50%);
+      }
+
+      /* Slide 2: Stats Showcase */
+      .slide-stats {
+        background: linear-gradient(135deg, #0a0f2a 0%, #050810 50%, #0a0620 100%);
+      }
+
+      .led-stat-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: clamp(8px, 2vw, 24px);
+        padding: clamp(12px, 3vw, 40px);
+        width: 100%;
+        height: 100%;
+      }
+
+      .led-stat-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 12px;
+        padding: clamp(8px, 1.5vw, 20px);
+        position: relative;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.02);
+        animation: card-glow-in 0.6s ease both;
+      }
+
+      .led-stat-card:nth-child(1) {
+        animation-delay: 0.1s;
+        border-color: rgba(46, 91, 255, 0.3);
+      }
+
+      .led-stat-card:nth-child(2) {
+        animation-delay: 0.2s;
+        border-color: rgba(215, 3, 87, 0.3);
+      }
+
+      .led-stat-card:nth-child(3) {
+        animation-delay: 0.3s;
+        border-color: rgba(46, 91, 255, 0.3);
+      }
+
+      .led-stat-card:nth-child(4) {
+        animation-delay: 0.4s;
+        border-color: rgba(215, 3, 87, 0.3);
+      }
+
+      @keyframes card-glow-in {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .led-stat-number {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+        font-size: clamp(20px, 4.5vw, 52px);
+        line-height: 1;
+        color: #fff;
+      }
+
+      .led-stat-card:nth-child(1) .led-stat-number,
+      .led-stat-card:nth-child(3) .led-stat-number {
+        text-shadow: 0 0 20px rgba(46, 91, 255, 1), 0 0 40px rgba(46, 91, 255, 0.5);
+      }
+
+      .led-stat-card:nth-child(2) .led-stat-number,
+      .led-stat-card:nth-child(4) .led-stat-number {
+        text-shadow: 0 0 20px rgba(215, 3, 87, 1), 0 0 40px rgba(215, 3, 87, 0.5);
+      }
+
+      .led-stat-label {
+        font-family: 'Montserrat', sans-serif;
+        font-size: clamp(6px, 1vw, 11px);
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+        margin-top: 4px;
+        text-align: center;
+      }
+
+      /* Slide 3: Cinematic text */
+      .slide-cinematic {
+        background: #000;
+        overflow: hidden;
+      }
+
+      .led-scan-line {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(46, 91, 255, 0.8), rgba(215, 3, 87, 0.8), transparent);
+        animation: scan-sweep 3s ease-in-out infinite;
+        box-shadow: 0 0 20px rgba(46, 91, 255, 0.6);
+      }
+
+      @keyframes scan-sweep {
+        0% {
+          top: -2px;
+          opacity: 0;
+        }
+
+        10% {
+          opacity: 1;
+        }
+
+        90% {
+          opacity: 1;
+        }
+
+        100% {
+          top: 100%;
+          opacity: 0;
+        }
+      }
+
+      .led-big-text {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+        font-size: clamp(24px, 7vw, 90px);
+        line-height: 0.9;
+        text-transform: uppercase;
+        letter-spacing: -0.02em;
+        text-align: center;
+        color: #fff;
+        position: relative;
+        z-index: 5;
+      }
+
+      .led-big-text .line-blue {
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(46, 91, 255, 0.9);
+        text-shadow: 0 0 40px rgba(46, 91, 255, 0.6);
+        display: block;
+        animation: text-reveal 0.8s ease both;
+      }
+
+      .led-big-text .line-solid {
+        color: #fff;
+        text-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+        display: block;
+        animation: text-reveal 0.8s 0.3s ease both;
+      }
+
+      .led-big-text .line-red {
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(215, 3, 87, 0.9);
+        text-shadow: 0 0 40px rgba(215, 3, 87, 0.6);
+        display: block;
+        animation: text-reveal 0.8s 0.6s ease both;
+      }
+
+      @keyframes text-reveal {
+        from {
+          opacity: 0;
+          transform: translateY(20px) skewY(3deg);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0) skewY(0);
+        }
+      }
+
+      /* Corner markers (LED frame) */
+      .led-corner {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-color: rgba(46, 91, 255, 0.6);
+        border-style: solid;
+        z-index: 15;
+      }
+
+      .led-corner-tl {
+        top: 8px;
+        left: 8px;
+        border-width: 2px 0 0 2px;
+      }
+
+      .led-corner-tr {
+        top: 8px;
+        right: 8px;
+        border-width: 2px 2px 0 0;
+      }
+
+      .led-corner-bl {
+        bottom: 8px;
+        left: 8px;
+        border-width: 0 0 2px 2px;
+      }
+
+      .led-corner-br {
+        bottom: 8px;
+        right: 8px;
+        border-width: 0 2px 2px 0;
+      }
+
+      /* Live clock */
+      .led-clock {
+        position: absolute;
+        bottom: 10px;
+        right: 16px;
+        font-family: 'Montserrat', monospace;
+        font-size: clamp(8px, 1.2vw, 13px);
+        font-weight: 700;
+        color: rgba(46, 91, 255, 0.7);
+        letter-spacing: 0.1em;
+        z-index: 20;
+        text-shadow: 0 0 8px rgba(46, 91, 255, 0.5);
+      }
+
+      /* LIVE badge */
+      .led-live {
+        position: absolute;
+        top: 10px;
+        left: 14px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        z-index: 20;
+      }
+
+      .led-live-dot {
+        width: 6px;
+        height: 6px;
+        background: #d70357;
+        border-radius: 50%;
+        box-shadow: 0 0 8px #d70357;
+        animation: live-pulse 1s ease-in-out infinite;
+      }
+
+      @keyframes live-pulse {
+
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+
+        50% {
+          opacity: 0.5;
+          transform: scale(1.3);
+        }
+      }
+
+      .led-live-text {
+        font-family: 'Montserrat', sans-serif;
+        font-size: clamp(7px, 1vw, 11px);
+        font-weight: 900;
+        color: #d70357;
+        letter-spacing: 0.2em;
+        text-shadow: 0 0 8px rgba(215, 3, 87, 0.7);
+      }
+
+      /* Billboard stand */
+      .led-stand {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: -4px;
+      }
+
+      .led-stand-pole {
+        width: 6px;
+        height: clamp(30px, 5vw, 60px);
+        background: linear-gradient(180deg, #2a2a3a, #111);
+      }
+
+      .led-stand-base {
+        width: clamp(80px, 15vw, 160px);
+        height: clamp(8px, 1.5vw, 16px);
+        background: linear-gradient(90deg, #111, #2a2a3a, #111);
+        border-radius: 4px;
+      }
+
+      /* Progress dots */
+      .led-dots {
+        display: flex;
+        gap: 8px;
+        margin-top: 20px;
+      }
+
+      .led-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        transition: all 0.4s ease;
+        cursor: pointer;
+      }
+
+      .led-dot.active {
+        background: #2e5bff;
+        box-shadow: 0 0 10px rgba(46, 91, 255, 0.8);
+        transform: scale(1.3);
+      }
+
+      /* Billboard glow on floor */
+      .led-floor-glow {
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        height: 40px;
+        background: radial-gradient(ellipse, rgba(46, 91, 255, 0.3) 0%, transparent 70%);
+        filter: blur(15px);
+        pointer-events: none;
+      }
+    </style>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <!-- Header -->
+      <div class="text-center mb-16 scroll-reveal">
+        <span class="text-secondary font-bold text-xs uppercase tracking-widest block mb-3 headline">Experiencia
+          Visual</span>
+        <h2 class="headline text-4xl md:text-5xl font-bold text-white">Tu marca en una <span
+            class="text-primary-container">Pantalla LED</span></h2>
+        <p class="text-white/50 mt-4 text-lg max-w-xl mx-auto">Alta definición HDTV · 576 exposiciones diarias · Impacto
+          24/7</p>
       </div>
 
-      <!-- Right: Dimension visual -->
-      <div class="scroll-reveal flex flex-col items-center justify-center gap-8">
-        <div class="relative">
-          <!-- Screen mockup -->
-          <div class="w-72 h-40 rounded-2xl border-4 border-white/20 shadow-2xl shadow-primary-container/20 relative overflow-hidden" style="background: linear-gradient(135deg,#2e5bff,#d70357);">
-            <div class="absolute inset-0 flex items-center justify-center">
-              <span class="headline text-4xl font-black text-white tracking-tight">16:9</span>
-            </div>
-            <div class="absolute bottom-3 right-3 bg-white/20 backdrop-blur-sm rounded-lg px-2 py-1">
-              <span class="text-white text-xs font-bold">1920 × 1080</span>
-            </div>
-          </div>
-          <!-- Width label -->
-          <div class="flex items-center justify-between mt-3 text-white/50 text-xs font-bold uppercase tracking-widest">
-            <span>←</span><span class="text-primary-container">6 metros</span><span>→</span>
-          </div>
-          <!-- Height label -->
-          <div class="absolute -right-14 top-0 bottom-0 flex flex-col items-center justify-between py-1">
-            <span class="text-white/50 text-xs">↑</span>
-            <span class="text-primary-container text-xs font-bold uppercase tracking-widest [writing-mode:vertical-lr]">3 metros</span>
-            <span class="text-white/50 text-xs">↓</span>
-          </div>
-        </div>
+      <!-- LED Billboard -->
+      <div class="flex flex-col items-center scroll-reveal">
 
-        <!-- Format summary pills -->
-        <div class="flex flex-wrap gap-3 justify-center">
-          <div class="bg-white/10 border border-white/20 rounded-full px-4 py-2 text-white text-sm font-bold">📹 MP4</div>
-          <div class="bg-white/10 border border-white/20 rounded-full px-4 py-2 text-white text-sm font-bold">🖥 HDTV</div>
-          <div class="bg-white/10 border border-white/20 rounded-full px-4 py-2 text-white text-sm font-bold">📐 16:9</div>
-          <div class="bg-white/10 border border-white/20 rounded-full px-4 py-2 text-white text-sm font-bold">⏱ 10 seg</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="led-billboard w-full" id="led-display">
+          <!-- Corner markers -->
+          <div class="led-corner led-corner-tl"></div>
+          <div class="led-corner led-corner-tr"></div>
+          <div class="led-corner led-corner-bl"></div>
+          <div class="led-corner led-corner-br"></div>
 
-<!-- ═══ UBICACIONES ═══ -->
-<section class="py-24 bg-slate-50">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16 scroll-reveal">
-      <span class="text-secondary font-bold text-xs uppercase tracking-widest block mb-3 headline">Nuestras pantallas</span>
-      <h2 class="headline text-4xl md:text-5xl font-bold text-on-surface">Ubicaciones <span class="text-primary-container">estratégicas</span></h2>
-      <p class="text-on-surface-variant text-lg mt-4 max-w-2xl mx-auto">Dos puntos de máximo impacto en los corredores viales más transitados de Caracas.</p>
-    </div>
 
-    <div class="grid md:grid-cols-2 gap-8">
+          <!-- Clock -->
+          <div class="led-clock" id="led-clock">00:00:00</div>
 
-      <!-- Ubicación 1: Los Ruices -->
-      <div class="scroll-reveal bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden group">
-        <div class="photo-wrap h-64 overflow-hidden relative skeleton">
-          <img src="assets/pantallas_led_hero.png" alt="Pantalla LED Los Ruices" class="loc-photo w-full h-full object-cover"/>
-          <div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 via-transparent to-transparent"></div>
-          <div class="absolute bottom-4 left-4">
-            <span class="bg-primary-container text-white text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-full">LOS RUICES</span>
-          </div>
-        </div>
-        <div class="p-8">
-          <div class="flex items-start gap-4 mb-5">
-            <span class="material-symbols-outlined text-secondary text-4xl mt-1" style="font-variation-settings:'FILL' 1">location_on</span>
-            <div>
-              <h3 class="headline text-xl font-bold text-on-surface">Av. Principal Los Ruices</h3>
-              <p class="text-on-surface-variant mt-1">Diagonal a EPA · Pantalla tipo pórtico sobre la avenida</p>
+          <!-- SLIDE 1: Brand -->
+          <div class="led-slide slide-brand active" id="slide-0">
+            <div class="led-logo-wrap">
+              <img src="innovando1.png" alt="Innovando Logo" class="led-logo-img relative z-10" />
             </div>
           </div>
-          <div class="flex items-center gap-3 bg-slate-50 rounded-2xl px-4 py-3 border border-slate-200">
-            <span class="material-symbols-outlined text-tertiary text-xl">traffic</span>
-            <span class="text-sm text-on-surface-variant font-medium">Alto tráfico vehicular · Zona industrial y comercial</span>
-          </div>
-          <a href="index.html#contacto" class="mt-5 w-full flex items-center justify-center gap-2 text-primary-container font-bold text-sm hover:gap-3 transition-all group-hover:text-secondary">
-            Consultar disponibilidad <span class="material-symbols-outlined text-base">arrow_forward</span>
-          </a>
-        </div>
-      </div>
 
-      <!-- Ubicación 2: Las Mercedes -->
-      <div class="scroll-reveal bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden group">
-        <div class="photo-wrap h-64 overflow-hidden relative skeleton">
-          <img src="assets/pantallas_led_mercedes.png" alt="Pantalla LED Las Mercedes" class="loc-photo w-full h-full object-cover"/>
-          <div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 via-transparent to-transparent"></div>
-          <div class="absolute bottom-4 left-4">
-            <span class="bg-secondary text-white text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-full">LAS MERCEDES</span>
-          </div>
-        </div>
-        <div class="p-8">
-          <div class="flex items-start gap-4 mb-5">
-            <span class="material-symbols-outlined text-secondary text-4xl mt-1" style="font-variation-settings:'FILL' 1">location_on</span>
-            <div>
-              <h3 class="headline text-xl font-bold text-on-surface">Av. Principal Las Mercedes</h3>
-              <p class="text-on-surface-variant mt-1">Zona gastronómica y comercial premium de Caracas</p>
+          <!-- SLIDE 2: Cinematic Text -->
+          <div class="led-slide slide-cinematic" id="slide-1">
+            <div class="led-scan-line"></div>
+            <div class="led-big-text">
+              <span class="line-blue">Tu Marca</span>
+              <span class="line-solid">EN</span>
+              <span class="line-red">Pantalla LED</span>
             </div>
           </div>
-          <div class="flex items-center gap-3 bg-slate-50 rounded-2xl px-4 py-3 border border-slate-200">
-            <span class="material-symbols-outlined text-tertiary text-xl">traffic</span>
-            <span class="text-sm text-on-surface-variant font-medium">Alto poder adquisitivo · Audiencia calificada</span>
-          </div>
-          <a href="index.html#contacto" class="mt-5 w-full flex items-center justify-center gap-2 text-primary-container font-bold text-sm hover:gap-3 transition-all group-hover:text-secondary">
-            Consultar disponibilidad <span class="material-symbols-outlined text-base">arrow_forward</span>
-          </a>
         </div>
-      </div>
 
-    </div>
-  </div>
-</section>
+        <!-- Stand -->
+        <div class="led-stand">
+          <div class="led-stand-pole"></div>
+          <div class="led-stand-base"></div>
+        </div>
+        <div class="led-floor-glow"></div>
 
-<!-- ═══ CTA ═══ -->
-<section class="py-24 px-6">
-  <div class="max-w-5xl mx-auto scroll-reveal">
-    <div class="bg-gradient-to-br from-primary-container to-secondary-container rounded-[3rem] p-12 lg:p-20 relative overflow-hidden">
-      <div class="absolute inset-0 opacity-10" style="background-image:radial-gradient(circle at 30% 50%, rgba(255,255,255,0.3) 0%, transparent 60%), radial-gradient(circle at 70% 50%, rgba(255,255,255,0.2) 0%, transparent 60%)"></div>
-      <div class="relative z-10 text-center max-w-2xl mx-auto">
-        <span class="material-symbols-outlined text-white/50 text-5xl block mb-4" style="font-variation-settings:'FILL' 1">monitor</span>
-        <h2 class="headline text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tighter">
-          Solo quedan<br/><span class="text-white">15 cupos</span> disponibles
-        </h2>
-        <p class="text-white/75 text-lg mb-10 leading-relaxed">
-          La exclusividad es parte del valor. Asegura tu espacio en una de las pantallas LED más estratégicas de Caracas antes de que se agoten.
+        <!-- Navigation dots -->
+        <div class="led-dots" id="led-dots">
+          <div class="led-dot active" onclick="goToSlide(0)"></div>
+          <div class="led-dot" onclick="goToSlide(1)"></div>
+        </div>
+
+        <!-- Caption -->
+        <p class="text-white/30 text-xs uppercase tracking-widest mt-6 text-center font-bold">
+          Simulación de pantalla LED · Resolución real: 1920 × 1080 px · 6m × 3m
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="index.html#contacto" class="bg-white text-primary-container px-10 py-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:scale-105 transition-transform shadow-2xl">
-            Solicitar información
-          </a>
-          <a href="index.html" class="bg-white/15 border border-white/30 backdrop-blur-md text-white px-10 py-4 rounded-2xl font-bold text-sm uppercase tracking-widest hover:bg-white/25 transition-all">
-            Ver otros servicios
-          </a>
+      </div>
+    </div>
+
+    <script>
+      // LED Slideshow
+      let currentSlide = 0;
+      const totalSlides = 2;
+      let autoTimer;
+
+      function goToSlide(n) {
+        document.getElementById('slide-' + currentSlide).classList.remove('active');
+        document.querySelectorAll('.led-dot')[currentSlide].classList.remove('active');
+        currentSlide = n;
+        document.getElementById('slide-' + currentSlide).classList.add('active');
+        document.querySelectorAll('.led-dot')[currentSlide].classList.add('active');
+        clearInterval(autoTimer);
+        autoTimer = setInterval(nextSlide, 5000);
+      }
+
+      function nextSlide() { goToSlide((currentSlide + 1) % totalSlides); }
+      autoTimer = setInterval(nextSlide, 5000);
+
+      // Live clock
+      function updateClock() {
+        const now = new Date();
+        const t = [now.getHours(), now.getMinutes(), now.getSeconds()]
+          .map(v => String(v).padStart(2, '0')).join(':');
+        document.getElementById('led-clock').textContent = t;
+      }
+      updateClock();
+      setInterval(updateClock, 1000);
+    </script>
+  </section>
+
+  <!-- ═══ BENEFICIOS ═══ -->
+  <section class="py-24 bg-slate-50" id="beneficios">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 scroll-reveal">
+        <span class="text-secondary font-bold text-xs uppercase tracking-widest block mb-3 headline">Servicios de
+          publicidad rotativos</span>
+        <h2 class="headline text-4xl md:text-5xl font-bold text-on-surface">Beneficios de las <span
+            class="text-primary-container">Pantallas LED</span></h2>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-start scroll-reveal">
+
+        <!-- LEFT: Embedded LED Screen -->
+        <div class="relative flex flex-col items-center">
+          <div class="led-billboard w-full" id="led-display-b">
+            <!-- Corner markers -->
+            <div class="led-corner led-corner-tl"></div>
+            <div class="led-corner led-corner-tr"></div>
+            <div class="led-corner led-corner-bl"></div>
+            <div class="led-corner led-corner-br"></div>
+            <!-- Clock -->
+            <div class="led-clock" id="led-clock-b">00:00:00</div>
+            <!-- SLIDE 1: Brand -->
+            <div class="led-slide slide-brand active" id="slide-b-0">
+              <div class="led-logo-wrap">
+                <img src="innovando1.png" alt="Innovando Logo" class="led-logo-img relative z-10" />
+              </div>
+            </div>
+            <!-- SLIDE 2: Cinematic Text -->
+            <div class="led-slide slide-cinematic" id="slide-b-1">
+              <div class="led-scan-line"></div>
+              <div class="led-big-text">
+                <span class="line-blue">Tu Marca</span>
+                <span class="line-solid">EN</span>
+                <span class="line-red">Pantalla LED</span>
+              </div>
+            </div>
+          </div>
+          <!-- Stand -->
+          <div class="led-stand">
+            <div class="led-stand-pole"></div>
+            <div class="led-stand-base"></div>
+          </div>
+          <!-- Navigation dots -->
+          <div class="led-dots" id="led-dots-b">
+            <div class="led-dot active" onclick="goToSlideB(0)"></div>
+            <div class="led-dot" onclick="goToSlideB(1)"></div>
+          </div>
+          <script>
+            let currentSlideB = 0;
+            const totalSlidesB = 2;
+            let autoTimerB;
+            function goToSlideB(n) {
+              document.getElementById('slide-b-' + currentSlideB).classList.remove('active');
+              document.querySelectorAll('#led-dots-b .led-dot')[currentSlideB].classList.remove('active');
+              currentSlideB = n;
+              document.getElementById('slide-b-' + currentSlideB).classList.add('active');
+              document.querySelectorAll('#led-dots-b .led-dot')[currentSlideB].classList.add('active');
+              clearInterval(autoTimerB);
+              autoTimerB = setInterval(nextSlideB, 5000);
+            }
+            function nextSlideB() { goToSlideB((currentSlideB + 1) % totalSlidesB); }
+            autoTimerB = setInterval(nextSlideB, 5000);
+            setInterval(function() {
+              const now = new Date();
+              const t = [now.getHours(), now.getMinutes(), now.getSeconds()].map(v => String(v).padStart(2,'0')).join(':');
+              document.getElementById('led-clock-b').textContent = t;
+            }, 1000);
+          </script>
+        </div>
+
+        <!-- RIGHT: Benefits cards -->
+        <div class="space-y-6">
+
+        <!-- Left column -->
+        <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200 space-y-6">
+          <h3 class="headline text-lg font-bold text-on-surface uppercase tracking-wider mb-8 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-white text-base"
+                style="font-variation-settings:'FILL' 1">timer</span>
+            </span>
+            Rendimiento del formato
+          </h3>
+
+          <div class="space-y-5">
+            <div class="timeline-item flex items-center gap-4 py-3">
+              <span class="material-symbols-outlined text-on-surface-variant text-xl">play_circle</span>
+              <span class="font-semibold text-on-surface">Spot publicitarios de <strong
+                  class="text-primary-container">10 segundos</strong></span>
+            </div>
+            <div class="timeline-item active flex items-center gap-4 py-3">
+              <span class="material-symbols-outlined text-primary-container text-xl"
+                style="font-variation-settings:'FILL' 1">schedule</span>
+              <span class="font-semibold text-on-surface"><strong class="text-primary-container">24 horas</strong>
+                continúas de exposición</span>
+            </div>
+            <div class="timeline-item flex items-center gap-4 py-3">
+              <span class="material-symbols-outlined text-on-surface-variant text-xl">repeat</span>
+              <span class="font-semibold text-on-surface">Repetición: cada <strong class="text-primary-container">2
+                  minutos y medio</strong></span>
+            </div>
+            <div class="timeline-item active flex items-center gap-4 py-3">
+              <span class="material-symbols-outlined text-primary-container text-xl"
+                style="font-variation-settings:'FILL' 1">bar_chart</span>
+              <span class="font-semibold text-on-surface">Exposición al día: <strong
+                  class="text-primary-container">576</strong></span>
+            </div>
+            <div class="timeline-item flex items-center gap-4 py-3 pb-0">
+              <span class="material-symbols-outlined text-on-surface-variant text-xl">calendar_month</span>
+              <span class="font-semibold text-on-surface">Repeticiones al mes: <strong
+                  class="text-primary-container">17.280</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right column -->
+        <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200 space-y-6">
+          <h3 class="headline text-lg font-bold text-on-surface uppercase tracking-wider mb-8 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center">
+              <span class="material-symbols-outlined text-white text-base"
+                style="font-variation-settings:'FILL' 1">star</span>
+            </span>
+            Ventajas exclusivas
+          </h3>
+
+          <div class="space-y-5">
+            <div class="timeline-item flex items-center gap-4 py-3">
+              <span class="material-symbols-outlined text-on-surface-variant text-xl">play_circle</span>
+              <span class="font-semibold text-on-surface">Spot publicitarios de <strong class="text-secondary">10
+                  segundos</strong></span>
+            </div>
+            <div class="timeline-item active flex items-center gap-4 py-3">
+              <span class="material-symbols-outlined text-primary-container text-xl"
+                style="font-variation-settings:'FILL' 1">verified</span>
+              <div>
+                <span class="font-semibold text-on-surface">Exclusividad en la categoría</span>
+                <span class="block text-xs text-on-surface-variant mt-0.5">(*) Ciertas condiciones aplican</span>
+              </div>
+            </div>
+            <div class="timeline-item flex items-center gap-4 py-3">
+              <span class="material-symbols-outlined text-on-surface-variant text-xl">location_on</span>
+              <span class="font-semibold text-on-surface">Ubicación <strong class="text-secondary">privilegiada y
+                  estratégica</strong></span>
+            </div>
+            <div class="timeline-item active flex items-center gap-4 py-3 pb-0">
+              <span class="material-symbols-outlined text-primary-container text-xl"
+                style="font-variation-settings:'FILL' 1">group</span>
+              <span class="font-semibold text-on-surface">Sólo <strong class="text-secondary">15 clientes
+                  exclusivos</strong></span>
+            </div>
+          </div>
+        </div>
+        </div><!-- end right column -->
+      </div><!-- end lg:grid-cols-2 -->
+
+      <!-- Big stat blocks -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 scroll-reveal">
+        <div class="stat-card rounded-3xl p-6 text-center">
+          <div class="headline text-5xl font-black text-white mb-2">576</div>
+          <div class="text-white/70 text-xs uppercase tracking-widest font-bold">Exposiciones / día</div>
+        </div>
+        <div class="stat-card rounded-3xl p-6 text-center"
+          style="background: linear-gradient(135deg, #d70357 0%, #a80243 100%);">
+          <div class="headline text-5xl font-black text-white mb-2">17K</div>
+          <div class="text-white/70 text-xs uppercase tracking-widest font-bold">Repeticiones / mes</div>
+        </div>
+        <div class="stat-card rounded-3xl p-6 text-center">
+          <div class="headline text-5xl font-black text-white mb-2">10s</div>
+          <div class="text-white/70 text-xs uppercase tracking-widest font-bold">Duración del spot</div>
+        </div>
+        <div class="bg-on-surface rounded-3xl p-6 text-center">
+          <div class="headline text-5xl font-black text-white mb-2">15</div>
+          <div class="text-white/70 text-xs uppercase tracking-widest font-bold">Cupos exclusivos</div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ═══ FOOTER ═══ -->
-<footer class="bg-white border-t border-slate-100">
-  <div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
-    <img alt="Innovando Logo" class="h-8 w-auto" src="logo_innovando.jpg"/>
-    <p class="text-on-surface-variant text-sm text-center">© 2025 Innovando · Publicidad Exterior de Alto Impacto</p>
-    <a href="index.html" class="text-primary-container font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
-      <span class="material-symbols-outlined text-sm">arrow_back</span>
-      Volver al inicio
-    </a>
-  </div>
-</footer>
+  <!-- ═══ ESPECIFICACIONES TÉCNICAS ═══ -->
+  <section class="py-24 bg-on-surface relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-container/10 rounded-full blur-[140px]"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
 
-<script>
-// Scroll reveal
-const reveals = document.querySelectorAll('.scroll-reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
-reveals.forEach(el => observer.observe(el));
+        <!-- Left: Specs -->
+        <div class="scroll-reveal">
+          <span class="text-secondary font-bold text-xs uppercase tracking-widest block mb-4 headline">Video
+            specs</span>
+          <h2 class="headline text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
+            Especificaciones de<br /><span class="text-primary-container">Formato de Video</span>
+          </h2>
 
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if (!t) return;
-    e.preventDefault();
-    t.scrollIntoView({ behavior: 'smooth' });
-  });
-});
+          <div class="space-y-4">
+            <!-- Spec 1 -->
+            <div class="spec-card bg-white/5 border border-white/10 rounded-2xl px-6 py-5 flex items-center gap-5">
+              <div
+                class="w-12 h-12 rounded-xl bg-primary-container/20 border border-primary-container/30 flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-primary-container text-2xl">straighten</span>
+              </div>
+              <div>
+                <div class="text-white/50 text-xs uppercase tracking-widest font-bold mb-1">Tamaño</div>
+                <div class="headline text-xl font-bold text-white">6 m × 3 m</div>
+              </div>
+              <div class="ml-auto headline text-3xl font-black text-white/10">01</div>
+            </div>
 
-// Mobile menu toggle
-const menuToggles = document.querySelectorAll('.menu-toggle');
-const mobileMenus = document.querySelectorAll('.mobile-menu');
+            <!-- Spec 2 -->
+            <div class="spec-card bg-white/5 border border-white/10 rounded-2xl px-6 py-5 flex items-center gap-5">
+              <div
+                class="w-12 h-12 rounded-xl bg-secondary/20 border border-secondary/30 flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-secondary text-2xl">hd</span>
+              </div>
+              <div>
+                <div class="text-white/50 text-xs uppercase tracking-widest font-bold mb-1">Resolución</div>
+                <div class="headline text-xl font-bold text-white">1920 × 1080 px <span
+                    class="text-secondary text-sm font-normal">(HDTV)</span></div>
+              </div>
+              <div class="ml-auto headline text-3xl font-black text-white/10">02</div>
+            </div>
 
-menuToggles.forEach((btn, idx) => {
-  btn.addEventListener('click', () => {
-    const menu = mobileMenus[idx];
-    if(!menu) return;
-    const icon = btn.querySelector('span');
-    if (menu.classList.contains('opacity-0')) {
-      menu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-8');
-      menu.classList.add('opacity-100', 'translate-y-0');
-      icon.textContent = 'close';
-    } else {
-      menu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-8');
-      menu.classList.remove('opacity-100', 'translate-y-0');
-      icon.textContent = 'menu';
-    }
-  });
-});
-</script>
-<script src="script.js"></script>
+            <!-- Spec 3 -->
+            <div class="spec-card bg-white/5 border border-white/10 rounded-2xl px-6 py-5 flex items-center gap-5">
+              <div
+                class="w-12 h-12 rounded-xl bg-primary-container/20 border border-primary-container/30 flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-primary-container text-2xl">aspect_ratio</span>
+              </div>
+              <div>
+                <div class="text-white/50 text-xs uppercase tracking-widest font-bold mb-1">Proporción de aspecto</div>
+                <div class="headline text-xl font-bold text-white">16:9</div>
+              </div>
+              <div class="ml-auto headline text-3xl font-black text-white/10">03</div>
+            </div>
+
+            <!-- Spec 4 -->
+            <div
+              class="spec-card bg-primary-container/10 border border-primary-container/30 rounded-2xl px-6 py-5 flex items-center gap-5">
+              <div
+                class="w-12 h-12 rounded-xl bg-primary-container/30 border border-primary-container/50 flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-white text-2xl"
+                  style="font-variation-settings:'FILL' 1">video_file</span>
+              </div>
+              <div>
+                <div class="text-white/50 text-xs uppercase tracking-widest font-bold mb-1">Formato</div>
+                <div class="headline text-xl font-bold text-white">MP4</div>
+              </div>
+              <div class="ml-auto headline text-3xl font-black text-primary-container/30">04</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Dimension visual -->
+        <div class="scroll-reveal flex flex-col items-center justify-center gap-8">
+          <div class="relative">
+            <!-- Screen mockup -->
+            <div
+              class="w-72 h-40 rounded-2xl border-4 border-white/20 shadow-2xl shadow-primary-container/20 relative overflow-hidden"
+              style="background: linear-gradient(135deg,#2e5bff,#d70357);">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="headline text-4xl font-black text-white tracking-tight">16:9</span>
+              </div>
+              <div class="absolute bottom-3 right-3 bg-white/20 backdrop-blur-sm rounded-lg px-2 py-1">
+                <span class="text-white text-xs font-bold">1920 × 1080</span>
+              </div>
+            </div>
+            <!-- Width label -->
+            <div
+              class="flex items-center justify-between mt-3 text-white/50 text-xs font-bold uppercase tracking-widest">
+              <span>←</span><span class="text-primary-container">6 metros</span><span>→</span>
+            </div>
+            <!-- Height label -->
+            <div class="absolute -right-14 top-0 bottom-0 flex flex-col items-center justify-between py-1">
+              <span class="text-white/50 text-xs">↑</span>
+              <span
+                class="text-primary-container text-xs font-bold uppercase tracking-widest [writing-mode:vertical-lr]">3
+                metros</span>
+              <span class="text-white/50 text-xs">↓</span>
+            </div>
+          </div>
+
+          <!-- Format summary pills -->
+          <div class="flex flex-wrap gap-3 justify-center">
+            <div class="bg-white/10 border border-white/20 rounded-full px-4 py-2 text-white text-sm font-bold">📹 MP4
+            </div>
+            <div class="bg-white/10 border border-white/20 rounded-full px-4 py-2 text-white text-sm font-bold">🖥 HDTV
+            </div>
+            <div class="bg-white/10 border border-white/20 rounded-full px-4 py-2 text-white text-sm font-bold">📐 16:9
+            </div>
+            <div class="bg-white/10 border border-white/20 rounded-full px-4 py-2 text-white text-sm font-bold">⏱ 10 seg
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+  <!-- ═══ CTA ═══ -->
+  <section class="py-24 px-6">
+    <div class="max-w-5xl mx-auto scroll-reveal">
+      <div
+        class="bg-gradient-to-br from-primary-container to-secondary-container rounded-[3rem] p-12 lg:p-20 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10"
+          style="background-image:radial-gradient(circle at 30% 50%, rgba(255,255,255,0.3) 0%, transparent 60%), radial-gradient(circle at 70% 50%, rgba(255,255,255,0.2) 0%, transparent 60%)">
+        </div>
+        <div class="relative z-10 text-center max-w-2xl mx-auto">
+          <span class="material-symbols-outlined text-white/50 text-5xl block mb-4"
+            style="font-variation-settings:'FILL' 1">monitor</span>
+          <h2 class="headline text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tighter">
+            Quedan <span class="text-white">pocos cupos</span> disponibles
+          </h2>
+          <p class="text-white/75 text-lg mb-10 leading-relaxed">
+            La exclusividad es parte del valor. Asegura tu espacio en las pantallas LED más estratégicas de
+            VENEZUELA antes de que se agoten.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="index.html#contacto"
+              class="bg-slate-50 text-primary-container px-10 py-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:scale-105 transition-transform shadow-2xl">
+              Solicitar información
+            </a>
+            <a href="index.html"
+              class="bg-white/15 border border-white/30 backdrop-blur-md text-white px-10 py-4 rounded-2xl font-bold text-sm uppercase tracking-widest hover:bg-white/25 transition-all">
+              Ver otros servicios
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="bg-slate-50 border-t border-slate-100">
+    <div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+      <img alt="Innovando Logo" class="h-8 w-auto" src="logo_innovando.jpg" />
+      <p class="text-on-surface-variant text-sm text-center">© 2025 Innovando · Publicidad Exterior de Alto Impacto</p>
+      <a href="index.html"
+        class="text-primary-container font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+        <span class="material-symbols-outlined text-sm">arrow_back</span>
+        Volver al inicio
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.scroll-reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (!t) return;
+        e.preventDefault();
+        t.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Mobile menu toggle
+    const menuToggles = document.querySelectorAll('.menu-toggle');
+    const mobileMenus = document.querySelectorAll('.mobile-menu');
+
+    menuToggles.forEach((btn, idx) => {
+      btn.addEventListener('click', () => {
+        const menu = mobileMenus[idx];
+        if (!menu) return;
+        const icon = btn.querySelector('span');
+        if (menu.classList.contains('opacity-0')) {
+          menu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-8');
+          menu.classList.add('opacity-100', 'translate-y-0');
+          icon.textContent = 'close';
+        } else {
+          menu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-8');
+          menu.classList.remove('opacity-100', 'translate-y-0');
+          icon.textContent = 'menu';
+        }
+      });
+    });
+  </script>
+  <script src="script.js"></script>
 </body>
+
 </html>

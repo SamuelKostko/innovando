@@ -1,713 +1,940 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Galerías de Pantallas | Innovando Publicidad Exterior</title>
-<meta name="description" content="Galerías de pantallas LED sincronizadas en las ubicaciones más estratégicas de Caracas: Calle Elice, Plaza Francia, Las Mercedes y Aeropuerto Maiquetía."/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        "primary-container": "#2e5bff",
-        "primary": "#124af0",
-        "secondary": "#d70357",
-        "secondary-container": "#d70357",
-        "tertiary": "#00696d",
-        "on-surface": "#0f172a",
-        "on-surface-variant": "#475569",
-        "surface-container": "#ffffff",
-        "outline-variant": "#e2e8f0",
-        "outline": "#94a3b8",
-        "surface-variant": "#f1f5f9",
-      },
-      fontFamily: {
-        "headline": ["Space Grotesk"],
-        "body": ["Plus Jakarta Sans"],
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Galerías de Pantallas | Innovando Publicidad Exterior</title>
+  <meta name="description"
+    content="Galerías de pantallas LED sincronizadas en las ubicaciones más estratégicas de Caracas: Calle Elice, Plaza Francia, Las Mercedes y Aeropuerto Maiquetía." />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary-container": "#2e5bff",
+            "primary": "#124af0",
+            "secondary": "#d70357",
+            "secondary-container": "#d70357",
+            "tertiary": "#00696d",
+            "on-surface": "#0f172a",
+            "on-surface-variant": "#475569",
+            "surface-container": "#ffffff",
+            "outline-variant": "#e2e8f0",
+            "outline": "#94a3b8",
+            "surface-variant": "#f1f5f9",
+          },
+          fontFamily: {
+            "headline": ["Montserrat", "sans-serif"],
+            "body": ["Montserrat", "sans-serif"],
+          }
+        }
       }
     }
-  }
-}
-</script>
-<style>
-  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-  body { background-color: #f8fafc; color: #0f172a; font-family: 'Plus Jakarta Sans', sans-serif; }
-  .headline { font-family: 'Space Grotesk', sans-serif; }
-
-  /* Location card */
-  .loc-card {
-    transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
-    position: relative;
-    overflow: hidden;
-  }
-  .loc-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(46,91,255,0.04) 0%, rgba(215,3,87,0.04) 100%);
-    opacity: 0;
-    transition: opacity 0.35s ease;
-    pointer-events: none;
-  }
-  .loc-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(46,91,255,0.14); border-color: rgba(46,91,255,0.2) !important; }
-  .loc-card:hover::before { opacity: 1; }
-
-  /* Map embed placeholder */
-  .map-frame { transition: transform 0.6s cubic-bezier(0.4,0,0.2,1); }
-  .loc-card:hover .map-frame { transform: scale(1.03); }
-
-  /* Screen count badge */
-  .screen-badge {
-    background: linear-gradient(135deg, #2e5bff 0%, #124af0 100%);
-    box-shadow: 0 8px 24px rgba(46,91,255,0.35);
-  }
-
-  /* Animations */
-  @keyframes fadeInUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
-  @keyframes fadeInDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
-  .anim-up { opacity: 0; animation: fadeInUp 0.7s ease forwards; }
-  .anim-down { animation: fadeInDown 0.7s ease both; }
-  .d0{animation-delay:0s} .d1{animation-delay:0.1s} .d2{animation-delay:0.2s}
-  .d3{animation-delay:0.3s} .d4{animation-delay:0.4s} .d5{animation-delay:0.5s}
-
-  /* Pulse pin */
-  @keyframes pin-bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
-  .pin-bounce { animation: pin-bounce 2.2s ease-in-out infinite; }
-
-  @keyframes logo-float {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-8px) scale(1.02); }
-  }
-  
-  @keyframes logo-shine {
-    0% { left: -100%; opacity: 0; }
-    20% { opacity: 0.5; }
-    40% { left: 100%; opacity: 0; }
-    100% { left: 100%; opacity: 0; }
-  }
-
-  @keyframes logo-glow {
-    0%, 100% { box-shadow: 0 10px 30px -10px rgba(18, 74, 240, 0.2); }
-    50% { box-shadow: 0 20px 40px -5px rgba(18, 74, 240, 0.4); }
-  }
-
-  .logo-premium {
-    position: relative;
-    overflow: hidden;
-    animation: logo-float 6s ease-in-out infinite, logo-glow 4s ease-in-out infinite;
-  }
-
-  .logo-premium::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
-    transform: skewX(-25deg);
-    animation: logo-shine 8s infinite;
-  }
-
-  /* Scroll fade-in via JS */
-  .scroll-reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.65s ease, transform 0.65s ease; }
-  .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
-
-  /* Price pill */
-  .price-pill {
-    background: linear-gradient(135deg, rgba(215,3,87,0.1) 0%, rgba(215,3,87,0.15) 100%);
-    border: 1.5px solid rgba(215,3,87,0.3);
-  }
-
-  /* Stats row */
-  .stat-divider { width: 1px; background: #e2e8f0; }
-
-  /* Map iframe styling */
-  .map-container { border-radius: 1.25rem; overflow: hidden; }
-  .map-container iframe { filter: grayscale(10%) contrast(1.05); }
-  
-  /* PLACEHOLDER STYLES */
-  img:not([alt*="Logo"]), picture, video, [style*="background-image"] { 
-    display: none !important; 
-    background-image: none !important;
-  }
-  .skeleton {
-    overflow: hidden !important;
-    background-color: #334155 !important;
-    border: 2px dashed rgba(255, 255, 255, 0.2) !important;
-    border-radius: inherit !important;
-    width: 100% !important;
-    height: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    min-height: 200px;
-  }
-  .skeleton::before {
-    content: "ESPACIO DE IMAGEN" !important;
-    color: rgba(255, 255, 255, 0.4) !important;
-    font-size: clamp(0.55rem, 2.5vw, 0.85rem) !important;
-    font-weight: 800 !important;
-    letter-spacing: 0.1em !important;
-    text-transform: uppercase !important;
-    z-index: 20 !important;
-    text-align: center !important;
-    padding: 10px !important;
-  }
-  @media (max-width: 768px) {
-    .skeleton {
-      min-height: 120px !important;
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
-  }
-</style>
+
+    body {
+      background-color: #f8fafc;
+      color: #0f172a;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .headline {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Location card */
+    .loc-card {
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .loc-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(46, 91, 255, 0.04) 0%, rgba(215, 3, 87, 0.04) 100%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      pointer-events: none;
+    }
+
+    .loc-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 60px rgba(46, 91, 255, 0.14);
+      border-color: rgba(46, 91, 255, 0.2) !important;
+    }
+
+    .loc-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Map embed placeholder */
+    .map-frame {
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .loc-card:hover .map-frame {
+      transform: scale(1.03);
+    }
+
+    /* Screen count badge */
+    .screen-badge {
+      background: linear-gradient(135deg, #2e5bff 0%, #124af0 100%);
+      box-shadow: 0 8px 24px rgba(46, 91, 255, 0.35);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .anim-up {
+      opacity: 0;
+      animation: fadeInUp 0.7s ease forwards;
+    }
+
+    .anim-down {
+      animation: fadeInDown 0.7s ease both;
+    }
+
+    .d0 {
+      animation-delay: 0s
+    }
+
+    .d1 {
+      animation-delay: 0.1s
+    }
+
+    .d2 {
+      animation-delay: 0.2s
+    }
+
+    .d3 {
+      animation-delay: 0.3s
+    }
+
+    .d4 {
+      animation-delay: 0.4s
+    }
+
+    .d5 {
+      animation-delay: 0.5s
+    }
+
+    /* Pulse pin */
+    @keyframes pin-bounce {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-6px)
+      }
+    }
+
+    .pin-bounce {
+      animation: pin-bounce 2.2s ease-in-out infinite;
+    }
+
+    @keyframes logo-float {
+
+      0%,
+      100% {
+        transform: translateY(0) scale(1);
+      }
+
+      50% {
+        transform: translateY(-8px) scale(1.02);
+      }
+    }
+
+    @keyframes logo-shine {
+      0% {
+        left: -100%;
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 0.5;
+      }
+
+      40% {
+        left: 100%;
+        opacity: 0;
+      }
+
+      100% {
+        left: 100%;
+        opacity: 0;
+      }
+    }
+
+    @keyframes logo-glow {
+
+      0%,
+      100% {
+        box-shadow: 0 10px 30px -10px rgba(18, 74, 240, 0.2);
+      }
+
+      50% {
+        box-shadow: 0 20px 40px -5px rgba(18, 74, 240, 0.4);
+      }
+    }
+
+    .logo-premium {
+      position: relative;
+      overflow: hidden;
+      animation: logo-float 6s ease-in-out infinite, logo-glow 4s ease-in-out infinite;
+    }
+
+    .logo-premium::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transform: skewX(-25deg);
+      animation: logo-shine 8s infinite;
+    }
+
+    /* Scroll fade-in via JS */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .scroll-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Price pill */
+    .price-pill {
+      background: linear-gradient(135deg, rgba(215, 3, 87, 0.1) 0%, rgba(215, 3, 87, 0.15) 100%);
+      border: 1.5px solid rgba(215, 3, 87, 0.3);
+    }
+
+    /* Stats row */
+    .stat-divider {
+      width: 1px;
+      background: #e2e8f0;
+    }
+
+    /* Map iframe styling */
+    .map-container {
+      border-radius: 1.25rem;
+      overflow: hidden;
+    }
+
+    .map-container iframe {
+      filter: grayscale(10%) contrast(1.05);
+    }
+
+    /* Scroll reveal */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .scroll-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Vibrant Animated Mesh */
+    .mesh-bg {
+      background-color: #0d121f;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mesh-bg::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background:
+        radial-gradient(circle at 70% 30%, rgba(46, 91, 255, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 30% 70%, rgba(215, 3, 87, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 10% 10%, rgba(46, 91, 255, 0.1) 0%, transparent 30%);
+      animation: mesh-rotate 25s linear infinite;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    @keyframes mesh-rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, #ffffff 0%, #b8c3ff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .text-gradient-secondary {
+      background: linear-gradient(135deg, #ff2e95 0%, #ff85be 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .img-premium {
+      filter: brightness(1.02) contrast(1.05) saturate(1.05);
+      image-rendering: -webkit-optimize-contrast;
+    }
+
+    .animate-fade-up {
+      animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .delay-1 { animation-delay: 0.15s; }
+    .delay-2 { animation-delay: 0.3s; }
+    .delay-3 { animation-delay: 0.45s; }
+  </style>
 </head>
+
 <body class="selection:bg-primary-container selection:text-white">
 
-<!-- ═══ NAV ═══ -->
-<nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50">
-  <div class="rounded-full bg-white shadow-[0_8px_32px_0_rgba(15,23,42,0.10)] border border-slate-100 flex justify-between items-center px-5 md:px-8 py-3 relative z-20">
-    <a href="index.html" class="flex items-center gap-3">
-      <img alt="Innovando Logo" class="h-7 md:h-9 w-auto" src="logo_innovando.jpg"/>
-    </a>
-    <div class="hidden lg:flex items-center gap-6 font-headline">
-      <a class="text-slate-600 font-medium hover:text-primary-container transition-colors duration-200 text-sm" href="index.html#soluciones">Vallas</a>
-      <a class="text-slate-600 font-medium hover:text-primary-container transition-colors duration-200 text-sm" href="banderolas.html">Banderolas</a>
-      <a class="text-primary-container font-bold border-b-2 border-primary-container pb-0.5 text-sm" href="#">Galerías</a>
-      <a class="text-slate-600 font-medium hover:text-primary-container transition-colors duration-200 text-sm" href="pantallas-led.html">Pantallas LED</a>
-      <a class="text-slate-600 font-medium hover:text-primary-container transition-colors duration-200 text-sm" href="index.html#soluciones">Avisos Corpóreos</a>
-    </div>
-    <div class="flex items-center gap-2">
-      <a href="index.html#contacto" class="hidden lg:flex bg-primary-container text-white px-6 py-2 rounded-full font-bold text-sm tracking-wide hover:scale-105 transition-transform active:scale-95 shadow-lg shadow-blue-500/30">
-        CONTACTO
+  <!-- ═══ NAV ═══ -->
+  <nav class="absolute top-0 lg:fixed lg:top-6 left-1/2 -translate-x-1/2 w-full lg:w-[90%] max-w-7xl z-50">
+    <div
+      class="bg-white/95 lg:bg-white rounded-none lg:rounded-2xl px-6 md:px-10 py-4 flex justify-between items-center relative shadow-2xl border-b lg:border border-slate-100 backdrop-blur-md">
+      <a href="index.html" class="flex items-center gap-3">
+        <img alt="Innovando Logo" class="h-8 md:h-10 w-auto" src="logo_innovando.jpg" />
       </a>
-      <button class="menu-toggle lg:hidden p-2 text-slate-800 bg-slate-100 hover:bg-slate-200 transition-colors rounded-full flex items-center justify-center h-10 w-10">
-        <span class="material-symbols-outlined">menu</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- Mobile Menu Dropdown -->
-  <div class="mobile-menu absolute top-0 left-0 w-full bg-white/95 backdrop-blur-3xl rounded-3xl shadow-2xl border border-slate-100 pt-20 pb-6 px-6 flex flex-col gap-4 font-headline z-10 transition-all duration-300 opacity-0 pointer-events-none -translate-y-8">
-    <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="index.html#soluciones">Vallas</a>
-    <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="banderolas.html">Banderolas</a>
-    <a class="text-primary-container font-black text-xl border-b border-slate-100 pb-3" href="#">Galerías</a>
-    <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="pantallas-led.html">Pantallas LED</a>
-    <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="index.html#soluciones">Avisos Corpóreos</a>
-    <a href="index.html#contacto" class="bg-primary-container text-center text-white px-6 py-4 rounded-xl font-bold text-sm tracking-widest mt-2 uppercase shadow-md shadow-blue-500/40">
-      Contacto
-    </a>
-  </div>
-</nav>
-
-<!-- ═══ HERO ═══ -->
-<section class="relative min-h-[88vh] flex items-end pb-20 pt-36 overflow-hidden">
-  <!-- BG -->
-  <div class="absolute inset-0 z-0 skeleton">
-    <img src="assets/galerias_hero.png" alt="Galerías de Pantallas LED" class="w-full h-full object-cover"/>
-    <div class="absolute inset-0 bg-gradient-to-r from-[#060b18]/92 via-[#0f172a]/65 to-[#0f172a]/30"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-[#060b18]/80 via-transparent to-transparent"></div>
-  </div>
-  <!-- Glows -->
-  <div class="absolute top-1/3 right-0 w-[500px] h-[500px] bg-primary-container/20 rounded-full blur-[130px] pointer-events-none z-0"></div>
-  <div class="absolute bottom-0 left-1/4 w-[400px] h-[300px] bg-secondary/15 rounded-full blur-[120px] pointer-events-none z-0"></div>
-
-  <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
-    <!-- Breadcrumb -->
-    <div class="flex items-center gap-2 text-white/50 text-xs uppercase tracking-widest font-bold mb-8 anim-down">
-      <a href="index.html" class="hover:text-white transition-colors">Inicio</a>
-      <span class="material-symbols-outlined text-base">chevron_right</span>
-      <span class="text-white/70">Servicios</span>
-      <span class="material-symbols-outlined text-base">chevron_right</span>
-      <span class="text-secondary font-bold">Galerías de Pantallas</span>
-    </div>
-
-    <div class="max-w-3xl">
-      <div class="mb-6 inline-flex shadow-2xl shadow-black/30 bg-white border border-white/20 p-5 md:p-6 rounded-3xl anim-up logo-premium">
-        <img src="logo_innovando.jpg" alt="Innovando Logo Hero" class="h-20 md:h-32 w-auto rounded-md relative z-10"/>
+      <div class="hidden lg:flex items-center gap-10 font-headline">
+        <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
+          href="vallas.html">VALLAS</a>
+        <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
+          href="banderolas.html">BANDEROLAS</a>
+        <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
+          href="#">GALERÍAS</a>
+        <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
+          href="pantallas-led.html">PANTALLAS LED</a>
       </div>
+      <div class="flex items-center gap-4">
+        <a href="index.html#contacto"
+          class="hidden lg:flex bg-primary-container text-white px-8 py-3 rounded-xl font-black text-sm tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary-container/30">
+          COTIZAR
+        </a>
+        <button
+          class="menu-toggle lg:hidden p-2 text-slate-800 bg-slate-100 rounded-xl">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div
+      class="mobile-menu absolute top-full left-0 w-full mt-2 bg-white/95 backdrop-blur-3xl rounded-2xl shadow-2xl border border-slate-100 p-6 flex flex-col gap-4 font-headline z-50 transition-all duration-300 opacity-0 pointer-events-none -translate-y-4">
+      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="vallas.html">Vallas</a>
+      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="banderolas.html">Banderolas</a>
+      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="#">Galerías</a>
+      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="pantallas-led.html">Pantallas LED</a>
+      <a href="index.html#contacto"
+        class="bg-primary-container text-center text-white px-6 py-4 rounded-xl font-black tracking-widest text-sm uppercase">
+        COTIZAR
+      </a>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="relative min-h-[90vh] flex items-end pb-20 pt-32 overflow-hidden mesh-bg">
+    <div class="absolute inset-0 z-0">
+      <video autoplay muted loop playsinline class="w-full h-full object-cover img-premium">
+        <source src="assets/galerias/elice.mp4" type="video/mp4">
+      </video>
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0f172a]/95 via-[#0f172a]/60 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 via-transparent to-transparent"></div>
+    </div>
+
+    <!-- Watermark logo -->
+    <div
+      class="absolute bottom-12 right-12 z-10 hidden lg:flex flex-col items-end opacity-30 hover:opacity-80 transition-all duration-1000 transform scale-90">
+      <img src="logo_innovando.jpg" alt="Innovando Identity"
+        class="h-14 w-auto grayscale invert brightness-200 contrast-200 mix-blend-screen opacity-80">
+      <div class="mt-2 h-px w-24 bg-gradient-to-l from-white/40 to-transparent"></div>
+      <p class="text-[9px] text-white/40 uppercase tracking-[0.5em] mt-2 font-medium">Líderes en Publicidad</p>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-8 relative z-10 w-full">
       <div class="block">
-        <span class="inline-flex items-center gap-2 text-secondary font-bold tracking-widest text-xs uppercase py-1.5 px-4 bg-secondary/15 border border-secondary/30 rounded-full headline mb-6 anim-up d0">
-          <span class="w-2 h-2 bg-secondary rounded-full inline-block animate-pulse"></span>
+        <span
+          class="inline-flex items-center gap-2 text-primary-container font-extrabold tracking-widest text-xs uppercase py-1.5 px-4 bg-primary/10 border border-primary/25 rounded-full headline mb-6 animate-fade-up">
+          <span class="w-2 h-2 bg-primary-container rounded-full inline-block animate-pulse"></span>
           RED SINCRONIZADA · CARACAS
         </span>
       </div>
-      <h1 class="headline text-6xl md:text-8xl font-bold leading-none tracking-tighter text-white mb-6 anim-up d1">
-        Galerías de<br/>
-        <span class="text-primary-container">Pantallas LED</span>
+      <h1
+        class="headline text-6xl md:text-9xl font-black leading-none tracking-tighter text-white mb-8 animate-fade-up delay-1">
+        <span class="text-gradient">Galerías de</span> <br>
+        <span class="text-gradient-secondary">Pantallas LED</span>
       </h1>
-      <p class="text-xl text-white/75 max-w-xl leading-relaxed anim-up d2">
-        Conjuntos de pantallas LED de alta definición ubicadas en los corredores viales más estratégicos de Caracas, impactando a miles de personas simultáneamente.
+      <p class="text-xl md:text-2xl text-white/70 max-w-2xl leading-relaxed animate-fade-up delay-2 font-medium">
+        Conjuntos de pantallas sincronizadas en los corredores viales más estratégicos de Caracas, impactando a miles
+        de personas simultáneamente.
       </p>
-      <div class="flex flex-wrap gap-4 mt-10 anim-up d3">
-        <a href="index.html#contacto" class="bg-primary-container text-white px-8 py-4 rounded-xl font-bold uppercase tracking-wider shadow-xl shadow-blue-600/30 hover:scale-105 transition-all">
-          Solicitar información
-        </a>
-        <a href="#ubicaciones" class="bg-white/10 border border-white/20 backdrop-blur-md px-8 py-4 rounded-xl font-bold uppercase tracking-wider text-white hover:bg-white/20 transition-all">
-          Ver ubicaciones
-        </a>
-      </div>
-    </div>
 
-    <!-- Stats strip -->
-    <div class="flex items-center gap-10 mt-16 anim-up d4">
-      <div>
-        <div class="headline text-4xl font-black text-white">43</div>
-        <div class="text-xs uppercase tracking-widest text-white/50 mt-1">Pantallas totales</div>
-      </div>
-      <div class="stat-divider h-12"></div>
-      <div>
-        <div class="headline text-4xl font-black text-white">5</div>
-        <div class="text-xs uppercase tracking-widest text-white/50 mt-1">Ubicaciones premium</div>
-      </div>
-      <div class="stat-divider h-12"></div>
-      <div>
-        <div class="headline text-4xl font-black text-white">24/7</div>
-        <div class="text-xs uppercase tracking-widest text-white/50 mt-1">Exposición continua</div>
-      </div>
-      <div class="stat-divider h-12"></div>
-      <div>
-        <div class="headline text-4xl font-black text-white">SYNC</div>
-        <div class="text-xs uppercase tracking-widest text-white/50 mt-1">Sincronización total</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ INTRO ═══ -->
-<section class="py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-      <div class="scroll-reveal">
-        <span class="text-secondary font-bold text-xs uppercase tracking-widest block mb-3 headline">¿Qué son las galerías?</span>
-        <h2 class="headline text-4xl md:text-5xl font-bold text-on-surface leading-tight mb-6">
-          El poder de la <span class="text-primary-container">sincronización</span> masiva
-        </h2>
-        <p class="text-on-surface-variant text-lg leading-relaxed mb-5">
-          Las galerías son <strong class="text-on-surface">conjuntos de pantallas LED</strong> ubicadas en puntos neurálgicos de la ciudad, que transmiten tu campaña de forma simultánea y coordinada, generando un impacto visual imposible de ignorar.
-        </p>
-        <p class="text-on-surface-variant leading-relaxed mb-8">
-          Cada galería está estratégicamente ubicada sobre avenidas de alto flujo vehicular y peatonal, garantizando que tu mensaje llegue a cientos de miles de personas cada día.
-        </p>
-        <div class="flex flex-wrap gap-4">
-          <div class="flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-2xl px-5 py-3">
-            <span class="material-symbols-outlined text-primary-container text-2xl">sync</span>
-            <span class="text-sm font-bold text-on-surface">Pantallas sincronizadas</span>
-          </div>
-          <div class="flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-2xl px-5 py-3">
-            <span class="material-symbols-outlined text-secondary text-2xl">hd</span>
-            <span class="text-sm font-bold text-on-surface">Alta definición</span>
-          </div>
-          <div class="flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-2xl px-5 py-3">
-            <span class="material-symbols-outlined text-tertiary text-2xl">bolt</span>
-            <span class="text-sm font-bold text-on-surface">Cambio de pauta instantáneo</span>
-          </div>
+      <div class="flex flex-wrap gap-6 mt-12 animate-fade-up delay-3">
+        <div class="flex items-center gap-4 glass-card px-8 py-4 rounded-2xl group transition-all hover:bg-white/10">
+          <span
+            class="material-symbols-outlined text-primary-container text-3xl group-hover:rotate-12 transition-transform">sync</span>
+          <span class="text-white font-bold text-lg">Pantallas Sincronizadas</span>
         </div>
-      </div>
-      <div class="scroll-reveal">
-        <div class="rounded-[2.5rem] overflow-hidden shadow-2xl aspect-video skeleton">
-          <img src="assets/galerias_screens.png" alt="Galería de pantallas LED en Caracas" class="w-full h-full object-cover"/>
+        <div class="flex items-center gap-4 glass-card px-8 py-4 rounded-2xl group transition-all hover:bg-white/10">
+          <span
+            class="material-symbols-outlined text-secondary text-3xl group-hover:scale-125 transition-transform">visibility</span>
+          <span class="text-white font-bold text-lg">Impacto Masivo</span>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ═══ POR QUÉ ANUNCIARSE ═══ -->
-<section class="py-24 bg-on-surface relative overflow-hidden">
-  <!-- Decorative background numbers -->
-  <div class="absolute inset-0 pointer-events-none select-none overflow-hidden">
-    <span class="absolute -top-10 -left-6 text-[220px] font-black text-white/[0.03] headline leading-none">WHY</span>
-  </div>
-
-  <div class="max-w-7xl mx-auto px-6 relative z-10">
-    <!-- Header -->
-    <div class="mb-16 scroll-reveal">
-      <span class="text-secondary font-bold text-xs uppercase tracking-widest block mb-4 headline">Ventajas competitivas</span>
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
-        <h2 class="headline text-5xl md:text-6xl font-black text-white leading-tight">
-          ¿Por qué<br/><span class="text-primary-container">anunciarse aquí?</span>
-        </h2>
-        <!-- Tagline box -->
-        <div class="border-2 border-primary-container/60 rounded-2xl px-7 py-4 flex-shrink-0">
-          <p class="headline text-2xl font-black text-white tracking-tight">Menos Tiempo,</p>
-          <p class="headline text-2xl font-black text-primary-container tracking-tight">Más Conexión.</p>
-        </div>
-      </div>
-      <div class="w-24 h-1 bg-secondary mt-6"></div>
-    </div>
-
-    <!-- 4 Benefits -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-      <!-- 1 -->
-      <div class="scroll-reveal group relative bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 hover:border-primary-container/40 transition-all duration-300">
-        <div class="headline text-[96px] font-black text-primary-container/20 leading-none mb-4 group-hover:text-primary-container/30 transition-colors select-none">1</div>
-        <h3 class="headline text-xl font-bold text-white mb-3">Alto Tráfico</h3>
-        <p class="text-white/60 text-sm leading-relaxed">Ubicación en zona comercial y financiera de Chacao, el corredor de mayor poder adquisitivo de Caracas.</p>
-      </div>
-
-      <!-- 2 -->
-      <div class="scroll-reveal group relative bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 hover:border-secondary/40 transition-all duration-300">
-        <div class="headline text-[96px] font-black text-secondary/25 leading-none mb-4 group-hover:text-secondary/40 transition-colors select-none">2</div>
-        <h3 class="headline text-xl font-bold text-white mb-3">Tecnología Exclusiva</h3>
-        <p class="text-white/60 text-sm leading-relaxed">Único medio en Venezuela con pantallas sincronizadas, generando un impacto visual coordinado e inigualable.</p>
-      </div>
-
-      <!-- 3 -->
-      <div class="scroll-reveal group relative bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 hover:border-primary-container/40 transition-all duration-300">
-        <div class="headline text-[96px] font-black text-primary-container/20 leading-none mb-4 group-hover:text-primary-container/30 transition-colors select-none">3</div>
-        <h3 class="headline text-xl font-bold text-white mb-3">Flexibilidad Creativa</h3>
-        <p class="text-white/60 text-sm leading-relaxed">3 versiones de tu mensaje para mantenerlo fresco y captar la atención en cada exposición.</p>
-      </div>
-
-      <!-- 4 -->
-      <div class="scroll-reveal group relative bg-secondary/10 border border-secondary/30 rounded-3xl p-8 hover:bg-secondary/20 hover:border-secondary/60 transition-all duration-300">
-        <div class="headline text-[96px] font-black text-secondary/30 leading-none mb-4 group-hover:text-secondary/50 transition-colors select-none">4</div>
-        <h3 class="headline text-xl font-bold text-white mb-3">Recordación Instantánea</h3>
-        <p class="text-white/60 text-sm leading-relaxed">5 segundos de impacto total. El tiempo justo para que tu marca quede grabada en la mente de tu audiencia.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══ UBICACIONES ═══ -->
-<section class="py-24 bg-slate-50" id="ubicaciones">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <!-- Header -->
-    <div class="text-center mb-16 scroll-reveal">
-      <span class="text-secondary font-bold text-xs uppercase tracking-widest block mb-3 headline">Red de galerías</span>
-      <h2 class="headline text-4xl md:text-6xl font-bold text-on-surface">Nuestras <span class="text-primary-container">5 ubicaciones</span></h2>
-      <p class="text-on-surface-variant text-lg mt-4 max-w-2xl mx-auto">Posiciona tu marca en los corredores viales con mayor tránsito de la capital venezolana.</p>
-    </div>
-
-    <!-- Cards grid -->
-    <div class="space-y-8">
-
-      <!-- === CARD 1: Calle Elice === -->
-      <div class="loc-card bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden scroll-reveal">
-        <div class="grid md:grid-cols-2 gap-0">
-          <!-- Map side -->
-          <div class="relative h-72 md:h-auto overflow-hidden bg-slate-100 map-container">
-            <div class="map-frame w-full h-full">
-              <iframe
-                src="https://maps.google.com/maps?q=10.491553,-66.855667&z=17&t=k&output=embed"
-                width="100%" height="100%" style="border:0; min-height:300px;" allowfullscreen="" loading="lazy"
-                title="Mapa Calle Elice Chacao"></iframe>
+  <!-- ═══ INTRO ═══ -->
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="scroll-reveal">
+          <span class="text-secondary font-bold text-xs uppercase tracking-widest block mb-3 headline">¿Qué son las
+            galerías?</span>
+          <h2 class="headline text-4xl md:text-5xl font-bold text-on-surface leading-tight mb-6">
+            El poder de la <span class="text-primary-container">sincronización</span> masiva
+          </h2>
+          <p class="text-on-surface-variant text-lg leading-relaxed mb-5">
+            Las galerías son <strong class="text-on-surface">conjuntos de pantallas LED</strong> ubicadas en puntos
+            neurálgicos de la ciudad, que transmiten tu campaña de forma simultánea y coordinada, generando un impacto
+            visual imposible de ignorar.
+          </p>
+          <p class="text-on-surface-variant leading-relaxed mb-8">
+            Cada galería está estratégicamente ubicada sobre avenidas de alto flujo vehicular y peatonal, garantizando
+            que tu mensaje llegue a cientos de miles de personas cada día.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <div class="flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-2xl px-5 py-3">
+              <span class="material-symbols-outlined text-primary-container text-2xl">sync</span>
+              <span class="text-sm font-bold text-on-surface">Pantallas sincronizadas</span>
             </div>
-            <!-- Location label overlay -->
-            <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-2 shadow-lg border border-slate-100">
-              <span class="text-xs font-black uppercase tracking-widest text-primary-container">CHACAO</span>
+            <div class="flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-2xl px-5 py-3">
+              <span class="material-symbols-outlined text-secondary text-2xl">hd</span>
+              <span class="text-sm font-bold text-on-surface">Alta definición</span>
+            </div>
+            <div class="flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-2xl px-5 py-3">
+              <span class="material-symbols-outlined text-tertiary text-2xl">bolt</span>
+              <span class="text-sm font-bold text-on-surface">Cambio de pauta instantáneo</span>
             </div>
           </div>
-          <!-- Info side -->
-          <div class="p-8 md:p-10 flex flex-col justify-center">
-            <div class="flex items-start gap-5 mb-6">
-              <div class="pin-bounce flex-shrink-0">
-                <span class="material-symbols-outlined text-secondary text-5xl" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 48">location_on</span>
+        </div>
+        <div class="scroll-reveal">
+          <div class="rounded-[2.5rem] overflow-hidden shadow-2xl aspect-video">
+            <img src="assets/galerias/bancoplaza16.9.png" alt="Galería Banco Plaza"
+              class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ POR QUÉ ANUNCIARSE ═══ -->
+  <section class="py-24 bg-on-surface relative overflow-hidden">
+    <!-- Decorative background numbers -->
+    <div class="absolute inset-0 pointer-events-none select-none overflow-hidden">
+      <span class="absolute -top-10 -left-6 text-[220px] font-black text-white/[0.03] headline leading-none">WHY</span>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <!-- Header -->
+      <div class="mb-16 scroll-reveal">
+        <span class="text-secondary font-bold text-xs uppercase tracking-widest block mb-4 headline">Ventajas
+          competitivas</span>
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <h2 class="headline text-5xl md:text-6xl font-black text-white leading-tight">
+            ¿Por qué<br /><span class="text-primary-container">anunciarse aquí?</span>
+          </h2>
+          <!-- Tagline box -->
+          <div class="border-2 border-primary-container/60 rounded-2xl px-7 py-4 flex-shrink-0">
+            <p class="headline text-2xl font-black text-white tracking-tight">Menos Tiempo,</p>
+            <p class="headline text-2xl font-black text-primary-container tracking-tight">Más Conexión.</p>
+          </div>
+        </div>
+        <div class="w-24 h-1 bg-secondary mt-6"></div>
+      </div>
+
+      <!-- 4 Benefits -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- 1 -->
+        <div
+          class="scroll-reveal group relative bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 hover:border-primary-container/40 transition-all duration-300">
+          <div
+            class="headline text-[96px] font-black text-primary-container/20 leading-none mb-4 group-hover:text-primary-container/30 transition-colors select-none">
+            1</div>
+          <h3 class="headline text-xl font-bold text-white mb-3">Alto Tráfico</h3>
+          <p class="text-white/60 text-sm leading-relaxed">Ubicación en zona comercial y financiera de Chacao, el
+            corredor de mayor poder adquisitivo de Caracas.</p>
+        </div>
+
+        <!-- 2 -->
+        <div
+          class="scroll-reveal group relative bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 hover:border-secondary/40 transition-all duration-300">
+          <div
+            class="headline text-[96px] font-black text-secondary/25 leading-none mb-4 group-hover:text-secondary/40 transition-colors select-none">
+            2</div>
+          <h3 class="headline text-xl font-bold text-white mb-3">Tecnología Exclusiva</h3>
+          <p class="text-white/60 text-sm leading-relaxed">Único medio en Venezuela con pantallas sincronizadas,
+            generando un impacto visual coordinado e inigualable.</p>
+        </div>
+
+        <!-- 3 -->
+        <div
+          class="scroll-reveal group relative bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 hover:border-primary-container/40 transition-all duration-300">
+          <div
+            class="headline text-[96px] font-black text-primary-container/20 leading-none mb-4 group-hover:text-primary-container/30 transition-colors select-none">
+            3</div>
+          <h3 class="headline text-xl font-bold text-white mb-3">Flexibilidad Creativa</h3>
+          <p class="text-white/60 text-sm leading-relaxed">3 versiones de tu mensaje para mantenerlo fresco y captar la
+            atención en cada exposición.</p>
+        </div>
+
+        <!-- 4 -->
+        <div
+          class="scroll-reveal group relative bg-secondary/10 border border-secondary/30 rounded-3xl p-8 hover:bg-secondary/20 hover:border-secondary/60 transition-all duration-300">
+          <div
+            class="headline text-[96px] font-black text-secondary/30 leading-none mb-4 group-hover:text-secondary/50 transition-colors select-none">
+            4</div>
+          <h3 class="headline text-xl font-bold text-white mb-3">Recordación Instantánea</h3>
+          <p class="text-white/60 text-sm leading-relaxed">5 segundos de impacto total. El tiempo justo para que tu
+            marca quede grabada en la mente de tu audiencia.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ UBICACIONES ═══ -->
+  <section class="py-24 bg-slate-50" id="ubicaciones">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <!-- Header -->
+      <div class="text-center mb-16 scroll-reveal">
+        <span class="text-secondary font-bold text-xs uppercase tracking-widest block mb-3 headline">Red de
+          galerías</span>
+        <h2 class="headline text-4xl md:text-6xl font-bold text-on-surface">Nuestras <span
+            class="text-primary-container">5 ubicaciones</span></h2>
+        <p class="text-on-surface-variant text-lg mt-4 max-w-2xl mx-auto">Posiciona tu marca en los corredores viales
+          con mayor tránsito de la capital venezolana.</p>
+      </div>
+
+      <!-- Cards grid -->
+      <div class="space-y-8">
+
+        <!-- === CARD 1: Calle Elice === -->
+        <div class="loc-card bg-slate-50 rounded-3xl border border-slate-200 shadow-sm overflow-hidden scroll-reveal">
+          <div class="grid md:grid-cols-2 gap-0">
+            <!-- Map side -->
+            <div class="relative h-72 md:h-auto overflow-hidden bg-slate-100 map-container">
+              <div class="map-frame w-full h-full">
+                <iframe src="https://maps.google.com/maps?q=10.491553,-66.855667&z=17&t=k&output=embed" width="100%"
+                  height="100%" style="border:0; min-height:300px;" allowfullscreen="" loading="lazy"
+                  title="Mapa Calle Elice Chacao"></iframe>
               </div>
-              <div>
-                <div class="screen-badge inline-flex items-center gap-2 text-white font-black text-2xl headline px-5 py-2 rounded-2xl mb-3">
-                  <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1">monitor</span>
-                  9 pantallas
+              <!-- Location label overlay -->
+              <div
+                class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-2 shadow-lg border border-slate-100">
+                <span class="text-xs font-black uppercase tracking-widest text-primary-container">CHACAO</span>
+              </div>
+            </div>
+            <!-- Info side -->
+            <div class="p-8 md:p-10 flex flex-col justify-center">
+              <div class="flex items-start gap-5 mb-6">
+                <div class="pin-bounce flex-shrink-0">
+                  <span class="material-symbols-outlined text-secondary text-5xl"
+                    style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 48">location_on</span>
                 </div>
-                <h3 class="headline text-2xl font-bold text-on-surface leading-snug">
-                  Calle Elice<br/>
-                  <span class="text-on-surface-variant font-medium text-lg">entre Av. Libertador y Av. Francisco de Miranda, Chacao</span>
-                </h3>
-              </div>
-            </div>
-            <div class="flex items-center gap-3 mb-4">
-              <span class="material-symbols-outlined text-tertiary">traffic</span>
-              <span class="text-sm text-on-surface-variant">Alto flujo peatonal y vehicular · Zona comercial premium</span>
-            </div>
-            <div class="flex flex-wrap items-center gap-4">
-              <a href="index.html#contacto" class="text-primary-container font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
-                Consultar disponibilidad <span class="material-symbols-outlined text-base">arrow_forward</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- === CARD 2: Plaza Francia === -->
-      <div class="loc-card bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden scroll-reveal">
-        <div class="grid md:grid-cols-2 gap-0">
-          <!-- Info side (reversed) -->
-          <div class="p-8 md:p-10 flex flex-col justify-center order-2 md:order-1">
-            <div class="flex items-start gap-5 mb-6">
-              <div class="pin-bounce flex-shrink-0" style="animation-delay:0.4s">
-                <span class="material-symbols-outlined text-secondary text-5xl" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 48">location_on</span>
-              </div>
-              <div>
-                <div class="screen-badge inline-flex items-center gap-2 text-white font-black text-2xl headline px-5 py-2 rounded-2xl mb-3">
-                  <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1">monitor</span>
-                  8 pantallas
+                <div>
+                  <div
+                    class="screen-badge inline-flex items-center gap-2 text-white font-black text-2xl headline px-5 py-2 rounded-2xl mb-3">
+                    <span class="material-symbols-outlined text-xl"
+                      style="font-variation-settings:'FILL' 1">monitor</span>
+                    9 pantallas
+                  </div>
+                  <h3 class="headline text-2xl font-bold text-on-surface leading-snug">
+                    Calle Elice<br />
+                    <span class="text-on-surface-variant font-medium text-lg">entre Av. Libertador y Av. Francisco de
+                      Miranda, Chacao</span>
+                  </h3>
                 </div>
-                <h3 class="headline text-2xl font-bold text-on-surface leading-snug">
-                  Av. Francisco de Miranda<br/>
-                  <span class="text-on-surface-variant font-medium text-lg">Plaza Francia, sentido este-oeste</span>
-                </h3>
               </div>
-            </div>
-            <div class="flex items-center gap-3 mb-4">
-              <span class="material-symbols-outlined text-tertiary">traffic</span>
-              <span class="text-sm text-on-surface-variant">Corredor principal · Frente a Estación Metro Altamira</span>
-            </div>
-            <div class="flex flex-wrap items-center gap-4">
-              <a href="index.html#contacto" class="text-primary-container font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
-                Consultar disponibilidad <span class="material-symbols-outlined text-base">arrow_forward</span>
-              </a>
-            </div>
-          </div>
-          <!-- Map side -->
-          <div class="relative h-72 md:h-auto overflow-hidden bg-slate-100 map-container order-1 md:order-2">
-            <div class="map-frame w-full h-full">
-              <iframe
-                src="https://maps.google.com/maps?q=10.495452,-66.848856&z=17&t=k&output=embed"
-                width="100%" height="100%" style="border:0; min-height:300px;" allowfullscreen="" loading="lazy"
-                title="Mapa Plaza Francia Altamira"></iframe>
-            </div>
-            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-2 shadow-lg border border-slate-100">
-              <span class="text-xs font-black uppercase tracking-widest text-primary-container">ALTAMIRA</span>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="material-symbols-outlined text-tertiary">traffic</span>
+                <span class="text-sm text-on-surface-variant">Alto flujo peatonal y vehicular · Zona comercial
+                  premium</span>
+              </div>
+              <div class="flex flex-wrap items-center gap-4">
+                <a href="index.html#contacto"
+                  class="text-primary-container font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                  Consultar disponibilidad <span class="material-symbols-outlined text-base">arrow_forward</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- === CARD 3: Las Mercedes - Plaza Alfredo Sadel === -->
-      <div class="loc-card bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden scroll-reveal">
-        <div class="grid md:grid-cols-2 gap-0">
-          <!-- Map side -->
-          <div class="relative h-72 md:h-auto overflow-hidden bg-slate-100 map-container">
-            <div class="map-frame w-full h-full">
-              <iframe
-                src="https://maps.google.com/maps?q=10.481932,-66.861522&z=17&t=k&output=embed"
-                width="100%" height="100%" style="border:0; min-height:300px;" allowfullscreen="" loading="lazy"
-                title="Mapa Plaza Alfredo Sadel Las Mercedes"></iframe>
-            </div>
-            <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-2 shadow-lg border border-slate-100">
-              <span class="text-xs font-black uppercase tracking-widest text-primary-container">LAS MERCEDES</span>
-            </div>
-          </div>
-          <!-- Info side -->
-          <div class="p-8 md:p-10 flex flex-col justify-center">
-            <div class="flex items-start gap-5 mb-6">
-              <div class="pin-bounce flex-shrink-0" style="animation-delay:0.8s">
-                <span class="material-symbols-outlined text-secondary text-5xl" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 48">location_on</span>
-              </div>
-              <div>
-                <div class="screen-badge inline-flex items-center gap-2 text-white font-black text-2xl headline px-5 py-2 rounded-2xl mb-3">
-                  <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1">monitor</span>
-                  8 pantallas
+        <!-- === CARD 2: Plaza Francia === -->
+        <div class="loc-card bg-slate-50 rounded-3xl border border-slate-200 shadow-sm overflow-hidden scroll-reveal">
+          <div class="grid md:grid-cols-2 gap-0">
+            <!-- Info side (reversed) -->
+            <div class="p-8 md:p-10 flex flex-col justify-center order-2 md:order-1">
+              <div class="flex items-start gap-5 mb-6">
+                <div class="pin-bounce flex-shrink-0" style="animation-delay:0.4s">
+                  <span class="material-symbols-outlined text-secondary text-5xl"
+                    style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 48">location_on</span>
                 </div>
-                <h3 class="headline text-2xl font-bold text-on-surface leading-snug">
-                  Av. Principal de Las Mercedes<br/>
-                  <span class="text-on-surface-variant font-medium text-lg">Plaza Alfredo Sadel</span>
-                </h3>
-              </div>
-            </div>
-            <div class="flex items-center gap-3 mb-4">
-              <span class="material-symbols-outlined text-tertiary">traffic</span>
-              <span class="text-sm text-on-surface-variant">Zona gastronómica y comercial de alto nivel · Múltiple audiencia</span>
-            </div>
-            <div class="flex flex-wrap items-center gap-4">
-              <a href="index.html#contacto" class="text-primary-container font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
-                Consultar disponibilidad <span class="material-symbols-outlined text-base">arrow_forward</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- === CARD 4: Las Mercedes - CC Tolón === -->
-      <div class="loc-card bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden scroll-reveal">
-        <div class="grid md:grid-cols-2 gap-0">
-          <!-- Info side (reversed) -->
-          <div class="p-8 md:p-10 flex flex-col justify-center order-2 md:order-1">
-            <div class="flex items-start gap-5 mb-6">
-              <div class="pin-bounce flex-shrink-0" style="animation-delay:1.2s">
-                <span class="material-symbols-outlined text-secondary text-5xl" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 48">location_on</span>
-              </div>
-              <div>
-                <div class="screen-badge inline-flex items-center gap-2 text-white font-black text-2xl headline px-5 py-2 rounded-2xl mb-3">
-                  <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1">monitor</span>
-                  8 pantallas
+                <div>
+                  <div
+                    class="screen-badge inline-flex items-center gap-2 text-white font-black text-2xl headline px-5 py-2 rounded-2xl mb-3">
+                    <span class="material-symbols-outlined text-xl"
+                      style="font-variation-settings:'FILL' 1">monitor</span>
+                    8 pantallas
+                  </div>
+                  <h3 class="headline text-2xl font-bold text-on-surface leading-snug">
+                    Av. Francisco de Miranda<br />
+                    <span class="text-on-surface-variant font-medium text-lg">Plaza Francia, sentido este-oeste</span>
+                  </h3>
                 </div>
-                <h3 class="headline text-2xl font-bold text-on-surface leading-snug">
-                  Av. Principal de Las Mercedes<br/>
-                  <span class="text-on-surface-variant font-medium text-lg">Después del CC Tolón</span>
-                </h3>
+              </div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="material-symbols-outlined text-tertiary">traffic</span>
+                <span class="text-sm text-on-surface-variant">Corredor principal · Frente a Estación Metro
+                  Altamira</span>
+              </div>
+              <div class="flex flex-wrap items-center gap-4">
+                <a href="index.html#contacto"
+                  class="text-primary-container font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                  Consultar disponibilidad <span class="material-symbols-outlined text-base">arrow_forward</span>
+                </a>
               </div>
             </div>
-            <div class="flex items-center gap-3 mb-4">
-              <span class="material-symbols-outlined text-tertiary">traffic</span>
-              <span class="text-sm text-on-surface-variant">Salida hacia autopista · Máximo tráfico en hora pico</span>
-            </div>
-            <div class="flex flex-wrap items-center gap-4">
-              <a href="index.html#contacto" class="text-primary-container font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
-                Consultar disponibilidad <span class="material-symbols-outlined text-base">arrow_forward</span>
-              </a>
-            </div>
-          </div>
-          <!-- Map side -->
-          <div class="relative h-72 md:h-auto overflow-hidden bg-slate-100 map-container order-1 md:order-2">
-            <div class="map-frame w-full h-full">
-              <iframe
-                src="https://maps.google.com/maps?q=10.479702,-66.859093&z=17&t=k&output=embed"
-                width="100%" height="100%" style="border:0; min-height:300px;" allowfullscreen="" loading="lazy"
-                title="Mapa CC Tolón Las Mercedes"></iframe>
-            </div>
-            <div class="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-2 shadow-lg border border-slate-100">
-              <span class="text-xs font-black uppercase tracking-widest text-primary-container">LAS MERCEDES</span>
+            <!-- Map side -->
+            <div class="relative h-72 md:h-auto overflow-hidden bg-slate-100 map-container order-1 md:order-2">
+              <div class="map-frame w-full h-full">
+                <iframe src="https://maps.google.com/maps?q=10.495452,-66.848856&z=17&t=k&output=embed" width="100%"
+                  height="100%" style="border:0; min-height:300px;" allowfullscreen="" loading="lazy"
+                  title="Mapa Plaza Francia Altamira"></iframe>
+              </div>
+              <div
+                class="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-2 shadow-lg border border-slate-100">
+                <span class="text-xs font-black uppercase tracking-widest text-primary-container">ALTAMIRA</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- === CARD 5: Aeropuerto Maiquetía === -->
-      <div class="loc-card bg-gradient-to-br from-slate-900 to-[#0b1428] rounded-3xl border border-white/10 shadow-2xl overflow-hidden scroll-reveal">
-        <div class="grid md:grid-cols-2 gap-0">
-          <!-- Map side -->
-          <div class="relative h-72 md:h-auto overflow-hidden map-container">
-            <div class="map-frame w-full h-full">
-              <iframe
-                src="https://maps.google.com/maps?q=10.596663,-67.004779&z=16&t=k&output=embed"
-                width="100%" height="100%" style="border:0; min-height:300px;" allowfullscreen="" loading="lazy"
-                title="Mapa Aeropuerto Maiquetía"></iframe>
-            </div>
-            <div class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-2 shadow-lg border border-slate-100">
-              <span class="text-xs font-black uppercase tracking-widest text-secondary">MAIQUETÍA</span>
-            </div>
-            <!-- Featured badge -->
-            <div class="absolute bottom-4 left-4 bg-secondary text-white text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-full">
-              ✈ Ubicación Especial
-            </div>
-          </div>
-          <!-- Info side -->
-          <div class="p-8 md:p-10 flex flex-col justify-center">
-            <div class="flex items-start gap-5 mb-6">
-              <div class="pin-bounce flex-shrink-0" style="animation-delay:1.5s">
-                <span class="material-symbols-outlined text-5xl" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 48; color:#d70357">location_on</span>
+        <!-- === CARD 3: Las Mercedes - Plaza Alfredo Sadel === -->
+        <div class="loc-card bg-slate-50 rounded-3xl border border-slate-200 shadow-sm overflow-hidden scroll-reveal">
+          <div class="grid md:grid-cols-2 gap-0">
+            <!-- Map side -->
+            <div class="relative h-72 md:h-auto overflow-hidden bg-slate-100 map-container">
+              <div class="map-frame w-full h-full">
+                <iframe src="https://maps.google.com/maps?q=10.481932,-66.861522&z=17&t=k&output=embed" width="100%"
+                  height="100%" style="border:0; min-height:300px;" allowfullscreen="" loading="lazy"
+                  title="Mapa Plaza Alfredo Sadel Las Mercedes"></iframe>
               </div>
-              <div>
-                <!-- Featured 10-screen badge with gold tint -->
-                <div class="inline-flex items-center gap-2 font-black text-2xl headline px-5 py-2 rounded-2xl mb-3 text-white"
-                     style="background: linear-gradient(135deg, #d70357 0%, #a80243 100%); box-shadow: 0 8px 24px rgba(215,3,87,0.4);">
-                  <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1">monitor</span>
-                  10 pantallas
+              <div
+                class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-2 shadow-lg border border-slate-100">
+                <span class="text-xs font-black uppercase tracking-widest text-primary-container">LAS MERCEDES</span>
+              </div>
+            </div>
+            <!-- Info side -->
+            <div class="p-8 md:p-10 flex flex-col justify-center">
+              <div class="flex items-start gap-5 mb-6">
+                <div class="pin-bounce flex-shrink-0" style="animation-delay:0.8s">
+                  <span class="material-symbols-outlined text-secondary text-5xl"
+                    style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 48">location_on</span>
                 </div>
-                <h3 class="headline text-2xl font-bold text-white leading-snug">
-                  Aeropuerto Nacional - Internacional<br/>
-                  <span class="text-white/70 font-medium text-lg">Simón Bolívar · Maiquetía</span>
-                </h3>
+                <div>
+                  <div
+                    class="screen-badge inline-flex items-center gap-2 text-white font-black text-2xl headline px-5 py-2 rounded-2xl mb-3">
+                    <span class="material-symbols-outlined text-xl"
+                      style="font-variation-settings:'FILL' 1">monitor</span>
+                    8 pantallas
+                  </div>
+                  <h3 class="headline text-2xl font-bold text-on-surface leading-snug">
+                    Av. Principal de Las Mercedes<br />
+                    <span class="text-on-surface-variant font-medium text-lg">Plaza Alfredo Sadel</span>
+                  </h3>
+                </div>
               </div>
-            </div>
-            <div class="flex items-center gap-3 mb-4">
-              <span class="material-symbols-outlined text-blue-400">flight</span>
-              <span class="text-sm text-white/60">Puerta de entrada al país · Audiencia nacional e internacional</span>
-            </div>
-            <div class="flex flex-wrap items-center gap-4">
-              <a href="index.html#contacto" class="text-blue-300 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
-                Consultar disponibilidad <span class="material-symbols-outlined text-base">arrow_forward</span>
-              </a>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="material-symbols-outlined text-tertiary">traffic</span>
+                <span class="text-sm text-on-surface-variant">Zona gastronómica y comercial de alto nivel · Múltiple
+                  audiencia</span>
+              </div>
+              <div class="flex flex-wrap items-center gap-4">
+                <a href="index.html#contacto"
+                  class="text-primary-container font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                  Consultar disponibilidad <span class="material-symbols-outlined text-base">arrow_forward</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-    </div><!-- /cards -->
-  </div>
-</section>
+        <!-- === CARD 4: Las Mercedes - CC Tolón === -->
+        <div class="loc-card bg-slate-50 rounded-3xl border border-slate-200 shadow-sm overflow-hidden scroll-reveal">
+          <div class="grid md:grid-cols-2 gap-0">
+            <!-- Info side (reversed) -->
+            <div class="p-8 md:p-10 flex flex-col justify-center order-2 md:order-1">
+              <div class="flex items-start gap-5 mb-6">
+                <div class="pin-bounce flex-shrink-0" style="animation-delay:1.2s">
+                  <span class="material-symbols-outlined text-secondary text-5xl"
+                    style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 48">location_on</span>
+                </div>
+                <div>
+                  <div
+                    class="screen-badge inline-flex items-center gap-2 text-white font-black text-2xl headline px-5 py-2 rounded-2xl mb-3">
+                    <span class="material-symbols-outlined text-xl"
+                      style="font-variation-settings:'FILL' 1">monitor</span>
+                    8 pantallas
+                  </div>
+                  <h3 class="headline text-2xl font-bold text-on-surface leading-snug">
+                    Av. Principal de Las Mercedes<br />
+                    <span class="text-on-surface-variant font-medium text-lg">Después del CC Tolón</span>
+                  </h3>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="material-symbols-outlined text-tertiary">traffic</span>
+                <span class="text-sm text-on-surface-variant">Salida hacia autopista · Máximo tráfico en hora
+                  pico</span>
+              </div>
+              <div class="flex flex-wrap items-center gap-4">
+                <a href="index.html#contacto"
+                  class="text-primary-container font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                  Consultar disponibilidad <span class="material-symbols-outlined text-base">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+            <!-- Map side -->
+            <div class="relative h-72 md:h-auto overflow-hidden bg-slate-100 map-container order-1 md:order-2">
+              <div class="map-frame w-full h-full">
+                <iframe src="https://maps.google.com/maps?q=10.479702,-66.859093&z=17&t=k&output=embed" width="100%"
+                  height="100%" style="border:0; min-height:300px;" allowfullscreen="" loading="lazy"
+                  title="Mapa CC Tolón Las Mercedes"></iframe>
+              </div>
+              <div
+                class="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-2 shadow-lg border border-slate-100">
+                <span class="text-xs font-black uppercase tracking-widest text-primary-container">LAS MERCEDES</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- === CARD 5: Aeropuerto Maiquetía === -->
+        <div
+          class="loc-card bg-gradient-to-br from-slate-900 to-[#0b1428] rounded-3xl border border-white/10 shadow-2xl overflow-hidden scroll-reveal">
+          <div class="grid md:grid-cols-2 gap-0">
+            <!-- Map side -->
+            <div class="relative h-72 md:h-auto overflow-hidden map-container">
+              <div class="map-frame w-full h-full">
+                <iframe src="https://maps.google.com/maps?q=10.596663,-67.004779&z=16&t=k&output=embed" width="100%"
+                  height="100%" style="border:0; min-height:300px;" allowfullscreen="" loading="lazy"
+                  title="Mapa Aeropuerto Maiquetía"></iframe>
+              </div>
+              <div
+                class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-2 shadow-lg border border-slate-100">
+                <span class="text-xs font-black uppercase tracking-widest text-secondary">MAIQUETÍA</span>
+              </div>
+              <!-- Featured badge -->
+              <div
+                class="absolute bottom-4 left-4 bg-secondary text-white text-xs font-black uppercase tracking-widest px-3 py-1.5 rounded-full">
+                ✈ Ubicación Especial
+              </div>
+            </div>
+            <!-- Info side -->
+            <div class="p-8 md:p-10 flex flex-col justify-center">
+              <div class="flex items-start gap-5 mb-6">
+                <div class="pin-bounce flex-shrink-0" style="animation-delay:1.5s">
+                  <span class="material-symbols-outlined text-5xl"
+                    style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 48; color:#d70357">location_on</span>
+                </div>
+                <div>
+                  <!-- Featured 10-screen badge with gold tint -->
+                  <div
+                    class="inline-flex items-center gap-2 font-black text-2xl headline px-5 py-2 rounded-2xl mb-3 text-white"
+                    style="background: linear-gradient(135deg, #d70357 0%, #a80243 100%); box-shadow: 0 8px 24px rgba(215,3,87,0.4);">
+                    <span class="material-symbols-outlined text-xl"
+                      style="font-variation-settings:'FILL' 1">monitor</span>
+                    10 pantallas
+                  </div>
+                  <h3 class="headline text-2xl font-bold text-white leading-snug">
+                    Aeropuerto Nacional - Internacional<br />
+                    <span class="text-white/70 font-medium text-lg">Simón Bolívar · Maiquetía</span>
+                  </h3>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="material-symbols-outlined text-blue-400">flight</span>
+                <span class="text-sm text-white/60">Puerta de entrada al país · Audiencia nacional e
+                  internacional</span>
+              </div>
+              <div class="flex flex-wrap items-center gap-4">
+                <a href="index.html#contacto"
+                  class="text-blue-300 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                  Consultar disponibilidad <span class="material-symbols-outlined text-base">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /cards -->
+    </div>
+  </section>
 
 
-<!-- ═══ CTA ═══ -->
-<section class="py-24 px-6">
-  <div class="max-w-5xl mx-auto scroll-reveal">
-    <div class="bg-gradient-to-br from-primary-container to-secondary-container rounded-[3rem] p-12 lg:p-20 relative overflow-hidden">
-      <div class="absolute inset-0 opacity-10" style="background-image:radial-gradient(circle at 30% 50%, rgba(255,255,255,0.3) 0%, transparent 60%), radial-gradient(circle at 70% 50%, rgba(255,255,255,0.2) 0%, transparent 60%)"></div>
-      <div class="relative z-10 text-center max-w-2xl mx-auto">
-        <span class="material-symbols-outlined text-white/50 text-5xl block mb-4" style="font-variation-settings:'FILL' 1">monitor</span>
-        <h2 class="headline text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tighter">
-          Impacta a toda Caracas<br/>con tu marca
-        </h2>
-        <p class="text-white/75 text-lg mb-10 leading-relaxed">
-          Nuestro equipo te ayudará a elegir la galería ideal o combinar ubicaciones para maximizar el alcance de tu campaña.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="index.html#contacto" class="bg-white text-primary-container px-10 py-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:scale-105 transition-transform shadow-2xl">
-            Solicitar información
-          </a>
-          <a href="index.html" class="bg-white/15 border border-white/30 backdrop-blur-md text-white px-10 py-4 rounded-2xl font-bold text-sm uppercase tracking-widest hover:bg-white/25 transition-all">
-            Ver otros servicios
-          </a>
+  <!-- ═══ CTA ═══ -->
+  <section class="py-24 px-6">
+    <div class="max-w-5xl mx-auto scroll-reveal">
+      <div
+        class="bg-gradient-to-br from-primary-container to-secondary-container rounded-[3rem] p-12 lg:p-20 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10"
+          style="background-image:radial-gradient(circle at 30% 50%, rgba(255,255,255,0.3) 0%, transparent 60%), radial-gradient(circle at 70% 50%, rgba(255,255,255,0.2) 0%, transparent 60%)">
+        </div>
+        <div class="relative z-10 text-center max-w-2xl mx-auto">
+          <span class="material-symbols-outlined text-white/50 text-5xl block mb-4"
+            style="font-variation-settings:'FILL' 1">monitor</span>
+          <h2 class="headline text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tighter">
+            Impacta a toda Caracas<br />con tu marca
+          </h2>
+          <p class="text-white/75 text-lg mb-10 leading-relaxed">
+            Nuestro equipo te ayudará a elegir la galería ideal o combinar ubicaciones para maximizar el alcance de tu
+            campaña.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="index.html#contacto"
+              class="bg-slate-50 text-primary-container px-10 py-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:scale-105 transition-transform shadow-2xl">
+              Solicitar información
+            </a>
+            <a href="index.html"
+              class="bg-white/15 border border-white/30 backdrop-blur-md text-white px-10 py-4 rounded-2xl font-bold text-sm uppercase tracking-widest hover:bg-white/25 transition-all">
+              Ver otros servicios
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ═══ FOOTER ═══ -->
-<footer class="bg-white border-t border-slate-100">
-  <div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
-    <img alt="Innovando Logo" class="h-8 w-auto" src="logo_innovando.jpg"/>
-    <p class="text-on-surface-variant text-sm text-center">© 2025 Innovando · Publicidad Exterior de Alto Impacto</p>
-    <a href="index.html" class="text-primary-container font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
-      <span class="material-symbols-outlined text-sm">arrow_back</span>
-      Volver al inicio
-    </a>
-  </div>
-</footer>
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="bg-slate-50 border-t border-slate-100">
+    <div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+      <img alt="Innovando Logo" class="h-8 w-auto" src="logo_innovando.jpg" />
+      <p class="text-on-surface-variant text-sm text-center">© 2025 Innovando · Publicidad Exterior de Alto Impacto</p>
+      <a href="index.html"
+        class="text-primary-container font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+        <span class="material-symbols-outlined text-sm">arrow_back</span>
+        Volver al inicio
+      </a>
+    </div>
+  </footer>
 
-<script>
-// Scroll reveal
-const reveals = document.querySelectorAll('.scroll-reveal');
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
-reveals.forEach(el => revealObserver.observe(el));
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.scroll-reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+    reveals.forEach(el => revealObserver.observe(el));
 
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if (!t) return;
-    e.preventDefault();
-    t.scrollIntoView({ behavior: 'smooth' });
-  });
-});
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (!t) return;
+        e.preventDefault();
+        t.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
 
-// Mobile menu toggle
-const menuToggles = document.querySelectorAll('.menu-toggle');
-const mobileMenus = document.querySelectorAll('.mobile-menu');
+    // Mobile menu toggle
+    const menuToggles = document.querySelectorAll('.menu-toggle');
+    const mobileMenus = document.querySelectorAll('.mobile-menu');
 
-menuToggles.forEach((btn, idx) => {
-  btn.addEventListener('click', () => {
-    const menu = mobileMenus[idx];
-    if(!menu) return;
-    const icon = btn.querySelector('span');
-    if (menu.classList.contains('opacity-0')) {
-      menu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-8');
-      menu.classList.add('opacity-100', 'translate-y-0');
-      icon.textContent = 'close';
-    } else {
-      menu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-8');
-      menu.classList.remove('opacity-100', 'translate-y-0');
-      icon.textContent = 'menu';
-    }
-  });
-});
-</script>
-<script src="script.js"></script>
+    menuToggles.forEach((btn, idx) => {
+      btn.addEventListener('click', () => {
+        const menu = mobileMenus[idx];
+        if (!menu) return;
+        const icon = btn.querySelector('span');
+        if (menu.classList.contains('opacity-0')) {
+          menu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-8');
+          menu.classList.add('opacity-100', 'translate-y-0');
+          icon.textContent = 'close';
+        } else {
+          menu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-8');
+          menu.classList.remove('opacity-100', 'translate-y-0');
+          icon.textContent = 'menu';
+        }
+      });
+    });
+  </script>
+  <script src="script.js"></script>
 </body>
+
 </html>

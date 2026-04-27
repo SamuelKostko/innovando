@@ -43,7 +43,7 @@ html {
 }
 
 body {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-color: var(--dark);
   color: var(--text-primary);
   overflow-x: hidden;
@@ -126,8 +126,7 @@ ul {
   gap: 10px;
   background: linear-gradient(135deg, var(--blue) 0%, var(--magenta) 100%);
   color: #fff;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   padding: 15px 30px;
   border-radius: 50px;
@@ -671,7 +670,7 @@ ul {
 .highlight-text {
   font-size: 0.82rem;
   color: var(--text-secondary);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* ---- SOLUTIONS ---- */
@@ -1341,6 +1340,7 @@ ul {
   outline: none;
   transition: var(--transition);
   -webkit-appearance: none;
+  appearance: none;
 }
 
 .form-group select {
