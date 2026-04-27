@@ -781,7 +781,7 @@
           <!-- Main Image Container -->
           <div
             class="aspect-square rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden shadow-3xl relative z-10 border border-white/5">
-            <img src="assets/hero_city.png"
+            <img src="assets/vallas/cm.png"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               alt="Innovando Publicidad Exterior" />
             <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent mix-blend-overlay"></div>
@@ -1012,28 +1012,7 @@
               Toda <span class="text-brand-gradient">Venezuela</span></h2>
           </div>
 
-          <div class="grid gap-4 md:gap-6">
-            <div class="glass-panel p-5 md:p-8 border-white/5 hover:border-primary/30 transition-all group">
-              <div class="flex items-center gap-4 md:gap-6">
-                <span
-                  class="text-3xl md:text-4xl font-black text-white/10 group-hover:text-primary transition-colors headline">01</span>
-                <div>
-                  <h4 class="headline text-xl md:text-2xl font-bold text-white">Caracas y La Guaira</h4>
-                  <p class="text-white/40 text-sm mt-1">Chacao, Las Mercedes, Sucre y Aeropuerto Maiquetía.</p>
-                </div>
-              </div>
-            </div>
-            <div class="glass-panel p-5 md:p-8 border-white/5 hover:border-accent/30 transition-all group">
-              <div class="flex items-center gap-4 md:gap-6">
-                <span
-                  class="text-3xl md:text-4xl font-black text-white/10 group-hover:text-accent transition-colors headline">02</span>
-                <div>
-                  <h4 class="headline text-xl md:text-2xl font-bold text-white">Oriente y Guayana</h4>
-                  <p class="text-white/40 text-sm mt-1">Anzoátegui, Puerto Ordaz e Isla de Margarita.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+
         </div>
 
         <div class="relative mt-4 lg:mt-0">
@@ -1172,29 +1151,28 @@
       L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png').addTo(map);
 
       const locations = [
-        // CARACAS
+        // CARACAS & CENTRAL
         { name: "Chacao (Banderolas)", coords: [10.4906, -66.8583], color: "#E81C7C" },
         { name: "Plaza Francia (Galería)", coords: [10.4950, -66.8485], color: "#1A51A2" },
-        { name: "Plaza Alfredo Sadel (Galería)", coords: [10.4828, -66.8619], color: "#E81C7C" },
+        { name: "Las Mercedes (LED)", coords: [10.4850, -66.8650], color: "#E81C7C" },
         { name: "Los Ruices (EPA - LED)", coords: [10.4856, -66.8225], color: "#1A51A2" },
-        { name: "La Urbina (Gigantografía)", coords: [10.4860, -66.8150], color: "#1A51A2" },
-        { name: "La Carlota (Valla)", coords: [10.4930, -66.8370], color: "#E81C7C" },
-        { name: "Las Mayas (Valla)", coords: [10.4385, -66.9070], color: "#1A51A2" },
+        { name: "Valencia (Autopista)", coords: [10.2300, -67.9700], color: "#1A51A2" },
+        { name: "Maracay (Casco Central)", coords: [10.2442, -67.5919], color: "#E81C7C" },
 
-        // LA GUAIRA
-        { name: "Aeropuerto Maiquetía (Galería)", coords: [10.6031, -66.9906], color: "#1A51A2" },
+        // OCCIDENTE
+        { name: "Maracaibo (Av. Bellavista)", coords: [10.6447, -71.6406], color: "#1A51A2" },
+        { name: "Barquisimeto (El Obelisco)", coords: [10.0678, -69.3473], color: "#E81C7C" },
+        { name: "San Cristóbal (Vía Principal)", coords: [7.7669, -72.2250], color: "#1A51A2" },
 
-        // ANZOÁTEGUI
+        // ORIENTE E INSULAR
         { name: "Puerto La Cruz (Bomberos)", coords: [10.1983, -64.6361], color: "#E81C7C" },
         { name: "Lechería (Las Garzas)", coords: [10.1800, -64.6900], color: "#1A51A2" },
-        { name: "Barcelona (Intercomunal)", coords: [10.1245, -64.6934], color: "#E81C7C" },
+        { name: "Maturín (C.C. Monagas)", coords: [9.7458, -63.1764], color: "#1A51A2" },
+        { name: "Margarita (El Dátil)", coords: [10.9250, -63.9550], color: "#E81C7C" },
 
-        // BOLÍVAR
-        { name: "PZO (Av. Guayana)", coords: [8.2882, -62.7592], color: "#1A51A2" },
-        { name: "PZO (Redoma Bauxilum)", coords: [8.2721, -62.7765], color: "#1A51A2" },
-
-        // NUEVA ESPARTA
-        { name: "Margarita (El Dátil)", coords: [10.9250, -63.9550], color: "#E81C7C" }
+        // SUR
+        { name: "Puerto Ordaz (Av. Guayana)", coords: [8.2882, -62.7592], color: "#1A51A2" },
+        { name: "Ciudad Bolívar (Puente Angostura)", coords: [8.1472, -63.5350], color: "#E81C7C" }
       ];
 
       locations.forEach(loc => {
