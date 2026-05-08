@@ -261,6 +261,20 @@
       animation: logo-shine 8s infinite;
     }
 
+    @keyframes led-logo-pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        filter: brightness(1.2) drop-shadow(0 0 20px rgba(46, 91, 255, 0.8));
+      }
+
+      50% {
+        transform: scale(1.02);
+        filter: brightness(1.4) drop-shadow(0 0 40px rgba(46, 91, 255, 1));
+      }
+    }
+
     /* Stat divider */
     .stat-sep {
       width: 1px;
@@ -411,608 +425,290 @@
   </section>
 
   <!-- ═══ PANTALLA LED ANIMADA ═══ -->
-  <section class="py-24 bg-[#080c14] relative overflow-hidden" id="pantalla-demo">
-
-    <!-- Background ambient glow -->
+  <section class="py-24 bg-[#0f172a] relative overflow-hidden" id="pantalla-demo">
+    <!-- Ambient glow -->
     <div class="absolute inset-0 pointer-events-none">
       <div
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-primary-container/10 rounded-full blur-[120px]">
-      </div>
-      <div
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-[80px]">
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-blue-500/10 rounded-full blur-[140px]">
       </div>
     </div>
 
     <style>
-      /* LED Screen Core */
-      .led-billboard {
+      .pure-css-scene {
         position: relative;
         width: 100%;
-        max-width: 900px;
-        aspect-ratio: 16/9;
-        background: #000;
-        border-radius: 16px;
+        height: 600px;
+        background: #1e293b;
         overflow: hidden;
-        box-shadow:
-          0 0 0 4px #1a1a2e,
-          0 0 0 8px #0d0d1a,
-          0 0 60px rgba(46, 91, 255, 0.5),
-          0 0 120px rgba(46, 91, 255, 0.25),
-          0 40px 80px rgba(0, 0, 0, 0.8);
+        perspective: 1500px;
+        border-radius: 24px;
+        box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
       }
 
-      /* LED Pixel grid overlay */
-      .led-billboard::before {
-        content: '';
+      /* Ciudad de fondo */
+      .css-sky {
         position: absolute;
         inset: 0;
-        background-image:
-          linear-gradient(rgba(0, 0, 0, 0.15) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(0, 0, 0, 0.15) 1px, transparent 1px);
-        background-size: 4px 4px;
-        z-index: 10;
-        pointer-events: none;
+        background: linear-gradient(to bottom, #070b14 0%, #1e293b 70%, #334155 100%);
+        height: 65%;
       }
 
-      /* Scanline effect */
+      .css-cityscape {
+        position: absolute;
+        bottom: 35%;
+        width: 100%;
+        height: 180px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-around;
+        opacity: 0.4;
+        z-index: 2;
+      }
+
+      .city-building {
+        background: #0f172a;
+        width: 40px;
+        position: relative;
+      }
+
+      /* Ventanas sutiles en la ciudad */
+      .city-building::after {
+        content: '';
+        position: absolute;
+        inset: 5px;
+        background-image: repeating-linear-gradient(to bottom, rgba(255, 215, 0, 0.1) 0, rgba(255, 215, 0, 0.1) 2px, transparent 2px, transparent 8px);
+        background-size: 100% 10px;
+      }
+
+      /* Carretera con ancho controlado */
+      .road-container {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 750px;
+        height: 35%;
+        perspective: 600px;
+        z-index: 5;
+      }
+
+      .css-road {
+        width: 100%;
+        height: 160%;
+        background: #1a1a1a;
+        transform: rotateX(65deg);
+        transform-origin: top;
+        position: relative;
+        box-shadow: inset 0 20px 80px rgba(0, 0, 0, 0.9);
+        border-left: 2px solid #334155;
+        border-right: 2px solid #334155;
+      }
+
+      .center-line {
+        position: absolute;
+        left: 50%;
+        top: -50px;
+        width: 6px;
+        height: 150%;
+        background: repeating-linear-gradient(to bottom, #fbbf24 0, #fbbf24 100px, transparent 100px, transparent 200px);
+        transform: translateX(-50%);
+        animation: road-move 1.2s linear infinite;
+      }
+
+      @keyframes road-move {
+        from {
+          transform: translateX(-50%) translateY(30px);
+        }
+
+        to {
+          transform: translateX(-50%) translateY(230px);
+        }
+      }
+
+      /* Estructura de la Valla (Gantry) */
+      .css-gantry {
+        position: absolute;
+        inset: 0;
+        z-index: 30;
+        display: flex;
+        justify-content: center;
+      }
+
+      .gantry-pole {
+        position: absolute;
+        bottom: 0;
+        width: 24px;
+        height: 450px;
+        background: linear-gradient(90deg, #334155, #64748b, #334155);
+        border-radius: 4px 4px 0 0;
+      }
+
+      .gantry-pole.left {
+        left: calc(50% - 410px);
+      }
+
+      .gantry-pole.right {
+        right: calc(50% - 410px);
+      }
+
+      .gantry-beam {
+        position: absolute;
+        top: 70px;
+        width: 850px;
+        /* Más ancho para el logo completo */
+        height: 200px;
+        background: #0a0a0a;
+        display: flex;
+        align-items: stretch;
+        border: 3px solid #1e293b;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+      }
+
+      /* Paneles laterales */
+      .beam-side {
+        flex: 0 0 90px;
+        background: repeating-linear-gradient(0deg, #050505 0, #050505 2px, #111 3px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .orange-shield {
+        width: 40px;
+        height: 50px;
+        background: #f97316;
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        filter: drop-shadow(0 0 10px rgba(249, 115, 22, 0.3));
+      }
+
+      /* Pantalla LED */
+      .led-billboard {
+        flex: 1;
+        background: #000;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Efecto de rejilla LED */
       .led-billboard::after {
         content: '';
         position: absolute;
         inset: 0;
-        background: repeating-linear-gradient(0deg,
-            transparent,
-            transparent 2px,
-            rgba(0, 0, 0, 0.08) 2px,
-            rgba(0, 0, 0, 0.08) 4px);
-        z-index: 11;
+        background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+        background-size: 3px 3px;
+        z-index: 10;
         pointer-events: none;
-        animation: scanlines 8s linear infinite;
       }
 
-      @keyframes scanlines {
-        0% {
-          background-position: 0 0;
-        }
-
-        100% {
-          background-position: 0 100px;
-        }
-      }
-
-      /* Slide system */
       .led-slide {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 0.8s ease;
-        z-index: 2;
+        display: none;
+        max-width: 90%;
+        max-height: 85%;
+        object-fit: contain;
+        filter: brightness(1.1) contrast(1.1);
       }
 
       .led-slide.active {
-        opacity: 1;
+        display: block;
       }
 
-      /* Slide 1: Brand Identity */
-      .slide-brand {
-        background: radial-gradient(ellipse at 50% 50%, #0f1e4a 0%, #060d20 60%, #000 100%);
-      }
-
-      .led-logo-wrap {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        z-index: 5;
-      }
-
-      .led-logo-img {
-        height: clamp(60px, 10vw, 120px);
-        width: auto;
-        filter: drop-shadow(0 0 20px rgba(46, 91, 255, 0.8)) drop-shadow(0 0 40px rgba(46, 91, 255, 0.4)) brightness(1.2);
-        animation: led-logo-pulse 2s ease-in-out infinite;
-      }
-
-      @keyframes led-logo-pulse {
-
-        0%,
-        100% {
-          filter: drop-shadow(0 0 20px rgba(46, 91, 255, 0.8)) drop-shadow(0 0 40px rgba(46, 91, 255, 0.4)) brightness(1.2);
-          transform: scale(1);
-        }
-
-        50% {
-          filter: drop-shadow(0 0 35px rgba(46, 91, 255, 1)) drop-shadow(0 0 70px rgba(46, 91, 255, 0.6)) drop-shadow(0 0 100px rgba(215, 3, 87, 0.3)) brightness(1.35);
-          transform: scale(1.03);
-        }
-      }
-
-      .led-tagline {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 900;
-        font-size: clamp(10px, 2vw, 22px);
-        letter-spacing: 0.4em;
-        text-transform: uppercase;
-        color: #fff;
-        text-shadow: 0 0 15px rgba(46, 91, 255, 0.9), 0 0 30px rgba(46, 91, 255, 0.5);
-        animation: text-flicker 4s ease-in-out infinite;
-      }
-
-      @keyframes text-flicker {
-
-        0%,
-        90%,
-        100% {
-          opacity: 1;
-        }
-
-        92% {
-          opacity: 0.85;
-        }
-
-        94% {
-          opacity: 1;
-        }
-
-        96% {
-          opacity: 0.9;
-        }
-      }
-
-      /* Orbiting rings around logo */
-      .led-orbit {
+      /* Sombra de la valla en el suelo */
+      .billboard-shadow {
         position: absolute;
-        border-radius: 50%;
-        border: 1px solid rgba(46, 91, 255, 0.3);
-        animation: led-orbit-spin 8s linear infinite;
-      }
-
-      .led-orbit-2 {
-        animation-duration: 12s;
-        animation-direction: reverse;
-        border-color: rgba(215, 3, 87, 0.2);
-      }
-
-      @keyframes led-orbit-spin {
-        from {
-          transform: rotate(0deg);
-        }
-
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
-      .led-orbit-dot {
-        position: absolute;
-        top: -3px;
-        left: 50%;
-        width: 6px;
-        height: 6px;
-        background: #2e5bff;
-        border-radius: 50%;
-        box-shadow: 0 0 10px #2e5bff;
-        transform: translateX(-50%);
-      }
-
-      /* Slide 2: Stats Showcase */
-      .slide-stats {
-        background: linear-gradient(135deg, #0a0f2a 0%, #050810 50%, #0a0620 100%);
-      }
-
-      .led-stat-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: clamp(8px, 2vw, 24px);
-        padding: clamp(12px, 3vw, 40px);
+        top: 0;
         width: 100%;
-        height: 100%;
-      }
-
-      .led-stat-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid rgba(255, 255, 255, 0.07);
-        border-radius: 12px;
-        padding: clamp(8px, 1.5vw, 20px);
-        position: relative;
-        overflow: hidden;
-        background: rgba(255, 255, 255, 0.02);
-        animation: card-glow-in 0.6s ease both;
-      }
-
-      .led-stat-card:nth-child(1) {
-        animation-delay: 0.1s;
-        border-color: rgba(46, 91, 255, 0.3);
-      }
-
-      .led-stat-card:nth-child(2) {
-        animation-delay: 0.2s;
-        border-color: rgba(215, 3, 87, 0.3);
-      }
-
-      .led-stat-card:nth-child(3) {
-        animation-delay: 0.3s;
-        border-color: rgba(46, 91, 255, 0.3);
-      }
-
-      .led-stat-card:nth-child(4) {
-        animation-delay: 0.4s;
-        border-color: rgba(215, 3, 87, 0.3);
-      }
-
-      @keyframes card-glow-in {
-        from {
-          opacity: 0;
-          transform: scale(0.9);
-        }
-
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-
-      .led-stat-number {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 900;
-        font-size: clamp(20px, 4.5vw, 52px);
-        line-height: 1;
-        color: #fff;
-      }
-
-      .led-stat-card:nth-child(1) .led-stat-number,
-      .led-stat-card:nth-child(3) .led-stat-number {
-        text-shadow: 0 0 20px rgba(46, 91, 255, 1), 0 0 40px rgba(46, 91, 255, 0.5);
-      }
-
-      .led-stat-card:nth-child(2) .led-stat-number,
-      .led-stat-card:nth-child(4) .led-stat-number {
-        text-shadow: 0 0 20px rgba(215, 3, 87, 1), 0 0 40px rgba(215, 3, 87, 0.5);
-      }
-
-      .led-stat-label {
-        font-family: 'Montserrat', sans-serif;
-        font-size: clamp(6px, 1vw, 11px);
-        font-weight: 700;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.4);
-        margin-top: 4px;
-        text-align: center;
-      }
-
-      /* Slide 3: Cinematic text */
-      .slide-cinematic {
-        background: #000;
-        overflow: hidden;
-      }
-
-      .led-scan-line {
-        position: absolute;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background: linear-gradient(90deg, transparent, rgba(46, 91, 255, 0.8), rgba(215, 3, 87, 0.8), transparent);
-        animation: scan-sweep 3s ease-in-out infinite;
-        box-shadow: 0 0 20px rgba(46, 91, 255, 0.6);
-      }
-
-      @keyframes scan-sweep {
-        0% {
-          top: -2px;
-          opacity: 0;
-        }
-
-        10% {
-          opacity: 1;
-        }
-
-        90% {
-          opacity: 1;
-        }
-
-        100% {
-          top: 100%;
-          opacity: 0;
-        }
-      }
-
-      .led-big-text {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 900;
-        font-size: clamp(24px, 7vw, 90px);
-        line-height: 0.9;
-        text-transform: uppercase;
-        letter-spacing: -0.02em;
-        text-align: center;
-        color: #fff;
-        position: relative;
-        z-index: 5;
-      }
-
-      .led-big-text .line-blue {
-        color: transparent;
-        -webkit-text-stroke: 1px rgba(46, 91, 255, 0.9);
-        text-shadow: 0 0 40px rgba(46, 91, 255, 0.6);
-        display: block;
-        animation: text-reveal 0.8s ease both;
-      }
-
-      .led-big-text .line-solid {
-        color: #fff;
-        text-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
-        display: block;
-        animation: text-reveal 0.8s 0.3s ease both;
-      }
-
-      .led-big-text .line-red {
-        color: transparent;
-        -webkit-text-stroke: 1px rgba(215, 3, 87, 0.9);
-        text-shadow: 0 0 40px rgba(215, 3, 87, 0.6);
-        display: block;
-        animation: text-reveal 0.8s 0.6s ease both;
-      }
-
-      @keyframes text-reveal {
-        from {
-          opacity: 0;
-          transform: translateY(20px) skewY(3deg);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateY(0) skewY(0);
-        }
-      }
-
-      /* Corner markers (LED frame) */
-      .led-corner {
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        border-color: rgba(46, 91, 255, 0.6);
-        border-style: solid;
-        z-index: 15;
-      }
-
-      .led-corner-tl {
-        top: 8px;
-        left: 8px;
-        border-width: 2px 0 0 2px;
-      }
-
-      .led-corner-tr {
-        top: 8px;
-        right: 8px;
-        border-width: 2px 2px 0 0;
-      }
-
-      .led-corner-bl {
-        bottom: 8px;
-        left: 8px;
-        border-width: 0 0 2px 2px;
-      }
-
-      .led-corner-br {
-        bottom: 8px;
-        right: 8px;
-        border-width: 0 2px 2px 0;
-      }
-
-      /* Live clock */
-      .led-clock {
-        position: absolute;
-        bottom: 10px;
-        right: 16px;
-        font-family: 'Montserrat', monospace;
-        font-size: clamp(8px, 1.2vw, 13px);
-        font-weight: 700;
-        color: rgba(46, 91, 255, 0.7);
-        letter-spacing: 0.1em;
-        z-index: 20;
-        text-shadow: 0 0 8px rgba(46, 91, 255, 0.5);
-      }
-
-      /* LIVE badge */
-      .led-live {
-        position: absolute;
-        top: 10px;
-        left: 14px;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        z-index: 20;
-      }
-
-      .led-live-dot {
-        width: 6px;
-        height: 6px;
-        background: #d70357;
-        border-radius: 50%;
-        box-shadow: 0 0 8px #d70357;
-        animation: live-pulse 1s ease-in-out infinite;
-      }
-
-      @keyframes live-pulse {
-
-        0%,
-        100% {
-          opacity: 1;
-          transform: scale(1);
-        }
-
-        50% {
-          opacity: 0.5;
-          transform: scale(1.3);
-        }
-      }
-
-      .led-live-text {
-        font-family: 'Montserrat', sans-serif;
-        font-size: clamp(7px, 1vw, 11px);
-        font-weight: 900;
-        color: #d70357;
-        letter-spacing: 0.2em;
-        text-shadow: 0 0 8px rgba(215, 3, 87, 0.7);
-      }
-
-      /* Billboard stand */
-      .led-stand {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: -4px;
-      }
-
-      .led-stand-pole {
-        width: 6px;
-        height: clamp(30px, 5vw, 60px);
-        background: linear-gradient(180deg, #2a2a3a, #111);
-      }
-
-      .led-stand-base {
-        width: clamp(80px, 15vw, 160px);
-        height: clamp(8px, 1.5vw, 16px);
-        background: linear-gradient(90deg, #111, #2a2a3a, #111);
-        border-radius: 4px;
-      }
-
-      /* Progress dots */
-      .led-dots {
-        display: flex;
-        gap: 8px;
-        margin-top: 20px;
-      }
-
-      .led-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.2);
-        transition: all 0.4s ease;
-        cursor: pointer;
-      }
-
-      .led-dot.active {
-        background: #2e5bff;
-        box-shadow: 0 0 10px rgba(46, 91, 255, 0.8);
-        transform: scale(1.3);
-      }
-
-      /* Billboard glow on floor */
-      .led-floor-glow {
-        position: absolute;
-        bottom: -20px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60%;
-        height: 40px;
-        background: radial-gradient(ellipse, rgba(46, 91, 255, 0.3) 0%, transparent 70%);
-        filter: blur(15px);
-        pointer-events: none;
+        height: 100px;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent);
+        z-index: 6;
       }
     </style>
 
     <div class="max-w-7xl mx-auto px-6 relative z-10">
-      <!-- Header -->
-      <div class="text-center mb-16 scroll-reveal">
-        <span class="text-secondary font-bold text-xs uppercase tracking-widest block mb-3 headline">Experiencia
-          Visual</span>
-        <h2 class="headline text-4xl md:text-5xl font-bold text-white">Tu marca en una <span
-            class="text-primary-container">Pantalla LED</span></h2>
-        <p class="text-white/50 mt-4 text-lg max-w-xl mx-auto">Alta definición HDTV · 576 exposiciones diarias · Impacto
-          24/7</p>
+      <div class="text-center mb-12">
+        <span class="text-blue-400 font-bold text-xs uppercase tracking-widest block mb-3">Publicidad Exterior</span>
+        <h2 class="text-4xl md:text-5xl font-bold text-white">Impacto en <span class="text-blue-500">Gran Formato</span>
+        </h2>
       </div>
 
-      <!-- LED Billboard -->
-      <div class="flex flex-col items-center scroll-reveal">
+      <div class="pure-css-scene">
+        <div class="css-sky"></div>
 
-        <div class="led-billboard w-full" id="led-display">
-          <!-- Corner markers -->
-          <div class="led-corner led-corner-tl"></div>
-          <div class="led-corner led-corner-tr"></div>
-          <div class="led-corner led-corner-bl"></div>
-          <div class="led-corner led-corner-br"></div>
+        <!-- Skyline Ciudad -->
+        <div class="css-cityscape">
+          <div class="city-building" style="height: 100px; width: 60px;"></div>
+          <div class="city-building" style="height: 150px; width: 40px;"></div>
+          <div class="city-building" style="height: 80px; width: 70px;"></div>
+          <div class="city-building" style="height: 130px; width: 50px;"></div>
+          <div class="city-building" style="height: 110px; width: 60px;"></div>
+          <div class="city-building" style="height: 160px; width: 45px;"></div>
+          <div class="city-building" style="height: 90px; width: 55px;"></div>
+        </div>
 
-
-          <!-- Clock -->
-          <div class="led-clock" id="led-clock">00:00:00</div>
-
-          <!-- SLIDE 1: Brand -->
-          <div class="led-slide slide-brand active" id="slide-0">
-            <div class="led-logo-wrap">
-              <img src="innovando1.png" alt="Innovando Logo" class="led-logo-img relative z-10" />
-            </div>
-          </div>
-
-          <!-- SLIDE 2: Cinematic Text -->
-          <div class="led-slide slide-cinematic" id="slide-1">
-            <div class="led-scan-line"></div>
-            <div class="led-big-text">
-              <span class="line-blue">Tu Marca</span>
-              <span class="line-solid">EN</span>
-              <span class="line-red">Pantalla LED</span>
-            </div>
+        <div class="road-container">
+          <div class="css-road">
+            <div class="billboard-shadow"></div>
+            <div class="center-line"></div>
           </div>
         </div>
 
-        <!-- Stand -->
-        <div class="led-stand">
-          <div class="led-stand-pole"></div>
-          <div class="led-stand-base"></div>
-        </div>
-        <div class="led-floor-glow"></div>
+        <div class="css-gantry">
+          <div class="gantry-pole left"></div>
+          <div class="gantry-pole right"></div>
 
-        <!-- Navigation dots -->
-        <div class="led-dots" id="led-dots">
-          <div class="led-dot active" onclick="goToSlide(0)"></div>
-          <div class="led-dot" onclick="goToSlide(1)"></div>
-        </div>
+          <div class="gantry-beam">
+            <div class="beam-side">
+              <div class="orange-shield"></div>
+            </div>
 
-        <!-- Caption -->
-        <p class="text-white/30 text-xs uppercase tracking-widest mt-6 text-center font-bold">
-          Simulación de pantalla LED · Resolución real: 1920 × 1080 px · 6m × 3m
-        </p>
+            <div class="led-billboard" id="led-display">
+              <!-- Logo Innovando -->
+              <img src="innovando1.png" id="slide-0" class="led-slide active" alt="Innovando Logo">
+              <!-- Slide Alternativo -->
+              <div id="slide-1" class="led-slide text-center text-blue-500 font-black text-4xl tracking-tighter">
+                PUBLICIDAD 24/7
+              </div>
+            </div>
+
+            <div class="beam-side">
+              <div class="orange-shield"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center mt-10">
+        <div class="flex gap-3">
+          <div class="w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_10px_#3b82f6] cursor-pointer" onclick="goToSlide(0)">
+          </div>
+          <div class="w-3 h-3 rounded-full bg-white/20 cursor-pointer" onclick="goToSlide(1)"></div>
+        </div>
       </div>
     </div>
 
     <script>
-      // LED Slideshow
-      let currentSlide = 0;
-      const totalSlides = 2;
-      let autoTimer;
-
+      let currentS = 0;
       function goToSlide(n) {
-        document.getElementById('slide-' + currentSlide).classList.remove('active');
-        document.querySelectorAll('.led-dot')[currentSlide].classList.remove('active');
-        currentSlide = n;
-        document.getElementById('slide-' + currentSlide).classList.add('active');
-        document.querySelectorAll('.led-dot')[currentSlide].classList.add('active');
-        clearInterval(autoTimer);
-        autoTimer = setInterval(nextSlide, 5000);
+        const slides = document.querySelectorAll('.led-slide');
+        const dots = document.querySelectorAll('.flex.gap-3 div');
+        slides[currentS].classList.remove('active');
+        dots[currentS].classList.replace('bg-blue-500', 'bg-white/20');
+        dots[currentS].classList.remove('shadow-[0_0_10px_#3b82f6]');
+
+        currentS = n;
+
+        slides[currentS].classList.add('active');
+        dots[currentS].classList.replace('bg-white/20', 'bg-blue-500');
+        dots[currentS].classList.add('shadow-[0_0_10px_#3b82f6]');
       }
 
-      function nextSlide() { goToSlide((currentSlide + 1) % totalSlides); }
-      autoTimer = setInterval(nextSlide, 5000);
-
-      // Live clock
-      function updateClock() {
-        const now = new Date();
-        const t = [now.getHours(), now.getMinutes(), now.getSeconds()]
-          .map(v => String(v).padStart(2, '0')).join(':');
-        document.getElementById('led-clock').textContent = t;
-      }
-      updateClock();
-      setInterval(updateClock, 1000);
+      setInterval(() => {
+        goToSlide((currentS + 1) % 2);
+      }, 6000);
     </script>
   </section>
-
   <!-- ═══ BENEFICIOS ═══ -->
   <section class="py-24 bg-slate-50" id="beneficios">
     <div class="max-w-7xl mx-auto px-6">
@@ -1025,70 +721,8 @@
 
       <div class="grid lg:grid-cols-2 gap-12 items-start scroll-reveal">
 
-        <!-- LEFT: Embedded LED Screen -->
-        <div class="relative flex flex-col items-center">
-          <div class="led-billboard w-full" id="led-display-b">
-            <!-- Corner markers -->
-            <div class="led-corner led-corner-tl"></div>
-            <div class="led-corner led-corner-tr"></div>
-            <div class="led-corner led-corner-bl"></div>
-            <div class="led-corner led-corner-br"></div>
-            <!-- Clock -->
-            <div class="led-clock" id="led-clock-b">00:00:00</div>
-            <!-- SLIDE 1: Brand -->
-            <div class="led-slide slide-brand active" id="slide-b-0">
-              <div class="led-logo-wrap">
-                <img src="innovando1.png" alt="Innovando Logo" class="led-logo-img relative z-10" />
-              </div>
-            </div>
-            <!-- SLIDE 2: Cinematic Text -->
-            <div class="led-slide slide-cinematic" id="slide-b-1">
-              <div class="led-scan-line"></div>
-              <div class="led-big-text">
-                <span class="line-blue">Tu Marca</span>
-                <span class="line-solid">EN</span>
-                <span class="line-red">Pantalla LED</span>
-              </div>
-            </div>
-          </div>
-          <!-- Stand -->
-          <div class="led-stand">
-            <div class="led-stand-pole"></div>
-            <div class="led-stand-base"></div>
-          </div>
-          <!-- Navigation dots -->
-          <div class="led-dots" id="led-dots-b">
-            <div class="led-dot active" onclick="goToSlideB(0)"></div>
-            <div class="led-dot" onclick="goToSlideB(1)"></div>
-          </div>
-          <script>
-            let currentSlideB = 0;
-            const totalSlidesB = 2;
-            let autoTimerB;
-            function goToSlideB(n) {
-              document.getElementById('slide-b-' + currentSlideB).classList.remove('active');
-              document.querySelectorAll('#led-dots-b .led-dot')[currentSlideB].classList.remove('active');
-              currentSlideB = n;
-              document.getElementById('slide-b-' + currentSlideB).classList.add('active');
-              document.querySelectorAll('#led-dots-b .led-dot')[currentSlideB].classList.add('active');
-              clearInterval(autoTimerB);
-              autoTimerB = setInterval(nextSlideB, 5000);
-            }
-            function nextSlideB() { goToSlideB((currentSlideB + 1) % totalSlidesB); }
-            autoTimerB = setInterval(nextSlideB, 5000);
-            setInterval(function () {
-              const now = new Date();
-              const t = [now.getHours(), now.getMinutes(), now.getSeconds()].map(v => String(v).padStart(2, '0')).join(':');
-              document.getElementById('led-clock-b').textContent = t;
-            }, 1000);
-          </script>
-        </div>
-
-        <!-- RIGHT: Benefits cards -->
-        <div class="space-y-6">
-
-          <!-- Left column -->
-          <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200 space-y-6">
+        <!-- Left column: Rendimiento -->
+        <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200 space-y-6">
             <h3
               class="headline text-lg font-bold text-on-surface uppercase tracking-wider mb-8 flex items-center gap-3">
               <span class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center">
@@ -1167,7 +801,6 @@
               </div>
             </div>
           </div>
-        </div><!-- end right column -->
       </div><!-- end lg:grid-cols-2 -->
 
       <!-- Big stat blocks -->
@@ -1353,23 +986,32 @@
   <!-- ═══ FOOTER ═══ -->
   <footer class="bg-[#0a0a0a] pt-24 pb-12 relative overflow-hidden">
     <!-- Top Glow -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-    
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent">
+    </div>
+
     <div class="max-w-7xl mx-auto px-6 md:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-        
+
         <!-- Column 1: Brand -->
         <div class="lg:col-span-7 space-y-8">
           <a href="index.html" class="inline-block group">
-            <img alt="Innovando Logo" class="h-12 w-auto brightness-125 group-hover:scale-105 transition-transform duration-500" src="innovando1.png" />
+            <img alt="Innovando Logo"
+              class="h-12 w-auto brightness-125 group-hover:scale-105 transition-transform duration-500"
+              src="innovando1.png" />
           </a>
           <p class="text-white/40 text-lg leading-relaxed max-w-2xl">
-            Liderando la publicidad exterior en toda Venezuela con ubicaciones de alto impacto y tecnología de vanguardia. Transformamos el paisaje urbano en el escenario ideal para tu marca.
+            Liderando la publicidad exterior en toda Venezuela con ubicaciones de alto impacto y tecnología de
+            vanguardia. Transformamos el paisaje urbano en el escenario ideal para tu marca.
           </p>
           <!-- Social Links -->
           <div class="flex gap-4">
-            <a href="https://instagram.com" target="_blank" class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-primary hover:text-white hover:-translate-y-1 transition-all duration-300">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <a href="https://instagram.com" target="_blank"
+              class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-primary hover:text-white hover:-translate-y-1 transition-all duration-300">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
             </a>
 
           </div>
@@ -1380,12 +1022,24 @@
           <h4 class="headline text-white font-bold text-sm tracking-widest uppercase">Explorar</h4>
           <div class="grid grid-cols-2 gap-4">
             <ul class="space-y-4">
-              <li><a href="vallas.html" class="text-white/40 hover:text-white transition-colors text-sm font-bold flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-all"></span>VALLAS</a></li>
-              <li><a href="banderolas.html" class="text-white/40 hover:text-white transition-colors text-sm font-bold flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-accent opacity-0 group-hover:opacity-100 transition-all"></span>BANDEROLAS</a></li>
+              <li><a href="vallas.html"
+                  class="text-white/40 hover:text-white transition-colors text-sm font-bold flex items-center gap-2 group"><span
+                    class="w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-all"></span>VALLAS</a>
+              </li>
+              <li><a href="banderolas.html"
+                  class="text-white/40 hover:text-white transition-colors text-sm font-bold flex items-center gap-2 group"><span
+                    class="w-1.5 h-1.5 rounded-full bg-accent opacity-0 group-hover:opacity-100 transition-all"></span>BANDEROLAS</a>
+              </li>
             </ul>
             <ul class="space-y-4">
-              <li><a href="galerias.html" class="text-white/40 hover:text-white transition-colors text-sm font-bold flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-all"></span>GALERÍAS</a></li>
-              <li><a href="pantallas-led.html" class="text-white/40 hover:text-white transition-colors text-sm font-bold flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-accent opacity-0 group-hover:opacity-100 transition-all"></span>PANTALLAS LED</a></li>
+              <li><a href="galerias.html"
+                  class="text-white/40 hover:text-white transition-colors text-sm font-bold flex items-center gap-2 group"><span
+                    class="w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-all"></span>GALERÍAS</a>
+              </li>
+              <li><a href="pantallas-led.html"
+                  class="text-white/40 hover:text-white transition-colors text-sm font-bold flex items-center gap-2 group"><span
+                    class="w-1.5 h-1.5 rounded-full bg-accent opacity-0 group-hover:opacity-100 transition-all"></span>PANTALLAS
+                  LED</a></li>
             </ul>
           </div>
         </div>

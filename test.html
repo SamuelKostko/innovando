@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            --metal-finish: linear-gradient(90deg, #111, #333, #111);
+            --asphalt-color: #2a2a2a;
+            --line-color: rgba(255, 255, 255, 0.4);
+        }
+
+        body {
+            background-color: transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            perspective: 1200px;
+        }
+
+        /* Contenedor Maestro */
+        .billboard-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Estructura de la Pantalla */
+        .main-structure {
+            display: flex;
+            width: 800px;
+            height: 160px;
+            background: #151515;
+            border: 2px solid #000;
+            border-radius: 4px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+            z-index: 10;
+        }
+
+        .side-panel {
+            flex: 0 0 100px;
+            background: repeating-linear-gradient(0deg, #111 0px, #111 2px, #1a1a1a 3px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .orange-emblem {
+            width: 50px;
+            height: 65px;
+            background: #e65c00;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+
+        .screen-container {
+            flex: 1;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .screen-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.85);
+        }
+
+        /* Rejilla LED sutil */
+        .led-mesh {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 4px 4px;
+            pointer-events: none;
+        }
+
+        /* Postes y Calle */
+        .supports-and-road {
+            position: relative;
+            width: 760px;
+            /* Un poco menos que la pantalla para alinear con los paneles laterales */
+            height: 300px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .post {
+            width: 14px;
+            height: 100%;
+            background: var(--metal-finish);
+            z-index: 5;
+        }
+
+        /* Calle confinada entre postes */
+        .road-segment {
+            position: absolute;
+            top: 0;
+            left: 14px;
+            /* Empieza después del primer poste */
+            right: 14px;
+            /* Termina antes del segundo poste */
+            height: 400px;
+            background: var(--asphalt-color);
+            transform-origin: top;
+            transform: rotateX(75deg);
+            /* Perspectiva agresiva de calle */
+            box-shadow: inset 0 20px 50px rgba(0, 0, 0, 0.8);
+            border-left: 2px solid #111;
+            border-right: 2px solid #111;
+            z-index: 1;
+        }
+
+        /* Detalles de la calle (sin luces) */
+        .road-details {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image:
+                /* Línea central discontinua */
+                linear-gradient(to bottom,
+                    var(--line-color) 0%, var(--line-color) 30%,
+                    transparent 30%, transparent 100%);
+            background-size: 6px 120px;
+            background-position: center;
+            opacity: 0.5;
+        }
+
+        /* Sombra proyectada por la valla sobre la calle */
+        .billboard-shadow {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+            z-index: 2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="billboard-wrapper">
+        <!-- Valla -->
+        <div class="main-structure">
+            <div class="side-panel">
+                <div class="orange-emblem"></div>
+            </div>
+
+            <div class="screen-container">
+                <img src="logo_innovando.jpg" alt="Imagen en Pantalla">
+                <div class="led-mesh"></div>
+            </div>
+
+            <div class="side-panel">
+                <div class="orange-emblem"></div>
+            </div>
+        </div>
+
+        <!-- Sección Inferior Confinada -->
+        <div class="supports-and-road">
+            <div class="post"></div>
+
+            <!-- La calle solo existe en este espacio -->
+            <div class="road-segment">
+                <div class="billboard-shadow"></div>
+                <div class="road-details"></div>
+            </div>
+
+            <div class="post"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>
