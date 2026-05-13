@@ -4,15 +4,17 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <link rel="icon" type="image/png" href="innovando1.png" />
+  <link rel="icon" type="image/png" href="innovando1.webp" />
   <title>Galerías de Pantallas | Innovando Publicidad Exterior</title>
   <meta name="description"
     content="Galerías de pantallas LED sincronizadas en las ubicaciones más estratégicas de Caracas: Calle Elice, Plaza Francia, Las Mercedes y Aeropuerto Maiquetía." />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
     rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script id="tailwind-config">
     tailwind.config = {
       theme: {
@@ -31,8 +33,8 @@
             "surface-variant": "#f1f5f9",
           },
           fontFamily: {
-            "headline": ["Montserrat", "sans-serif"],
-            "body": ["Montserrat", "sans-serif"],
+            "headline": ["League Spartan", "sans-serif"],
+            "body": ["League Spartan", "sans-serif"]
           }
         }
       }
@@ -46,11 +48,22 @@
     body {
       background-color: #f8fafc;
       color: #0f172a;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'League Spartan', sans-serif;
     }
 
     .headline {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'League Spartan', sans-serif;
+    }
+
+    body,
+    button,
+    input,
+    textarea,
+    select,
+    .font-headline,
+    .font-body,
+    .headline {
+      font-family: 'League Spartan', sans-serif !important;
     }
 
     /* Location card */
@@ -99,24 +112,24 @@
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(28px)
+        transform: translateY(28px);
       }
 
       to {
         opacity: 1;
-        transform: translateY(0)
+        transform: translateY(0);
       }
     }
 
     @keyframes fadeInDown {
       from {
         opacity: 0;
-        transform: translateY(-20px)
+        transform: translateY(-20px);
       }
 
       to {
         opacity: 1;
-        transform: translateY(0)
+        transform: translateY(0);
       }
     }
 
@@ -263,8 +276,21 @@
       overflow: hidden;
     }
 
-    .map-container iframe {
+    .gallery-map {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+    }
+
+    .map-container .leaflet-container {
       filter: grayscale(10%) contrast(1.05);
+      background: #e2e8f0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .map-container .leaflet-control-container,
+    .map-container .leaflet-pane {
+      z-index: 1;
     }
 
     /* Scroll reveal */
@@ -365,7 +391,10 @@
     <div
       class="bg-white/95 lg:bg-white rounded-none lg:rounded-2xl px-6 md:px-10 py-4 flex justify-between items-center relative shadow-2xl border-b lg:border border-slate-100 backdrop-blur-md">
       <a href="index.html" class="flex items-center gap-3">
-        <img alt="Innovando Logo" class="h-8 md:h-10 w-auto" src="logo_innovando.jpg" />
+        <picture>
+          <source media="(max-width: 1023px)" srcset="innovando1.webp" />
+          <img alt="Innovando Logo" class="h-8 md:h-10 w-auto" src="logo_innovando.webp" />
+        </picture>
       </a>
       <div class="hidden lg:flex items-center gap-10 font-headline">
         <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
@@ -373,17 +402,19 @@
         <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
           href="banderolas.html">BANDEROLAS</a>
         <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
-          href="#">GALERÍAS</a>
+          href="galerias.html">GALERÍAS</a>
         <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
           href="pantallas-led.html">PANTALLAS LED</a>
+        <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
+          href="proyectos.html">PROYECTOS</a>
       </div>
       <div class="flex items-center gap-4">
         <a href="index.html#contacto"
           class="hidden lg:flex bg-primary-container text-white px-8 py-3 rounded-xl font-black text-sm tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary-container/30">
           COTIZAR
         </a>
-        <button class="menu-toggle lg:hidden p-2 text-slate-800 bg-slate-100 rounded-xl">
-          <span class="material-symbols-outlined">menu</span>
+        <button class="menu-toggle lg:hidden w-10 h-10 flex items-center justify-center text-slate-800 bg-slate-100 rounded-xl">
+          <span class="material-symbols-outlined leading-none relative top-[1px]">menu</span>
         </button>
       </div>
     </div>
@@ -393,9 +424,9 @@
       class="mobile-menu absolute top-full left-0 w-full mt-2 bg-white/95 backdrop-blur-3xl rounded-2xl shadow-2xl border border-slate-100 p-6 flex flex-col gap-4 font-headline z-50 transition-all duration-300 opacity-0 pointer-events-none -translate-y-4">
       <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="vallas.html">Vallas</a>
       <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="banderolas.html">Banderolas</a>
-      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="#">Galerías</a>
-      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="pantallas-led.html">Pantallas
-        LED</a>
+      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="galerias.html">Galerías</a>
+      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="pantallas-led.html">Pantallas LED</a>
+      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="proyectos.html">Proyectos</a>
       <a href="index.html#contacto"
         class="bg-primary-container text-center text-white px-6 py-4 rounded-xl font-black tracking-widest text-sm uppercase">
         COTIZAR
@@ -406,7 +437,11 @@
   <!-- ═══ HERO ═══ -->
   <section class="relative min-h-[90vh] flex items-end pb-20 pt-32 overflow-hidden mesh-bg">
     <div class="absolute inset-0 z-0">
-      <img src="assets/galerias/cm16.png" alt="CM16 Publicidad" class="w-full h-full object-cover img-premium" />
+      <picture>
+        <source media="(min-width:1024px)" srcset="assets/galerias/cma.webp" />
+        <!-- Mobile / fallback: conserva la imagen existente -->
+        <img src="assets/galerias/cm16.webp" alt="CM16 Publicidad" class="w-full h-full object-cover img-premium" />
+      </picture>
       <div class="absolute inset-0 bg-gradient-to-r from-[#0f172a]/95 via-[#0f172a]/60 to-transparent"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 via-transparent to-transparent"></div>
     </div>
@@ -414,7 +449,7 @@
     <!-- Watermark logo -->
     <div
       class="absolute bottom-12 right-12 z-10 hidden lg:flex flex-col items-end opacity-30 hover:opacity-80 transition-all duration-1000 transform scale-90">
-      <img src="logo_innovando.jpg" alt="Innovando Identity"
+      <img src="logo_innovando.webp" alt="Innovando Identity"
         class="h-14 w-auto grayscale invert brightness-200 contrast-200 mix-blend-screen opacity-80">
       <div class="mt-2 h-px w-24 bg-gradient-to-l from-white/40 to-transparent"></div>
       <p class="text-[9px] text-white/40 uppercase tracking-[0.5em] mt-2 font-medium">Líderes en Publicidad</p>
@@ -490,7 +525,7 @@
         </div>
         <div class="scroll-reveal">
           <div class="rounded-[2.5rem] overflow-hidden shadow-2xl aspect-video">
-            <img src="assets/galerias/bancoplaza16.9.png" alt="Galería Banco Plaza"
+            <img src="assets/galerias/bancoplaza16.9.webp" alt="Galería Banco Plaza"
               class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
           </div>
         </div>
@@ -598,9 +633,7 @@
             <!-- Map side -->
             <div class="relative h-72 md:h-auto overflow-hidden bg-slate-100 map-container">
               <div class="map-frame w-full h-full">
-                <iframe src="https://maps.google.com/maps?q=10.491553,-66.855667&z=17&t=m&output=embed" width="100%"
-                  height="100%" style="border:0; min-height:300px;" allowfullscreen="" loading="lazy"
-                  title="Mapa Calle Elice Chacao"></iframe>
+                <div id="gallery-map-1" class="gallery-map" aria-label="Mapa Calle Elice Chacao"></div>
               </div>
               <!-- Location label overlay -->
               <div
@@ -682,9 +715,7 @@
             <!-- Map side -->
             <div class="relative h-72 md:h-auto overflow-hidden bg-slate-100 map-container order-1 md:order-2">
               <div class="map-frame w-full h-full">
-                <iframe src="https://maps.google.com/maps?q=10.495452,-66.848856&z=17&t=m&output=embed" width="100%"
-                  height="100%" style="border:0; min-height:300px;" allowfullscreen="" loading="lazy"
-                  title="Mapa Plaza Francia Altamira"></iframe>
+                <div id="gallery-map-2" class="gallery-map" aria-label="Mapa Plaza Francia Altamira"></div>
               </div>
               <div
                 class="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-2 shadow-lg border border-slate-100">
@@ -700,9 +731,7 @@
             <!-- Map side -->
             <div class="relative h-72 md:h-auto overflow-hidden bg-slate-100 map-container">
               <div class="map-frame w-full h-full">
-                <iframe src="https://maps.google.com/maps?q=10.481932,-66.861522&z=17&t=m&output=embed" width="100%"
-                  height="100%" style="border:0; min-height:300px;" allowfullscreen="" loading="lazy"
-                  title="Mapa Plaza Alfredo Sadel Las Mercedes"></iframe>
+                <div id="gallery-map-3" class="gallery-map" aria-label="Mapa Plaza Alfredo Sadel Las Mercedes"></div>
               </div>
               <div
                 class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-2 shadow-lg border border-slate-100">
@@ -782,9 +811,7 @@
             <!-- Map side -->
             <div class="relative h-72 md:h-auto overflow-hidden bg-slate-100 map-container order-1 md:order-2">
               <div class="map-frame w-full h-full">
-                <iframe src="https://maps.google.com/maps?q=10.479702,-66.859093&z=17&t=m&output=embed" width="100%"
-                  height="100%" style="border:0; min-height:300px;" allowfullscreen="" loading="lazy"
-                  title="Mapa CC Tolón Las Mercedes"></iframe>
+                <div id="gallery-map-4" class="gallery-map" aria-label="Mapa CC Tolón Las Mercedes"></div>
               </div>
               <div
                 class="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-2 shadow-lg border border-slate-100">
@@ -801,9 +828,7 @@
             <!-- Map side -->
             <div class="relative h-72 md:h-auto overflow-hidden map-container">
               <div class="map-frame w-full h-full">
-                <iframe src="https://maps.google.com/maps?q=10.596663,-67.004779&z=16&t=m&output=embed" width="100%"
-                  height="100%" style="border:0; min-height:300px;" allowfullscreen="" loading="lazy"
-                  title="Mapa Aeropuerto Maiquetía"></iframe>
+                <div id="gallery-map-5" class="gallery-map" aria-label="Mapa Aeropuerto Maiquetía"></div>
               </div>
               <div
                 class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-2 shadow-lg border border-slate-100">
@@ -905,7 +930,7 @@
           <a href="index.html" class="inline-block group">
             <img alt="Innovando Logo"
               class="h-12 w-auto brightness-125 group-hover:scale-105 transition-transform duration-500"
-              src="innovando1.png" />
+              src="innovando1.webp" />
           </a>
           <p class="text-white/40 text-lg leading-relaxed max-w-2xl">
             Liderando la publicidad exterior en toda Venezuela con ubicaciones de alto impacto y tecnología de
@@ -990,6 +1015,169 @@
         t.scrollIntoView({ behavior: 'smooth' });
       });
     });
+
+    // Leaflet maps with logo PNG markers
+      try {
+      const createScreenIcon = (iconUrl, size = [8, 18]) => {
+        const [w, h] = size;
+        return L.icon({
+          iconUrl,
+          iconSize: [w, h],
+          iconAnchor: [Math.round(w / 2), h],
+          popupAnchor: [0, -Math.round(h * 0.85)],
+          className: 'leaflet-logo-marker'
+        });
+      };
+
+      const screenIcons = {
+        orange: createScreenIcon('assets/pantallitas/PANTALLITAS.webp'),
+        blue: createScreenIcon('assets/pantallitas/PANTALLITAS2.webp'),
+        red: createScreenIcon('assets/pantallitas/PANTALLITAS3.webp'),
+      };
+
+      // Larger variants for gallery-map-2 only
+      const screenIconsLarge = {
+        orange: createScreenIcon('assets/pantallitas/PANTALLITAS.webp', [12, 27]),
+        blue: createScreenIcon('assets/pantallitas/PANTALLITAS2.webp', [12, 27])
+      };
+
+      const galleryMaps = [
+        {
+          id: 'gallery-map-1',
+          coords: [10.490862, -66.855642],
+          zoom: 17,
+          title: 'Calle Elice · Chacao',
+          markers: [
+            { coords: [10.490862, -66.855642], title: 'Pantallita 1' },
+            { coords: [10.491042, -66.855612], title: 'Pantallita 2' },
+            { coords: [10.491222, -66.855642], title: 'Pantallita 3' },
+            { coords: [10.491402, -66.855612], title: 'Pantallita 4' },
+            { coords: [10.491582, -66.855642], title: 'Pantallita 5' },
+            { coords: [10.491762, -66.855612], title: 'Pantallita 6' },
+            { coords: [10.491942, -66.855642], title: 'Pantallita 7' },
+            { coords: [10.492122, -66.855612], title: 'Pantallita 8' },
+            { coords: [10.492302, -66.855642], title: 'Pantallita 9' }
+          ]
+        },
+        {
+          id: 'gallery-map-2',
+          coords: [10.49545, -66.84885],
+          zoom: 17,
+          title: 'Av. Francisco de Miranda · Altamira',
+          markers: [
+            { coords: [10.495303, -66.848639], title: 'Pantallita 1', icon: 'orange' },
+            { coords: [10.495278, -66.848748], title: 'Pantallita 2', icon: 'orange' },
+            { coords: [10.495254, -66.848878], title: 'Pantallita 3', icon: 'orange' },
+            { coords: [10.495215, -66.849046], title: 'Pantallita 4', icon: 'orange' },
+            { coords: [10.495566, -66.849077], title: 'Pantallita 5', icon: 'blue' },
+            { coords: [10.495599, -66.848922], title: 'Pantallita 6', icon: 'blue' },
+            { coords: [10.495627, -66.848771], title: 'Pantallita 7', icon: 'blue' },
+            { coords: [10.495660, -66.848616], title: 'Pantallita 8', icon: 'blue' }
+          ]
+        },
+        { 
+          id: 'gallery-map-3', 
+          coords: [10.481932, -66.861522],
+           zoom: 17, 
+           title: 'Plaza Alfredo Sadel · Las Mercedes',
+           
+          markers: [
+            { coords: [10.4815842,-66.8613704], title: 'Pantallita 1', icon: 'red' },
+            { coords: [10.481727, -66.861150], title: 'Pantallita 2', icon: 'red' },
+            { coords: [10.481785, -66.861543], title: 'Pantallita 3', icon: 'red' },
+            { coords: [10.481938, -66.861366], title: 'Pantallita 4', icon: 'red' },
+            { coords: [10.482065, -66.861916], title: 'Pantallita 5', icon: 'red' },
+            { coords: [10.482296, -66.861733], title: 'Pantallita 6', icon: 'red' },
+            { coords: [10.482520, -66.862012], title: 'Pantallita 7', icon: 'red' },
+            { coords: [10.482373, -66.862143], title: 'Pantallita 8', icon: 'red' }
+          ]
+        },
+        
+        { 
+          id: 'gallery-map-4', 
+          coords: [10.479702, -66.859093], 
+          zoom: 17, 
+          title: 'CC Tolón · Las Mercedes',
+          markers: [
+            { coords: [10.480177, -66.859806], title: 'Pantallita 1', icon: 'red' },
+            { coords: [10.480374, -66.859603], title: 'Pantallita 2', icon: 'red' },
+            { coords: [10.479918, -66.859520], title: 'Pantallita 3', icon: 'red' },
+            { coords: [10.480143, -66.859362], title: 'Pantallita 4', icon: 'red' },
+            { coords: [10.479647, -66.859165], title: 'Pantallita 5', icon: 'red' },
+            { coords: [10.479827, -66.859057], title: 'Pantallita 6', icon: 'red' },
+            { coords: [10.479316, -66.858848], title: 'Pantallita 7', icon: 'red' },
+            { coords: [10.479533, -66.858690], title: 'Pantallita 8', icon: 'red' }
+          ]
+        },
+        { 
+          id: 'gallery-map-5',
+         coords: [10.596684, -67.004068], 
+         zoom: 16, 
+         title: 'Aeropuerto Simón Bolívar · Maiquetía',
+          markers: [
+            { coords: [10.597201, -66.998942], title: 'Pantallita 1', icon: 'orange' },
+            { coords: [10.597169, -66.999545], title: 'Pantallita 2', icon: 'orange' },
+            { coords: [10.597149, -67.000224], title: 'Pantallita 3', icon: 'orange' },
+            { coords: [10.597138, -67.000878], title: 'Pantallita 4', icon: 'orange' },
+            { coords: [10.597136, -67.001455], title: 'Pantallita 5', icon: 'orange' },
+            { coords: [10.597127, -67.001845], title: 'Pantallita 6', icon: 'orange' },
+            { coords: [10.596778, -67.007740], title: 'Pantallita 7', icon: 'orange' },
+            { coords: [10.596759, -67.008301], title: 'Pantallita 8', icon: 'orange' },
+            { coords: [10.596734, -67.008882], title: 'Pantallita 9', icon: 'orange' },
+            { coords: [10.596716, -67.009558], title: 'Pantallita 10', icon: 'orange' }
+           ]
+        }
+      ];
+
+      galleryMaps.forEach((location) => {
+        const container = document.getElementById(location.id);
+        if (!container || !window.L) return;
+
+        const map = L.map(container, {
+          scrollWheelZoom: false,
+          zoomControl: false,
+          dragging: true,
+          tap: true
+        }).setView(location.coords, location.zoom);
+
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+          attribution: '&copy; OpenStreetMap &copy; CARTO'
+        }).addTo(map);
+
+        const markers = location.markers ?? [{ coords: location.coords, title: location.title }];
+
+        if (location.id === 'gallery-map-1') {
+          map.scrollWheelZoom.disable();
+          map.doubleClickZoom.disable();
+          map.boxZoom.disable();
+          map.keyboard.disable();
+          map.touchZoom.disable();
+          map.fitBounds(L.latLngBounds(markers.map(marker => marker.coords)), {
+            paddingTopLeft: [36, 28],
+            paddingBottomRight: [36, 28]
+          });
+        } else if (location.id === 'gallery-map-2') {
+          map.fitBounds(L.latLngBounds(markers.map(marker => marker.coords)), {
+            paddingTopLeft: [42, 36],
+            paddingBottomRight: [42, 36]
+          });
+        }
+
+        markers.forEach((marker) => {
+          const markerIcon = (location.id === 'gallery-map-2')
+            ? (screenIconsLarge[marker.icon] ?? screenIconsLarge.orange)
+            : (screenIcons[marker.icon] ?? screenIcons.orange);
+
+          L.marker(marker.coords, { icon: markerIcon })
+            .addTo(map)
+            .bindPopup(`<strong>${marker.title}</strong>`);
+        });
+
+        requestAnimationFrame(() => map.invalidateSize());
+      });
+    } catch (error) {
+      console.error('Gallery map initialization failed', error);
+    }
 
     // Mobile menu toggle
     const menuToggles = document.querySelectorAll('.menu-toggle');

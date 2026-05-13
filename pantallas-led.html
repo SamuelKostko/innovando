@@ -4,12 +4,12 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <link rel="icon" type="image/png" href="innovando1.png" />
+  <link rel="icon" type="image/png" href="innovando1.webp" />
   <title>Pantallas LED | Innovando Publicidad Exterior</title>
   <meta name="description"
     content="Pantallas LED de alta definición en Av. Principal Los Ruices y Av. Principal Las Mercedes. Spots de 10 segundos, 576 exposiciones diarias, 17.280 repeticiones al mes." />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
     rel="stylesheet" />
@@ -30,8 +30,8 @@
             "surface-variant": "#f1f5f9",
           },
           fontFamily: {
-            "headline": ["Montserrat", "sans-serif"],
-            "body": ["Montserrat", "sans-serif"],
+            "headline": ["League Spartan", "sans-serif"],
+            "body": ["League Spartan", "sans-serif"]
           }
         }
       }
@@ -45,11 +45,22 @@
     body {
       background-color: #f8fafc;
       color: #0f172a;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'League Spartan', sans-serif;
     }
 
     .headline {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'League Spartan', sans-serif;
+    }
+
+    body,
+    button,
+    input,
+    textarea,
+    select,
+    .font-headline,
+    .font-body,
+    .headline {
+      font-family: 'League Spartan', sans-serif !important;
     }
 
     /* Timeline dot */
@@ -312,6 +323,52 @@
       .skeleton {
         min-height: 120px !important;
       }
+
+      /* Escalar toda la escena como bloque completo */
+      .scene-scaler {
+        transform: scale(0.90);
+        transform-origin: top center;
+        margin-bottom: calc(600px * 0.90 - 600px);
+        /* ≈ -252px */
+        overflow: hidden;
+        border-radius: 24px;
+      }
+
+      /* Permitir que los postes no sean cortados antes del scale */
+      .pure-css-scene {
+        overflow: visible !important;
+        border-radius: 0 !important;
+      }
+
+      /* Postes y beam: ocupar el 100% de la escena en móvil */
+      .gantry-beam {
+        width: 100% !important;
+        top: 70px !important;
+        height: 180px !important;
+      }
+
+      .gantry-pole.left {
+        left: 10px !important;
+      }
+
+      .gantry-pole.right {
+        right: 10px !important;
+      }
+
+      .gantry-pole {
+        height: 470px !important;
+      }
+
+      /* Reducir paneles laterales para dar más espacio a la pantalla */
+      .beam-side {
+        flex-basis: 36px !important;
+        flex: 0 0 36px !important;
+      }
+
+      .orange-shield {
+        width: 22px !important;
+        height: 28px !important;
+      }
     }
 
     /* Glass card */
@@ -337,7 +394,10 @@
     <div
       class="bg-white/95 lg:bg-white rounded-none lg:rounded-2xl px-6 md:px-10 py-4 flex justify-between items-center relative shadow-2xl border-b lg:border border-slate-100 backdrop-blur-md">
       <a href="index.html" class="flex items-center gap-3">
-        <img alt="Innovando Logo" class="h-8 md:h-10 w-auto" src="logo_innovando.jpg" />
+        <picture>
+          <source media="(max-width: 1023px)" srcset="innovando1.webp" />
+          <img alt="Innovando Logo" class="h-8 md:h-10 w-auto" src="logo_innovando.webp" />
+        </picture>
       </a>
       <div class="hidden lg:flex items-center gap-10 font-headline">
         <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
@@ -348,14 +408,16 @@
           href="galerias.html">GALERÍAS</a>
         <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
           href="#">PANTALLAS LED</a>
+        <a class="text-slate-800 hover:text-primary transition-colors text-sm font-bold tracking-widest"
+          href="proyectos.html">PROYECTOS</a>
       </div>
       <div class="flex items-center gap-4">
         <a href="index.html#contacto"
           class="hidden lg:flex bg-primary-container text-white px-8 py-3 rounded-xl font-black text-sm tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary-container/30">
           COTIZAR
         </a>
-        <button class="menu-toggle lg:hidden p-2 text-slate-800 bg-slate-100 rounded-xl">
-          <span class="material-symbols-outlined">menu</span>
+        <button class="menu-toggle lg:hidden w-10 h-10 flex items-center justify-center text-slate-800 bg-slate-100 rounded-xl">
+          <span class="material-symbols-outlined leading-none relative top-[1px]">menu</span>
         </button>
       </div>
     </div>
@@ -367,6 +429,7 @@
       <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="banderolas.html">Banderolas</a>
       <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="galerias.html">Galerías</a>
       <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="#">Pantallas LED</a>
+      <a class="text-slate-800 font-bold text-lg border-b border-slate-100/60 pb-3" href="proyectos.html">Proyectos</a>
       <a href="index.html#contacto"
         class="bg-primary-container text-center text-white px-6 py-4 rounded-xl font-black tracking-widest text-sm uppercase">
         COTIZAR
@@ -375,17 +438,13 @@
   </nav>
 
   <!-- ═══ HERO ═══ -->
-  <section class="relative min-h-[90vh] flex items-end pb-20 pt-32 overflow-hidden mesh-bg">
-    <div class="absolute inset-0 z-0">
-      <img src="assets/pantallas_led_hero.png" class="w-full h-full object-cover img-premium" />
-      <div class="absolute inset-0 bg-gradient-to-r from-[#0f172a]/95 via-[#0f172a]/60 to-transparent"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 via-transparent to-transparent"></div>
-    </div>
+  <section
+    class="relative min-h-[90vh] flex items-end pb-20 pt-32 overflow-hidden bg-gradient-to-br from-[#0a31a5] to-[#9c023f]">
 
     <!-- Watermark logo -->
     <div
       class="absolute bottom-12 right-12 z-10 hidden lg:flex flex-col items-end opacity-30 hover:opacity-80 transition-all duration-1000 transform scale-90">
-      <img src="logo_innovando.jpg" alt="Innovando Identity"
+      <img src="logo_innovando.webp" alt="Innovando Identity"
         class="h-14 w-auto grayscale invert brightness-200 contrast-200 mix-blend-screen opacity-80">
       <div class="mt-2 h-px w-24 bg-gradient-to-l from-white/40 to-transparent"></div>
       <p class="text-[9px] text-white/40 uppercase tracking-[0.5em] mt-2 font-medium">Líderes en Publicidad</p>
@@ -396,11 +455,11 @@
         <span
           class="inline-flex items-center gap-2 text-primary-container font-extrabold tracking-widest text-xs uppercase py-1.5 px-4 bg-primary/10 border border-primary/25 rounded-full headline mb-6 animate-fade-up">
           <span class="w-2 h-2 bg-primary-container rounded-full inline-block animate-pulse"></span>
-          ALTA DEFINICIÓN · HDTV · 24/7
+          ALTA DEFINICIÓN · 24/7
         </span>
       </div>
       <h1
-        class="headline text-6xl md:text-9xl font-black leading-none tracking-tighter text-white mb-8 animate-fade-up delay-1">
+        class="headline text-4xl sm:text-6xl md:text-9xl font-black leading-none tracking-tighter text-white mb-8 animate-fade-up delay-1">
         <span class="text-gradient">Pantallas LED</span> <br>
         <span class="text-gradient-secondary">de Alto Impacto</span>
       </h1>
@@ -413,7 +472,7 @@
         <div class="flex items-center gap-4 glass-card px-8 py-4 rounded-2xl group transition-all hover:bg-white/10">
           <span
             class="material-symbols-outlined text-primary-container text-3xl group-hover:rotate-12 transition-transform">monitor</span>
-          <span class="text-white font-bold text-lg">Alta Definición HDTV</span>
+          <span class="text-white font-bold text-lg">Alta Definición</span>
         </div>
         <div class="flex items-center gap-4 glass-card px-8 py-4 rounded-2xl group transition-all hover:bg-white/10">
           <span
@@ -486,30 +545,39 @@
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
-        width: 750px;
+        width: min(780px, 82vw);
         height: 35%;
-        perspective: 600px;
         z-index: 5;
       }
 
       .css-road {
         width: 100%;
-        height: 160%;
-        background: #1a1a1a;
-        transform: rotateX(65deg);
-        transform-origin: top;
+        height: 100%;
+        background: linear-gradient(180deg, #111 0%, #171717 45%, #101010 100%);
+        clip-path: polygon(22% 0, 78% 0, 100% 100%, 0 100%);
         position: relative;
-        box-shadow: inset 0 20px 80px rgba(0, 0, 0, 0.9);
-        border-left: 2px solid #334155;
-        border-right: 2px solid #334155;
+        box-shadow: inset 0 24px 90px rgba(0, 0, 0, 0.9);
+        filter: drop-shadow(0 -10px 24px rgba(0, 0, 0, 0.55));
+      }
+
+      .css-road::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.06) 0%,
+            transparent 22%,
+            transparent 78%,
+            rgba(255, 255, 255, 0.03) 100%);
+        pointer-events: none;
       }
 
       .center-line {
         position: absolute;
         left: 50%;
-        top: -50px;
-        width: 6px;
-        height: 150%;
+        top: 0;
+        width: 5px;
+        height: 160%;
         background: repeating-linear-gradient(to bottom, #fbbf24 0, #fbbf24 100px, transparent 100px, transparent 200px);
         transform: translateX(-50%);
         animation: road-move 1.2s linear infinite;
@@ -517,11 +585,11 @@
 
       @keyframes road-move {
         from {
-          transform: translateX(-50%) translateY(30px);
+          transform: translateX(-50%) translateY(-10px);
         }
 
         to {
-          transform: translateX(-50%) translateY(230px);
+          transform: translateX(-50%) translateY(210px);
         }
       }
 
@@ -536,25 +604,26 @@
 
       .gantry-pole {
         position: absolute;
-        bottom: 0;
+        bottom: -6px;
         width: 24px;
-        height: 450px;
+        height: 470px;
         background: linear-gradient(90deg, #334155, #64748b, #334155);
         border-radius: 4px 4px 0 0;
+        box-shadow: 0 18px 30px rgba(0, 0, 0, 0.35);
       }
 
       .gantry-pole.left {
-        left: calc(50% - 410px);
+        left: max(0px, calc(50% - 425px));
       }
 
       .gantry-pole.right {
-        right: calc(50% - 410px);
+        right: max(0px, calc(50% - 425px));
       }
 
       .gantry-beam {
         position: absolute;
         top: 70px;
-        width: 850px;
+        width: min(850px, 100%);
         /* Más ancho para el logo completo */
         height: 200px;
         background: #0a0a0a;
@@ -620,9 +689,26 @@
         position: absolute;
         top: 0;
         width: 100%;
-        height: 100px;
+        height: 120px;
         background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent);
         z-index: 6;
+      }
+
+      /* ── MOBILE RESPONSIVE ── */
+      @media (max-width: 768px) {
+        .gantry-beam {
+          width: 100%;
+          left: 0;
+          right: 0;
+        }
+
+        .gantry-pole.left {
+          left: 0;
+        }
+
+        .gantry-pole.right {
+          right: 0;
+        }
       }
     </style>
 
@@ -633,47 +719,49 @@
         </h2>
       </div>
 
-      <div class="pure-css-scene">
-        <div class="css-sky"></div>
+      <div class="scene-scaler">
+        <div class="pure-css-scene">
+          <div class="css-sky"></div>
 
-        <!-- Skyline Ciudad -->
-        <div class="css-cityscape">
-          <div class="city-building" style="height: 100px; width: 60px;"></div>
-          <div class="city-building" style="height: 150px; width: 40px;"></div>
-          <div class="city-building" style="height: 80px; width: 70px;"></div>
-          <div class="city-building" style="height: 130px; width: 50px;"></div>
-          <div class="city-building" style="height: 110px; width: 60px;"></div>
-          <div class="city-building" style="height: 160px; width: 45px;"></div>
-          <div class="city-building" style="height: 90px; width: 55px;"></div>
-        </div>
-
-        <div class="road-container">
-          <div class="css-road">
-            <div class="billboard-shadow"></div>
-            <div class="center-line"></div>
+          <!-- Skyline Ciudad -->
+          <div class="css-cityscape">
+            <div class="city-building" style="height: 100px; width: 60px;"></div>
+            <div class="city-building" style="height: 150px; width: 40px;"></div>
+            <div class="city-building" style="height: 80px; width: 70px;"></div>
+            <div class="city-building" style="height: 130px; width: 50px;"></div>
+            <div class="city-building" style="height: 110px; width: 60px;"></div>
+            <div class="city-building" style="height: 160px; width: 45px;"></div>
+            <div class="city-building" style="height: 90px; width: 55px;"></div>
           </div>
-        </div>
 
-        <div class="css-gantry">
-          <div class="gantry-pole left"></div>
-          <div class="gantry-pole right"></div>
-
-          <div class="gantry-beam">
-            <div class="beam-side">
-              <div class="orange-shield"></div>
+          <div class="road-container">
+            <div class="css-road">
+              <div class="billboard-shadow"></div>
+              <div class="center-line"></div>
             </div>
+          </div>
 
-            <div class="led-billboard" id="led-display">
-              <!-- Logo Innovando -->
-              <img src="innovando1.png" id="slide-0" class="led-slide active" alt="Innovando Logo">
-              <!-- Slide Alternativo -->
-              <div id="slide-1" class="led-slide text-center text-blue-500 font-black text-4xl tracking-tighter">
-                PUBLICIDAD 24/7
+          <div class="css-gantry">
+            <div class="gantry-pole left"></div>
+            <div class="gantry-pole right"></div>
+
+            <div class="gantry-beam">
+              <div class="beam-side">
+                <div class="orange-shield"></div>
               </div>
-            </div>
 
-            <div class="beam-side">
-              <div class="orange-shield"></div>
+              <div class="led-billboard" id="led-display">
+                <!-- Logo Innovando -->
+                <img src="innovando1.webp" id="slide-0" class="led-slide active" alt="Innovando Logo">
+                <!-- Slide Alternativo -->
+                <div id="slide-1" class="led-slide text-center text-blue-500 font-black text-4xl tracking-tighter">
+                  PUBLICIDAD 24/7
+                </div>
+              </div>
+
+              <div class="beam-side">
+                <div class="orange-shield"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -723,84 +811,82 @@
 
         <!-- Left column: Rendimiento -->
         <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200 space-y-6">
-            <h3
-              class="headline text-lg font-bold text-on-surface uppercase tracking-wider mb-8 flex items-center gap-3">
-              <span class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center">
-                <span class="material-symbols-outlined text-white text-base"
-                  style="font-variation-settings:'FILL' 1">timer</span>
-              </span>
-              Rendimiento del formato
-            </h3>
+          <h3 class="headline text-lg font-bold text-on-surface uppercase tracking-wider mb-8 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-white text-base"
+                style="font-variation-settings:'FILL' 1">timer</span>
+            </span>
+            Rendimiento del formato
+          </h3>
 
-            <div class="space-y-5">
-              <div class="timeline-item flex items-center gap-4 py-3">
-                <span class="material-symbols-outlined text-on-surface-variant text-xl">play_circle</span>
-                <span class="font-semibold text-on-surface">Spot publicitarios de <strong
-                    class="text-primary-container">10 segundos</strong></span>
-              </div>
-              <div class="timeline-item active flex items-center gap-4 py-3">
-                <span class="material-symbols-outlined text-primary-container text-xl"
-                  style="font-variation-settings:'FILL' 1">schedule</span>
-                <span class="font-semibold text-on-surface"><strong class="text-primary-container">24 horas</strong>
-                  continúas de exposición</span>
-              </div>
-              <div class="timeline-item flex items-center gap-4 py-3">
-                <span class="material-symbols-outlined text-on-surface-variant text-xl">repeat</span>
-                <span class="font-semibold text-on-surface">Repetición: cada <strong class="text-primary-container">2
-                    minutos y medio</strong></span>
-              </div>
-              <div class="timeline-item active flex items-center gap-4 py-3">
-                <span class="material-symbols-outlined text-primary-container text-xl"
-                  style="font-variation-settings:'FILL' 1">bar_chart</span>
-                <span class="font-semibold text-on-surface">Exposición al día: <strong
-                    class="text-primary-container">576</strong></span>
-              </div>
-              <div class="timeline-item flex items-center gap-4 py-3 pb-0">
-                <span class="material-symbols-outlined text-on-surface-variant text-xl">calendar_month</span>
-                <span class="font-semibold text-on-surface">Repeticiones al mes: <strong
-                    class="text-primary-container">17.280</strong></span>
-              </div>
+          <div class="space-y-5">
+            <div class="timeline-item flex items-center gap-4 py-3">
+              <span class="material-symbols-outlined text-on-surface-variant text-xl">play_circle</span>
+              <span class="font-semibold text-on-surface">Spot publicitarios de <strong
+                  class="text-primary-container">10 segundos</strong></span>
+            </div>
+            <div class="timeline-item active flex items-center gap-4 py-3">
+              <span class="material-symbols-outlined text-primary-container text-xl"
+                style="font-variation-settings:'FILL' 1">schedule</span>
+              <span class="font-semibold text-on-surface"><strong class="text-primary-container">24 horas</strong>
+                continúas de exposición</span>
+            </div>
+            <div class="timeline-item flex items-center gap-4 py-3">
+              <span class="material-symbols-outlined text-on-surface-variant text-xl">repeat</span>
+              <span class="font-semibold text-on-surface">Repetición: cada <strong class="text-primary-container">2
+                  minutos y medio</strong></span>
+            </div>
+            <div class="timeline-item active flex items-center gap-4 py-3">
+              <span class="material-symbols-outlined text-primary-container text-xl"
+                style="font-variation-settings:'FILL' 1">bar_chart</span>
+              <span class="font-semibold text-on-surface">Exposición al día: <strong
+                  class="text-primary-container">576</strong></span>
+            </div>
+            <div class="timeline-item flex items-center gap-4 py-3 pb-0">
+              <span class="material-symbols-outlined text-on-surface-variant text-xl">calendar_month</span>
+              <span class="font-semibold text-on-surface">Repeticiones al mes: <strong
+                  class="text-primary-container">17.280</strong></span>
             </div>
           </div>
+        </div>
 
-          <!-- Right column -->
-          <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200 space-y-6">
-            <h3
-              class="headline text-lg font-bold text-on-surface uppercase tracking-wider mb-8 flex items-center gap-3">
-              <span class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center">
-                <span class="material-symbols-outlined text-white text-base"
-                  style="font-variation-settings:'FILL' 1">star</span>
-              </span>
-              Ventajas exclusivas
-            </h3>
+        <!-- Right column -->
+        <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200 space-y-6">
+          <h3 class="headline text-lg font-bold text-on-surface uppercase tracking-wider mb-8 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center">
+              <span class="material-symbols-outlined text-white text-base"
+                style="font-variation-settings:'FILL' 1">star</span>
+            </span>
+            Ventajas exclusivas
+          </h3>
 
-            <div class="space-y-5">
-              <div class="timeline-item flex items-center gap-4 py-3">
-                <span class="material-symbols-outlined text-on-surface-variant text-xl">play_circle</span>
-                <span class="font-semibold text-on-surface">Spot publicitarios de <strong class="text-secondary">10
-                    segundos</strong></span>
-              </div>
-              <div class="timeline-item active flex items-center gap-4 py-3">
-                <span class="material-symbols-outlined text-primary-container text-xl"
-                  style="font-variation-settings:'FILL' 1">verified</span>
-                <div>
-                  <span class="font-semibold text-on-surface">Exclusividad en la categoría</span>
-                  <span class="block text-xs text-on-surface-variant mt-0.5">(*) Ciertas condiciones aplican</span>
-                </div>
-              </div>
-              <div class="timeline-item flex items-center gap-4 py-3">
-                <span class="material-symbols-outlined text-on-surface-variant text-xl">location_on</span>
-                <span class="font-semibold text-on-surface">Ubicación <strong class="text-secondary">privilegiada y
-                    estratégica</strong></span>
-              </div>
-              <div class="timeline-item active flex items-center gap-4 py-3 pb-0">
-                <span class="material-symbols-outlined text-primary-container text-xl"
-                  style="font-variation-settings:'FILL' 1">group</span>
-                <span class="font-semibold text-on-surface">Sólo <strong class="text-secondary">15 clientes
-                    exclusivos</strong></span>
+          <div class="space-y-5">
+            <div class="timeline-item flex items-center gap-4 py-3">
+              <span class="material-symbols-outlined text-on-surface-variant text-xl">play_circle</span>
+              <span class="font-semibold text-on-surface">Spot publicitarios de <strong class="text-secondary">10
+                  segundos</strong></span>
+            </div>
+            <div class="timeline-item active flex items-center gap-4 py-3">
+              <span class="material-symbols-outlined text-primary-container text-xl"
+                style="font-variation-settings:'FILL' 1">verified</span>
+              <div>
+                <span class="font-semibold text-on-surface">Exclusividad en la categoría</span>
+                <span class="block text-xs text-on-surface-variant mt-0.5">(*) Ciertas condiciones aplican</span>
               </div>
             </div>
+            <div class="timeline-item flex items-center gap-4 py-3">
+              <span class="material-symbols-outlined text-on-surface-variant text-xl">location_on</span>
+              <span class="font-semibold text-on-surface">Ubicación <strong class="text-secondary">privilegiada y
+                  estratégica</strong></span>
+            </div>
+            <div class="timeline-item active flex items-center gap-4 py-3 pb-0">
+              <span class="material-symbols-outlined text-primary-container text-xl"
+                style="font-variation-settings:'FILL' 1">group</span>
+              <span class="font-semibold text-on-surface">Sólo <strong class="text-secondary">15 clientes
+                  exclusivos</strong></span>
+            </div>
           </div>
+        </div>
       </div><!-- end lg:grid-cols-2 -->
 
       <!-- Big stat blocks -->
@@ -843,18 +929,6 @@
           </h2>
 
           <div class="space-y-4">
-            <!-- Spec 1 -->
-            <div class="spec-card bg-white/5 border border-white/10 rounded-2xl px-6 py-5 flex items-center gap-5">
-              <div
-                class="w-12 h-12 rounded-xl bg-primary-container/20 border border-primary-container/30 flex items-center justify-center flex-shrink-0">
-                <span class="material-symbols-outlined text-primary-container text-2xl">straighten</span>
-              </div>
-              <div>
-                <div class="text-white/50 text-xs uppercase tracking-widest font-bold mb-1">Tamaño</div>
-                <div class="headline text-xl font-bold text-white">6 m × 3 m</div>
-              </div>
-              <div class="ml-auto headline text-3xl font-black text-white/10">01</div>
-            </div>
 
             <!-- Spec 2 -->
             <div class="spec-card bg-white/5 border border-white/10 rounded-2xl px-6 py-5 flex items-center gap-5">
@@ -867,7 +941,7 @@
                 <div class="headline text-xl font-bold text-white">1920 × 1080 px <span
                     class="text-secondary text-sm font-normal">(HDTV)</span></div>
               </div>
-              <div class="ml-auto headline text-3xl font-black text-white/10">02</div>
+              <div class="ml-auto headline text-3xl font-black text-white/10">01</div>
             </div>
 
             <!-- Spec 3 -->
@@ -880,7 +954,7 @@
                 <div class="text-white/50 text-xs uppercase tracking-widest font-bold mb-1">Proporción de aspecto</div>
                 <div class="headline text-xl font-bold text-white">16:9</div>
               </div>
-              <div class="ml-auto headline text-3xl font-black text-white/10">03</div>
+              <div class="ml-auto headline text-3xl font-black text-white/10">02</div>
             </div>
 
             <!-- Spec 4 -->
@@ -895,7 +969,7 @@
                 <div class="text-white/50 text-xs uppercase tracking-widest font-bold mb-1">Formato</div>
                 <div class="headline text-xl font-bold text-white">MP4</div>
               </div>
-              <div class="ml-auto headline text-3xl font-black text-primary-container/30">04</div>
+              <div class="ml-auto headline text-3xl font-black text-primary-container/30">03 </div>
             </div>
           </div>
         </div>
@@ -917,14 +991,13 @@
             <!-- Width label -->
             <div
               class="flex items-center justify-between mt-3 text-white/50 text-xs font-bold uppercase tracking-widest">
-              <span>←</span><span class="text-primary-container">6 metros</span><span>→</span>
+              <span>←</span><span class="text-primary-container"></span><span>→</span>
             </div>
             <!-- Height label -->
             <div class="absolute -right-14 top-0 bottom-0 flex flex-col items-center justify-between py-1">
               <span class="text-white/50 text-xs">↑</span>
               <span
-                class="text-primary-container text-xs font-bold uppercase tracking-widest [writing-mode:vertical-lr]">3
-                metros</span>
+                class="text-primary-container text-xs font-bold uppercase tracking-widest [writing-mode:vertical-lr]"></span>
               <span class="text-white/50 text-xs">↓</span>
             </div>
           </div>
@@ -998,7 +1071,7 @@
           <a href="index.html" class="inline-block group">
             <img alt="Innovando Logo"
               class="h-12 w-auto brightness-125 group-hover:scale-105 transition-transform duration-500"
-              src="innovando1.png" />
+              src="innovando1.webp" />
           </a>
           <p class="text-white/40 text-lg leading-relaxed max-w-2xl">
             Liderando la publicidad exterior en toda Venezuela con ubicaciones de alto impacto y tecnología de

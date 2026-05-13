@@ -4,12 +4,12 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <link rel="icon" type="image/png" href="innovando1.png" />
+  <link rel="icon" type="image/png" href="innovando1.webp" />
   <title>Vallas Publicitarias · Innovando · Publicidad Exterior en Venezuela</title>
   <meta name="description"
     content="Vallas publicitarias de alto impacto en toda Venezuela. Cobertura nacional en las principales arterias viales y zonas comerciales. Innovando: Líderes en Gran Formato." />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
     rel="stylesheet" />
@@ -66,9 +66,9 @@
             "full": "0.75rem"
           },
           fontFamily: {
-            "headline": ["Montserrat", "sans-serif"],
-            "body": ["Montserrat", "sans-serif"],
-            "label": ["Montserrat", "sans-serif"]
+            "headline": ["League Spartan", "sans-serif"],
+            "body": ["League Spartan", "sans-serif"],
+            "label": ["League Spartan", "sans-serif"]
           }
         }
       }
@@ -82,9 +82,21 @@
     body {
       background-color: #f8fafc;
       color: #0f172a;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'League Spartan', sans-serif;
       overflow-x: hidden;
       position: relative;
+    }
+
+    body,
+    button,
+    input,
+    textarea,
+    select,
+    .font-headline,
+    .font-body,
+    .headline,
+    .label {
+      font-family: 'League Spartan', sans-serif !important;
     }
 
     /* Cinematic Grain Overlay */
@@ -228,7 +240,10 @@
     <div
       class="bg-white/95 lg:bg-white rounded-none lg:rounded-2xl px-6 md:px-10 py-4 flex justify-between items-center relative shadow-2xl border-b lg:border border-slate-100 backdrop-blur-md">
       <a href="index.html" class="flex items-center gap-3">
-        <img alt="Innovando Logo" class="h-8 md:h-10 w-auto" src="logo_innovando.jpg" />
+        <picture>
+          <source media="(max-width: 1023px)" srcset="innovando1.webp" />
+          <img alt="Innovando Logo" class="h-8 md:h-10 w-auto" src="logo_innovando.webp" />
+        </picture>
       </a>
       <div class="hidden lg:flex items-center gap-10 font-headline">
         <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
@@ -239,14 +254,16 @@
           href="galerias.html">GALERÍAS</a>
         <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
           href="pantallas-led.html">PANTALLAS LED</a>
+        <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
+          href="proyectos.html">PROYECTOS</a>
       </div>
       <div class="flex items-center gap-4">
         <a href="index.html#contacto"
           class="hidden lg:flex bg-primary-container text-white px-8 py-3 rounded-xl font-black text-sm tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary-container/30">
           COTIZAR
         </a>
-        <button class="menu-toggle lg:hidden p-2 text-slate-800 bg-slate-100 rounded-xl">
-          <span class="material-symbols-outlined">menu</span>
+        <button class="menu-toggle lg:hidden w-10 h-10 flex items-center justify-center text-slate-800 bg-slate-100 rounded-xl">
+          <span class="material-symbols-outlined leading-none relative top-[1px]">menu</span>
         </button>
       </div>
     </div>
@@ -257,8 +274,8 @@
       <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="vallas.html">Vallas</a>
       <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="banderolas.html">Banderolas</a>
       <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="galerias.html">Galerías</a>
-      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="pantallas-led.html">Pantallas
-        LED</a>
+      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="pantallas-led.html">Pantallas LED</a>
+      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="proyectos.html">Proyectos</a>
       <a href="index.html#contacto"
         class="bg-primary-container text-center text-white px-6 py-4 rounded-xl font-black tracking-widest text-sm uppercase">
         COTIZAR
@@ -267,9 +284,9 @@
   </nav>
 
   <!-- ═══ HERO ═══ -->
-  <section class="relative min-h-[90vh] flex items-end pb-20 pt-32 overflow-hidden mesh-bg">
+  <section class="relative min-h-[100vh] flex items-end pb-20 pt-32 overflow-hidden mesh-bg">
     <div class="absolute inset-0 z-0">
-      <img src="assets/vallas/amanecer.png" alt="Valla Publicitaria Hero Amanecer"
+      <img src="assets/vallas/heroepa.webp" alt="Valla Publicitaria Hero"
         class="w-full h-full object-cover img-premium" />
       <div class="absolute inset-0 bg-gradient-to-r from-[#0f172a]/95 via-[#0f172a]/60 to-transparent"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 via-transparent to-transparent"></div>
@@ -278,7 +295,7 @@
     <!-- Watermark logo -->
     <div
       class="absolute bottom-12 right-12 z-10 hidden lg:flex flex-col items-end opacity-30 hover:opacity-80 transition-all duration-1000 transform scale-90">
-      <img src="logo_innovando.jpg" alt="Innovando Identity"
+      <img src="logo_innovando.webp" alt="Innovando Identity"
         class="h-14 w-auto grayscale invert brightness-200 contrast-200 mix-blend-screen opacity-80">
       <div class="mt-2 h-px w-24 bg-gradient-to-l from-white/40 to-transparent"></div>
       <p class="text-[9px] text-white/40 uppercase tracking-[0.5em] mt-2 font-medium">Líderes en Gran Formato</p>
@@ -348,7 +365,7 @@
 
         <div class="relative">
           <div class="gallery-wrap aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl relative">
-            <img src="assets/vallas/maturin.png" alt="Presencia en Maturín e Interior del País"
+            <img src="assets/vallas/maturin.webp" alt="Presencia en Maturín e Interior del País"
               class="gallery-img w-full h-full object-cover img-premium" />
             <div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 via-transparent to-transparent"></div>
           </div>
@@ -411,7 +428,7 @@
         <!-- Giant Format Illustration -->
         <div class="lg:w-1/2 relative px-4">
           <div class="gallery-wrap rounded-[2.5rem] overflow-hidden shadow-2xl aspect-video bg-slate-50 p-6">
-            <img src="assets/vallas/medidas_valla.png" alt="Diagrama Técnico Valla Monumental 25x10m"
+            <img src="assets/vallas/medidas_valla.webp" alt="Diagrama Técnico Valla Monumental 25x10m"
               class="w-full h-full object-contain img-premium" />
           </div>
         </div>
@@ -431,29 +448,33 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- CM -->
         <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
-          <img src="assets/vallas/cm.png" alt="Proyecto Publicitario CM"
-            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" />
+          <img src="assets/vallas/cm.webp" alt="Proyecto Publicitario CM"
+            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" loading="lazy" />
         </div>
         <!-- Cafe Amanecer -->
         <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
-          <img src="assets/vallas/cafeamanecer.png" alt="Valla Cafe Amanecer"
-            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" />
+          <img src="assets/vallas/cafeamanecer.webp" alt="Valla Cafe Amanecer"
+            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" loading="lazy" />
         </div>
         <!-- Amanecer -->
         <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
-          <img src="assets/vallas/amanecer.png" alt="Valla al Amanecer"
-            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" />
+          <img src="assets/vallas/amanecer.webp" alt="Valla al Amanecer"
+            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" loading="lazy" />
         </div>
         <!-- EPA -->
         <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
-          <img src="assets/vallas/epa1.png" alt="Proyecto EPA"
-            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" />
+          <img src="assets/vallas/epa1.webp" alt="Proyecto EPA"
+            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" loading="lazy" />
         </div>
         <!-- Maturin -->
         <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
-          <img src="assets/vallas/maturin.png" alt="Valla estratégica en Maturín"
-            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" />
-
+          <img src="assets/vallas/maturin.webp" alt="Valla estratégica en Maturín"
+            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+        </div>
+        <!-- Valencia -->
+        <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
+          <img src="assets/vallas/epa2.webp" alt="Valla en Valencia"
+            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" loading="lazy" />
         </div>
       </div>
     </div>
@@ -492,7 +513,7 @@
           <a href="index.html" class="inline-block group">
             <img alt="Innovando Logo"
               class="h-12 w-auto brightness-125 group-hover:scale-105 transition-transform duration-500"
-              src="innovando1.png" />
+              src="innovando1.webp" />
           </a>
           <p class="text-white/40 text-lg leading-relaxed max-w-2xl">
             Liderando la publicidad exterior en toda Venezuela con ubicaciones de alto impacto y tecnología de

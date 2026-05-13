@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <link rel="icon" type="image/png" href="innovando1.webp" />
+  <title>Proyectos | Innovando Publicidad Exterior</title>
+  <meta name="description"
+    content="Descubre los proyectos en los que hemos trabajado. Innovando lidera la publicidad exterior en Venezuela." />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1A51A2",
+            accent: "#E81C7C",
+          },
+          fontFamily: { headline: ["League Spartan", "sans-serif"] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body,
+    button {
+      font-family: 'League Spartan', sans-serif !important;
+    }
+
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined' !important;
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    body {
+      background-color: #0e0e0e;
+      background-image: radial-gradient(circle at 0% 0%, rgba(26, 81, 162, .06) 0%, transparent 50%), radial-gradient(circle at 100% 100%, rgba(232, 28, 124, .06) 0%, transparent 50%);
+      background-attachment: fixed;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .grad {
+      background: linear-gradient(135deg, #1A51A2 0%, #E81C7C 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .fglow {
+      box-shadow: 0 0 30px rgba(232, 28, 124, .25);
+      transition: box-shadow .3s;
+    }
+
+    .fglow:hover {
+      box-shadow: 0 0 50px rgba(232, 28, 124, .5);
+    }
+
+    .bglow {
+      box-shadow: 0 0 30px rgba(26, 81, 162, .25);
+      transition: box-shadow .3s;
+    }
+
+    .bglow:hover {
+      box-shadow: 0 0 50px rgba(26, 81, 162, .5);
+    }
+
+    .card-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .7s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .card:hover .card-img {
+      transform: scale(1.07);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      backdrop-filter: blur(12px);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity .8s cubic-bezier(.16, 1, .3, 1), transform .8s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .reveal.on {
+      opacity: 1;
+      transform: none;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    /* ── Hero video overlay ── */
+    .video-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(14, 14, 14, .9) 0%, rgba(14, 14, 14, .2) 50%, transparent 100%);
+      pointer-events: none;
+    }
+
+    /* ── Horizontal divider ── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255, 255, 255, .08), transparent);
+    }
+  </style>
+</head>
+
+<body class="selection:bg-pink-800 selection:text-white">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-[100] flex justify-center pt-0 lg:pt-5">
+    <div
+      class="w-full lg:w-[90%] max-w-7xl bg-white/95 lg:rounded-2xl px-6 md:px-10 py-4 flex justify-between items-center shadow-2xl border-b lg:border border-slate-100 backdrop-blur-md">
+      <a href="index.html"><img src="innovando1.webp" alt="Innovando" class="h-8 md:h-10 w-auto" /></a>
+      <div class="hidden lg:flex items-center gap-8 font-headline">
+        <a href="vallas.html"
+          class="text-slate-700 hover:text-primary text-sm font-bold tracking-widest transition-colors">VALLAS</a>
+        <a href="banderolas.html"
+          class="text-slate-700 hover:text-primary text-sm font-bold tracking-widest transition-colors">BANDEROLAS</a>
+        <a href="galerias.html"
+          class="text-slate-700 hover:text-primary text-sm font-bold tracking-widest transition-colors">GALERÍAS</a>
+        <a href="pantallas-led.html"
+          class="text-slate-700 hover:text-primary text-sm font-bold tracking-widest transition-colors">PANTALLAS
+          LED</a>
+        <a href="proyectos.html" class="text-primary text-sm font-bold tracking-widest">PROYECTOS</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="index.html#contacto"
+          class="hidden lg:block bg-accent text-white px-7 py-2.5 rounded-xl font-black text-sm tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg shadow-pink-900/20">COTIZAR</a>
+        <button
+          class="menu-toggle lg:hidden w-10 h-10 flex items-center justify-center text-slate-700 rounded-xl bg-slate-100">
+          <span class="material-symbols-outlined leading-none">menu</span>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile dropdown -->
+    <div
+      class="mobile-menu absolute top-full left-0 w-full mt-2 bg-white/98 backdrop-blur-2xl rounded-2xl shadow-2xl border border-slate-100 px-6 py-5 flex flex-col gap-3 z-50 transition-all duration-300 opacity-0 pointer-events-none -translate-y-3">
+      <a href="vallas.html" class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3">Vallas</a>
+      <a href="banderolas.html" class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3">Banderolas</a>
+      <a href="galerias.html" class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3">Galerías</a>
+      <a href="pantallas-led.html" class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3">Pantallas
+        LED</a>
+      <a href="proyectos.html" class="text-primary font-bold text-lg border-b border-slate-100 pb-3">Proyectos</a>
+      <a href="index.html#contacto"
+        class="bg-accent text-white text-center px-6 py-3.5 rounded-xl font-black tracking-widest text-sm mt-1">COTIZAR</a>
+    </div>
+  </nav>
+
+  <!-- ══ HERO: VIDEO SALUDO ══ -->
+  <section class="relative w-full overflow-hidden" style="padding-top: 72px;">
+    <div class="relative video-hero" style="min-height: clamp(400px, 60vh, 700px);">
+      <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline preload="metadata">
+        <source src="assets/proyectos/saludo.webm" type="video/webm">
+      </video>
+      <!-- Content overlay -->
+      <div class="relative z-10 flex flex-col items-center justify-end h-full text-center px-5 pb-14 md:pb-20"
+        style="min-height: clamp(400px, 60vh, 700px);">
+        <div
+          class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-5 py-2 mb-5 backdrop-blur-md">
+          <span
+            style="width:7px;height:7px;background:#E81C7C;border-radius:50%;display:inline-block;box-shadow:0 0 8px #E81C7C;"></span>
+          <span class="text-white/80 font-black text-[11px] uppercase tracking-[.35em]">Nuestro Portafolio</span>
+        </div>
+        <h1 class="headline font-black text-white leading-none mb-5" style="font-size:clamp(2.8rem,8vw,6rem);">
+          Proyectos <span class="grad">Destacados</span>
+        </h1>
+        <p class="text-white/60 font-medium max-w-xl mx-auto" style="font-size:clamp(1rem,2vw,1.2rem);">
+          Campañas que transforman el paisaje urbano y conectan marcas con millones de personas.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══ CASO EPA: HEADER ══ -->
+  <section class="pt-20 pb-12 px-5 text-center reveal">
+    <div class="max-w-3xl mx-auto">
+      <div
+        class="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-full px-5 py-2 mb-6 backdrop-blur-md">
+        <span style="width:7px;height:7px;background:#E81C7C;border-radius:50%;display:inline-block;"></span>
+        <span class="text-white/60 font-black text-[11px] uppercase tracking-[.35em]">Caso de Éxito · Estrategia
+          360°</span>
+        <span style="width:7px;height:7px;background:#1A51A2;border-radius:50%;display:inline-block;"></span>
+      </div>
+      <h2 class="headline text-6xl md:text-7xl font-black text-white leading-none mb-5">Proyecto <span
+          class="grad">EPA</span></h2>
+      <p class="text-white/50 text-lg leading-relaxed max-w-2xl mx-auto">
+        Despliegue multiformato en las arterias más estratégicas de Caracas — dominando la ciudad con Pantallas LED,
+        Vallas Monumentales y Banderolas simultáneamente.
+      </p>
+      <!-- Pills métricas -->
+      <div class="flex flex-wrap justify-center gap-3 mt-8">
+        <div
+          class="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-5 py-2.5 hover:bg-white/10 transition-colors cursor-default">
+          <span class="text-white font-black text-xl">24/7</span>
+          <span class="text-white/40 text-[10px] uppercase tracking-wider font-bold">Exposición</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ GRID EDITORIAL EPA ══ -->
+  <section class="px-4 sm:px-6 pb-6 max-w-7xl mx-auto">
+
+    <!-- FILA 1: Hero grande + 2 pequeños -->
+    <div class="grid gap-3" style="grid-template-columns: 1fr 1fr; grid-template-rows: auto;">
+
+      <!-- Hero Valla de Impacto -->
+      <div class="card fglow rounded-3xl overflow-hidden relative reveal"
+        style="transition-delay:80ms; grid-column:1; grid-row:1/3; min-height:520px;">
+        <img src="assets/vallas/epa1.webp" alt="Valla Monumental EPA — Hero" class="card-img" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-transparent"></div>
+        <div class="absolute top-5 left-5">
+          <span class="badge bg-black/60 border border-white/20 text-white">Monumental</span>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-7">
+          <p class="text-white/45 text-[10px] uppercase tracking-widest font-bold mb-1">Gran Formato · Caracas</p>
+          <h3 class="headline text-3xl font-black text-white leading-tight">Valla de<br>Impacto</h3>
+        </div>
+      </div>
+
+      <!-- Pantalla LED nocturna (sin texto) -->
+      <div class="card bglow rounded-3xl overflow-hidden relative reveal"
+        style="transition-delay:160ms; min-height:250px;">
+        <img src="assets/proyectos/epa2.webp" alt="Pantalla LED EPA — Noche" class="card-img" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+      </div>
+
+      <!-- Pantalla LED principal (sin texto) -->
+      <div class="card fglow rounded-3xl overflow-hidden relative reveal"
+        style="transition-delay:240ms; min-height:250px;">
+        <img src="assets/proyectos/epa.webp" alt="Pantalla LED EPA — Principal" class="card-img" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+      </div>
+
+    </div>
+
+    <!-- FILA 2: 3 cards iguales -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-3">
+
+      <div class="card bglow rounded-3xl overflow-hidden relative reveal"
+        style="transition-delay:320ms; min-height:260px;">
+        <img src="assets/vallas/heroepa.webp" alt="Valla EPA Autopista" class="card-img" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent"></div>
+        <div class="absolute top-4 left-4"><span class="badge bg-primary/80 text-white">Valla</span></div>
+        <div class="absolute bottom-4 left-4">
+          <p class="text-white/40 text-[10px] uppercase tracking-widest font-bold mb-0.5">Autopista</p>
+          <p class="text-white font-black text-sm uppercase">Alto Tráfico</p>
+        </div>
+      </div>
+
+      <div class="card fglow rounded-3xl overflow-hidden relative reveal"
+        style="transition-delay:400ms; min-height:260px;">
+        <img src="assets/banderolas/epa1_hr.webp" alt="Banderola EPA 1" class="card-img" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent"></div>
+        <div class="absolute top-4 left-4"><span class="badge bg-accent/80 text-white">Banderola</span></div>
+        <div class="absolute bottom-4 left-4">
+          <p class="text-white/40 text-[10px] uppercase tracking-widest font-bold mb-0.5">Circuito Urbano</p>
+          <p class="text-white font-black text-sm uppercase">Dominio de Calle</p>
+        </div>
+      </div>
+
+      <div class="card fglow rounded-3xl overflow-hidden relative reveal"
+        style="transition-delay:480ms; min-height:260px;">
+        <img src="assets/banderolas/epa2_hr.webp" alt="Banderola EPA 2" class="card-img" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent"></div>
+        <div class="absolute top-4 left-4"><span class="badge bg-accent/80 text-white">Banderola</span></div>
+        <div class="absolute bottom-4 left-4">
+          <p class="text-white/40 text-[10px] uppercase tracking-widest font-bold mb-0.5">Av. Principal</p>
+          <p class="text-white font-black text-sm uppercase">Visibilidad Total</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider my-6 mx-5"></div>
+
+  <!-- ══ PROCESO DE INSTALACIÓN ══ -->
+  <section class="px-4 sm:px-6 pb-28 max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+
+      <!-- Texto -->
+      <div class="reveal order-2 lg:order-1">
+        <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-6">
+          <span style="width:6px;height:6px;background:#1A51A2;border-radius:50%;display:inline-block;"></span>
+          <span class="text-white/50 font-black text-[10px] uppercase tracking-widest">Behind The Scenes</span>
+        </div>
+        <h2 class="headline text-4xl md:text-5xl font-black text-white leading-tight mb-5">
+          Proceso de <span class="grad">Instalación</span>
+        </h2>
+        <p class="text-white/50 text-lg leading-relaxed mb-8">
+          Detrás de cada gran impacto visual hay un equipo de expertos que trabaja con precisión milimétrica, tecnología
+          de vanguardia y los más altos estándares de seguridad. Cada instalación es una obra de ingeniería.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="index.html#contacto"
+            class="bg-accent text-white px-8 py-4 rounded-2xl font-black text-sm tracking-widest text-center hover:scale-105 transition-all shadow-lg shadow-pink-900/20">
+            COTIZAR MI PROYECTO
+          </a>
+          <a href="index.html#contacto"
+            class="border border-white/15 text-white/70 px-8 py-4 rounded-2xl font-black text-sm tracking-widest text-center hover:bg-white/5 transition-all">
+            VER SERVICIOS
+          </a>
+        </div>
+      </div>
+
+      <!-- Video -->
+      <div class="bglow rounded-3xl overflow-hidden relative reveal order-1 lg:order-2"
+        style="transition-delay:200ms; min-height:340px;">
+        <video class="w-full h-full object-cover absolute inset-0" controls preload="none" muted
+          poster="assets/vallas/heroepa.webp" style="min-height:340px; position:relative;">
+          <source src="assets/proyectos/instalacion.webm" type="video/webm">
+        </video>
+        <div class="absolute top-5 left-5 pointer-events-none">
+          <span class="badge bg-primary/90 text-white">Behind The Scenes</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="bg-[#080808] pt-20 pb-10 relative overflow-hidden">
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-white/8 to-transparent">
+    </div>
+    <div class="max-w-7xl mx-auto px-6 md:px-8 grid md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <div class="lg:col-span-7 space-y-6">
+        <a href="index.html"><img src="innovando1.webp" alt="Innovando" class="h-12 w-auto brightness-125"></a>
+        <p class="text-white/35 text-lg leading-relaxed max-w-xl">Liderando la publicidad exterior en toda Venezuela con
+          ubicaciones de alto impacto y tecnología de vanguardia.</p>
+      </div>
+      <div class="lg:col-span-5 lg:pl-10 space-y-6">
+        <h4 class="text-white font-bold text-xs tracking-widest uppercase">Explorar</h4>
+        <div class="grid grid-cols-2 gap-3">
+          <ul class="space-y-3">
+            <li><a href="vallas.html"
+                class="text-white/35 hover:text-white transition-colors text-sm font-bold">VALLAS</a></li>
+            <li><a href="banderolas.html"
+                class="text-white/35 hover:text-white transition-colors text-sm font-bold">BANDEROLAS</a></li>
+          </ul>
+          <ul class="space-y-3">
+            <li><a href="galerias.html"
+                class="text-white/35 hover:text-white transition-colors text-sm font-bold">GALERÍAS</a></li>
+            <li><a href="pantallas-led.html"
+                class="text-white/35 hover:text-white transition-colors text-sm font-bold">PANTALLAS LED</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div
+      class="max-w-7xl mx-auto px-6 md:px-8 mt-14 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-white/20 text-[10px] tracking-[.3em] font-bold uppercase">© 2026 Innovando Publicidad Exterior ·
+        RIF J-29789670-8</p>
+      <span class="text-white/15 text-[10px] font-bold tracking-widest uppercase">Desarrollado por
+        KostkoDeveloper</span>
+    </div>
+  </footer>
+
+  <!-- WhatsApp FAB -->
+  <a href="https://wa.me/584123580995?text=Hola!%20Me%20interesa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios."
+    target="_blank"
+    class="fixed bottom-7 right-7 z-[999] w-16 h-16 bg-[#25D366] rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all overflow-hidden">
+    <span class="absolute inset-0 bg-[#25D366] animate-ping opacity-20 rounded-full"></span>
+    <svg class="w-9 h-9 text-white relative z-10" fill="currentColor" viewBox="0 0 24 24">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+    </svg>
+  </a>
+
+  <script>
+    // Nav mobile
+    document.querySelectorAll('.menu-toggle').forEach((btn, i) => {
+      btn.addEventListener('click', () => {
+        const m = document.querySelectorAll('.mobile-menu')[i];
+        const icon = btn.querySelector('span');
+        const open = m.classList.contains('opacity-0');
+        m.classList.toggle('opacity-0', !open);
+        m.classList.toggle('pointer-events-none', !open);
+        m.classList.toggle('-translate-y-3', !open);
+        m.classList.toggle('opacity-100', open);
+        icon.textContent = open ? 'close' : 'menu';
+      });
+    });
+
+    // Scroll reveal
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+
+</html>
