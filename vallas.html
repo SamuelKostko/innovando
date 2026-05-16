@@ -36,13 +36,13 @@
             "on-tertiary-container": "#002021",
             "surface-container-lowest": "#f1f5f9",
             "surface-tint": "#2e5bff",
-            "secondary": "#d70357",
+            "secondary": "#e92e86",
             "outline": "#94a3b8",
             "inverse-primary": "#b8c3ff",
             "error-container": "#ffdad6",
             "surface-dim": "#dee2e6",
             "surface-bright": "#ffffff",
-            "secondary-container": "#d70357",
+            "secondary-container": "#e92e86",
             "on-secondary-fixed": "#400014",
             "primary-fixed-dim": "#b8c3ff",
             "on-background": "#0f172a",
@@ -133,7 +133,7 @@
       height: 200%;
       background:
         radial-gradient(circle at 70% 30%, rgba(46, 91, 255, 0.2) 0%, transparent 40%),
-        radial-gradient(circle at 30% 70%, rgba(215, 3, 87, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 30% 70%, rgba(233, 46, 134, 0.15) 0%, transparent 40%),
         radial-gradient(circle at 10% 10%, rgba(46, 91, 255, 0.1) 0%, transparent 30%);
       animation: mesh-rotate 25s linear infinite;
       z-index: 1;
@@ -159,7 +159,7 @@
     }
 
     .text-gradient-secondary {
-      background: linear-gradient(135deg, #ff2e95 0%, #ff85be 100%);
+      background: linear-gradient(135deg, #e92e86 0%, #ff5ba3 100%);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -262,7 +262,8 @@
           class="hidden lg:flex bg-primary-container text-white px-8 py-3 rounded-xl font-black text-sm tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary-container/30">
           COTIZAR
         </a>
-        <button class="menu-toggle lg:hidden w-10 h-10 flex items-center justify-center text-slate-800 bg-slate-100 rounded-xl">
+        <button
+          class="menu-toggle lg:hidden w-10 h-10 flex items-center justify-center text-slate-800 bg-slate-100 rounded-xl">
           <span class="material-symbols-outlined leading-none relative top-[1px]">menu</span>
         </button>
       </div>
@@ -274,7 +275,8 @@
       <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="vallas.html">Vallas</a>
       <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="banderolas.html">Banderolas</a>
       <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="galerias.html">Galerías</a>
-      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="pantallas-led.html">Pantallas LED</a>
+      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="pantallas-led.html">Pantallas
+        LED</a>
       <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="proyectos.html">Proyectos</a>
       <a href="index.html#contacto"
         class="bg-primary-container text-center text-white px-6 py-4 rounded-xl font-black tracking-widest text-sm uppercase">
@@ -286,8 +288,11 @@
   <!-- ═══ HERO ═══ -->
   <section class="relative min-h-[100vh] flex items-end pb-20 pt-32 overflow-hidden mesh-bg">
     <div class="absolute inset-0 z-0">
-      <img src="assets/vallas/heroepa.webp" alt="Valla Publicitaria Hero"
-        class="w-full h-full object-cover img-premium" />
+      <picture>
+        <source media="(min-width: 768px)" srcset="assets/vallas/heroepa.webp" />
+        <img src="assets/vallas/epa1.webp" alt="Valla Publicitaria Hero"
+          class="w-full h-full object-cover object-[50%_center] md:object-center img-premium" />
+      </picture>
       <div class="absolute inset-0 bg-gradient-to-r from-[#0f172a]/95 via-[#0f172a]/60 to-transparent"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 via-transparent to-transparent"></div>
     </div>
@@ -312,23 +317,25 @@
       <h1
         class="headline text-6xl md:text-9xl font-black leading-none tracking-tighter text-white mb-8 animate-fade-up delay-1">
         <span class="text-gradient">Vallas de</span> <br>
-        <span class="text-gradient-secondary">Alto Impacto</span>
+        <span class="text-gradient-secondary">ALTO IMPACTO</span>
       </h1>
       <p class="text-xl md:text-2xl text-white/70 max-w-2xl leading-relaxed animate-fade-up delay-2 font-medium">
         Dominamos las principales arterias viales de Venezuela con estructuras monumentales diseñadas para que tu marca
         sea el centro de atención.
       </p>
 
-      <div class="flex flex-wrap gap-6 mt-12 animate-fade-up delay-3">
-        <div class="flex items-center gap-4 glass-card px-8 py-4 rounded-2xl group transition-all hover:bg-white/10">
+      <div class="flex flex-col sm:flex-row gap-6 mt-12 animate-fade-up delay-3 w-full max-w-2xl">
+        <div
+          class="flex-1 flex items-center gap-4 glass-card px-8 py-4 rounded-2xl group transition-all hover:bg-white/10">
           <span
             class="material-symbols-outlined text-primary-container text-3xl group-hover:rotate-12 transition-transform">location_on</span>
-          <span class="text-white font-bold text-lg">Presencia Nacional</span>
+          <span class="text-white font-bold text-lg leading-tight">Presencia a Nivel Nacional</span>
         </div>
-        <div class="flex items-center gap-4 glass-card px-8 py-4 rounded-2xl group transition-all hover:bg-white/10">
+        <div
+          class="flex-1 flex items-center gap-4 glass-card px-8 py-4 rounded-2xl group transition-all hover:bg-white/10">
           <span
             class="material-symbols-outlined text-secondary text-3xl group-hover:scale-125 transition-transform">visibility</span>
-          <span class="text-white font-bold text-lg">Impacto Inmediato</span>
+          <span class="text-white font-bold text-lg leading-tight">Impacto Inmediato</span>
         </div>
       </div>
     </div>
@@ -449,32 +456,38 @@
         <!-- CM -->
         <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
           <img src="assets/vallas/cm.webp" alt="Proyecto Publicitario CM"
-            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700"
+            loading="lazy" />
         </div>
         <!-- Cafe Amanecer -->
         <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
           <img src="assets/vallas/cafeamanecer.webp" alt="Valla Cafe Amanecer"
-            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" loading="lazy" />
-        </div>
-        <!-- Amanecer -->
-        <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
-          <img src="assets/vallas/amanecer.webp" alt="Valla al Amanecer"
-            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700"
+            loading="lazy" />
         </div>
         <!-- EPA -->
         <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
           <img src="assets/vallas/epa1.webp" alt="Proyecto EPA"
-            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700"
+            loading="lazy" />
+        </div>
+        <!-- Amanecer -->
+        <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
+          <img src="assets/vallas/INVERSHOW2.jpg" alt="Valla de Invershow"
+            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700"
+            loading="lazy" />
         </div>
         <!-- Maturin -->
         <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
           <img src="assets/vallas/maturin.webp" alt="Valla estratégica en Maturín"
-            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700"
+            loading="lazy" />
         </div>
         <!-- Valencia -->
         <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
           <img src="assets/vallas/epa2.webp" alt="Valla en Valencia"
-            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+            class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700"
+            loading="lazy" />
         </div>
       </div>
     </div>
