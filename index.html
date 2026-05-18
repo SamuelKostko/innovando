@@ -657,19 +657,22 @@
   </nav>
 
   <!-- ═══ HERO ═══ -->
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0f0f0f]">
+  <section class="relative h-screen flex items-center justify-center overflow-hidden bg-[#000000]">
     <!-- Simple hero: only the video (no loop) -->
     <div class="absolute inset-0 z-0">
       <!-- Video for desktop / large screens -->
-      <video id="hero-video" autoplay muted playsinline class="hidden lg:block w-full h-full object-cover">
+      <video id="hero-video" autoplay muted playsinline
+        class="hidden lg:block w-full h-[calc(100vh+20px)] object-cover object-top">
         <source src="hero.webm" type="video/webm">
         Tu navegador no soporta reproducción de video.
       </video>
 
-      <!-- Static JPEG for mobile screens -->
-      <div class="absolute inset-0 lg:hidden px-4 py-6 sm:px-6 sm:py-8">
-        <img src="hero.webp" alt="Hero" class="w-full h-full object-contain object-center">
-      </div>
+      <!-- Video for mobile screens -->
+      <video id="hero-video-mobile" autoplay muted playsinline class="lg:hidden w-full h-full object-contain">
+        <source src="mb-hero.webm" type="video/webm">
+        <source src="mb-hero.mp4" type="video/mp4">
+        Tu navegador no soporta reproducción de video.
+      </video>
 
       <div class="absolute inset-0 bg-black/25"></div>
     </div>
@@ -677,23 +680,30 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const v = document.getElementById('hero-video');
-      if (!v) return;
-      // Scroll target: section with id 'nosotros'
+      const videos = [
+        document.getElementById('hero-video'),
+        document.getElementById('hero-video-mobile')
+      ];
       const target = document.getElementById('nosotros');
-      v.addEventListener('ended', function () {
-        const dest = target || document.querySelector('section:nth-of-type(2)');
-        if (!dest) return;
-        // Offset for fixed nav (approx)
-        const offset = 20;
-        const top = dest.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
+
+      videos.forEach(v => {
+        if (!v) return;
+        v.addEventListener('ended', function () {
+          v.currentTime = 0;
+          v.pause();
+          const dest = target || document.querySelector('section:nth-of-type(2)');
+          if (!dest) return;
+          // Offset for fixed nav (approx)
+          const offset = 20;
+          const top = dest.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        });
       });
     });
   </script>
 
   <!-- ═══ SOBRE NOSOTROS ═══ -->
-  <section class="py-20 md:py-32 bg-[#171717] relative" id="nosotros">
+  <section class="py-20 md:py-32 bg-[#171717] relative" style="background: linear-gradient(to bottom, #000000 0%, #171717 200px, #171717 100%);" id="nosotros">
     <div class="max-w-7xl mx-auto px-5 md:px-6">
       <div class="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
         <div class="space-y-8 animate-hero">
@@ -972,9 +982,13 @@
 
         <div class="relative mt-4 lg:mt-0">
           <div class="relative group">
-            <div class="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-[2rem] md:rounded-[3.5rem] blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+            <div
+              class="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-[2rem] md:rounded-[3.5rem] blur opacity-20 group-hover:opacity-40 transition duration-1000">
+            </div>
             <div class="relative rounded-3xl md:rounded-[3rem] overflow-hidden shadow-2xl border border-white/10">
-              <img src="MAPA VZLA-LOGO.jpeg" alt="Cobertura Nacional Innovando" class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105" loading="lazy">
+              <img src="MAPA VZLA-LOGO.jpeg" alt="Cobertura Nacional Innovando"
+                class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
+                loading="lazy">
               <div class="absolute inset-0 bg-gradient-to-t from-[#1a1a1a]/40 to-transparent pointer-events-none"></div>
             </div>
           </div>
