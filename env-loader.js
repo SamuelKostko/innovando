@@ -15,8 +15,8 @@
     waLinks.forEach(function (link) {
       var href = link.getAttribute('href');
       if (href) {
-        // Reemplaza el número de teléfono manteniendo intacto el mensaje de texto (?text=...)
-        var newHref = href.replace(/(wa\.me\/)([0-9]+)/, '$1' + config.CONTACT_PHONE);
+        // Reemplaza "CONTACT_PHONE" o cualquier número existente por el del .env
+        var newHref = href.replace(/(wa\.me\/)(CONTACT_PHONE|[0-9]+)/, '$1' + config.CONTACT_PHONE);
         link.setAttribute('href', newHref);
       }
     });
@@ -26,8 +26,8 @@
     mailLinks.forEach(function (link) {
       var href = link.getAttribute('href');
       if (href) {
-        // Reemplaza la dirección de correo manteniendo intactos los parámetros de consulta (?subject=...)
-        var newHref = href.replace(/(mailto:)([^?#\s]+)/, '$1' + config.CONTACT_EMAIL);
+        // Reemplaza "CONTACT_EMAIL" o cualquier dirección por la del .env
+        var newHref = href.replace(/(mailto:)(CONTACT_EMAIL|[^?#\s]+)/, '$1' + config.CONTACT_EMAIL);
         link.setAttribute('href', newHref);
       }
     });
