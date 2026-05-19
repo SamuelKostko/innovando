@@ -391,10 +391,7 @@
     <div
       class="bg-white/95 lg:bg-white rounded-none lg:rounded-2xl px-6 md:px-10 py-4 flex justify-between items-center relative shadow-2xl border-b lg:border border-slate-100 backdrop-blur-md">
       <a href="index.html" class="flex items-center gap-3">
-        <picture>
-          <source media="(max-width: 1023px)" srcset="innovando1.webp" />
-          <img alt="Innovando Logo" class="h-8 md:h-10 w-auto" src="logo_innovando.webp" />
-        </picture>
+        <img alt="Innovando Logo" class="h-8 md:h-10 w-auto" src="innovando1.webp" />
       </a>
       <div class="hidden lg:flex items-center gap-10 font-headline">
         <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
@@ -413,7 +410,8 @@
           class="hidden lg:flex bg-primary-container text-white px-8 py-3 rounded-xl font-black text-sm tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary-container/30">
           COTIZAR
         </a>
-        <button class="menu-toggle lg:hidden w-10 h-10 flex items-center justify-center text-slate-800 bg-slate-100 rounded-xl">
+        <button
+          class="menu-toggle lg:hidden w-10 h-10 flex items-center justify-center text-slate-800 bg-slate-100 rounded-xl">
           <span class="material-symbols-outlined leading-none relative top-[1px]">menu</span>
         </button>
       </div>
@@ -425,7 +423,8 @@
       <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="vallas.html">Vallas</a>
       <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="banderolas.html">Banderolas</a>
       <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="galerias.html">Galerías</a>
-      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="pantallas-led.html">Pantallas LED</a>
+      <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="pantallas-led.html">Pantallas
+        LED</a>
       <a class="text-slate-800 font-bold text-lg border-b border-slate-100 pb-3" href="proyectos.html">Proyectos</a>
       <a href="index.html#contacto"
         class="bg-primary-container text-center text-white px-6 py-4 rounded-xl font-black tracking-widest text-sm uppercase">
@@ -466,7 +465,7 @@
       <h1
         class="headline text-6xl md:text-9xl font-black leading-none tracking-tighter text-white mb-8 animate-fade-up delay-1">
         <span class="text-gradient">Galerías de</span> <br>
-        <span class="text-gradient-secondary">Pantallas LED</span>
+        <span class="text-gradient-secondary">PANTALLAS LED</span>
       </h1>
       <p class="text-xl md:text-2xl text-white/70 max-w-2xl leading-relaxed animate-fade-up delay-2 font-medium">
         Conjuntos de pantallas sincronizadas en los corredores viales más estratégicos de Caracas y La Guaira,
@@ -1017,7 +1016,7 @@
     });
 
     // Leaflet maps with logo PNG markers
-      try {
+    try {
       const createScreenIcon = (iconUrl, size = [8, 18]) => {
         const [w, h] = size;
         return L.icon({
@@ -1075,14 +1074,14 @@
             { coords: [10.495660, -66.848616], title: 'Pantallita 8', icon: 'blue' }
           ]
         },
-        { 
-          id: 'gallery-map-3', 
+        {
+          id: 'gallery-map-3',
           coords: [10.481932, -66.861522],
-           zoom: 17, 
-           title: 'Plaza Alfredo Sadel · Las Mercedes',
-           
+          zoom: 17,
+          title: 'Plaza Alfredo Sadel · Las Mercedes',
+
           markers: [
-            { coords: [10.4815842,-66.8613704], title: 'Pantallita 1', icon: 'red' },
+            { coords: [10.4815842, -66.8613704], title: 'Pantallita 1', icon: 'red' },
             { coords: [10.481727, -66.861150], title: 'Pantallita 2', icon: 'red' },
             { coords: [10.481785, -66.861543], title: 'Pantallita 3', icon: 'red' },
             { coords: [10.481938, -66.861366], title: 'Pantallita 4', icon: 'red' },
@@ -1092,11 +1091,11 @@
             { coords: [10.482373, -66.862143], title: 'Pantallita 8', icon: 'red' }
           ]
         },
-        
-        { 
-          id: 'gallery-map-4', 
-          coords: [10.479702, -66.859093], 
-          zoom: 17, 
+
+        {
+          id: 'gallery-map-4',
+          coords: [10.479702, -66.859093],
+          zoom: 17,
           title: 'CC Tolón · Las Mercedes',
           markers: [
             { coords: [10.480177, -66.859806], title: 'Pantallita 1', icon: 'red' },
@@ -1109,11 +1108,11 @@
             { coords: [10.479533, -66.858690], title: 'Pantallita 8', icon: 'red' }
           ]
         },
-        { 
+        {
           id: 'gallery-map-5',
-         coords: [10.596684, -67.004068], 
-         zoom: 16, 
-         title: 'Aeropuerto Simón Bolívar · Maiquetía',
+          coords: [10.596684, -67.004068],
+          zoom: 16,
+          title: 'Aeropuerto Simón Bolívar · Maiquetía',
           markers: [
             { coords: [10.597201, -66.998942], title: 'Pantallita 1', icon: 'orange' },
             { coords: [10.597169, -66.999545], title: 'Pantallita 2', icon: 'orange' },
@@ -1125,7 +1124,7 @@
             { coords: [10.596759, -67.008301], title: 'Pantallita 8', icon: 'orange' },
             { coords: [10.596734, -67.008882], title: 'Pantallita 9', icon: 'orange' },
             { coords: [10.596716, -67.009558], title: 'Pantallita 10', icon: 'orange' }
-           ]
+          ]
         }
       ];
 

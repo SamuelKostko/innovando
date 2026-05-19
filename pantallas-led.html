@@ -394,10 +394,7 @@
     <div
       class="bg-white/95 lg:bg-white rounded-none lg:rounded-2xl px-6 md:px-10 py-4 flex justify-between items-center relative shadow-2xl border-b lg:border border-slate-100 backdrop-blur-md">
       <a href="index.html" class="flex items-center gap-3">
-        <picture>
-          <source media="(max-width: 1023px)" srcset="innovando1.webp" />
-          <img alt="Innovando Logo" class="h-8 md:h-10 w-auto" src="logo_innovando.webp" />
-        </picture>
+        <img alt="Innovando Logo" class="h-8 md:h-10 w-auto" src="innovando1.webp" />
       </a>
       <div class="hidden lg:flex items-center gap-10 font-headline">
         <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
@@ -416,7 +413,8 @@
           class="hidden lg:flex bg-primary-container text-white px-8 py-3 rounded-xl font-black text-sm tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary-container/30">
           COTIZAR
         </a>
-        <button class="menu-toggle lg:hidden w-10 h-10 flex items-center justify-center text-slate-800 bg-slate-100 rounded-xl">
+        <button
+          class="menu-toggle lg:hidden w-10 h-10 flex items-center justify-center text-slate-800 bg-slate-100 rounded-xl">
           <span class="material-symbols-outlined leading-none relative top-[1px]">menu</span>
         </button>
       </div>
@@ -461,7 +459,7 @@
       <h1
         class="headline text-4xl sm:text-6xl md:text-9xl font-black leading-none tracking-tighter text-white mb-8 animate-fade-up delay-1">
         <span class="text-gradient">Pantallas LED</span> <br>
-        <span class="text-gradient-secondary">de Alto Impacto</span>
+        <span class="text-gradient-secondary">de ALTO IMPACTO</span>
       </h1>
       <p class="text-xl md:text-2xl text-white/70 max-w-2xl leading-relaxed animate-fade-up delay-2 font-medium">
         Pantallas de alta definición en las avenidas más estratégicas de Caracas. Spots de 10 segundos, rotación
@@ -492,226 +490,6 @@
       </div>
     </div>
 
-    <style>
-      .pure-css-scene {
-        position: relative;
-        width: 100%;
-        height: 600px;
-        background: #1e293b;
-        overflow: hidden;
-        perspective: 1500px;
-        border-radius: 24px;
-        box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
-      }
-
-      /* Ciudad de fondo */
-      .css-sky {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to bottom, #070b14 0%, #1e293b 70%, #334155 100%);
-        height: 65%;
-      }
-
-      .css-cityscape {
-        position: absolute;
-        bottom: 35%;
-        width: 100%;
-        height: 180px;
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-around;
-        opacity: 0.4;
-        z-index: 2;
-      }
-
-      .city-building {
-        background: #0f172a;
-        width: 40px;
-        position: relative;
-      }
-
-      /* Ventanas sutiles en la ciudad */
-      .city-building::after {
-        content: '';
-        position: absolute;
-        inset: 5px;
-        background-image: repeating-linear-gradient(to bottom, rgba(255, 215, 0, 0.1) 0, rgba(255, 215, 0, 0.1) 2px, transparent 2px, transparent 8px);
-        background-size: 100% 10px;
-      }
-
-      /* Carretera con ancho controlado */
-      .road-container {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: min(780px, 82vw);
-        height: 35%;
-        z-index: 5;
-      }
-
-      .css-road {
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(180deg, #111 0%, #171717 45%, #101010 100%);
-        clip-path: polygon(22% 0, 78% 0, 100% 100%, 0 100%);
-        position: relative;
-        box-shadow: inset 0 24px 90px rgba(0, 0, 0, 0.9);
-        filter: drop-shadow(0 -10px 24px rgba(0, 0, 0, 0.55));
-      }
-
-      .css-road::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to bottom,
-            rgba(255, 255, 255, 0.06) 0%,
-            transparent 22%,
-            transparent 78%,
-            rgba(255, 255, 255, 0.03) 100%);
-        pointer-events: none;
-      }
-
-      .center-line {
-        position: absolute;
-        left: 50%;
-        top: 0;
-        width: 5px;
-        height: 160%;
-        background: repeating-linear-gradient(to bottom, #fbbf24 0, #fbbf24 100px, transparent 100px, transparent 200px);
-        transform: translateX(-50%);
-        animation: road-move 1.2s linear infinite;
-      }
-
-      @keyframes road-move {
-        from {
-          transform: translateX(-50%) translateY(-10px);
-        }
-
-        to {
-          transform: translateX(-50%) translateY(210px);
-        }
-      }
-
-      /* Estructura de la Valla (Gantry) */
-      .css-gantry {
-        position: absolute;
-        inset: 0;
-        z-index: 30;
-        display: flex;
-        justify-content: center;
-      }
-
-      .gantry-pole {
-        position: absolute;
-        bottom: -6px;
-        width: 24px;
-        height: 470px;
-        background: linear-gradient(90deg, #334155, #64748b, #334155);
-        border-radius: 4px 4px 0 0;
-        box-shadow: 0 18px 30px rgba(0, 0, 0, 0.35);
-      }
-
-      .gantry-pole.left {
-        left: max(0px, calc(50% - 425px));
-      }
-
-      .gantry-pole.right {
-        right: max(0px, calc(50% - 425px));
-      }
-
-      .gantry-beam {
-        position: absolute;
-        top: 70px;
-        width: min(850px, 100%);
-        /* Más ancho para el logo completo */
-        height: 200px;
-        background: #0a0a0a;
-        display: flex;
-        align-items: stretch;
-        border: 3px solid #1e293b;
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
-      }
-
-      /* Paneles laterales */
-      .beam-side {
-        flex: 0 0 90px;
-        background: repeating-linear-gradient(0deg, #050505 0, #050505 2px, #111 3px);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .orange-shield {
-        width: 40px;
-        height: 50px;
-        background: #f97316;
-        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-        filter: drop-shadow(0 0 10px rgba(249, 115, 22, 0.3));
-      }
-
-      /* Pantalla LED */
-      .led-billboard {
-        flex: 1;
-        background: #000;
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      /* Efecto de rejilla LED */
-      .led-billboard::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-        background-size: 3px 3px;
-        z-index: 10;
-        pointer-events: none;
-      }
-
-      .led-slide {
-        display: none;
-        max-width: 90%;
-        max-height: 85%;
-        object-fit: contain;
-        filter: brightness(1.1) contrast(1.1);
-      }
-
-      .led-slide.active {
-        display: block;
-      }
-
-      /* Sombra de la valla en el suelo */
-      .billboard-shadow {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 120px;
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent);
-        z-index: 6;
-      }
-
-      /* ── MOBILE RESPONSIVE ── */
-      @media (max-width: 768px) {
-        .gantry-beam {
-          width: 100%;
-          left: 0;
-          right: 0;
-        }
-
-        .gantry-pole.left {
-          left: 0;
-        }
-
-        .gantry-pole.right {
-          right: 0;
-        }
-      }
-    </style>
-
     <div class="max-w-7xl mx-auto px-6 relative z-10">
       <div class="text-center mb-12">
         <span class="text-blue-400 font-bold text-xs uppercase tracking-widest block mb-3">Publicidad Exterior</span>
@@ -719,83 +497,15 @@
         </h2>
       </div>
 
-      <div class="scene-scaler">
-        <div class="pure-css-scene">
-          <div class="css-sky"></div>
-
-          <!-- Skyline Ciudad -->
-          <div class="css-cityscape">
-            <div class="city-building" style="height: 100px; width: 60px;"></div>
-            <div class="city-building" style="height: 150px; width: 40px;"></div>
-            <div class="city-building" style="height: 80px; width: 70px;"></div>
-            <div class="city-building" style="height: 130px; width: 50px;"></div>
-            <div class="city-building" style="height: 110px; width: 60px;"></div>
-            <div class="city-building" style="height: 160px; width: 45px;"></div>
-            <div class="city-building" style="height: 90px; width: 55px;"></div>
-          </div>
-
-          <div class="road-container">
-            <div class="css-road">
-              <div class="billboard-shadow"></div>
-              <div class="center-line"></div>
-            </div>
-          </div>
-
-          <div class="css-gantry">
-            <div class="gantry-pole left"></div>
-            <div class="gantry-pole right"></div>
-
-            <div class="gantry-beam">
-              <div class="beam-side">
-                <div class="orange-shield"></div>
-              </div>
-
-              <div class="led-billboard" id="led-display">
-                <!-- Logo Innovando -->
-                <img src="innovando1.webp" id="slide-0" class="led-slide active" alt="Innovando Logo">
-                <!-- Slide Alternativo -->
-                <div id="slide-1" class="led-slide text-center text-blue-500 font-black text-4xl tracking-tighter">
-                  PUBLICIDAD 24/7
-                </div>
-              </div>
-
-              <div class="beam-side">
-                <div class="orange-shield"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex flex-col items-center mt-10">
-        <div class="flex gap-3">
-          <div class="w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_10px_#3b82f6] cursor-pointer" onclick="goToSlide(0)">
-          </div>
-          <div class="w-3 h-3 rounded-full bg-white/20 cursor-pointer" onclick="goToSlide(1)"></div>
-        </div>
+      <!-- Contenedor del video premium de alta definición en lugar de la animación -->
+      <div
+        class="relative max-w-5xl mx-auto rounded-3xl overflow-hidden border border-slate-800/80 shadow-[0_20px_50px_rgba(0,0,0,0.5)] bg-slate-950 aspect-[3/4] md:aspect-video">
+        <video autoplay loop muted playsinline class="w-full h-full object-cover block">
+          <source src="assets/led/animacion.mp4" type="video/mp4">
+          Tu navegador no soporta el elemento de video.
+        </video>
       </div>
     </div>
-
-    <script>
-      let currentS = 0;
-      function goToSlide(n) {
-        const slides = document.querySelectorAll('.led-slide');
-        const dots = document.querySelectorAll('.flex.gap-3 div');
-        slides[currentS].classList.remove('active');
-        dots[currentS].classList.replace('bg-blue-500', 'bg-white/20');
-        dots[currentS].classList.remove('shadow-[0_0_10px_#3b82f6]');
-
-        currentS = n;
-
-        slides[currentS].classList.add('active');
-        dots[currentS].classList.replace('bg-white/20', 'bg-blue-500');
-        dots[currentS].classList.add('shadow-[0_0_10px_#3b82f6]');
-      }
-
-      setInterval(() => {
-        goToSlide((currentS + 1) % 2);
-      }, 6000);
-    </script>
   </section>
   <!-- ═══ BENEFICIOS ═══ -->
   <section class="py-24 bg-slate-50" id="beneficios">

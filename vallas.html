@@ -240,10 +240,7 @@
     <div
       class="bg-white/95 lg:bg-white rounded-none lg:rounded-2xl px-6 md:px-10 py-4 flex justify-between items-center relative shadow-2xl border-b lg:border border-slate-100 backdrop-blur-md">
       <a href="index.html" class="flex items-center gap-3">
-        <picture>
-          <source media="(max-width: 1023px)" srcset="innovando1.webp" />
-          <img alt="Innovando Logo" class="h-8 md:h-10 w-auto" src="logo_innovando.webp" />
-        </picture>
+        <img alt="Innovando Logo" class="h-8 md:h-10 w-auto" src="innovando1.webp" />
       </a>
       <div class="hidden lg:flex items-center gap-10 font-headline">
         <a class="text-slate-800 hover:text-primary-container transition-colors text-sm font-bold tracking-widest"
@@ -433,10 +430,33 @@
         </div>
 
         <!-- Giant Format Illustration -->
-        <div class="lg:w-1/2 relative px-4">
-          <div class="gallery-wrap rounded-[2.5rem] overflow-hidden shadow-2xl aspect-video bg-slate-50 p-6">
-            <img src="assets/vallas/medidas_valla.webp" alt="Diagrama Técnico Valla Monumental 25x10m"
-              class="w-full h-full object-contain img-premium" />
+        <div class="lg:w-1/2 w-full grid grid-cols-1 sm:grid-cols-2 gap-8 relative px-4">
+          <!-- Card 1: Horizontal Valla -->
+          <div class="flex flex-col gap-4">
+            <div
+              class="gallery-wrap rounded-[2rem] overflow-hidden shadow-2xl bg-white p-6 h-72 flex items-center justify-center border border-white/5 transition-transform hover:-translate-y-1 duration-300">
+              <img src="assets/vallas/medidas_valla.webp" alt="Diagrama Técnico Valla Horizontal"
+                class="max-w-full max-h-full object-contain img-premium" />
+            </div>
+            <div class="text-center">
+              <span
+                class="inline-block text-[10px] uppercase font-black tracking-widest text-[#2e5bff] bg-[#2e5bff]/10 px-3 py-1 rounded-full">Formato
+                Horizontal</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Vertical Valla -->
+          <div class="flex flex-col gap-4">
+            <div
+              class="gallery-wrap rounded-[2rem] overflow-hidden shadow-2xl bg-white p-6 h-72 flex items-center justify-center border border-white/5 transition-transform hover:-translate-y-1 duration-300">
+              <img src="assets/vallas/medidas_valla_vertical.webp" alt="Diagrama Técnico Valla Vertical"
+                class="max-w-full max-h-full object-contain img-premium" />
+            </div>
+            <div class="text-center">
+              <span
+                class="inline-block text-[10px] uppercase font-black tracking-widest text-[#e92e86] bg-[#e92e86]/10 px-3 py-1 rounded-full">Formato
+                Vertical</span>
+            </div>
           </div>
         </div>
       </div>
@@ -454,40 +474,40 @@
     <div class="max-w-7xl mx-auto px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- CM -->
-        <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
+        <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[4/3] group">
           <img src="assets/vallas/cm.webp" alt="Proyecto Publicitario CM"
             class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700"
-            loading="lazy" />
+            style="object-position: 50% 35%;" loading="lazy" />
         </div>
         <!-- Cafe Amanecer -->
-        <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
-          <img src="assets/vallas/cafeamanecer.webp" alt="Valla Cafe Amanecer"
+        <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[4/3] group">
+          <img src="assets/proyectos/PASEO LAS MERCEDES.webp" alt="Valla Cafe Amanecer"
             class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700"
-            loading="lazy" />
+            style="object-position: 50% 60%;" loading="lazy" />
         </div>
         <!-- EPA -->
-        <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
+        <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[4/3] group">
           <img src="assets/vallas/epa1.webp" alt="Proyecto EPA"
             class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700"
-            loading="lazy" />
+            style="object-position: 50% 60%;" loading="lazy" />
         </div>
         <!-- Amanecer -->
-        <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
-          <img src="assets/vallas/INVERSHOW2.jpg" alt="Valla de Invershow"
+        <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[4/3] group">
+          <img src="assets/vallas/epa2.webp" alt="Valla en Valencia"
             class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700"
             loading="lazy" />
         </div>
         <!-- Maturin -->
-        <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
-          <img src="assets/vallas/maturin.webp" alt="Valla estratégica en Maturín"
+        <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[4/3] group">
+          <img src="assets/vallas/cafeamanecer2.webp" alt="Valla de Cafe Amanecer"
             class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700"
             loading="lazy" />
         </div>
         <!-- Valencia -->
-        <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[16/10] group">
-          <img src="assets/vallas/epa2.webp" alt="Valla en Valencia"
+        <div class="gallery-wrap rounded-3xl overflow-hidden shadow-xl aspect-[4/3] group">
+          <img src="assets/vallas/invershow2.webp" alt="Valla de Invershow"
             class="gallery-img w-full h-full object-cover img-premium group-hover:scale-110 transition-transform duration-700"
-            loading="lazy" />
+            style="object-position: 50% 35%;" loading="lazy" />
         </div>
       </div>
     </div>
