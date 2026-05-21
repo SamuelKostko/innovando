@@ -1,6 +1,6 @@
 /* ============================================================
    INNOVANDO — LANDING PAGE STYLES
-   Colors: Royal Blue #1D4ED8 + Magenta #E91E8C
+  Colors: Blue #385BA7 + Magenta #E91E8C
   Font: League Spartan
    ============================================================ */
 
@@ -14,9 +14,9 @@
 }
 
 :root {
-  --blue: #1D4ED8;
-  --blue-light: #3B6EF0;
-  --blue-dark: #1338B0;
+  --blue: #385BA7;
+  --blue-light: #5D7DC0;
+  --blue-dark: #243C73;
   --magenta: #E91E8C;
   --magenta-light: #F040A0;
   --magenta-dark: #C4136E;
@@ -33,7 +33,7 @@
   --radius-md: 12px;
   --radius-lg: 20px;
   --radius-xl: 32px;
-  --shadow-glow-blue: 0 0 40px rgba(29, 78, 216, 0.35);
+  --shadow-glow-blue: 0 0 40px rgba(56, 91, 167, 0.35);
   --shadow-glow-mag: 0 0 40px rgba(233, 30, 140, 0.35);
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -350,7 +350,7 @@ ul {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(29, 78, 216, 0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(56, 91, 167, 0.15) 0%, transparent 70%),
     radial-gradient(ellipse 50% 60% at 10% 80%, rgba(233, 30, 140, 0.12) 0%, transparent 70%);
   pointer-events: none;
 }
@@ -519,7 +519,7 @@ ul {
 .hero-image-glow {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(29, 78, 216, 0.2) 0%, rgba(233, 30, 140, 0.2) 100%);
+  background: linear-gradient(135deg, rgba(56, 91, 167, 0.2) 0%, rgba(233, 30, 140, 0.2) 100%);
   border-radius: var(--radius-xl);
 }
 
@@ -623,14 +623,14 @@ ul {
 }
 
 .value-card--featured {
-  background: linear-gradient(135deg, rgba(29, 78, 216, 0.12) 0%, rgba(233, 30, 140, 0.12) 100%);
+  background: linear-gradient(135deg, rgba(56, 91, 167, 0.12) 0%, rgba(233, 30, 140, 0.12) 100%);
   border-color: rgba(233, 30, 140, 0.2);
 }
 
 .value-icon {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, rgba(29, 78, 216, 0.2), rgba(233, 30, 140, 0.2));
+  background: linear-gradient(135deg, rgba(56, 91, 167, 0.2), rgba(233, 30, 140, 0.2));
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-md);
   display: flex;
@@ -755,7 +755,7 @@ ul {
 .solution-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(29, 78, 216, 0.3) 0%, rgba(233, 30, 140, 0.3) 100%);
+  background: linear-gradient(135deg, rgba(56, 91, 167, 0.3) 0%, rgba(233, 30, 140, 0.3) 100%);
 }
 
 .solution-tag-img {
@@ -779,8 +779,8 @@ ul {
 .solution-icon {
   width: 48px;
   height: 48px;
-  background: rgba(29, 78, 216, 0.15);
-  border: 1px solid rgba(29, 78, 216, 0.25);
+  background: rgba(56, 91, 167, 0.15);
+  border: 1px solid rgba(56, 91, 167, 0.25);
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
@@ -888,7 +888,7 @@ ul {
 .map-glow {
   position: absolute;
   inset: -20px;
-  background: radial-gradient(circle, rgba(29, 78, 216, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(56, 91, 167, 0.15) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -1034,9 +1034,9 @@ ul {
 }
 
 .city-badge--blue {
-  background: rgba(29, 78, 216, 0.15);
+  background: rgba(56, 91, 167, 0.15);
   color: var(--blue-light);
-  border: 1px solid rgba(29, 78, 216, 0.25);
+  border: 1px solid rgba(56, 91, 167, 0.25);
 }
 
 .city-badge--magenta {
@@ -1075,7 +1075,7 @@ ul {
 }
 
 .airport-banner {
-  background: linear-gradient(135deg, rgba(29, 78, 216, 0.12) 0%, rgba(233, 30, 140, 0.12) 100%);
+  background: linear-gradient(135deg, rgba(56, 91, 167, 0.12) 0%, rgba(233, 30, 140, 0.12) 100%);
   border: 1px solid rgba(233, 30, 140, 0.2);
   border-radius: var(--radius-lg);
   padding: 32px 40px;
@@ -1147,7 +1147,7 @@ ul {
 .exclusivity-icon {
   width: 56px;
   height: 56px;
-  background: linear-gradient(135deg, rgba(233, 30, 140, 0.2), rgba(29, 78, 216, 0.2));
+  background: linear-gradient(135deg, rgba(233, 30, 140, 0.2), rgba(56, 91, 167, 0.2));
   border: 1px solid rgba(233, 30, 140, 0.25);
   border-radius: var(--radius-md);
   display: flex;
@@ -1273,7 +1273,7 @@ ul {
 .cta-orb-1 {
   width: 500px;
   height: 500px;
-  background: rgba(29, 78, 216, 0.15);
+  background: rgba(56, 91, 167, 0.15);
   top: -200px;
   left: -100px;
 }
@@ -1377,8 +1377,8 @@ ul {
 .form-group select:focus,
 .form-group textarea:focus {
   border-color: var(--blue-light);
-  background: rgba(29, 78, 216, 0.06);
-  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.12);
+  background: rgba(56, 91, 167, 0.06);
+  box-shadow: 0 0 0 3px rgba(56, 91, 167, 0.12);
 }
 
 .form-group input::placeholder,
@@ -1414,8 +1414,8 @@ ul {
   align-items: center;
   gap: 16px;
   padding: 20px;
-  background: rgba(29, 78, 216, 0.08);
-  border: 1px solid rgba(29, 78, 216, 0.2);
+  background: rgba(56, 91, 167, 0.08);
+  border: 1px solid rgba(56, 91, 167, 0.2);
   border-radius: var(--radius-md);
   color: var(--blue-light);
   margin-top: 16px;

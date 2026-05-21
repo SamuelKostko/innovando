@@ -20,8 +20,8 @@
       theme: {
         extend: {
           colors: {
-            "primary-container": "#2e5bff",
-            "primary": "#124af0",
+            "primary-container": "#385BA7",
+            "primary": "#385BA7",
             "secondary": "#e92e86",
             "secondary-container": "#e92e86",
             "tertiary": "#00696d",
@@ -77,7 +77,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(46, 91, 255, 0.04) 0%, rgba(215, 3, 87, 0.04) 100%);
+      background: linear-gradient(135deg, rgba(56, 91, 167, 0.04) 0%, rgba(215, 3, 87, 0.04) 100%);
       opacity: 0;
       transition: opacity 0.35s ease;
       pointer-events: none;
@@ -85,8 +85,8 @@
 
     .loc-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 24px 60px rgba(46, 91, 255, 0.14);
-      border-color: rgba(46, 91, 255, 0.2) !important;
+      box-shadow: 0 24px 60px rgba(56, 91, 167, 0.14);
+      border-color: rgba(56, 91, 167, 0.2) !important;
     }
 
     .loc-card:hover::before {
@@ -104,8 +104,8 @@
 
     /* Screen count badge */
     .screen-badge {
-      background: linear-gradient(135deg, #2e5bff 0%, #124af0 100%);
-      box-shadow: 0 8px 24px rgba(46, 91, 255, 0.35);
+      background: linear-gradient(135deg, #385BA7 0%, #385BA7 100%);
+      box-shadow: 0 8px 24px rgba(56, 91, 167, 0.35);
     }
 
     /* Animations */
@@ -220,11 +220,11 @@
 
       0%,
       100% {
-        box-shadow: 0 10px 30px -10px rgba(18, 74, 240, 0.2);
+        box-shadow: 0 10px 30px -10px rgba(56, 91, 167, 0.2);
       }
 
       50% {
-        box-shadow: 0 20px 40px -5px rgba(18, 74, 240, 0.4);
+        box-shadow: 0 20px 40px -5px rgba(56, 91, 167, 0.4);
       }
     }
 
@@ -320,9 +320,9 @@
       width: 200%;
       height: 200%;
       background:
-        radial-gradient(circle at 70% 30%, rgba(46, 91, 255, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 70% 30%, rgba(56, 91, 167, 0.2) 0%, transparent 40%),
         radial-gradient(circle at 30% 70%, rgba(215, 3, 87, 0.15) 0%, transparent 40%),
-        radial-gradient(circle at 10% 10%, rgba(46, 91, 255, 0.1) 0%, transparent 30%);
+        radial-gradient(circle at 10% 10%, rgba(56, 91, 167, 0.1) 0%, transparent 30%);
       animation: mesh-rotate 25s linear infinite;
       z-index: 1;
       pointer-events: none;

@@ -20,13 +20,13 @@
       theme: {
         extend: {
           colors: {
-            "primary": "#1A51A2",
+            "primary": "#385BA7",
             "accent": "#e92e86",
             "surface": "#131313",
             "surface-variant": "#1F1F1F",
             "on-surface": "#ffffff",
             "on-surface-variant": "#B0B0B0",
-            "primary-container": "#1A51A2",
+            "primary-container": "#385BA7",
             "secondary-container": "#e92e86"
           },
           fontFamily: {
@@ -60,7 +60,7 @@
     body {
       background-color: #131313;
       background-image:
-        radial-gradient(circle at 0% 0%, rgba(26, 81, 162, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 0% 0%, rgba(56, 91, 167, 0.05) 0%, transparent 50%),
         radial-gradient(circle at 100% 100%, rgba(233, 46, 134, 0.05) 0%, transparent 50%);
       background-attachment: fixed;
       color: #ffffff;
@@ -101,10 +101,10 @@
     .brand-dot-blue {
       width: 12px;
       height: 12px;
-      background: #1A51A2;
+      background: #385BA7;
       border-radius: 50%;
       display: inline-block;
-      filter: drop-shadow(0 0 8px rgba(26, 81, 162, 0.6));
+      filter: drop-shadow(0 0 8px rgba(56, 91, 167, 0.6));
     }
 
     .brand-dot-fuchsia {
@@ -129,7 +129,7 @@
 
     /* Text Gradient */
     .text-brand-gradient {
-      background: linear-gradient(135deg, #1A51A2 0%, #e92e86 100%);
+      background: linear-gradient(135deg, #385BA7 0%, #e92e86 100%);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -146,7 +146,7 @@
     }
 
     .blue-glow {
-      box-shadow: 0 0 20px rgba(26, 81, 162, 0.3);
+      box-shadow: 0 0 20px rgba(56, 91, 167, 0.3);
     }
 
     /* Glassmorphism */
@@ -282,7 +282,7 @@
       background: #000;
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 0 0 3px #1a1a2e, 0 0 0 6px #0d0d1a, 0 0 50px rgba(46, 91, 255, 0.5), 0 0 100px rgba(46, 91, 255, 0.2);
+      box-shadow: 0 0 0 3px #1a1a2e, 0 0 0 6px #0d0d1a, 0 0 50px rgba(56, 91, 167, 0.5), 0 0 100px rgba(56, 91, 167, 0.2);
     }
 
     .led-billboard::before {
@@ -346,7 +346,7 @@
     .led-logo-img {
       height: clamp(50px, 8vw, 110px);
       width: auto;
-      filter: drop-shadow(0 0 20px rgba(46, 91, 255, 0.8)) drop-shadow(0 0 40px rgba(46, 91, 255, 0.4)) brightness(1.2);
+      filter: drop-shadow(0 0 20px rgba(56, 91, 167, 0.8)) drop-shadow(0 0 40px rgba(56, 91, 167, 0.4)) brightness(1.2);
       animation: led-logo-pulse 2s ease-in-out infinite;
     }
 
@@ -354,12 +354,12 @@
 
       0%,
       100% {
-        filter: drop-shadow(0 0 20px rgba(46, 91, 255, 0.8)) drop-shadow(0 0 40px rgba(46, 91, 255, 0.4)) brightness(1.2);
+        filter: drop-shadow(0 0 20px rgba(56, 91, 167, 0.8)) drop-shadow(0 0 40px rgba(56, 91, 167, 0.4)) brightness(1.2);
         transform: scale(1);
       }
 
       50% {
-        filter: drop-shadow(0 0 35px rgba(46, 91, 255, 1)) drop-shadow(0 0 70px rgba(46, 91, 255, 0.6)) drop-shadow(0 0 100px rgba(233, 46, 134, 0.3)) brightness(1.35);
+        filter: drop-shadow(0 0 35px rgba(56, 91, 167, 1)) drop-shadow(0 0 70px rgba(56, 91, 167, 0.6)) drop-shadow(0 0 100px rgba(233, 46, 134, 0.3)) brightness(1.35);
         transform: scale(1.03);
       }
     }
@@ -374,9 +374,9 @@
       left: 0;
       right: 0;
       height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(46, 91, 255, 0.8), rgba(233, 46, 134, 0.8), transparent);
+      background: linear-gradient(90deg, transparent, rgba(56, 91, 167, 0.8), rgba(233, 46, 134, 0.8), transparent);
       animation: scan-sweep 3s ease-in-out infinite;
-      box-shadow: 0 0 20px rgba(46, 91, 255, 0.6);
+      box-shadow: 0 0 20px rgba(56, 91, 167, 0.6);
     }
 
     @keyframes scan-sweep {
@@ -414,8 +414,8 @@
 
     .led-big-text .line-blue {
       color: transparent;
-      -webkit-text-stroke: 1px rgba(46, 91, 255, 0.9);
-      text-shadow: 0 0 40px rgba(46, 91, 255, 0.6);
+      -webkit-text-stroke: 1px rgba(56, 91, 167, 0.9);
+      text-shadow: 0 0 40px rgba(56, 91, 167, 0.6);
       display: block;
       animation: text-reveal 0.8s ease both;
     }
@@ -451,7 +451,7 @@
       position: absolute;
       width: 18px;
       height: 18px;
-      border-color: rgba(46, 91, 255, 0.6);
+      border-color: rgba(56, 91, 167, 0.6);
       border-style: solid;
       z-index: 15;
     }
@@ -487,10 +487,10 @@
       font-family: 'Montserrat', monospace;
       font-size: clamp(7px, 1vw, 12px);
       font-weight: 700;
-      color: rgba(46, 91, 255, 0.7);
+      color: rgba(56, 91, 167, 0.7);
       letter-spacing: 0.1em;
       z-index: 20;
-      text-shadow: 0 0 8px rgba(46, 91, 255, 0.5);
+      text-shadow: 0 0 8px rgba(56, 91, 167, 0.5);
     }
 
     .led-live {
@@ -552,8 +552,8 @@
     }
 
     .led-dot-idx.active {
-      background: #2e5bff;
-      box-shadow: 0 0 10px rgba(46, 91, 255, 0.8);
+      background: #385BA7;
+      box-shadow: 0 0 10px rgba(56, 91, 167, 0.8);
       transform: scale(1.3);
     }
 
@@ -572,8 +572,8 @@
     }
 
     .led-stat-card {
-      background: rgba(46, 91, 255, 0.1);
-      border: 1px solid rgba(46, 91, 255, 0.2);
+      background: rgba(56, 91, 167, 0.1);
+      border: 1px solid rgba(56, 91, 167, 0.2);
       border-radius: 8px;
       padding: clamp(6px, 1.5vw, 16px);
       text-align: center;
@@ -581,16 +581,16 @@
     }
 
     .led-stat-card:hover {
-      background: rgba(46, 91, 255, 0.2);
-      border-color: rgba(46, 91, 255, 0.5);
+      background: rgba(56, 91, 167, 0.2);
+      border-color: rgba(56, 91, 167, 0.5);
     }
 
     .led-stat-number {
       font-family: 'Montserrat', sans-serif;
       font-size: clamp(16px, 3.5vw, 44px);
       font-weight: 900;
-      color: #2e5bff;
-      text-shadow: 0 0 20px rgba(46, 91, 255, 0.8);
+      color: #385BA7;
+      text-shadow: 0 0 20px rgba(56, 91, 167, 0.8);
       line-height: 1;
       margin-bottom: 4px;
     }
@@ -852,7 +852,7 @@
           <div class="absolute inset-0 pointer-events-none">
             <div
               class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full blur-[100px]"
-              style="background:rgba(46,91,255,0.12)"></div>
+              style="background:rgba(56,91,167,0.12)"></div>
           </div>
 
           <!-- LED Screen -->
@@ -1050,7 +1050,7 @@
       <div
         class="glass-panel p-8 sm:p-12 lg:p-24 text-center relative overflow-hidden border-black/5 bg-slate-50 shadow-xl">
         <div class="absolute inset-0 opacity-10"
-          style="background-image:radial-gradient(circle at 0% 0%, #1A51A2 0%, transparent 50%), radial-gradient(circle at 100% 100%, #e92e86 0%, transparent 50%)">
+          style="background-image:radial-gradient(circle at 0% 0%, #385BA7 0%, transparent 50%), radial-gradient(circle at 100% 100%, #e92e86 0%, transparent 50%)">
         </div>
 
         <div class="relative z-10 max-w-3xl mx-auto space-y-6 md:space-y-8">
