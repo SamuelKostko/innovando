@@ -127,12 +127,9 @@
       will-change: transform;
     }
 
-    /* Text Gradient */
+    /* Text solid color (was gradient) */
     .text-brand-gradient {
-      background: linear-gradient(135deg, #385BA7 0%, #e92e86 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #385BA7;
       display: inline-block;
     }
 
@@ -216,62 +213,45 @@
       }
     }
 
-    /* Logo Slider Animation */
-    @keyframes slide {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-50%);
-      }
+    /* ═══ Logo Marquee ═══ */
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     .logo-slider {
       overflow: hidden;
       padding: 40px 0;
-      white-space: nowrap;
       position: relative;
     }
 
-    .logo-slider:before,
-    .logo-slider:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      width: 150px;
-      height: 100%;
-      z-index: 2;
-    }
-
-    .logo-slider:before {
-      left: 0;
-      background: linear-gradient(to right, #f5f5f5, transparent);
-    }
-
-    .logo-slider:after {
-      right: 0;
-      background: linear-gradient(to left, #f5f5f5, transparent);
-    }
-
     .logo-track {
-      display: inline-flex;
-      gap: 100px;
-      animation: slide 28s linear infinite;
+      display: flex;
+      align-items: center;
+      gap: 80px;
+      width: max-content;
+      animation: marquee 30s linear infinite;
+      will-change: transform;
+    }
+
+    .logo-track:hover {
+      animation-play-state: paused;
     }
 
     .logo-item {
-      height: 56px;
-      width: auto;
-      opacity: 0.8;
+      width: 160px;
+      height: 90px;
+      object-fit: contain;
+      opacity: 0.85;
       filter: brightness(1.1);
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      flex-shrink: 0;
     }
 
     .logo-item:hover {
       opacity: 1;
       filter: brightness(1.2);
-      transform: scale(1.1);
+      transform: scale(1.08);
     }
 
     .logo-item--light-bg {
@@ -1014,30 +994,49 @@
     </div>
 
     <div class="logo-slider">
-      <div class="logo-track">
-        <img src="assets/logos/epa.jpg" class="logo-item logo-item--light-bg" alt="Ferreterías EPA" loading="lazy">
-        <img src="assets/logos/cm.jpg" class="logo-item logo-item--light-bg" alt="Central Madeirense" loading="lazy">
-        <img src="assets/logos/mary.webp" class="logo-item" alt="Mary" loading="lazy">
+      <div class="logo-track" id="logo-track">
+        <!-- Set A -->
+        <img src="assets/logos/epa.png" class="logo-item" alt="Ferreterías EPA" loading="lazy">
+        <img src="assets/logos/cm.png" class="logo-item" alt="Central Madeirense" loading="lazy">
+        <img src="assets/logos/mary.png" class="logo-item" alt="Mary" loading="lazy">
         <img src="assets/logos/thunder.png" class="logo-item" alt="Thundernet" loading="lazy">
-        <img src="assets/logos/bimbo.webp" class="logo-item" alt="Bimbo" loading="lazy">
-        <img src="assets/logos/simon.jpeg" class="logo-item" alt="San Simon" loading="lazy">
+        <img src="assets/logos/bimbo.png" class="logo-item" alt="Bimbo" loading="lazy">
+        <img src="assets/logos/simon.png" class="logo-item" alt="San Simon" loading="lazy">
         <img src="assets/logos/pedidos.png" class="logo-item" alt="Pedidos Ya" loading="lazy">
-        <img src="assets/logos/bancoplaza.webp" class="logo-item" alt="Banco Plaza" loading="lazy">
-        <img src="assets/logos/cafe.jpg" class="logo-item logo-item--light-bg" alt="Cafe Amanecer" loading="lazy">
+        <img src="assets/logos/bancoplaza.png" class="logo-item" alt="Banco Plaza" loading="lazy">
+        <img src="assets/logos/cafe.png" class="logo-item" alt="Cafe Amanecer" loading="lazy">
         <img src="assets/logos/invershow.png" class="logo-item" alt="Invershow" loading="lazy">
-        <!-- DUPLICATE FOR INFINITE LOOP -->
-        <img src="assets/logos/epa.jpg" class="logo-item logo-item--light-bg" alt="Ferreterías EPA" loading="lazy">
-        <img src="assets/logos/cm.jpg" class="logo-item logo-item--light-bg" alt="Central Madeirense" loading="lazy">
-        <img src="assets/logos/mary.webp" class="logo-item" alt="Mary" loading="lazy">
-        <img src="assets/logos/thunder.png" class="logo-item" alt="Thundernet" loading="lazy">
-        <img src="assets/logos/bimbo.webp" class="logo-item" alt="Bimbo" loading="lazy">
-        <img src="assets/logos/simon.jpeg" class="logo-item" alt="San Simon" loading="lazy">
-        <img src="assets/logos/pedidos.png" class="logo-item" alt="Pedidos Ya" loading="lazy">
-        <img src="assets/logos/bancoplaza.webp" class="logo-item" alt="Banco Plaza" loading="lazy">
-        <img src="assets/logos/cafe.jpg" class="logo-item logo-item--light-bg" alt="Cafe Amanecer" loading="lazy">
-        <img src="assets/logos/invershow.png" class="logo-item" alt="Invershow" loading="lazy">
+        <!-- Set B (clone for seamless loop) -->
+        <img src="assets/logos/epa.png" class="logo-item" alt="Ferreterías EPA" aria-hidden="true">
+        <img src="assets/logos/cm.png" class="logo-item" alt="Central Madeirense" aria-hidden="true">
+        <img src="assets/logos/mary.png" class="logo-item" alt="Mary" aria-hidden="true">
+        <img src="assets/logos/thunder.png" class="logo-item" alt="Thundernet" aria-hidden="true">
+        <img src="assets/logos/bimbo.png" class="logo-item" alt="Bimbo" aria-hidden="true">
+        <img src="assets/logos/simon.png" class="logo-item" alt="San Simon" aria-hidden="true">
+        <img src="assets/logos/pedidos.png" class="logo-item" alt="Pedidos Ya" aria-hidden="true">
+        <img src="assets/logos/bancoplaza.png" class="logo-item" alt="Banco Plaza" aria-hidden="true">
+        <img src="assets/logos/cafe.png" class="logo-item" alt="Cafe Amanecer" aria-hidden="true">
+        <img src="assets/logos/invershow.png" class="logo-item" alt="Invershow" aria-hidden="true">
       </div>
     </div>
+
+    <script>
+      /* Calibrate marquee speed to actual track width for pixel-perfect loop */
+      (function () {
+        var track = document.getElementById('logo-track');
+        if (!track) return;
+        function calibrate() {
+          /* total width = half the track (one set of logos) */
+          var half = track.scrollWidth / 2;
+          /* keep ~80px/s scroll speed */
+          var duration = half / 80;
+          track.style.animationDuration = duration.toFixed(2) + 's';
+        }
+        /* run after images load */
+        if (document.readyState === 'complete') { calibrate(); }
+        else { window.addEventListener('load', calibrate); }
+      })();
+    </script>
   </section>
 
   <!-- ═══ CTA CONVERSIÓN ELITE ═══ -->
@@ -1045,9 +1044,6 @@
     <div class="max-w-7xl mx-auto">
       <div
         class="glass-panel p-8 sm:p-12 lg:p-24 text-center relative overflow-hidden border-black/5 bg-slate-50 shadow-xl">
-        <div class="absolute inset-0 opacity-10"
-          style="background-image:radial-gradient(circle at 0% 0%, #385BA7 0%, transparent 50%), radial-gradient(circle at 100% 100%, #e92e86 0%, transparent 50%)">
-        </div>
 
         <div class="relative z-10 max-w-3xl mx-auto space-y-6 md:space-y-8">
           <span class="brand-dot-fuchsia mb-2"></span>
