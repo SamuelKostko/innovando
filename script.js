@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
       position: fixed;
       top: 0; left: 0;
       width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(46, 91, 255, 0.12) 0%, rgba(46,91,255,0) 60%);
+      background: radial-gradient(circle, rgba(56, 91, 167, 0.12) 0%, rgba(56,91,167,0) 60%);
       border-radius: 50%;
       pointer-events: none;
       transform: translate(-50%, -50%);
